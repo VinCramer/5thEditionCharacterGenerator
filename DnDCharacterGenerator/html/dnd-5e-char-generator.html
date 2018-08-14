@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+     
+        <meta charset="utf-8">
+
+        <title>5e Character Generator</title>
+        
+        <link rel="stylesheet" type="text/css" href="../css/theme.css">
+        
+        <!--favicon from https://openclipart.org/detail/224998/simple-dice-->
+        <link rel="icon" href="../images/openclipart-clon-dice.png" type="image/gif" sizes="32x32"> 
+        
+        
+    </head>
+
+    <body>
+        <h3>Generate a random character:</h3>
+
+        <div>
+            <p>Race: </p>
+
+            <select>
+                <option value="rand">Random</option>
+                <option value="dragonborn">Dragonborn</option>
+                <option value="halfelf">Half-Elf</option>
+                <option value="halforc">Half-Orc</option>
+                <option value="highelf">High Elf</option>
+                <option value="hilldwarf">Hill Dwarf</option>
+                <option value="human">Human</option>
+                <option value="lightfoothalfling">Lightfoot Halfling</option>
+                <option value="rockgnome">Rock Gnome</option>
+                <option value="tiefling">Tiefling</option>
+            </select>
+
+            <p>Level: </p>
+            <select>
+                <option value="rand">Random</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+            </select>
+       </div>
+
+        <input type="radio" id="nomc" name="mc" value="nomc" checked>
+        <label for="nomc">No multiclassing</label>
+        <br>
+        <input type="radio" id="mc" name="mc" value="mc">
+        <label for="mc">Multiclassing</label>
+
+
+        <div>
+            <p id="baseclasspara">Class: </p>
+
+            <select id="baseclass" >
+                <option value="rand">Random</option>
+                <option value="barbarian">Barbarian</option>
+                <option value="cleric">Cleric</option>
+                <option value="druid">Druid</option>
+                <option value="fighter">Fighter</option>
+                <option value="monk">Monk</option>
+                <option value="paladin">Paladin</option>
+                <option value="ranger">Ranger</option>
+                <option value="rogue">Rogue</option>
+                <option value="sorcerer">Sorcerer</option>
+                <option value="warlock">Warlock</option>
+                <option value="wizard">Wizard</option>
+            </select>
+
+
+            <!--will generate something like this when uses toggles multiclassing on. May use checkboxes
+<p>Class: (select multiple with control/command click)</p>
+            <select multiple size=12>
+                <option value="rand">Random</option>
+                <option value="barbarian">Barbarian</option>
+                <option value="cleric">Cleric</option>
+                <option value="druid">Druid</option>
+                <option value="fighter">Fighter</option>
+                <option value="monk">Monk</option>
+                <option value="paladin">Paladin</option>
+                <option value="ranger">Ranger</option>
+                <option value="rogue">Rogue</option>
+                <option value="sorcerer">Sorcerer</option>
+                <option value="warlock">Warlock</option>
+                <option value="wizard">Wizard</option>
+            </select>-->
+        </div>
+
+
+
+        <br>
+
+        <p>Stat Generation Method: </p>
+        <select>
+            <option value="4">4d6 - lowest</option>
+            <option value="3">3d6</option>
+            <option value="1">1d20</option>
+        </select>
+
+
+
+        <div>
+            <input type="radio" name="stats" id="no min" value="no minimum" checked>
+            <label for="no min">No minimum stat total</label>
+            <br>
+            <input type="radio" name="stats" id="min" value="minimum value">
+            <label for="min">Minimum stat total</label>
+            <!--Will make a box appear for user to enter value when minimum value is selected-->
+        </div>
+
+        <div>
+            <p>Number of Magic Items:</p>
+            <input type="number" id="numitems" placeholder=0 min=0 max=10>
+
+
+            <!--Consider hiding this until user enters at least 1 for number of magic items?-->
+            <p>Maximum Rarity:</p>
+
+
+            <select>
+                <option value="common">Common</option>
+                <option value="uncommon">Uncommon</option>
+                <option value="rare">Rare</option>
+                <option value="very rare">Very Rare</option>
+                <option value="legendary">Legendary</option>
+            </select>
+
+        </div>
+
+        <div>
+            <button>Generate!</button>
+        </div>
+
+
+        <p id="final stats"></p>
+        <p id="final class"></p>
+        <p id="final equipment"></p>
+        <p id="final spells"></p>
+
+        
+        <script src="../js/script.js" defer></script>
+    </body>
+
+
+</html>

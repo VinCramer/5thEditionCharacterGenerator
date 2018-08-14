@@ -1,0 +1,21 @@
+select{
+    
+    display:inline-block;
+    margin:10px;
+    
+}
+
+p{
+    margin-right:0px;
+    margin-left:10px;
+    display:inline-block;
+}
+
+div{
+    
+}
+
+#lvl1{
+    margin-right:20px;
+    margin-left:10px;
+}
