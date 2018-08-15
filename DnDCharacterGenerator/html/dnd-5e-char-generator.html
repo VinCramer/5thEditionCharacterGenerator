@@ -34,7 +34,7 @@
             </select>
 
             <p>Level: </p>
-            <select>
+            <select id="level">
                 <option value="rand">Random</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -108,7 +108,7 @@
         <br>
 
         <p>Stat Generation Method: </p>
-        <select>
+        <select id="stats">
             <option value="4">4d6 - lowest</option>
             <option value="3">3d6</option>
             <option value="1">1d20</option>
@@ -117,12 +117,15 @@
 
 
         <div>
-            <input type="radio" name="stats" id="no min" value="no minimum" checked>
+            <input type="radio" name="stats" id="no min" value="no minimum" checked onclick="hideMinBox();">
             <label for="no min">No minimum stat total</label>
             <br>
-            <input type="radio" name="stats" id="min" value="minimum value">
+            <input type="radio" name="stats" id="min" value="minimum" onclick="showMinBox();">
             <label for="min">Minimum stat total</label>
-            <!--Will make a box appear for user to enter value when minimum value is selected-->
+            <br>
+            <label for="stats" class="hidden_stats">Enter minimum stat total</label>
+            <input class="hidden_stats" type="number" name="stats" id="min val" value="70">
+            
         </div>
 
         <div>
@@ -145,18 +148,153 @@
         </div>
 
         <div>
-            <button>Generate!</button>
+            <button id="generate" onclick="generateChar();">Generate!</button>
         </div>
 
-
+        <!--Put into a grid instead? This way you can show the skills like laid out on an actual character sheet-->
         <p id="final stats"></p>
+        
         <p id="final class"></p>
+        <div class="hidden">
+            <table>
+                
+                <!--Begin strength stuff-->
+                <tr>
+                    <th rowspan=2>Strength: <span id="str score"></span> <span id="str bonus"></span></th>
+                    <td>Saving throw: <span id="str save"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Athletics: <span id="athletics"></span></td>
+                </tr>
+                <!--end of strength-->
+                
+                <!--begin dex stuff-->
+                <tr>
+                    <th rowspan=4>Dexterity: <span id="dex score"></span> <span id="dex bonus"></span></th>
+                    <td>Saving throw: <span id="dex save"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Acrobatics: <span id="acrobatics"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Sleight of Hand: <span id="sleight-of-hand"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Stealth: <span id="stealth"></span></td>
+                </tr>
+                <!--end dex stuff-->
+                
+                <!--begin con stuff-->
+                <tr>
+                    <th rowspan=1>Constitution: <span id="con score"></span> <span id="con bonus"></span></th>
+                    <td>Saving throw: <span id="con save"></span></td>
+                
+                </tr>
+                
+                <!--end con stuff-->
+                
+                <!--begin int stuff-->
+                <tr>
+                    <th rowspan=6>Intelligence: <span id="int score"></span> <span id="int bonus"></span></th>
+                    <td>Saving throw: <span id="int save"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Arcana: <span id="arcana"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>History: <span id="history"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Investigation: <span id="investigation"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Nature: <span id="nature"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Religion: <span id="religion"></span></td>
+                </tr>
+                <!--end int stuff-->
+            
+                <!--begin wis stuff-->
+                <tr>
+                    <th rowspan = 6>Wisdom: <span id="wis score"></span> <span id="wis bonus"></span></th>
+                    <td>Saving throw: <span id="wis save"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Animal Handling: <span id="animal handling"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Insight: <span id="insight"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Medicine: <span id="medicine"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Perception: <span id="perception"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Survival: <span id="survival"></span></td>
+                </tr>
+                <!--end wis stuff-->
+                
+                <!--begin cha stuff-->
+                <tr>
+                    <th rowspan=5>Charisma: <span id="cha score"></span> <span id="cha bonus"></span></th>
+                    <td>Saving throw: <span id="cha save"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Deception: <span id="deception"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Intimidation: <span id="intimidation"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Performance: <span id="performance"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>Persuasion: <span id="persuasion"></span></td>
+                </tr>
+                <!--end cha stuff-->
+                
+            </table>
+        </div>
+        
+        <div class="hidden">
+            <p>Armor Class: <span id="ac"></span></p>
+            <p>Armor type: <span id="armor"></span></p>
+            <p>Initiative: <span id="initiative"></span></p>
+            <p>Speed: <span id="speed"></span></p>
+            <p>Health: <span id="health"></span></p>
+            <p>Proficiency: <span id="proficiency"></span></p>
+            <p>Passive Perception: <span id="passive perception"></span></p>
+        </div>
+        
+        
         <p id="final equipment"></p>
+        <p id="final magic items"></p>
         <p id="final spells"></p>
 
         
         <script src="../js/script.js" defer></script>
-    </body>
 
+    </body>
 
 </html>
