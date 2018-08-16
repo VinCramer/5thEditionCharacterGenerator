@@ -20,7 +20,7 @@
         <div>
             <p>Race: </p>
 
-            <select>
+            <select id="race">
                 <option value="rand">Random</option>
                 <option value="dragonborn">Dragonborn</option>
                 <option value="halfelf">Half-Elf</option>
@@ -58,13 +58,13 @@
                 <option value="20">20</option>
             </select>
        </div>
-
+<!-- TODO - will consider adding in multiclassing functionality once base class stuff is finished.
         <input type="radio" id="nomc" name="mc" value="nomc" checked>
         <label for="nomc">No multiclassing</label>
         <br>
         <input type="radio" id="mc" name="mc" value="mc">
         <label for="mc">Multiclassing</label>
-
+-->
 
         <div>
             <p id="baseclasspara">Class: </p>
@@ -72,6 +72,7 @@
             <select id="baseclass" >
                 <option value="rand">Random</option>
                 <option value="barbarian">Barbarian</option>
+                <option value="bard">Bard</option>
                 <option value="cleric">Cleric</option>
                 <option value="druid">Druid</option>
                 <option value="fighter">Fighter</option>
@@ -123,7 +124,7 @@
             <input type="radio" name="stats" id="min" value="minimum" onclick="showMinBox();">
             <label for="min">Minimum stat total</label>
             <br>
-            <label for="stats" class="hidden_stats">Enter minimum stat total</label>
+            <label for="stats" class="hidden_stats" id="min-label">Enter minimum stat total</label>
             <input class="hidden_stats" type="number" name="stats" id="min val" value="70">
             
         </div>
@@ -155,6 +156,8 @@
         <p id="final stats"></p>
         
         <p id="final class"></p>
+        <p id="final race"></p>
+        <p id="final level"></p>
         <div class="hidden">
             <table>
                 
@@ -279,7 +282,6 @@
         
         <div class="hidden">
             <p>Armor Class: <span id="ac"></span></p>
-            <p>Armor type: <span id="armor"></span></p>
             <p>Initiative: <span id="initiative"></span></p>
             <p>Speed: <span id="speed"></span></p>
             <p>Health: <span id="health"></span></p>
