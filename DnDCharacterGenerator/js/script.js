@@ -1,4 +1,63 @@
 
+/*start by loading in the relevant JSON files, which were modified based on the original files by github user BTMorton, available here: https://github.com/BTMorton/dnd-5e-srd/tree/master/json*/
+
+
+var classJSON;
+
+/*specify location of a JSON file*/
+var classRequestURL ="../data/classes.json";
+
+
+/*initialize request which will be used for loading all of the JSON files*/
+var classRequest = new XMLHttpRequest();
+
+/*we'll start by getting the 5e races as a JSON*/
+classRequest.open('GET', classRequestURL);
+
+/*specify we're loading a JSON object*/
+classRequest.responseType = 'json';
+
+/*try to find the file*/
+classRequest.send();
+
+
+/*when the data loads, store it in the appropriate var*/
+classRequest.onload = function(){
+    classJSON= classRequest.response;
+}
+
+
+
+/*specify location of a JSON file*/
+var raceRequestURL ="../data/races.json";
+
+/*initialize request which will be used for loading all of the JSON files*/
+var raceRequest = new XMLHttpRequest();
+
+/*we'll start by getting the 5e races as a JSON*/
+raceRequest.open('GET', raceRequestURL);
+
+/*specify we're loading a JSON object*/
+raceRequest.responseType = 'json';
+
+/*try to find the file*/
+raceRequest.send();
+
+/*var to access the 5e race JSON in our functions later*/
+var raceJSON;
+
+/*when the data loads, store it in the appropriate var*/
+raceRequest.onload = function(){
+    raceJSON= raceRequest.response;
+    
+}
+
+
+
+
+
+
+
 
 /*below are all fields that are empty when first loading the page, but will be filled with relevant info once the user has generated a character*/
 var finalStatsPara = document.getElementById("final stats");
@@ -20,8 +79,8 @@ var level;
 
 
 function generateChar(){
-    var isMinStats = document.querySelector('input[name=stats]:checked').value;
     
+    var isMinStats = document.querySelector('input[name=stats]:checked').value;
     
     var charStats = generateStats(isMinStats);
     
@@ -86,6 +145,9 @@ function generateChar(){
     
     document.getElementById("final race").innerHTML=race;
     document.getElementById("final level").innerHTML=level;
+    
+    displayRace(race);
+    displayClass(baseClass);
 }
 
 function getProficiency(level){
@@ -1081,3 +1143,523 @@ function addRacialBonuses(charStats, race){
     
     return charStats;
 }
+
+/*update an element of our HTLM depending on what race the user selected*/
+function displayRace(race){
+    var racePara = document.getElementById("racial bonuses");
+    var raceText="";
+
+    if(race=="hilldwarf"){
+        raceText+=raceJSON['Races']['Dwarf']['Dwarf Traits']['content'].join("") + " ";   
+        raceText+=raceJSON['Races']['Dwarf']['Dwarf Traits']['Hill Dwarf']['content'].join("");
+        
+    }
+    else if(race=="highelf"){
+        raceText=raceJSON['Races']['Elf']['Elf Traits']['content'].join("") + " ";
+        raceText+=raceJSON['Races']['Elf']['Elf Traits']['High Elf']['content'].join("");
+    }
+    else if(race=="lightfoothalfling"){
+        raceText=raceJSON['Races']['Halfling']['Halfling Traits']['content'].join("") + " ";
+        raceText+=raceJSON['Races']['Halfling']['Halfling Traits']['Lightfoot']['content'].join("");   
+    }
+    else if(race=="human"){
+        raceText=raceJSON['Races']['Human']['Human Traits']['content'].join("");    
+    }
+    else if(race=="dragonborn"){
+        raceText=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'].join("");
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['**Dragon**'];
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['**Damage Type**'];
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['**Breath Weapon**'];
+    }
+    else if(race=="rockgnome"){
+        raceText=raceJSON['Races']['Gnome']['Gnome Traits']['content'].join("") + " ";
+        raceText+=raceJSON['Races']['Gnome']['Gnome Traits']['Rock Gnome']['content'].join("");
+    }
+    else if(race=="halfelf"){
+        raceText=raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'].join("");    
+    }
+    else if(race=="halforc"){
+        raceText=raceJSON['Races']['Half-Orc']['Half-Orc Traits']['content'].join("");    
+    }
+    else{
+        raceText=raceJSON['Races']['Tiefling']['Tiefling Traits']['content'].join("");
+    }
+    racePara.innerHTML=raceText;
+}
+
+
+/*update an element of our HTML depending on what class the user selected*/
+function displayClass(charClass){
+    var classPara = document.getElementById("class features");
+    var classText="";
+    
+    if(charClass=="barbarian"){
+        
+        /*base barb class features*/
+        classText+=classJSON['Barbarian']['Class Features']['content'];   
+        classText+=classJSON['Barbarian']['Class Features']['Hit Points']['content'].join("");
+        classText+=classJSON['Barbarian']['Class Features']['Proficiencies']['content'].join("");   
+        classText+=classJSON['Barbarian']['Class Features']['Equipment']['content'].join("");   
+        classText+=classJSON['Barbarian']['Class Features']['Unarmored Defense'];
+        classText+=classJSON['Barbarian']['Class Features']['Reckless Attack'];
+        classText+=classJSON['Barbarian']['Class Features']['Danger Sense']['content'].join("");
+        classText+=classJSON['Barbarian']['Class Features']['Primal Path'];
+        classText+=classJSON['Barbarian']['Class Features']['Ability Score Improvement'];
+        classText+=classJSON['Barbarian']['Class Features']['Extra Attack'];
+        classText+=classJSON['Barbarian']['Class Features']['Fast Movement'];
+        classText+=classJSON['Barbarian']['Class Features']['Feral Instinct']['content'].join(""); 
+        classText+=classJSON['Barbarian']['Class Features']['Brutal Critical']['content'].join(""); 
+        classText+=classJSON['Barbarian']['Class Features']['Relentless Rage']['content'].join(""); 
+        classText+=classJSON['Barbarian']['Class Features']['Persistent Rage']; 
+        classText+=classJSON['Barbarian']['Class Features']['Indomitable Might']; 
+        classText+=classJSON['Barbarian']['Class Features']['Primal Champion']; 
+        
+        /*berserker subclass features*/
+        classText+=classJSON['Barbarian']['Class Features']['Path of the Berserker']['content'];
+        classText+=classJSON['Barbarian']['Class Features']['Path of the Berserker']['Frenzy'];
+        classText+=classJSON['Barbarian']['Class Features']['Path of the Berserker']['Mindless Rage'];
+        classText+=classJSON['Barbarian']['Class Features']['Path of the Berserker']['Intimidating Presence']['content'].join("");
+        classText+=classJSON['Barbarian']['Class Features']['Path of the Berserker']['Retaliation'];
+    }
+    else if(charClass=="bard"){
+        /*core bard features*/
+        classText+=classJSON['Bard']['Class Features']['content'];   
+        classText+=classJSON['Bard']['Class Features']['Hit Points']['content'].join("");
+        classText+=classJSON['Bard']['Class Features']['Proficiencies']['content'].join("");   
+        classText+=classJSON['Bard']['Class Features']['Equipment']['content'].join("");
+        classText+=classJSON['Bard']['Class Features']['Spellcasting']['content'].join("");
+        classText+=classJSON['Bard']['Class Features']['Spellcasting']['Cantrips'];
+        classText+=classJSON['Bard']['Class Features']['Spellcasting']['Spell Slots']['content'].join("");
+        classText+=classJSON['Bard']['Class Features']['Spellcasting']['Spells Known of 1st Level and Higher']['content'].join("");
+        classText+=classJSON['Bard']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("");
+        classText+=classJSON['Bard']['Class Features']['Spellcasting']['Ritual Casting'];
+        classText+=classJSON['Bard']['Class Features']['Spellcasting']['Spellcasting Focus'];
+        classText+=classJSON['Bard']['Class Features']['Bardic Inspiration']['content'].join("");
+        classText+=classJSON['Bard']['Class Features']['Jack of All Trades'];
+        classText+=classJSON['Bard']['Class Features']['Song of Rest']['content'].join("");
+        classText+=classJSON['Bard']['Class Features']['Bard College']['content'].join("");
+        classText+=classJSON['Bard']['Class Features']['Expertise']['content'].join("");
+        classText+=classJSON['Bard']['Class Features']['Ability Score Improvement'];
+        classText+=classJSON['Bard']['Class Features']['Font of Inspiration'];
+        classText+=classJSON['Bard']['Class Features']['Countercharm'];
+        classText+=classJSON['Bard']['Class Features']['Magical Secrets']['content'].join("");
+        classText+=classJSON['Bard']['Class Features']['Superior Inspiration'];
+        
+        /*Bard subclass*/
+        classText+=classJSON['Bard']['Class Features']['College of Lore']['content'].join("");
+        classText+=classJSON['Bard']['Class Features']['College of Lore']['Bonus Proficiencies'];
+        classText+=classJSON['Bard']['Class Features']['College of Lore']['Cutting Words'];
+        classText+=classJSON['Bard']['Class Features']['College of Lore']['Additional Magic Secrets'];
+        classText+=classJSON['Bard']['Class Features']['College of Lore']['Peerless Skill'];
+    }
+    else if(charClass=="cleric"){
+        
+        /*cleric features*/
+        classText+=classJSON['Cleric']['Class Features']['content'];   
+        classText+=classJSON['Cleric']['Class Features']['Hit Points']['content'].join("");
+        classText+=classJSON['Cleric']['Class Features']['Proficiencies']['content'].join("");   
+        classText+=classJSON['Cleric']['Class Features']['Equipment']['content'].join("");
+        classText+=classJSON['Cleric']['Class Features']['Spellcasting']['content'];
+        classText+=classJSON['Cleric']['Class Features']['Spellcasting']['Cantrips'];
+        classText+=classJSON['Cleric']['Class Features']['Spellcasting']['Preparing and Casting Spells']['content'].join("");
+        classText+=classJSON['Cleric']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("");
+        classText+=classJSON['Cleric']['Class Features']['Spellcasting']['Ritual Casting'];
+        classText+=classJSON['Cleric']['Class Features']['Spellcasting']['Spellcasting Focus'];
+        classText+=classJSON['Cleric']['Class Features']['Divine Domain']['content'];
+        classText+=classJSON['Cleric']['Class Features']['Divine Domain']['Domain Spells']['content'].join("");
+        classText+=classJSON['Cleric']['Class Features']['Channel Divinity']['content'].join("");
+        classText+=classJSON['Cleric']['Class Features']['Channel Divinity']['Channel Divinity: Turn Undead']['content'].join("");
+        classText+=classJSON['Cleric']['Class Features']['Ability Score Improvement'];
+        classText+=classJSON['Cleric']['Class Features']['Destroy Undead']['content'];
+        classText+=classJSON['Cleric']['Class Features']['Destroy Undead']['Destroy Undead']['table']['Cleric Level'].join("");
+        classText+=classJSON['Cleric']['Class Features']['Destroy Undead']['Destroy Undead']['table']['Destroys Undead of CR...'].join("");
+        classText+=classJSON['Cleric']['Class Features']['Divine Intervention']['content'].join("");
+        
+        /*cleric subclass stuff*/
+        classText+=classJSON['Cleric']['Class Features']['Life Domain']['content'];
+        classText+=classJSON['Cleric']['Class Features']['Life Domain']['Life Domain Spells']['table']['Cleric Level'].join("");
+        classText+=classJSON['Cleric']['Class Features']['Life Domain']['Life Domain Spells']['table']['Spells'].join("");
+        classText+=classJSON['Cleric']['Class Features']['Life Domain']['Bonus Proficiency'];
+        classText+=classJSON['Cleric']['Class Features']['Life Domain']['Disciple of Life'];
+        classText+=classJSON['Cleric']['Class Features']['Life Domain']['Channel Divinity: Preserve Life']['content'].join("");
+        classText+=classJSON['Cleric']['Class Features']['Life Domain']['Blessed Healer'];
+        classText+=classJSON['Cleric']['Class Features']['Life Domain']['Divine Strike'];
+        classText+=classJSON['Cleric']['Class Features']['Life Domain']['Supreme Healing'];
+    }
+    else if(charClass=="druid"){
+        /*druid features*/
+        classText+=classJSON['Druid']['Class Features']['content'];   
+        classText+=classJSON['Druid']['Class Features']['Hit Points']['content'].join("");
+        classText+=classJSON['Druid']['Class Features']['Proficiencies']['content'].join("");   
+        classText+=classJSON['Druid']['Class Features']['Equipment']['content'].join("");
+        classText+=classJSON['Druid']['Class Features']['Spellcasting']['content'];
+        classText+=classJSON['Druid']['Class Features']['Spellcasting']['Cantrips'];
+        classText+=classJSON['Druid']['Class Features']['Spellcasting']['Preparing and Casting Spells']['content'].join("");
+        classText+=classJSON['Druid']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("");
+        classText+=classJSON['Druid']['Class Features']['Spellcasting']['Ritual Casting'];
+        classText+=classJSON['Druid']['Class Features']['Spellcasting']['Spellcasting Focus'];
+        classText+=classJSON['Druid']['Class Features']['Wild Shape']['content'].join("");
+        classText+=classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Level'].join("");
+        classText+=classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Max CR'].join("");
+        classText+=classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Limitations'].join("");
+        classText+=classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Example'].join("");
+        classText+=classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['Duration'];
+        classText+=classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['Rules'];
+        classText+=classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['Rules']['content'];
+        classText+=classJSON['Druid']['Class Features']['Druid Circle']['content'];
+        classText+=classJSON['Druid']['Class Features']['Ability Score Improvement'];
+        classText+=classJSON['Druid']['Class Features']['Timeless Body'];
+        classText+=classJSON['Druid']['Class Features']['Beast Spells'];
+        classText+=classJSON['Druid']['Class Features']['Archdruid']['content'].join("");
+        
+        
+        /*druid subclass features*/
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['content'];
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Bonus Cantrip'];
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Natural Recovery']['content'].join("");
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['content'];
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Arctic']['table']['Druid Level'].join("");
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Arctic']['table']['Circle Spells'].join("");
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Coast']['table']['Druid Level'].join("");
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Coast']['table']['Circle Spells'].join("");
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Desert']['table']['Druid Level'].join("");
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Desert']['table']['Circle Spells'].join("");
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Forest']['table']['Druid Level'].join("");
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Forest']['table']['Circle Spells'].join("");
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Grassland']['table']['Druid Level'].join("");
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Grassland']['table']['Circle Spells'].join("");
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Mountain']['table']['Druid Level'].join("");
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Mountain']['table']['Circle Spells'].join("");
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Swamp']['table']['Druid Level'].join("");
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Swamp']['table']['Circle Spells'].join("");
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']["Lands Stride"]['content'].join("");
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Natures Ward'];
+        classText+=classJSON['Druid']['Class Features']['Circle of the Land']['Natures Sanctuary']['content'].join("");
+        
+        
+        /*extra druid stuff*/
+        classText+=classJSON['Druid']['Class Features']['Sacred Plants and Wood']['content'].join("");
+        classText+=classJSON['Druid']['Class Features']['Druids and the Gods'];
+        
+    }
+    else if(charClass=="fighter"){
+        /*fighter stuff*/
+        classText+=classJSON['Fighter']['Class Features']['content'];   
+        classText+=classJSON['Fighter']['Class Features']['Hit Points']['content'].join("");
+        classText+=classJSON['Fighter']['Class Features']['Proficiencies']['content'].join("");   
+        classText+=classJSON['Fighter']['Class Features']['Equipment']['content'].join("");
+        classText+=classJSON['Fighter']['Class Features']['Fighting Style']['content'];
+        classText+=classJSON['Fighter']['Class Features']['Fighting Style']['Archery'];
+        classText+=classJSON['Fighter']['Class Features']['Fighting Style']['Defense'];
+        classText+=classJSON['Fighter']['Class Features']['Fighting Style']['Dueling'];
+        classText+=classJSON['Fighter']['Class Features']['Fighting Style']['Great Weapon Fighting'];
+        classText+=classJSON['Fighter']['Class Features']['Fighting Style']['Protection'];
+        classText+=classJSON['Fighter']['Class Features']['Fighting Style']['Two-Weapon Fighting'];
+        classText+=classJSON['Fighter']['Class Features']['Second Wind'];
+        classText+=classJSON['Fighter']['Class Features']['Action Surge']['content'].join("");
+        classText+=classJSON['Fighter']['Class Features']['Martial Archetype'];
+        classText+=classJSON['Fighter']['Class Features']['Ability Score Improvement'];
+        classText+=classJSON['Fighter']['Class Features']['Extra Attack']['content'].join("");
+        classText+=classJSON['Fighter']['Class Features']['Indomitable']['content'].join("");
+        
+        /*champion subclass*/
+        classText+=classJSON['Fighter']['Martial Archetypes']['content'];
+        classText+=classJSON['Fighter']['Martial Archetypes']['Champion']['content'];
+        classText+=classJSON['Fighter']['Martial Archetypes']['Champion']['Improve Critical'];
+        classText+=classJSON['Fighter']['Martial Archetypes']['Champion']['Remarkable Athlete']['content'].join("");
+        classText+=classJSON['Fighter']['Martial Archetypes']['Champion']['Additional Fighting Style'];
+        classText+=classJSON['Fighter']['Martial Archetypes']['Champion']['Superior Critical'];
+        classText+=classJSON['Fighter']['Martial Archetypes']['Champion']['Survivor'];
+    }
+    else if(charClass=="monk"){
+        /*monk features*/
+        classText+=classJSON['Monk']['Class Features']['content'];   
+        classText+=classJSON['Monk']['Class Features']['Hit Points']['content'].join("");
+        classText+=classJSON['Monk']['Class Features']['Proficiencies']['content'].join("");   
+        classText+=classJSON['Monk']['Class Features']['Equipment']['content'].join(""); 
+        classText+=classJSON['Monk']['Class Features']['Unarmored Defense'];
+        classText+=classJSON['Monk']['Class Features']['Martial Arts']['content'].join("");
+        classText+=classJSON['Monk']['Class Features']['Ki']['content'].join("");
+        classText+=classJSON['Monk']['Class Features']['Ki']['Flurry of Blows'];
+        classText+=classJSON['Monk']['Class Features']['Ki']['Patient Defense'];
+        classText+=classJSON['Monk']['Class Features']['Ki']['Step of the Wind'];
+        classText+=classJSON['Monk']['Class Features']['Unarmored Movement']['content'].join("");
+        classText+=classJSON['Monk']['Class Features']['Monastic Tradition'];
+        classText+=classJSON['Monk']['Class Features']['Deflect Missiles']['content'].join("");
+        classText+=classJSON['Monk']['Class Features']['Ability Score Improvement'];
+        classText+=classJSON['Monk']['Class Features']['Slow Fall'];
+        classText+=classJSON['Monk']['Class Features']['Extra Attack'];
+        classText+=classJSON['Monk']['Class Features']['Stunning Strike'];
+        classText+=classJSON['Monk']['Class Features']['Ki-Empowered Strikes'];
+        classText+=classJSON['Monk']['Class Features']['Evasion'];
+        classText+=classJSON['Monk']['Class Features']['Stillness of Mind'];
+        classText+=classJSON['Monk']['Class Features']['Purity of Body'];
+        classText+=classJSON['Monk']['Class Features']['Tongue of the Sun and Moon'];
+        classText+=classJSON['Monk']['Class Features']['Diamond Soul']['content'];
+        classText+=classJSON['Monk']['Class Features']['Timeless Body'];
+        classText+=classJSON['Monk']['Class Features']['Empty Body']['content'];
+        classText+=classJSON['Monk']['Class Features']['Perfect Self'];
+        
+        
+        /*open palm subclass*/
+        classText+=classJSON['Monk']['Monastic Traditions']['content'];
+        classText+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['content'];
+        classText+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Open Hand Technique']['content'];
+        classText+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Wholeness of Body'];
+        classText+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Tranquility'];
+        classText+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Quivering Palm']['content'];
+    }
+    else if(charClass=="paladin"){
+        /*core paladin class*/
+        classText+=classJSON['Paladin']['Class Features']['content'];   
+        classText+=classJSON['Paladin']['Class Features']['Hit Points']['content'].join("");
+        classText+=classJSON['Paladin']['Class Features']['Proficiencies']['content'].join("");   
+        classText+=classJSON['Paladin']['Class Features']['Equipment']['content'].join("");
+        classText+=classJSON['Paladin']['Class Features']['Divine Sense']['content'].join("");
+        classText+=classJSON['Paladin']['Class Features']['Lay on Hands']['content'].join("");
+        classText+=classJSON['Paladin']['Class Features']['Fighting Style']['content'];
+        classText+=classJSON['Paladin']['Class Features']['Fighting Style']['Defense'];
+        classText+=classJSON['Paladin']['Class Features']['Fighting Style']['Dueling'];
+        classText+=classJSON['Paladin']['Class Features']['Fighting Style']['Great Weapon Fighting'];
+        classText+=classJSON['Paladin']['Class Features']['Fighting Style']['Protection'];
+        classText+=classJSON['Paladin']['Class Features']['Spellcasting']['content'];
+        classText+=classJSON['Paladin']['Class Features']['Spellcasting']['Preparing and Casting Spells']['content'].join("");
+        classText+=classJSON['Paladin']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("");
+        classText+=classJSON['Paladin']['Class Features']['Spellcasting']['Spellcasting Focus'];
+        classText+=classJSON['Paladin']['Class Features']['Divine Smite'];
+        classText+=classJSON['Paladin']['Class Features']['Divine Health'];
+        classText+=classJSON['Paladin']['Class Features']['Sacred Oath']['content'];
+        classText+=classJSON['Paladin']['Class Features']['Sacred Oath']['Oath Spells']['content'];
+        classText+=classJSON['Paladin']['Class Features']['Sacred Oath']['Channel Divinity']['content'];
+        classText+=classJSON['Paladin']['Class Features']['Ability Score Improvement'];
+        classText+=classJSON['Paladin']['Class Features']['Extra Attack'];
+        classText+=classJSON['Paladin']['Class Features']['Aura of Protection']['content'];
+        classText+=classJSON['Paladin']['Class Features']['Aura of Courage']['content'];
+        classText+=classJSON['Paladin']['Class Features']['Improved Divine Smite'];
+        classText+=classJSON['Paladin']['Class Features']['Cleansing Touch']['content'];
+        
+        /*Oath of devotion subclass*/
+        classText+=classJSON['Paladin']['Sacred Oaths']['content'];
+        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['content'];
+        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Tenets of Devotion']['content'];
+        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['content'];
+        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Level'];
+        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Paladin Spells'];
+        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Channel Divinity']['content'];
+        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Aura of Devotion'];
+        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Purity of Spirit'];
+        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Holy Nimbus']['content'];
+        classText+=classJSON['Paladin']['Sacred Oaths']['Breaking Your Oath']['content'];
+    }
+    else if(charClass=="ranger"){
+        /*core ranger class - SRD, not the Revised Ranger UA*/
+        classText+=classJSON['Ranger']['Class Features']['content'];   
+        classText+=classJSON['Ranger']['Class Features']['Hit Points']['content'].join("");
+        classText+=classJSON['Ranger']['Class Features']['Proficiencies']['content'].join("");   
+        classText+=classJSON['Ranger']['Class Features']['Equipment']['content'].join("");
+        classText+=classJSON['Ranger']['Class Features']['Favored Enemy']['content'].join("");
+        classText+=classJSON['Ranger']['Class Features']['Natural Explorer']['content'].join("");
+        classText+=classJSON['Ranger']['Class Features']['Fighting Style']['content'];
+        classText+=classJSON['Ranger']['Class Features']['Fighting Style']['Archery'];
+        classText+=classJSON['Ranger']['Class Features']['Fighting Style']['Defense'];
+        classText+=classJSON['Ranger']['Class Features']['Fighting Style']['Dueling'];
+        classText+=classJSON['Ranger']['Class Features']['Fighting Style']['Two-Weapon Fighting'];
+        classText+=classJSON['Ranger']['Class Features']['Spellcasting']['content'];
+        classText+=classJSON['Ranger']['Class Features']['Spellcasting']['Spells Known of 1st Level and Higher']['content'].join("");
+        classText+=classJSON['Ranger']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("");
+        classText+=classJSON['Ranger']['Class Features']['Ranger Archetype'];
+        classText+=classJSON['Ranger']['Class Features']['Primeval Awareness'];
+        classText+=classJSON['Ranger']['Class Features']['Ability Score Improvement'];
+        classText+=classJSON['Ranger']['Class Features']['Extra Attack'];
+        classText+=classJSON['Ranger']['Class Features']['Lands Stride']['content'];
+        classText+=classJSON['Ranger']['Class Features']['Hide in Plain Sight']['content'];
+        classText+=classJSON['Ranger']['Class Features']['Vanish'];
+        classText+=classJSON['Ranger']['Class Features']['Feral Senses']['content'];
+        classText+=classJSON['Ranger']['Class Features']['Foe Slayer'];
+        classText+=classJSON['Ranger']['Ranger Archetypes']['content'];
+        classText+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['content'];
+        classText+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Hunters Prey']['content'];
+        classText+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Hunters Prey']['content'];
+        classText+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Defensive Tactics']['content'];
+        classText+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Multiattack']['content'];
+        classText+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Superior Hunters Defense']['content'];
+    }
+    else if(charClass=="rogue"){
+        /*rogue base class*/
+        classText+=classJSON['Rogue']['Class Features']['content'];   
+        classText+=classJSON['Rogue']['Class Features']['Hit Points']['content'].join("");
+        classText+=classJSON['Rogue']['Class Features']['Proficiencies']['content'].join("");   
+        classText+=classJSON['Rogue']['Class Features']['Equipment']['content'].join("");
+        classText+=classJSON['Rogue']['Class Features']['Expertise']['content'].join("");
+        classText+=classJSON['Rogue']['Class Features']['Sneak Attack']['content'].join("");
+        classText+=classJSON['Rogue']['Class Features']['Thieves Cant']['content'].join("");
+        classText+=classJSON['Rogue']['Class Features']['Cunning Action'];
+        classText+=classJSON['Rogue']['Class Features']['Rougish Archetype'];
+        classText+=classJSON['Rogue']['Class Features']['Ability Score Improvement'];
+        classText+=classJSON['Rogue']['Class Features']['Uncanny Dodge'];
+        classText+=classJSON['Rogue']['Class Features']['Evasion'];
+        classText+=classJSON['Rogue']['Class Features']['Reliable Talent'];
+        classText+=classJSON['Rogue']['Class Features']['BLindsense'];
+        classText+=classJSON['Rogue']['Class Features']['Slippery Mind'];
+        classText+=classJSON['Rogue']['Class Features']['Elusive'];
+        classText+=classJSON['Rogue']['Class Features']['Stroke of Luck']['content'].join("");
+        
+        /*thief subclass*/
+        classText+=classJSON['Rogue']['Roguish Archetypes']['content'];
+        classText+=classJSON['Rogue']['Roguish Archetypes']['Thief']['content'];
+        classText+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Fast Hands'];
+        classText+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Second-Story Work']['content'].join("");
+        classText+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Supreme Sneak'];
+        classText+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Use Magic Device'];
+        classText+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Thiefs Reflexes'];
+    }
+    else if(charClass=="sorcerer"){
+        /*sorcerer base class*/
+        classText+=classJSON['Sorcerer']['Class Features']['content'];   
+        classText+=classJSON['Sorcerer']['Class Features']['Hit Points']['content'].join("");
+        classText+=classJSON['Sorcerer']['Class Features']['Proficiencies']['content'].join("");   
+        classText+=classJSON['Sorcerer']['Class Features']['Equipment']['content'].join("");
+        classText+=classJSON['Sorcerer']['Class Features']['Spellcasting']['content'];
+        classText+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Cantrips'];
+        classText+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Spell Slots']['content'].join("");
+        classText+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Spells Known of 1st Level and Higher']['content'].join("");
+        classText+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("");
+        classText+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Spellcasting Focus'];
+        classText+=classJSON['Sorcerer']['Class Features']['Sorcerous Origin']['content'];
+        classText+=classJSON['Sorcerer']['Class Features']['Font of Magic']['content'];
+        classText+=classJSON['Sorcerer']['Class Features']['Font of Magic']['Sorcery Points'];
+        classText+=classJSON['Sorcerer']['Class Features']['Font of Magic']['Flexible Casting']['content'];
+        classText+=classJSON['Sorcerer']['Class Features']['Font of Magic']['Flexible Casting']['Creating Spell Slots']['content'][0]['table']
+        ['Spell Slot Level'];
+        classText+=classJSON['Sorcerer']['Class Features']['Font of Magic']['Flexible Casting']['Creating Spell Slots']['content'][0]['table']['Sorcery Point Cost'];
+        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['content'].join("");
+        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['Careful Spell']
+        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['Distant Spell']['content'].join("");
+        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['Empowered Spell']['content'].join("");
+        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['Extended Spell']
+        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['Heightened Spell']
+        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['Quickened Spell']
+        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['Subtle Spell']
+        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['Twinned Spell']['content'].join("");
+        classText+=classJSON['Sorcerer']['Class Features']['Ability Score Improvement'];
+        classText+=classJSON['Sorcerer']['Class Features']['Sorcererous Restoration'];
+        
+        /*sorcerer sub class*/
+        classText+=classJSON['Sorcerer']['Sorcerous Origins']['content'];
+        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['content'];
+        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['content'];
+        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Dragon Ancestor'];
+        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Dragon Ancestor']['Draconic Ancestry']['content'][0]['table']['Dragon'];
+        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Dragon Ancestor']['Draconic Ancestry']['content'][0]['table']['Damage Type'];
+        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Dragon Ancestor']['Draconic Ancestry']['content'];
+        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Draconic Resilience']['content'];
+        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Elemental Affinity'];
+        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Dragon Wings']['content'];
+        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Draconic Presence'];
+    }
+    else if(charClass=="warlock"){
+        /*core warlock features*/
+        classText+=classJSON['Warlock']['Class Features']['content'];   
+        classText+=classJSON['Warlock']['Class Features']['Hit Points']['content'].join("");
+        classText+=classJSON['Warlock']['Class Features']['Proficiencies']['content'].join("");   
+        classText+=classJSON['Warlock']['Class Features']['Equipment']['content'].join("");
+        classText+=classJSON['Warlock']['Class Features']['Otherworldly Patrons'];
+        classText+=classJSON['Warlock']['Class Features']['Pact Magic']['content'];
+        classText+=classJSON['Warlock']['Class Features']['Pact Magic']['Cantrips'];
+        classText+=classJSON['Warlock']['Class Features']['Pact Magic']['Cantrips'];
+        classText+=classJSON['Warlock']['Class Features']['Pact Magic']['Spell Slots']['content'];
+        classText+=classJSON['Warlock']['Class Features']['Pact Magic']['Spells Known of 1st Level and Higher']['content'];
+        classText+=classJSON['Warlock']['Class Features']['Pact Magic']['Spellcasting Ability']['content'];
+        classText+=classJSON['Warlock']['Class Features']['Pact Magic']['Spellcasting Focus'];
+        classText+=classJSON['Warlock']['Class Features']['Eldritch Invocations']['content'];
+        classText+=classJSON['Warlock']['Class Features']['Pact Boon']['content'];
+        classText+=classJSON['Warlock']['Class Features']['Pact Boon']['Pact of the Chain']['content'].join("");
+        classText+=classJSON['Warlock']['Class Features']['Pact Boon']['Pact of the Blade']['content'].join("");
+        classText+=classJSON['Warlock']['Class Features']['Pact Boon']['Pact of the Tome']['content'].join("");
+        classText+=classJSON['Warlock']['Class Features']['Ability Score Improvement'];
+        classText+=classJSON['Warlock']['Class Features']['Mystic Arcanum']['content'].join("");
+        classText+=classJSON['Warlock']['Class Features']['Eldritch Master'];
+        
+        /*invocations*/
+        classText+=classJSON['Warlock']['Eldritch Invocations']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Agonizing Blast']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Armor of Shadows'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Ascendant Step']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Beast Speech'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Beguiling Influence'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Bewitching Whispers']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Book of Ancient Secrets']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Chains of Carceri']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Devils Sight'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Dreadful Word']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Eldritch Sight'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Eldritch Spear']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Eyes of the Rune Keeper'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Fiendish Vigor'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Gaze of Two Minds'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Lifedrinker']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Mask of Many Faces'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Master of Myriad Forms']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Minions of Chaos']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Mire the Mind']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Misty Visions'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['One with Shadows']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Otherworldly Leap']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Repelling Blast']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Sculptor of Flesh']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Sign of Ill Omen']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Thief of Five Fates'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Thirsting Blade']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Visions of Distant Realms']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Voice of the Chain Master']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Whispers of the Grave']['content'];
+        classText+=classJSON['Warlock']['Eldritch Invocations']['Witch Sight']['content'];
+        
+        /*patron*/
+        classText+=classJSON['Warlock']['Otherworldly Patrons']['content'];
+        classText+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['content'];
+        classText+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['content'];
+        classText+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spell Level'];
+        classText+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spells'];
+        classText+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Dark Ones Blessing'];
+        classText+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Dark Ones Own Luck']['content'];
+        classText+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Fiendish Resilience'];
+        classText+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Hurl Through Hell']['content'];
+        
+        /*extra stuff on pacts*/
+        classText+=classJSON['Warlock']['Otherworldly Patrons']['Your Pact Boon']['content'].join("");
+    }
+    else{
+        /*core wizard features*/
+        classText+=classJSON['Wizard']['Class Features']['content'];   
+        classText+=classJSON['Wizard']['Class Features']['Hit Points']['content'].join("");
+        classText+=classJSON['Wizard']['Class Features']['Proficiencies']['content'].join("");   
+        classText+=classJSON['Wizard']['Class Features']['Equipment']['content'].join("");
+        classText+=classJSON['Wizard']['Class Features']['Spellcasting']['content'];
+        classText+=classJSON['Wizard']['Class Features']['Spellcasting']['Cantrips'];
+        classText+=classJSON['Wizard']['Class Features']['Spellcasting']['Spellbook']['content'];
+        classText+=classJSON['Wizard']['Class Features']['Spellcasting']['Preparing and Casting Spells']['content'].join("");
+        classText+=classJSON['Wizard']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("");
+        classText+=classJSON['Wizard']['Class Features']['Spellcasting']['Ritual Casting'];
+        classText+=classJSON['Wizard']['Class Features']['Spellcasting']['Spellcasting Focus'];
+        classText+=classJSON['Wizard']['Class Features']['Spellcasting']['Learning Spells of 1st Level or Higher'];
+        classText+=classJSON['Wizard']['Class Features']['Arcane Recovery']['content'].join("");
+        classText+=classJSON['Wizard']['Class Features']['Arcane Tradition']['content'].join("");
+        classText+=classJSON['Wizard']['Class Features']['Ability Score Improvement'];
+        classText+=classJSON['Wizard']['Class Features']['Spell Mastery']['content'];
+        classText+=classJSON['Wizard']['Class Features']['Signature Spells']['content'];
+        
+        /*wizard subclass*/
+        classText+=classJSON['Wizard']['Arcane Traditions']['content'];
+        classText+=classJSON['Wizard']['Arcane Traditions']['School of Evocation']['content'];
+        classText+=classJSON['Wizard']['Arcane Traditions']['School of Evocation']['Evocation Savant'];
+        classText+=classJSON['Wizard']['Arcane Traditions']['School of Evocation']['Scult Spells'];
+        classText+=classJSON['Wizard']['Arcane Traditions']['School of Evocation']['Potent Cantrip'];
+        classText+=classJSON['Wizard']['Arcane Traditions']['School of Evocation']['Overchannel']['content'].join("");
+        classText+=classJSON['Wizard']['Arcane Traditions']['Your Spellbook']['content'].join("");
+    }
+    
+    classPara.innerHTML=classText;
+}
+
+
