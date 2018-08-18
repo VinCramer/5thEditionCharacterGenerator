@@ -58,13 +58,7 @@
                 <option value="20">20</option>
             </select>
        </div>
-<!-- TODO - will consider adding in multiclassing functionality once base class stuff is finished.
-        <input type="radio" id="nomc" name="mc" value="nomc" checked>
-        <label for="nomc">No multiclassing</label>
-        <br>
-        <input type="radio" id="mc" name="mc" value="mc">
-        <label for="mc">Multiclassing</label>
--->
+
 
         <div>
             <p id="baseclasspara">Class: </p>
@@ -85,23 +79,6 @@
                 <option value="wizard">Wizard</option>
             </select>
 
-
-            <!--will generate something like this when uses toggles multiclassing on. May use checkboxes
-<p>Class: (select multiple with control/command click)</p>
-            <select multiple size=12>
-                <option value="rand">Random</option>
-                <option value="barbarian">Barbarian</option>
-                <option value="cleric">Cleric</option>
-                <option value="druid">Druid</option>
-                <option value="fighter">Fighter</option>
-                <option value="monk">Monk</option>
-                <option value="paladin">Paladin</option>
-                <option value="ranger">Ranger</option>
-                <option value="rogue">Rogue</option>
-                <option value="sorcerer">Sorcerer</option>
-                <option value="warlock">Warlock</option>
-                <option value="wizard">Wizard</option>
-            </select>-->
         </div>
 
 
@@ -293,6 +270,10 @@
             <p id="racial bonuses"></p>
             <h3>Class features:</h3>
             <p id="class features"></p>
+        </div>
+        
+        <div class="hidden">
+            <p>As a <span id="charClass"></span>, you gain the following class features:<span id="basic features"></span></p>
         </div>
         
         

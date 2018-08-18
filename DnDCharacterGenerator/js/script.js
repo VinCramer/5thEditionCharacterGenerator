@@ -1193,13 +1193,38 @@ function displayClass(charClass){
     var classPara = document.getElementById("class features");
     var classText="";
     
+    /*fill in boilerplate with the class name*/
+    var classSpan = document.getElementById("charClass");
+    classSpan.innerHTML=charClass;
+    
+    var basicFeatures = document.getElementById("basic features");
+    var basicFeaturesString = "";
+    
+    
     if(charClass=="barbarian"){
         
-        /*base barb class features*/
-        classText+=classJSON['Barbarian']['Class Features']['content'];   
-        classText+=classJSON['Barbarian']['Class Features']['Hit Points']['content'].join("");
-        classText+=classJSON['Barbarian']['Class Features']['Proficiencies']['content'].join("");   
-        classText+=classJSON['Barbarian']['Class Features']['Equipment']['content'].join("");   
+        /*basic features for classes include hit points, proficiencies, and equipment*/
+        basicFeaturesString+="<br><br>Hit Points: <br>" + classJSON['Barbarian']['Class Features']['Hit Points']['content'][0] + "<br>";
+        basicFeaturesString+=classJSON['Barbarian']['Class Features']['Hit Points']['content'][1] + "<br>";
+        basicFeaturesString+=classJSON['Barbarian']['Class Features']['Hit Points']['content'][2] + "<br><br>";
+        basicFeaturesString+="Proficiences:<br>";
+        basicFeaturesString+=classJSON['Barbarian']['Class Features']['Proficiencies']['content'][0]+"<br>";
+        basicFeaturesString+=classJSON['Barbarian']['Class Features']['Proficiencies']['content'][1]+"<br>";
+        basicFeaturesString+=classJSON['Barbarian']['Class Features']['Proficiencies']['content'][2]+"<br>";
+        basicFeaturesString+=classJSON['Barbarian']['Class Features']['Proficiencies']['content'][3]+"<br>";
+        basicFeaturesString+=classJSON['Barbarian']['Class Features']['Proficiencies']['content'][4]+" ";
+        basicFeaturesString+=classJSON['Barbarian']['Class Features']['Proficiencies']['content'][5]+"<br><br>";
+        basicFeaturesString+="Equipment:<br>";
+        basicFeaturesString+=classJSON['Barbarian']['Class Features']['Equipment']['content'][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Barbarian']['Class Features']['Equipment']['content'][1][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Barbarian']['Class Features']['Equipment']['content'][1][1]+"<br>";
+        basicFeaturesString+="- " + classJSON['Barbarian']['Class Features']['Equipment']['content'][1][2]+"<br>";
+        
+        
+        basicFeatures.innerHTML=basicFeaturesString;
+        
+        
+        /*base barb class features*/ 
         classText+=classJSON['Barbarian']['Class Features']['Unarmored Defense'];
         classText+=classJSON['Barbarian']['Class Features']['Reckless Attack'];
         classText+=classJSON['Barbarian']['Class Features']['Danger Sense']['content'].join("");
@@ -1222,11 +1247,27 @@ function displayClass(charClass){
         classText+=classJSON['Barbarian']['Class Features']['Path of the Berserker']['Retaliation'];
     }
     else if(charClass=="bard"){
+        
+        /*basic features for classes include hit points, proficiencies, and equipment*/
+        basicFeaturesString+="<br><br>Hit Points: <br>" + classJSON['Bard']['Class Features']['Hit Points']['content'][0] + "<br>";
+        basicFeaturesString+=classJSON['Bard']['Class Features']['Hit Points']['content'][1] + "<br>";
+        basicFeaturesString+=classJSON['Bard']['Class Features']['Hit Points']['content'][2] + "<br><br>";
+        basicFeaturesString+="Proficiences:<br>";
+        basicFeaturesString+=classJSON['Bard']['Class Features']['Proficiencies']['content'][0]+"<br>";
+        basicFeaturesString+=classJSON['Bard']['Class Features']['Proficiencies']['content'][1]+"<br>";
+        basicFeaturesString+=classJSON['Bard']['Class Features']['Proficiencies']['content'][2]+"<br>";
+        basicFeaturesString+=classJSON['Bard']['Class Features']['Proficiencies']['content'][3]+"<br>";
+        basicFeaturesString+=classJSON['Bard']['Class Features']['Proficiencies']['content'][4]+"<br><br>";
+        basicFeaturesString+="Equipment:<br>";
+        basicFeaturesString+=classJSON['Bard']['Class Features']['Equipment']['content'][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Bard']['Class Features']['Equipment']['content'][1][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Bard']['Class Features']['Equipment']['content'][1][1]+"<br>";
+        basicFeaturesString+="- " + classJSON['Bard']['Class Features']['Equipment']['content'][1][2]+"<br>";
+
+        basicFeatures.innerHTML=basicFeaturesString;
+
+        
         /*core bard features*/
-        classText+=classJSON['Bard']['Class Features']['content'];   
-        classText+=classJSON['Bard']['Class Features']['Hit Points']['content'].join("");
-        classText+=classJSON['Bard']['Class Features']['Proficiencies']['content'].join("");   
-        classText+=classJSON['Bard']['Class Features']['Equipment']['content'].join("");
         classText+=classJSON['Bard']['Class Features']['Spellcasting']['content'].join("");
         classText+=classJSON['Bard']['Class Features']['Spellcasting']['Cantrips'];
         classText+=classJSON['Bard']['Class Features']['Spellcasting']['Spell Slots']['content'].join("");
@@ -1254,11 +1295,27 @@ function displayClass(charClass){
     }
     else if(charClass=="cleric"){
         
+        
+        /*basic features for classes include hit points, proficiencies, and equipment*/
+        basicFeaturesString+="<br><br>Hit Points: <br>" + classJSON['Cleric']['Class Features']['Hit Points']['content'][0] + "<br>";
+        basicFeaturesString+=classJSON['Cleric']['Class Features']['Hit Points']['content'][1] + "<br>";
+        basicFeaturesString+=classJSON['Cleric']['Class Features']['Hit Points']['content'][2] + "<br><br>";
+        basicFeaturesString+="Proficiences:<br>";
+        basicFeaturesString+=classJSON['Cleric']['Class Features']['Proficiencies']['content'][0]+"<br>";
+        basicFeaturesString+=classJSON['Cleric']['Class Features']['Proficiencies']['content'][1]+"<br>";
+        basicFeaturesString+=classJSON['Cleric']['Class Features']['Proficiencies']['content'][2]+"<br>";
+        basicFeaturesString+=classJSON['Cleric']['Class Features']['Proficiencies']['content'][3]+"<br>";
+        basicFeaturesString+=classJSON['Cleric']['Class Features']['Proficiencies']['content'][4]+"<br><br>";
+        basicFeaturesString+="Equipment:<br>";
+        basicFeaturesString+=classJSON['Cleric']['Class Features']['Equipment']['content'][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Cleric']['Class Features']['Equipment']['content'][1][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Cleric']['Class Features']['Equipment']['content'][1][1]+"<br>";
+        basicFeaturesString+="- " + classJSON['Cleric']['Class Features']['Equipment']['content'][1][2]+"<br>";
+
+        basicFeatures.innerHTML=basicFeaturesString;
+        
+        
         /*cleric features*/
-        classText+=classJSON['Cleric']['Class Features']['content'];   
-        classText+=classJSON['Cleric']['Class Features']['Hit Points']['content'].join("");
-        classText+=classJSON['Cleric']['Class Features']['Proficiencies']['content'].join("");   
-        classText+=classJSON['Cleric']['Class Features']['Equipment']['content'].join("");
         classText+=classJSON['Cleric']['Class Features']['Spellcasting']['content'];
         classText+=classJSON['Cleric']['Class Features']['Spellcasting']['Cantrips'];
         classText+=classJSON['Cleric']['Class Features']['Spellcasting']['Preparing and Casting Spells']['content'].join("");
@@ -1287,11 +1344,28 @@ function displayClass(charClass){
         classText+=classJSON['Cleric']['Class Features']['Life Domain']['Supreme Healing'];
     }
     else if(charClass=="druid"){
+        
+        
+        /*basic features for classes include hit points, proficiencies, and equipment*/
+        basicFeaturesString+="<br><br>Hit Points: <br>" + classJSON['Druid']['Class Features']['Hit Points']['content'][0] + "<br>";
+        basicFeaturesString+=classJSON['Druid']['Class Features']['Hit Points']['content'][1] + "<br>";
+        basicFeaturesString+=classJSON['Druid']['Class Features']['Hit Points']['content'][2] + "<br><br>";
+        basicFeaturesString+="Proficiences:<br>";
+        basicFeaturesString+=classJSON['Druid']['Class Features']['Proficiencies']['content'][0]+"<br>";
+        basicFeaturesString+=classJSON['Druid']['Class Features']['Proficiencies']['content'][1]+"<br>";
+        basicFeaturesString+=classJSON['Druid']['Class Features']['Proficiencies']['content'][2]+"<br>";
+        basicFeaturesString+=classJSON['Druid']['Class Features']['Proficiencies']['content'][3]+"<br>";
+        basicFeaturesString+=classJSON['Druid']['Class Features']['Proficiencies']['content'][4]+" ";
+        basicFeaturesString+=classJSON['Druid']['Class Features']['Proficiencies']['content'][5]+"<br><br>";
+        basicFeaturesString+="Equipment:<br>";
+        basicFeaturesString+=classJSON['Druid']['Class Features']['Equipment']['content'][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Druid']['Class Features']['Equipment']['content'][1][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Druid']['Class Features']['Equipment']['content'][1][1]+"<br>";
+        basicFeaturesString+="- " + classJSON['Druid']['Class Features']['Equipment']['content'][1][2]+"<br>";
+
+        basicFeatures.innerHTML=basicFeaturesString;
+        
         /*druid features*/
-        classText+=classJSON['Druid']['Class Features']['content'];   
-        classText+=classJSON['Druid']['Class Features']['Hit Points']['content'].join("");
-        classText+=classJSON['Druid']['Class Features']['Proficiencies']['content'].join("");   
-        classText+=classJSON['Druid']['Class Features']['Equipment']['content'].join("");
         classText+=classJSON['Druid']['Class Features']['Spellcasting']['content'];
         classText+=classJSON['Druid']['Class Features']['Spellcasting']['Cantrips'];
         classText+=classJSON['Druid']['Class Features']['Spellcasting']['Preparing and Casting Spells']['content'].join("");
@@ -1343,11 +1417,28 @@ function displayClass(charClass){
         
     }
     else if(charClass=="fighter"){
+        
+        
+        /*basic features for classes include hit points, proficiencies, and equipment*/
+        basicFeaturesString+="<br><br>Hit Points: <br>" + classJSON['Fighter']['Class Features']['Hit Points']['content'][0] + "<br>";
+        basicFeaturesString+=classJSON['Fighter']['Class Features']['Hit Points']['content'][1] + "<br>";
+        basicFeaturesString+=classJSON['Fighter']['Class Features']['Hit Points']['content'][2] + "<br><br>";
+        basicFeaturesString+="Proficiences:<br>";
+        basicFeaturesString+=classJSON['Fighter']['Class Features']['Proficiencies']['content'][0]+"<br>";
+        basicFeaturesString+=classJSON['Fighter']['Class Features']['Proficiencies']['content'][1]+"<br>";
+        basicFeaturesString+=classJSON['Fighter']['Class Features']['Proficiencies']['content'][2]+"<br>";
+        basicFeaturesString+=classJSON['Fighter']['Class Features']['Proficiencies']['content'][3]+"<br>";
+        basicFeaturesString+=classJSON['Fighter']['Class Features']['Proficiencies']['content'][4]+" ";
+        basicFeaturesString+=classJSON['Fighter']['Class Features']['Proficiencies']['content'][5]+"<br><br>";
+        basicFeaturesString+="Equipment:<br>";
+        basicFeaturesString+=classJSON['Druid']['Class Features']['Equipment']['content'][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Fighter']['Class Features']['Equipment']['content'][1][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Fighter']['Class Features']['Equipment']['content'][1][1]+"<br>";
+        basicFeaturesString+="- " + classJSON['Fighter']['Class Features']['Equipment']['content'][1][2]+"<br>";
+
+        basicFeatures.innerHTML=basicFeaturesString;
+        
         /*fighter stuff*/
-        classText+=classJSON['Fighter']['Class Features']['content'];   
-        classText+=classJSON['Fighter']['Class Features']['Hit Points']['content'].join("");
-        classText+=classJSON['Fighter']['Class Features']['Proficiencies']['content'].join("");   
-        classText+=classJSON['Fighter']['Class Features']['Equipment']['content'].join("");
         classText+=classJSON['Fighter']['Class Features']['Fighting Style']['content'];
         classText+=classJSON['Fighter']['Class Features']['Fighting Style']['Archery'];
         classText+=classJSON['Fighter']['Class Features']['Fighting Style']['Defense'];
@@ -1372,11 +1463,28 @@ function displayClass(charClass){
         classText+=classJSON['Fighter']['Martial Archetypes']['Champion']['Survivor'];
     }
     else if(charClass=="monk"){
+        
+        /*basic features for classes include hit points, proficiencies, and equipment*/
+        basicFeaturesString+="<br><br>Hit Points: <br>" + classJSON['Monk']['Class Features']['Hit Points']['content'][0] + "<br>";
+        basicFeaturesString+=classJSON['Monk']['Class Features']['Hit Points']['content'][1] + "<br>";
+        basicFeaturesString+=classJSON['Monk']['Class Features']['Hit Points']['content'][2] + "<br><br>";
+        basicFeaturesString+="Proficiences:<br>";
+        basicFeaturesString+=classJSON['Monk']['Class Features']['Proficiencies']['content'][0]+"<br>";
+        basicFeaturesString+=classJSON['Monk']['Class Features']['Proficiencies']['content'][1]+"<br>";
+        basicFeaturesString+=classJSON['Monk']['Class Features']['Proficiencies']['content'][2]+"<br>";
+        basicFeaturesString+=classJSON['Monk']['Class Features']['Proficiencies']['content'][3]+"<br>";
+        basicFeaturesString+=classJSON['Monk']['Class Features']['Proficiencies']['content'][4]+" ";
+        basicFeaturesString+=classJSON['Monk']['Class Features']['Proficiencies']['content'][5]+"<br><br>";
+        basicFeaturesString+="Equipment:<br>";
+        basicFeaturesString+=classJSON['Monk']['Class Features']['Equipment']['content'][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Monk']['Class Features']['Equipment']['content'][1][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Monk']['Class Features']['Equipment']['content'][1][1]+"<br>";
+        basicFeaturesString+="- " + classJSON['Monk']['Class Features']['Equipment']['content'][1][2]+"<br>";
+
+        basicFeatures.innerHTML=basicFeaturesString;
+        
+        
         /*monk features*/
-        classText+=classJSON['Monk']['Class Features']['content'];   
-        classText+=classJSON['Monk']['Class Features']['Hit Points']['content'].join("");
-        classText+=classJSON['Monk']['Class Features']['Proficiencies']['content'].join("");   
-        classText+=classJSON['Monk']['Class Features']['Equipment']['content'].join(""); 
         classText+=classJSON['Monk']['Class Features']['Unarmored Defense'];
         classText+=classJSON['Monk']['Class Features']['Martial Arts']['content'].join("");
         classText+=classJSON['Monk']['Class Features']['Ki']['content'].join("");
@@ -1410,11 +1518,27 @@ function displayClass(charClass){
         classText+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Quivering Palm']['content'];
     }
     else if(charClass=="paladin"){
+        
+        /*basic features for classes include hit points, proficiencies, and equipment*/
+        basicFeaturesString+="<br><br>Hit Points: <br>" + classJSON['Paladin']['Class Features']['Hit Points']['content'][0] + "<br>";
+        basicFeaturesString+=classJSON['Paladin']['Class Features']['Hit Points']['content'][1] + "<br>";
+        basicFeaturesString+=classJSON['Paladin']['Class Features']['Hit Points']['content'][2] + "<br><br>";
+        basicFeaturesString+="Proficiences:<br>";
+        basicFeaturesString+=classJSON['Paladin']['Class Features']['Proficiencies']['content'][0]+"<br>";
+        basicFeaturesString+=classJSON['Paladin']['Class Features']['Proficiencies']['content'][1]+"<br>";
+        basicFeaturesString+=classJSON['Paladin']['Class Features']['Proficiencies']['content'][2]+"<br>";
+        basicFeaturesString+=classJSON['Paladin']['Class Features']['Proficiencies']['content'][3]+"<br>";
+        basicFeaturesString+=classJSON['Paladin']['Class Features']['Proficiencies']['content'][4]+"<br><br>";
+        basicFeaturesString+="Equipment:<br>";
+        basicFeaturesString+=classJSON['Paladin']['Class Features']['Equipment']['content'][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Paladin']['Class Features']['Equipment']['content'][1][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Paladin']['Class Features']['Equipment']['content'][1][1]+"<br>";
+        basicFeaturesString+="- " + classJSON['Paladin']['Class Features']['Equipment']['content'][1][2]+"<br>";
+
+        basicFeatures.innerHTML=basicFeaturesString;
+        
+        
         /*core paladin class*/
-        classText+=classJSON['Paladin']['Class Features']['content'];   
-        classText+=classJSON['Paladin']['Class Features']['Hit Points']['content'].join("");
-        classText+=classJSON['Paladin']['Class Features']['Proficiencies']['content'].join("");   
-        classText+=classJSON['Paladin']['Class Features']['Equipment']['content'].join("");
         classText+=classJSON['Paladin']['Class Features']['Divine Sense']['content'].join("");
         classText+=classJSON['Paladin']['Class Features']['Lay on Hands']['content'].join("");
         classText+=classJSON['Paladin']['Class Features']['Fighting Style']['content'];
@@ -1452,11 +1576,28 @@ function displayClass(charClass){
         classText+=classJSON['Paladin']['Sacred Oaths']['Breaking Your Oath']['content'];
     }
     else if(charClass=="ranger"){
+        
+        
+        /*basic features for classes include hit points, proficiencies, and equipment*/
+        basicFeaturesString+="<br><br>Hit Points: <br>" + classJSON['Ranger']['Class Features']['Hit Points']['content'][0] + "<br>";
+        basicFeaturesString+=classJSON['Ranger']['Class Features']['Hit Points']['content'][1] + "<br>";
+        basicFeaturesString+=classJSON['Ranger']['Class Features']['Hit Points']['content'][2] + "<br><br>";
+        basicFeaturesString+="Proficiences:<br>";
+        basicFeaturesString+=classJSON['Ranger']['Class Features']['Proficiencies']['content'][0]+"<br>";
+        basicFeaturesString+=classJSON['Ranger']['Class Features']['Proficiencies']['content'][1]+"<br>";
+        basicFeaturesString+=classJSON['Ranger']['Class Features']['Proficiencies']['content'][2]+"<br>";
+        basicFeaturesString+=classJSON['Ranger']['Class Features']['Proficiencies']['content'][3]+"<br>";
+        basicFeaturesString+=classJSON['Ranger']['Class Features']['Proficiencies']['content'][4]+"<br><br>";
+        basicFeaturesString+="Equipment:<br>";
+        basicFeaturesString+=classJSON['Ranger']['Class Features']['Equipment']['content'][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Ranger']['Class Features']['Equipment']['content'][1][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Ranger']['Class Features']['Equipment']['content'][1][1]+"<br>";
+        basicFeaturesString+="- " + classJSON['Ranger']['Class Features']['Equipment']['content'][1][2]+"<br>";
+
+        basicFeatures.innerHTML=basicFeaturesString;
+        
+        
         /*core ranger class - SRD, not the Revised Ranger UA*/
-        classText+=classJSON['Ranger']['Class Features']['content'];   
-        classText+=classJSON['Ranger']['Class Features']['Hit Points']['content'].join("");
-        classText+=classJSON['Ranger']['Class Features']['Proficiencies']['content'].join("");   
-        classText+=classJSON['Ranger']['Class Features']['Equipment']['content'].join("");
         classText+=classJSON['Ranger']['Class Features']['Favored Enemy']['content'].join("");
         classText+=classJSON['Ranger']['Class Features']['Natural Explorer']['content'].join("");
         classText+=classJSON['Ranger']['Class Features']['Fighting Style']['content'];
@@ -1485,11 +1626,27 @@ function displayClass(charClass){
         classText+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Superior Hunters Defense']['content'];
     }
     else if(charClass=="rogue"){
+        
+        /*basic features for classes include hit points, proficiencies, and equipment*/
+        basicFeaturesString+="<br><br>Hit Points: <br>" + classJSON['Rogue']['Class Features']['Hit Points']['content'][0] + "<br>";
+        basicFeaturesString+=classJSON['Rogue']['Class Features']['Hit Points']['content'][1] + "<br>";
+        basicFeaturesString+=classJSON['Rogue']['Class Features']['Hit Points']['content'][2] + "<br><br>";
+        basicFeaturesString+="Proficiences:<br>";
+        basicFeaturesString+=classJSON['Rogue']['Class Features']['Proficiencies']['content'][0]+"<br>";
+        basicFeaturesString+=classJSON['Rogue']['Class Features']['Proficiencies']['content'][1]+"<br>";
+        basicFeaturesString+=classJSON['Rogue']['Class Features']['Proficiencies']['content'][2]+"<br>";
+        basicFeaturesString+=classJSON['Rogue']['Class Features']['Proficiencies']['content'][3]+"<br>";
+        basicFeaturesString+=classJSON['Rogue']['Class Features']['Proficiencies']['content'][4]+"<br><br>";
+        basicFeaturesString+="Equipment:<br>";
+        basicFeaturesString+=classJSON['Rogue']['Class Features']['Equipment']['content'][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Rogue']['Class Features']['Equipment']['content'][1][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Rogue']['Class Features']['Equipment']['content'][1][1]+"<br>";
+        basicFeaturesString+="- " + classJSON['Rogue']['Class Features']['Equipment']['content'][1][2]+"<br>";
+
+        basicFeatures.innerHTML=basicFeaturesString;
+        
+        
         /*rogue base class*/
-        classText+=classJSON['Rogue']['Class Features']['content'];   
-        classText+=classJSON['Rogue']['Class Features']['Hit Points']['content'].join("");
-        classText+=classJSON['Rogue']['Class Features']['Proficiencies']['content'].join("");   
-        classText+=classJSON['Rogue']['Class Features']['Equipment']['content'].join("");
         classText+=classJSON['Rogue']['Class Features']['Expertise']['content'].join("");
         classText+=classJSON['Rogue']['Class Features']['Sneak Attack']['content'].join("");
         classText+=classJSON['Rogue']['Class Features']['Thieves Cant']['content'].join("");
@@ -1514,11 +1671,29 @@ function displayClass(charClass){
         classText+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Thiefs Reflexes'];
     }
     else if(charClass=="sorcerer"){
+        
+        
+        /*basic features for classes include hit points, proficiencies, and equipment*/
+        basicFeaturesString+="<br><br>Hit Points: <br>" + classJSON['Sorcerer']['Class Features']['Hit Points']['content'][0] + "<br>";
+        basicFeaturesString+=classJSON['Sorcerer']['Class Features']['Hit Points']['content'][1] + "<br>";
+        basicFeaturesString+=classJSON['Sorcerer']['Class Features']['Hit Points']['content'][2] + "<br><br>";
+        basicFeaturesString+="Proficiences:<br>";
+        basicFeaturesString+=classJSON['Sorcerer']['Class Features']['Proficiencies']['content'][0]+"<br>";
+        basicFeaturesString+=classJSON['Sorcerer']['Class Features']['Proficiencies']['content'][1]+"<br>";
+        basicFeaturesString+=classJSON['Sorcerer']['Class Features']['Proficiencies']['content'][2]+"<br>";
+        basicFeaturesString+=classJSON['Sorcerer']['Class Features']['Proficiencies']['content'][3]+"<br>";
+        basicFeaturesString+=classJSON['Sorcerer']['Class Features']['Proficiencies']['content'][4]+" ";
+        basicFeaturesString+=classJSON['Sorcerer']['Class Features']['Proficiencies']['content'][5]+"<br><br>";
+        basicFeaturesString+="Equipment:<br>";
+        basicFeaturesString+=classJSON['Sorcerer']['Class Features']['Equipment']['content'][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Sorcerer']['Class Features']['Equipment']['content'][1][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Sorcerer']['Class Features']['Equipment']['content'][1][1]+"<br>";
+        basicFeaturesString+="- " + classJSON['Sorcerer']['Class Features']['Equipment']['content'][1][2]+"<br>";
+
+        basicFeatures.innerHTML=basicFeaturesString;
+        
+        
         /*sorcerer base class*/
-        classText+=classJSON['Sorcerer']['Class Features']['content'];   
-        classText+=classJSON['Sorcerer']['Class Features']['Hit Points']['content'].join("");
-        classText+=classJSON['Sorcerer']['Class Features']['Proficiencies']['content'].join("");   
-        classText+=classJSON['Sorcerer']['Class Features']['Equipment']['content'].join("");
         classText+=classJSON['Sorcerer']['Class Features']['Spellcasting']['content'];
         classText+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Cantrips'];
         classText+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Spell Slots']['content'].join("");
@@ -1558,11 +1733,28 @@ function displayClass(charClass){
         classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Draconic Presence'];
     }
     else if(charClass=="warlock"){
+        
+        
+        /*basic features for classes include hit points, proficiencies, and equipment*/
+        basicFeaturesString+="<br><br>Hit Points: <br>" + classJSON['Warlock']['Class Features']['Hit Points']['content'][0] + "<br>";
+        basicFeaturesString+=classJSON['Warlock']['Class Features']['Hit Points']['content'][1] + "<br>";
+        basicFeaturesString+=classJSON['Warlock']['Class Features']['Hit Points']['content'][2] + "<br><br>";
+        basicFeaturesString+="Proficiences:<br>";
+        basicFeaturesString+=classJSON['Warlock']['Class Features']['Proficiencies']['content'][0]+"<br>";
+        basicFeaturesString+=classJSON['Warlock']['Class Features']['Proficiencies']['content'][1]+"<br>";
+        basicFeaturesString+=classJSON['Warlock']['Class Features']['Proficiencies']['content'][2]+"<br>";
+        basicFeaturesString+=classJSON['Warlock']['Class Features']['Proficiencies']['content'][3]+"<br>";
+        basicFeaturesString+=classJSON['Warlock']['Class Features']['Proficiencies']['content'][4]+"<br><br>";
+        basicFeaturesString+="Equipment:<br>";
+        basicFeaturesString+=classJSON['Warlock']['Class Features']['Equipment']['content'][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Warlock']['Class Features']['Equipment']['content'][1][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Warlock']['Class Features']['Equipment']['content'][1][1]+"<br>";
+        basicFeaturesString+="- " + classJSON['Warlock']['Class Features']['Equipment']['content'][1][2]+"<br>";
+
+        basicFeatures.innerHTML=basicFeaturesString;
+        
+        
         /*core warlock features*/
-        classText+=classJSON['Warlock']['Class Features']['content'];   
-        classText+=classJSON['Warlock']['Class Features']['Hit Points']['content'].join("");
-        classText+=classJSON['Warlock']['Class Features']['Proficiencies']['content'].join("");   
-        classText+=classJSON['Warlock']['Class Features']['Equipment']['content'].join("");
         classText+=classJSON['Warlock']['Class Features']['Otherworldly Patrons'];
         classText+=classJSON['Warlock']['Class Features']['Pact Magic']['content'];
         classText+=classJSON['Warlock']['Class Features']['Pact Magic']['Cantrips'];
@@ -1630,11 +1822,28 @@ function displayClass(charClass){
         classText+=classJSON['Warlock']['Otherworldly Patrons']['Your Pact Boon']['content'].join("");
     }
     else{
+        
+        
+        /*basic features for classes include hit points, proficiencies, and equipment*/
+        basicFeaturesString+="<br><br>Hit Points: <br>" + classJSON['Wizard']['Class Features']['Hit Points']['content'][0] + "<br>";
+        basicFeaturesString+=classJSON['Wizard']['Class Features']['Hit Points']['content'][1] + "<br>";
+        basicFeaturesString+=classJSON['Wizard']['Class Features']['Hit Points']['content'][2] + "<br><br>";
+        basicFeaturesString+="Proficiences:<br>";
+        basicFeaturesString+=classJSON['Wizard']['Class Features']['Proficiencies']['content'][0]+"<br>";
+        basicFeaturesString+=classJSON['Wizard']['Class Features']['Proficiencies']['content'][1]+"<br>";
+        basicFeaturesString+=classJSON['Wizard']['Class Features']['Proficiencies']['content'][2]+"<br>";
+        basicFeaturesString+=classJSON['Wizard']['Class Features']['Proficiencies']['content'][3]+"<br>";
+        basicFeaturesString+=classJSON['Wizard']['Class Features']['Proficiencies']['content'][4]+"<br><br>";
+        basicFeaturesString+="Equipment:<br>";
+        basicFeaturesString+=classJSON['Wizard']['Class Features']['Equipment']['content'][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Wizard']['Class Features']['Equipment']['content'][1][0]+"<br>";
+        basicFeaturesString+="- " + classJSON['Wizard']['Class Features']['Equipment']['content'][1][1]+"<br>";
+        basicFeaturesString+="- " + classJSON['Wizard']['Class Features']['Equipment']['content'][1][2]+"<br>";
+
+        
+        basicFeatures.innerHTML=basicFeaturesString;
+        
         /*core wizard features*/
-        classText+=classJSON['Wizard']['Class Features']['content'];   
-        classText+=classJSON['Wizard']['Class Features']['Hit Points']['content'].join("");
-        classText+=classJSON['Wizard']['Class Features']['Proficiencies']['content'].join("");   
-        classText+=classJSON['Wizard']['Class Features']['Equipment']['content'].join("");
         classText+=classJSON['Wizard']['Class Features']['Spellcasting']['content'];
         classText+=classJSON['Wizard']['Class Features']['Spellcasting']['Cantrips'];
         classText+=classJSON['Wizard']['Class Features']['Spellcasting']['Spellbook']['content'];

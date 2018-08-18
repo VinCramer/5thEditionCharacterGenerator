@@ -4,16 +4,18 @@
             "content": "As a barbarian, you gain the following class features.",
             "Hit Points": {
                 "content": [
-                    "**Hit Dice:** 1d12 per barbarian level",
-                    "**Hit Points at 1st Level:** 12 + your Constitution modifier",
-                    "**Hit Points at Higher Levels:** 1d12 (or 7) + your Constitution modifier per barbarian level after 1st"
+                    "<b>Hit Dice:</b> 1d12 per barbarian level",
+                    "<b>Hit Points at 1st Level:</b> 12 + your Constitution modifier",
+                    "<b>Hit Points at Higher Levels:</b> 1d12 (or 7) + your Constitution modifier per barbarian level after 1st"
                 ]
             },
             "Proficiencies": {
                 "content": [
-                    "**Armor:** Light armor, medium armor, shields **Weapons:** Simple weapons, martial weapons **Tools:** None",
-                    "**Saving Throws:** Strength, Constitution",
-                    "**Skills:** Choose two from Animal Handling, Athletics,",
+                    "<b>Armor:</b> Light armor, medium armor, shields",
+					"<b>Weapons:</b> Simple weapons, martial weapons", 
+					"<b>Tools:</b> None",
+                    "<b>Saving Throws:</b> Strength, Constitution",
+                    "<b>Skills:</b> Choose two from Animal Handling, Athletics,",
                     "Intimidation, Nature, Perception, and Survival"
                 ]
             },
@@ -21,8 +23,8 @@
                 "content": [
                     "You start with the following equipment, in addition to the equipment granted by your background:",
                     [
-                        "(*a*) a greataxe or (*b*) any martial melee weapon",
-                        "(*a*) two handaxes or (*b*) any simple weapon",
+                        "(<i>a</i>) a greataxe or (<i>b</i>) any martial melee weapon",
+                        "(<i>a</i>) two handaxes or (<i>b</i>) any simple weapon",
                         "An explorer’s pack and four javelins"
                     ]
                 ]
@@ -207,27 +209,27 @@
             "content": "As a bard, you gain the following class features.",
             "Hit Points": {
                 "content": [
-                    "**Hit Dice:** 1d8 per bard level",
-                    "**Hit Points at 1st Level:** 8 + your Constitution modifier",
-                    "**Hit Points at Higher Levels:** 1d8 (or 5) + your Constitution modifier per bard level after 1st"
+                    "<b>Hit Dice:</b> 1d8 per bard level",
+                    "<b>Hit Points at 1st Level:</b> 8 + your Constitution modifier",
+                    "<b>Hit Points at Higher Levels:</b> 1d8 (or 5) + your Constitution modifier per bard level after 1st"
                 ]
             },
             "Proficiencies": {
                 "content": [
-                    "**Armor:** Light armor",
-                    "**Weapons:** Simple weapons, hand crossbows, longswords, rapiers, shortswords",
-                    "**Tools:** Three musical instruments of your choice",
-                    "**Saving Throws:** Dexterity, Charisma",
-                    "**Skills:** Choose any three"
+                    "<b>Armor:</b> Light armor",
+                    "<b>Weapons:</b> Simple weapons, hand crossbows, longswords, rapiers, shortswords",
+                    "<b>Tools:</b> Three musical instruments of your choice",
+                    "<b>Saving Throws:</b> Dexterity, Charisma",
+                    "<b>Skills:</b> Choose any three"
                 ]
             },
             "Equipment": {
                 "content": [
                     "You start with the following equipment, in addition to the equipment granted by your background:",
                     [
-                        "(*a*) a rapier, (*b*) a longsword, or (*c*) any simple weapon",
-                        "(*a*) a diplomat’s pack or (*b*) an entertainer’s pack",
-                        "(*a*) a lute or (*b*) any other musical instrument",
+                        "(<i>a</i>) a rapier, (<i>b</i>) a longsword, or (<i>c</i>) any simple weapon",
+                        "(<i>a</i>) a diplomat’s pack or (<i>b</i>) an entertainer’s pack",
+                        "(<i>a</i>) a lute or (<i>b</i>) any other musical instrument",
                         "Leather armor and a dagger"
                     ]
                 ]
@@ -566,8 +568,8 @@
                 "Spellcasting Ability": {
                     "content": [
                         "Charisma is your spellcasting ability for your bard spells. Your magic comes from the heart and soul you pour into the performance of your music or oration. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a bard spell you cast and when making an attack roll with one.",
-                        "**Spell save DC** = 8 + your proficiency bonus + your Charisma modifier",
-                        "**Spell attack modifier** = your proficiency bonus + your Charisma modifier"
+                        "<b>Spell save DC</b> = 8 + your proficiency bonus + your Charisma modifier",
+                        "<b>Spell attack modifier</b> = your proficiency bonus + your Charisma modifier"
                     ]
                 },
                 "Ritual Casting": "You can cast any bard spell you know as a ritual if that spell has the ritual tag.",
@@ -629,35 +631,35 @@
             "content": "As a cleric, you gain the following class features.",
             "Hit Points": {
                 "content": [
-                    "**Hit Dice:** 1d8 per cleric level",
-                    "**Hit Points at 1st Level:** 8 + your Constitution modifier",
-                    "**Hit Points at Higher Levels:** 1d8 (or 5) + your Constitution modifier per cleric level after 1st"
+                    "<b>Hit Dice:</b> 1d8 per cleric level",
+                    "<b>Hit Points at 1st Level:</b> 8 + your Constitution modifier",
+                    "<b>Hit Points at Higher Levels:</b> 1d8 (or 5) + your Constitution modifier per cleric level after 1st"
                 ]
             },
             "Proficiencies": {
                 "content": [
-                    "**Armor:** Light armor, medium armor, shields",
-                    "**Weapons:** Simple weapons",
-                    "**Tools:** None",
-                    "**Saving Throws:** Wisdom, Charisma",
-                    "**Skills:** Choose two from History, Insight, Medicine, Persuasion, and Religion"
+                    "<b>Armor:</b> Light armor, medium armor, shields",
+                    "<b>Weapons:</b> Simple weapons",
+                    "<b>Tools:</b> None",
+                    "<b>Saving Throws:</b> Wisdom, Charisma",
+                    "<b>Skills:</b> Choose two from History, Insight, Medicine, Persuasion, and Religion"
                 ]
             },
             "Equipment": {
                 "content": [
                     "You start with the following equipment, in addition to the equipment granted by your background:",
                     [
-                        "(*a*) a mace or (*b*) a warhammer (if proficient)",
-                        "(*a*) scale mail, (*b*) leather armor, or (*c*) chain mail (if proficient)",
-                        "(*a*) a light crossbow and 20 bolts or (*b*) any simple weapon",
-                        "(*a*) a priest’s pack or (*b*) an explorer’s pack",
+                        "(<i>a</i>) a mace or (<i>b</i>) a warhammer (if proficient)",
+                        "(<i>a</i>) scale mail, (<i>b</i>) leather armor, or (<i>c</i>) chain mail (if proficient)",
+                        "(<i>a</i>) a light crossbow and 20 bolts or (<i>b</i>) any simple weapon",
+                        "(<i>a</i>) a priest’s pack or (<i>b</i>) an explorer’s pack",
                         "A shield and a holy symbol"
                     ]
                 ]
             },
             "The Cleric": {
                 "content": [
-                    "**Proficiency Cantrips** ̶**Spell Slots per Spell Level**̶",
+                    "<b>Proficiency Cantrips</b> ̶</b>Spell Slots per Spell Level</b>̶",
                     {
                         "table": {
                             "Level": [
@@ -964,8 +966,8 @@
                 "Spellcasting Ability": {
                     "content": [
                         "Wisdom is your spellcasting ability for your cleric spells. The power of your spells comes from your devotion to your deity. You use your Wisdom whenever a cleric spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a cleric spell you cast and when making an attack roll with one.",
-                        "**Spell save DC** = 8 + your proficiency bonus + your Wisdom modifier",
-                        "**Spell attack modifier** = your proficiency bonus + your Wisdom modifier"
+                        "<b>Spell save DC</b> = 8 + your proficiency bonus + your Wisdom modifier",
+                        "<b>Spell attack modifier</b> = your proficiency bonus + your Wisdom modifier"
                     ]
                 },
                 "Ritual Casting": "You can cast a cleric spell as a ritual if that spell has the ritual tag and you have the spell prepared.",
@@ -1064,18 +1066,18 @@
             "content": "As a druid, you gain the following class features.",
             "Hit Points": {
                 "content": [
-                    "**Hit Dice:** 1d8 per druid level",
-                    "**Hit Points at 1st Level:** 8 + your Constitution modifier",
-                    "**Hit Points at Higher Levels:** 1d8 (or 5) + your Constitution modifier per druid level after 1st"
+                    "<b>Hit Dice:</b> 1d8 per druid level",
+                    "<b>Hit Points at 1st Level:</b> 8 + your Constitution modifier",
+                    "<b>Hit Points at Higher Levels:</b> 1d8 (or 5) + your Constitution modifier per druid level after 1st"
                 ]
             },
             "Proficiencies": {
                 "content": [
-                    "**Armor:** Light armor, medium armor, shields (druids will not wear armor or use shields made of metal)",
-                    "**Weapons:** Clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears",
-                    "**Tools:** Herbalism kit",
-                    "**Saving Throws:** Intelligence, Wisdom",
-                    "**Skills:** Choose two from Arcana, Animal Handling,",
+                    "<b>Armor:</b> Light armor, medium armor, shields (druids will not wear armor or use shields made of metal)",
+                    "<b>Weapons:</b> Clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears",
+                    "<b>Tools:</b> Herbalism kit",
+                    "<b>Saving Throws:</b> Intelligence, Wisdom",
+                    "<b>Skills:</b> Choose two from Arcana, Animal Handling,",
                     "Insight, Medicine, Nature, Perception, Religion, and Survival"
                 ]
             },
@@ -1083,8 +1085,8 @@
                 "content": [
                     "You start with the following equipment, in addition to the equipment granted by your background:",
                     [
-                        "(*a*) a wooden shield or (*b*) any simple weapon",
-                        "(*a*) a scimitar or (*b*) any simple melee weapon",
+                        "(<i>a</i>) a wooden shield or (<i>b</i>) any simple weapon",
+                        "(<i>a</i>) a scimitar or (<i>b</i>) any simple melee weapon",
                         "Leather armor, an explorer’s pack, and a druidic focus"
                     ]
                 ]
@@ -1394,8 +1396,8 @@
 				"Spellcasting Ability": {
                     "content": [
                         "Wisdom is your spellcasting ability for your druid spells, since your magic draws upon your devotion and attunement to nature. You use your Wisdom whenever a spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a druid spell you cast and when making an attack roll with one.",
-                        "**Spell save DC** = 8 + your proficiency bonus + your Wisdom modifier",
-                        "**Spell attack modifier** = your proficiency bonus + your Wisdom modifier"
+                        "<b>Spell save DC</b> = 8 + your proficiency bonus + your Wisdom modifier",
+                        "<b>Spell attack modifier</b> = your proficiency bonus + your Wisdom modifier"
                     ]
                 },
 				"Ritual Casting": "You can cast a druid spell as a ritual if that spell has the ritual tag and you have the spell prepared.",
@@ -1606,18 +1608,18 @@
             "content": "As a fighter, you gain the following class features.",
             "Hit Points": {
                 "content": [
-                    "**Hit Dice:** 1d10 per fighter level",
-                    "**Hit Points at 1st Level:** 10 + your Constitution modifier",
-                    "**Hit Points at Higher Levels:** 1d10 (or 6) + your Constitution modifier per fighter level after 1st"
+                    "<b>Hit Dice:</b> 1d10 per fighter level",
+                    "<b>Hit Points at 1st Level:</b> 10 + your Constitution modifier",
+                    "<b>Hit Points at Higher Levels:</b> 1d10 (or 6) + your Constitution modifier per fighter level after 1st"
                 ]
             },
             "Proficiencies": {
                 "content": [
-                    "**Armor:** All armor, shields",
-                    "**Weapons:** Simple weapons, martial weapons",
-                    "**Tools:** None",
-                    "**Saving Throws:** Strength, Constitution",
-                    "**Skills:** Choose two skills from Acrobatics, Animal",
+                    "<b>Armor:</b> All armor, shields",
+                    "<b>Weapons:</b> Simple weapons, martial weapons",
+                    "<b>Tools:</b> None",
+                    "<b>Saving Throws:</b> Strength, Constitution",
+                    "<b>Skills:</b> Choose two skills from Acrobatics, Animal",
                     "Handling, Athletics, History, Insight, Intimidation, Perception, and Survival"
                 ]
             },
@@ -1625,10 +1627,10 @@
                 "content": [
                     "You start with the following equipment, in addition to the equipment granted by your background:",
                     [
-                        "(*a*) chain mail or (*b*) leather armor, longbow, and 20 arrows",
-                        "(*a*) a martial weapon and a shield or (*b*) two martial weapons",
-                        "(*a*) a light crossbow and 20 bolts or (*b*) two handaxes",
-                        "(*a*) a dungeoneer’s pack or (*b*) an explorer’s pack"
+                        "(<i>a</i>) chain mail or (<i>b</i>) leather armor, longbow, and 20 arrows",
+                        "(<i>a</i>) a martial weapon and a shield or (<i>b</i>) two martial weapons",
+                        "(<i>a</i>) a light crossbow and 20 bolts or (<i>b</i>) two handaxes",
+                        "(<i>a</i>) a dungeoneer’s pack or (<i>b</i>) an explorer’s pack"
                     ]
                 ]
             },
@@ -1755,18 +1757,18 @@
             "content": "As a monk, you gain the following class features.",
             "Hit Points": {
                 "content": [
-                    "**Hit Dice:** 1d8 per monk level",
-                    "**Hit Points at 1st Level:** 8 + your Constitution modifier",
-                    "**Hit Points at Higher Levels:** 1d8 (or 5) + your Constitution modifier per monk level after 1st"
+                    "<b>Hit Dice:</b> 1d8 per monk level",
+                    "<b>Hit Points at 1st Level:</b> 8 + your Constitution modifier",
+                    "<b>Hit Points at Higher Levels:</b> 1d8 (or 5) + your Constitution modifier per monk level after 1st"
                 ]
             },
             "Proficiencies": {
                 "content": [
-                    "**Armor:** None",
-                    "**Weapons:** Simple weapons, shortswords",
-                    "**Tools:** Choose one type of artisan’s tools or one musical instrument",
-                    "**Saving Throws:** Strength, Dexterity",
-                    "**Skills:** Choose two from Acrobatics, Athletics,",
+                    "<b>Armor:</b> None",
+                    "<b>Weapons:</b> Simple weapons, shortswords",
+                    "<b>Tools:</b> Choose one type of artisan’s tools or one musical instrument",
+                    "<b>Saving Throws:</b> Strength, Dexterity",
+                    "<b>Skills:</b> Choose two from Acrobatics, Athletics,",
                     "History, Insight, Religion, and Stealth"
                 ]
             },
@@ -1774,8 +1776,8 @@
                 "content": [
                     "You start with the following equipment, in addition to the equipment granted by your background:",
                     [
-                        "(*a*) a shortsword or (*b*) any simple weapon",
-                        "(*a*) a dungeoneer’s pack or (*b*) an explorer’s pack",
+                        "(<i>a</i>) a shortsword or (<i>b</i>) any simple weapon",
+                        "(<i>a</i>) a dungeoneer’s pack or (<i>b</i>) an explorer’s pack",
                         "10 darts"
                     ]
                 ]
@@ -1935,7 +1937,7 @@
                     "You can spend these points to fuel various ki features. You start knowing three such features: Flurry of Blows, Patient Defense, and Step of the Wind. You learn more ki features as you gain levels in this class.",
                     "When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You must spend at least 30 minutes of the rest meditating to regain your ki points.",
                     "Some of your ki features require your target to make a saving throw to resist the feature’s effects. The saving throw DC is calculated as follows:",
-                    "**Ki save DC** = 8 + your proficiency bonus + your Wisdom modifier"
+                    "<b>Ki save DC</b> = 8 + your proficiency bonus + your Wisdom modifier"
                 ],
                 "Flurry of Blows": "Immediately after you take the Attack action on your turn, you can spend 1 ki point to make two unarmed strikes as a bonus action.",
                 "Patient Defense": "You can spend 1 ki point to take the Dodge action as a bonus action on your turn.",
@@ -2008,27 +2010,27 @@
             "content": "As a paladin, you gain the following class features.",
             "Hit Points": {
                 "content": [
-                    "**Hit Dice:** 1d10 per paladin level",
-                    "**Hit Points at 1st Level:** 10 + your Constitution modifier",
-                    "**Hit Points at Higher Levels:** 1d10 (or 6) + your Constitution modifier per paladin level after 1st"
+                    "<b>Hit Dice:</b> 1d10 per paladin level",
+                    "<b>Hit Points at 1st Level:</b> 10 + your Constitution modifier",
+                    "<b>Hit Points at Higher Levels:</b> 1d10 (or 6) + your Constitution modifier per paladin level after 1st"
                 ]
             },
             "Proficiencies": {
                 "content": [
-                    "**Armor:** All armor, shields",
-                    "**Weapons:** Simple weapons, martial weapons",
-                    "**Tools:** None",
-                    "**Saving Throws:** Wisdom, Charisma",
-                    "**Skills:** Choose two from Athletics, Insight, Intimidation, Medicine, Persuasion, and Religion"
+                    "<b>Armor:</b> All armor, shields",
+                    "<b>Weapons:</b> Simple weapons, martial weapons",
+                    "<b>Tools:</b> None",
+                    "<b>Saving Throws:</b> Wisdom, Charisma",
+                    "<b>Skills:</b> Choose two from Athletics, Insight, Intimidation, Medicine, Persuasion, and Religion"
                 ]
             },
             "Equipment": {
                 "content": [
                     "You start with the following equipment, in addition to the equipment granted by your background:",
                     [
-                        "(*a*) a martial weapon and a shield or (*b*) two martial weapons",
-                        "(*a*) five javelins or (*b*) any simple melee weapon",
-                        "(*a*) a priest’s pack or (*b*) an explorer’s pack",
+                        "(<i>a</i>) a martial weapon and a shield or (<i>b</i>) two martial weapons",
+                        "(<i>a</i>) five javelins or (<i>b</i>) any simple melee weapon",
+                        "(<i>a</i>) a priest’s pack or (<i>b</i>) an explorer’s pack",
                         "Chain mail and a holy symbol"
                     ]
                 ]
@@ -2248,8 +2250,8 @@
                 "Spellcasting Ability": {
                     "content": [
                         "Charisma is your spellcasting ability for your paladin spells, since their power derives from the strength of your convictions. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a paladin spell you cast and when making an attack roll with one.",
-                        "**Spell save DC** = 8 + your proficiency bonus + your Charisma modifier",
-                        "**Spell attack modifier** = your proficiency bonus + your Charisma modifier"
+                        "<b>Spell save DC</b> = 8 + your proficiency bonus + your Charisma modifier",
+                        "<b>Spell attack modifier</b> = your proficiency bonus + your Charisma modifier"
                     ]
                 },
                 "Spellcasting Focus": "You can use a holy symbol as a spellcasting focus for your paladin spells."
@@ -2304,11 +2306,11 @@
                 "Tenets of Devotion": {
                     "content": [
                         "Though the exact words and strictures of the Oath of Devotion vary, paladins of this oath share these tenets.",
-                        "***Honesty.*** Don’t lie or cheat. Let your word be your promise.",
-                        "***Courage.*** Never fear to act, though caution is wise.",
-                        "***Compassion.*** Aid others, protect the weak, and punish those who threaten them. Show mercy to your foes, but temper it with wisdom.",
-                        "***Honor.*** Treat others with fairness, and let your honorable deeds be an example to them. Do as much good as possible while causing the least amount of harm.",
-                        "***Duty.*** Be responsible for your actions and their consequences, protect those entrusted to your care, and obey those who have just authority over you."
+                        "<b>Honesty.</b> Don’t lie or cheat. Let your word be your promise.",
+                        "<b>Courage.</b> Never fear to act, though caution is wise.",
+                        "<b>Compassion.</b> Aid others, protect the weak, and punish those who threaten them. Show mercy to your foes, but temper it with wisdom.",
+                        "<b>Honor.</b> Treat others with fairness, and let your honorable deeds be an example to them. Do as much good as possible while causing the least amount of harm.",
+                        "<b>Duty.</b> Be responsible for your actions and their consequences, protect those entrusted to your care, and obey those who have just authority over you."
                     ]
                 },
                 "Oath Spells": {
@@ -2335,9 +2337,9 @@
                 "Channel Divinity": {
                     "content": [
                         "When you take this oath at 3rd level, you gain the following two Channel Divinity options.",
-                        "***Sacred Weapon.*** As an action, you can imbue one weapon that you are holding with positive energy, using your Channel Divinity. For 1 minute, you add your Charisma modifier to attack rolls made with that weapon (with a minimum bonus of +1). The weapon also emits bright light in a 20-foot radius and dim light 20 feet beyond that. If the weapon is not already magical, it becomes magical for the duration.",
+                        "<b>Sacred Weapon.</b> As an action, you can imbue one weapon that you are holding with positive energy, using your Channel Divinity. For 1 minute, you add your Charisma modifier to attack rolls made with that weapon (with a minimum bonus of +1). The weapon also emits bright light in a 20-foot radius and dim light 20 feet beyond that. If the weapon is not already magical, it becomes magical for the duration.",
                         "You can end this effect on your turn as part of any other action. If you are no longer holding or carrying this weapon, or if you fall unconscious, this effect ends.",
-                        "***Turn the Unholy.*** As an action, you present your holy symbol and speak a prayer censuring fiends and undead, using your Channel Divinity. Each fiend or undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes damage.",
+                        "<b>Turn the Unholy.</b> As an action, you present your holy symbol and speak a prayer censuring fiends and undead, using your Channel Divinity. Each fiend or undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes damage.",
                         "A turned creature must spend its turns trying to move as far away from you as it can, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action."
                     ]
                 },
@@ -2371,27 +2373,27 @@
             "content": "As a ranger, you gain the following class features.",
             "Hit Points": {
                 "content": [
-                    "**Hit Dice:** 1d10 per ranger level",
-                    "**Hit Points at 1st Level:** 10 + your Constitution modifier",
-                    "**Hit Points at Higher Levels:** 1d10 (or 6) + your Constitution modifier per ranger level after 1st"
+                    "<b>Hit Dice:</b> 1d10 per ranger level",
+                    "<b>Hit Points at 1st Level:</b> 10 + your Constitution modifier",
+                    "<b>Hit Points at Higher Levels:</b> 1d10 (or 6) + your Constitution modifier per ranger level after 1st"
                 ]
             },
             "Proficiencies": {
                 "content": [
-                    "**Armor:** Light armor, medium armor, shields",
-                    "**Weapons:** Simple weapons, martial weapons",
-                    "**Tools:** None",
-                    "**Saving Throws:** Strength, Dexterity",
-                    "**Skills:** Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival"
+                    "<b>Armor:</b> Light armor, medium armor, shields",
+                    "<b>Weapons:</b> Simple weapons, martial weapons",
+                    "<b>Tools:</b> None",
+                    "<b>Saving Throws:</b> Strength, Dexterity",
+                    "<b>Skills:</b> Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival"
                 ]
             },
             "Equipment": {
                 "content": [
                     "You start with the following equipment, in addition to the equipment granted by your background:",
                     [
-                        "(*a*) scale mail or (*b*) leather armor",
-                        "(*a*) two shortswords or (*b*) two simple melee weapons",
-                        "(*a*) a dungeoneer’s pack or (*b*) an explorer’s pack",
+                        "(<i>a</i>) scale mail or (<i>b</i>) leather armor",
+                        "(<i>a</i>) two shortswords or (<i>b</i>) two simple melee weapons",
+                        "(<i>a</i>) a dungeoneer’s pack or (<i>b</i>) an explorer’s pack",
                         "A longbow and a quiver of 20 arrows"
                     ]
                 ]
@@ -2647,8 +2649,8 @@
                 "Spellcasting Ability": {
                     "content": [
                         "Wisdom is your spellcasting ability for your ranger spells, since your magic draws on your attunement to nature. You use your Wisdom whenever a spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a ranger spell you cast and when making an attack roll with one.",
-                        "**Spell save DC** = 8 + your proficiency bonus + your Wisdom modifier",
-                        "**Spell attack modifier** = your proficiency bonus + your Wisdom modifier"
+                        "<b>Spell save DC</b> = 8 + your proficiency bonus + your Wisdom modifier",
+                        "<b>Spell attack modifier</b> = your proficiency bonus + your Wisdom modifier"
                     ]
                 }
             },
@@ -2684,32 +2686,32 @@
                 "Hunters Prey": {
                     "content": [
                         "At 3rd level, you gain one of the following features of your choice.",
-                        "***Colossus Slayer.*** Your tenacity can wear down the most potent foes. When you hit a creature with a weapon attack, the creature takes an extra 1d8 damage if it’s below its hit point maximum. You can deal this extra damage only once per turn.",
-                        "***Giant Killer.*** When a Large or larger creature within 5 feet of you hits or misses you with an attack, you can use your reaction to attack that creature immediately after its attack, provided that you can see the creature.",
-                        "***Horde Breaker.*** Once on each of your turns when you make a weapon attack, you can make another attack with the same weapon against a different creature that is within 5 feet of the original target and within range of your weapon."
+                        "<b>Colossus Slayer.</b> Your tenacity can wear down the most potent foes. When you hit a creature with a weapon attack, the creature takes an extra 1d8 damage if it’s below its hit point maximum. You can deal this extra damage only once per turn.",
+                        "<b>Giant Killer.</b> When a Large or larger creature within 5 feet of you hits or misses you with an attack, you can use your reaction to attack that creature immediately after its attack, provided that you can see the creature.",
+                        "<b>Horde Breaker.</b> Once on each of your turns when you make a weapon attack, you can make another attack with the same weapon against a different creature that is within 5 feet of the original target and within range of your weapon."
                     ]
                 },
                 "Defensive Tactics": {
                     "content": [
                         "At 7th level, you gain one of the following features of your choice.",
-                        "***Escape the Horde.*** Opportunity attacks against you are made with disadvantage.",
-                        "***Multiattack Defense.*** When a creature hits you with an attack, you gain a +4 bonus to AC against all subsequent attacks made by that creature for the rest of the turn.",
-                        "***Steel Will.*** You have advantage on saving throws against being frightened."
+                        "<b>Escape the Horde.</b> Opportunity attacks against you are made with disadvantage.",
+                        "<b>Multiattack Defense.</b> When a creature hits you with an attack, you gain a +4 bonus to AC against all subsequent attacks made by that creature for the rest of the turn.",
+                        "<b>Steel Will.</b> You have advantage on saving throws against being frightened."
                     ]
                 },
                 "Multiattack": {
                     "content": [
                         "At 11th level, you gain one of the following features of your choice.",
-                        "***Volley.*** You can use your action to make a ranged attack against any number of creatures within 10 feet of a point you can see within your weapon’s range. You must have ammunition for each target, as normal, and you make a separate attack roll for each target.",
-                        "***Whirlwind Attack.*** You can use your action to make a melee attack against any number of creatures within 5 feet of you, with a separate attack roll for each target."
+                        "<b>Volley.</b> You can use your action to make a ranged attack against any number of creatures within 10 feet of a point you can see within your weapon’s range. You must have ammunition for each target, as normal, and you make a separate attack roll for each target.",
+                        "<b>Whirlwind Attack.</b> You can use your action to make a melee attack against any number of creatures within 5 feet of you, with a separate attack roll for each target."
                     ]
                 },
                 "Superior Hunters Defense": {
                     "content": [
                         "At 15th level, you gain one of the following features of your choice.",
-                        "***Evasion.*** When you are subjected to an effect, such as a red dragon’s fiery breath or a *lightning bolt* spell, that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.",
-                        "***Stand Against the Tide.*** When a hostile creature misses you with a melee attack, you can use your reaction to force that creature to repeat the same attack against another creature (other than itself) of your choice.",
-                        "***Uncanny Dodge.*** When an attacker that you can see hits you with an attack, you can use your reaction to halve the attack’s damage against you."
+                        "<b>Evasion.</b> When you are subjected to an effect, such as a red dragon’s fiery breath or a *lightning bolt* spell, that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.",
+                        "<b>Stand Against the Tide.</b> When a hostile creature misses you with a melee attack, you can use your reaction to force that creature to repeat the same attack against another creature (other than itself) of your choice.",
+                        "<b>Uncanny Dodge.</b> When an attacker that you can see hits you with an attack, you can use your reaction to halve the attack’s damage against you."
                     ]
                 }
             }
@@ -2720,28 +2722,28 @@
             "content": "As a rogue, you have the following class features.",
             "Hit Points": {
                 "content": [
-                    "**Hit Dice:** 1d8 per rogue level",
-                    "**Hit Points at 1st Level:** 8 + your Constitution modifier",
-                    "**Hit Points at Higher Levels:** 1d8 (or 5) + your Constitution modifier per rogue level after 1st"
+                    "<b>Hit Dice:</b> 1d8 per rogue level",
+                    "<b>Hit Points at 1st Level:</b> 8 + your Constitution modifier",
+                    "<b>Hit Points at Higher Levels:</b> 1d8 (or 5) + your Constitution modifier per rogue level after 1st"
                 ]
             },
             "Proficiencies": {
                 "content": [
-                    "**Armor:** Light armor",
-                    "**Weapons:** Simple weapons, hand crossbows, longswords, rapiers, shortswords",
-                    "**Tools:** Thieves’ tools",
-                    "**Saving Throws:** Dexterity, Intelligence",
-                    "**Skills:** Choose four from Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, and Stealth"
+                    "<b>Armor:</b> Light armor",
+                    "<b>Weapons:</b> Simple weapons, hand crossbows, longswords, rapiers, shortswords",
+                    "<b>Tools:</b> Thieves’ tools",
+                    "<b>Saving Throws:</b> Dexterity, Intelligence",
+                    "<b>Skills:</b> Choose four from Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, and Stealth"
                 ]
             },
             "Equipment": {
                 "content": [
                     "You start with the following equipment, in addition to the equipment granted by your background:",
                     [
-                        "(*a*) a rapier or (*b*) a shortsword",
-                        "(*a*) a shortbow and quiver of 20 arrows or (*b*) a shortsword",
-                        "(*a*) a burglar’s pack, (*b*) a dungeoneer’s pack, or (*c*) an explorer’s pack",
-                        "(*a*) Leather armor, two daggers, and thieves’ tools"
+                        "(<i>a</i>) a rapier or (<i>b</i>) a shortsword",
+                        "(<i>a</i>) a shortbow and quiver of 20 arrows or (<i>b</i>) a shortsword",
+                        "(<i>a</i>) a burglar’s pack, (<i>b</i>) a dungeoneer’s pack, or (<i>c</i>) an explorer’s pack",
+                        "(<i>a</i>) Leather armor, two daggers, and thieves’ tools"
                     ]
                 ]
             },
@@ -2898,18 +2900,18 @@
             "content": "As a sorcerer, you gain the following class features.",
             "Hit Points": {
                 "content": [
-                    "**Hit Dice:** 1d6 per sorcerer level",
-                    "**Hit Points at 1st Level:** 6 + your Constitution modifier",
-                    "**Hit Points at Higher Levels:** 1d6 (or 4) + your Constitution modifier per sorcerer level after 1st"
+                    "<b>Hit Dice:</b> 1d6 per sorcerer level",
+                    "<b>Hit Points at 1st Level:</b> 6 + your Constitution modifier",
+                    "<b>Hit Points at Higher Levels:</b> 1d6 (or 4) + your Constitution modifier per sorcerer level after 1st"
                 ]
             },
             "Proficiencies": {
                 "content": [
-                    "**Armor:** None",
-                    "**Weapons:** Daggers, darts, slings, quarterstaffs, light crossbows",
-                    "**Tools:** None",
-                    "**Saving Throws:** Constitution, Charisma",
-                    "**Skills:** Choose two from Arcana, Deception, Insight,",
+                    "<b>Armor:</b> None",
+                    "<b>Weapons:</b> Daggers, darts, slings, quarterstaffs, light crossbows",
+                    "<b>Tools:</b> None",
+                    "<b>Saving Throws:</b> Constitution, Charisma",
+                    "<b>Skills:</b> Choose two from Arcana, Deception, Insight,",
                     "Intimidation, Persuasion, and Religion"
                 ]
             },
@@ -2917,9 +2919,9 @@
                 "content": [
                     "You start with the following equipment, in addition to the equipment granted by your background:",
                     [
-                        "(*a*) a light crossbow and 20 bolts or (*b*) any simple weapon",
-                        "(*a*) a component pouch or (*b*) an arcane focus",
-                        "(*a*) a dungeoneer’s pack or (*b*) an explorer’s pack",
+                        "(<i>a</i>) a light crossbow and 20 bolts or (<i>b</i>) any simple weapon",
+                        "(<i>a</i>) a component pouch or (<i>b</i>) an arcane focus",
+                        "(<i>a</i>) a dungeoneer’s pack or (<i>b</i>) an explorer’s pack",
                         "Two daggers"
                     ]
                 ]
@@ -3277,8 +3279,8 @@
                 "Spellcasting Ability": {
                     "content": [
                         "Charisma is your spellcasting ability for your sorcerer spells, since the power of your magic relies on your ability to project your will into the world. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a sorcerer spell you cast and when making an attack roll with one.",
-                        "**Spell save DC** = 8 + your proficiency bonus + your Charisma modifier",
-                        "**Spell attack modifier** = your proficiency bonus + your Charisma modifier"
+                        "<b>Spell save DC</b> = 8 + your proficiency bonus + your Charisma modifier",
+                        "<b>Spell attack modifier</b> = your proficiency bonus + your Charisma modifier"
                     ]
                 },
                 "Spellcasting Focus": "You can use an arcane focus as a spellcasting focus for your sorcerer spells."
@@ -3295,7 +3297,7 @@
                 "Flexible Casting": {
                     "content": [
                         "You can use your sorcery points to gain additional spell slots, or sacrifice spell slots to gain additional sorcery points. You learn other ways to use your sorcery points as you reach higher levels.",
-                        "***Creating Spell Slots.*** You can transform unexpended sorcery points into one spell slot as a bonus action on your turn. The Creating Spell Slots table shows the cost of creating a spell slot of a given level. You can create spell slots no higher in level than 5th.",
+                        "<b>Creating Spell Slots.</b> You can transform unexpended sorcery points into one spell slot as a bonus action on your turn. The Creating Spell Slots table shows the cost of creating a spell slot of a given level. You can create spell slots no higher in level than 5th.",
                         "Any spell slot you create with this feature vanishes when you finish a long rest."
                     ],
                     "Creating Spell Slots": {
@@ -3318,7 +3320,7 @@
                                     ]
                                 }
                             },
-                            "***Converting a Spell Slot to Sorcery Points.*** As a bonus action on your turn, you can expend one spell slot and gain a number of sorcery points equal to the slot’s level."
+                            "<b>Converting a Spell Slot to Sorcery Points.</b> As a bonus action on your turn, you can expend one spell slot and gain a number of sorcery points equal to the slot’s level."
                         ]
                     }
                 }
@@ -3417,27 +3419,27 @@
             "content": "As a warlock, you gain the following class features.",
             "Hit Points": {
                 "content": [
-                    "**Hit Dice:** 1d8 per warlock level",
-                    "**Hit Points at 1st Level:** 8 + your Constitution modifier",
-                    "**Hit Points at Higher Levels:** 1d8 (or 5) + your Constitution modifier per warlock level after 1st"
+                    "<b>Hit Dice:</b> 1d8 per warlock level",
+                    "<b>Hit Points at 1st Level:</b> 8 + your Constitution modifier",
+                    "<b>Hit Points at Higher Levels:</b> 1d8 (or 5) + your Constitution modifier per warlock level after 1st"
                 ]
             },
             "Proficiencies": {
                 "content": [
-                    "**Armor:** Light armor",
-                    "**Weapons:** Simple weapons",
-                    "**Tools:** None",
-                    "**Saving Throws:** Wisdom, Charisma",
-                    "**Skills:** Choose two skills from Arcana, Deception, History, Intimidation, Investigation, Nature, and Religion"
+                    "<b>Armor:</b> Light armor",
+                    "<b>Weapons:</b> Simple weapons",
+                    "<b>Tools:</b> None",
+                    "<b>Saving Throws:</b> Wisdom, Charisma",
+                    "<b>Skills:</b> Choose two skills from Arcana, Deception, History, Intimidation, Investigation, Nature, and Religion"
                 ]
             },
             "Equipment": {
                 "content": [
                     "You start with the following equipment, in addition to the equipment granted by your background:",
                     [
-                        "*(a)* a light crossbow and 20 bolts or (*b*) any simple weapon",
-                        "*(a)* a component pouch or (*b*) an arcane focus",
-                        "*(a)* a scholar’s pack or (*b*) a dungeoneer’s pack",
+                        "(<i>a</i>) a light crossbow and 20 bolts or (<i>b</i>) any simple weapon",
+                        "(<i>a</i>) a component pouch or (<i>b</i>) an arcane focus",
+                        "(<i>a</i>) a scholar’s pack or (<i>b</i>) a dungeoneer’s pack",
                         "Leather armor, any simple weapon, and two daggers"
                     ]
                 ]
@@ -3642,8 +3644,8 @@
                 "Spellcasting Ability": {
                     "content": [
                         "Charisma is your spellcasting ability for your warlock spells, so you use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a warlock spell you cast and when making an attack roll with one.",
-                        "**Spell save DC** = 8 + your proficiency bonus + your Charisma modifier",
-                        "**Spell attack modifier** = your proficiency bonus + your Charisma modifier"
+                        "<b>Spell save DC</b> = 8 + your proficiency bonus + your Charisma modifier",
+                        "<b>Spell attack modifier</b> = your proficiency bonus + your Charisma modifier"
                     ]
                 },
                 "Spellcasting Focus": "You can use an arcane focus as a spellcasting focus for your warlock spells."
@@ -3876,9 +3878,9 @@
             "Your Pact Boon": {
                 "content": [
                     "Each Pact Boon option produces a special creature or an object that reflects your patron’s nature.",
-                    "***Pact of the Chain.*** Your familiar is more cunning than a typical familiar. Its default form can be a reflection of your patron, with sprites and pseudodragons tied to the Archfey and imps and quasits tied to the Fiend. Because the Great Old One’s nature is inscrutable, any familiar form is suitable for it.",
-                    "***Pact of the Blade.*** If your patron is the Archfey, your weapon might be a slender blade wrapped in leafy vines. If you serve the Fiend, your weapon could be an axe made of black metal and adorned with decorative flames. If your patron is the Great Old One, your weapon might be an ancient-looking spear, with a gemstone embedded in its head, carved to look like a terrible unblinking eye.",
-                    "***Pact of the Tome.*** Your Book of Shadows might be a fine, gilt-edged tome with spells of enchantment and illusion, gifted to you by the lordly Archfey. It could be a weighty tome bound in demon hide studded with iron, holding spells of conjuration and a wealth of forbidden lore about the sinister regions of the cosmos, a gift of the Fiend. Or it could be the tattered diary of a lunatic driven mad by contact with the Great Old One, holding scraps of spells that only your own burgeoning insanity allows you to understand and cast."
+                    "<b>Pact of the Chain.</b> Your familiar is more cunning than a typical familiar. Its default form can be a reflection of your patron, with sprites and pseudodragons tied to the Archfey and imps and quasits tied to the Fiend. Because the Great Old One’s nature is inscrutable, any familiar form is suitable for it.",
+                    "<b>Pact of the Blade.</b> If your patron is the Archfey, your weapon might be a slender blade wrapped in leafy vines. If you serve the Fiend, your weapon could be an axe made of black metal and adorned with decorative flames. If your patron is the Great Old One, your weapon might be an ancient-looking spear, with a gemstone embedded in its head, carved to look like a terrible unblinking eye.",
+                    "<b>Pact of the Tome.</b> Your Book of Shadows might be a fine, gilt-edged tome with spells of enchantment and illusion, gifted to you by the lordly Archfey. It could be a weighty tome bound in demon hide studded with iron, holding spells of conjuration and a wealth of forbidden lore about the sinister regions of the cosmos, a gift of the Fiend. Or it could be the tattered diary of a lunatic driven mad by contact with the Great Old One, holding scraps of spells that only your own burgeoning insanity allows you to understand and cast."
                 ]
             }
         }
@@ -3888,27 +3890,27 @@
             "content": "As a wizard, you gain the following class features.",
             "Hit Points": {
                 "content": [
-                    "**Hit Dice:** 1d6 per wizard level",
-                    "**Hit Points at 1st Level:** 6 + your Constitution modifier",
-                    "**Hit Points at Higher Levels:** 1d6 (or 4) + your Constitution modifier per wizard level after 1st"
+                    "<b>Hit Dice:</b> 1d6 per wizard level",
+                    "<b>Hit Points at 1st Level:</b> 6 + your Constitution modifier",
+                    "<b>Hit Points at Higher Levels:</b> 1d6 (or 4) + your Constitution modifier per wizard level after 1st"
                 ]
             },
             "Proficiencies": {
                 "content": [
-                    "**Armor:** None",
-                    "**Weapons:** Daggers, darts, slings, quarterstaffs, light crossbows",
-                    "**Tools:** None",
-                    "**Saving Throws:** Intelligence, Wisdom",
-                    "**Skills:** Choose two from Arcana, History, Insight, Investigation, Medicine, and Religion"
+                    "<b>Armor:</b> None",
+                    "<b>Weapons:</b> Daggers, darts, slings, quarterstaffs, light crossbows",
+                    "<b>Tools:</b> None",
+                    "<b>Saving Throws:</b> Intelligence, Wisdom",
+                    "<b>Skills:</b> Choose two from Arcana, History, Insight, Investigation, Medicine, and Religion"
                 ]
             },
             "Equipment": {
                 "content": [
                     "You start with the following equipment, in addition to the equipment granted by your background:",
                     [
-                        "*(a)* a quarterstaff or (*b*) a dagger",
-                        "*(a)* a component pouch or (*b*) an arcane focus",
-                        "*(a)* a scholar’s pack or (*b*) an explorer’s pack",
+                        "(<i>a</i>) a quarterstaff or (<i>b</i>) a dagger",
+                        "(<i>a</i>) a component pouch or (<i>b</i>) an arcane focus",
+                        "(<i>a</i>) a scholar’s pack or (<i>b</i>) an explorer’s pack",
                         "A spellbook"
                     ]
                 ]
@@ -4218,8 +4220,8 @@
                 "Spellcasting Ability": {
                     "content": [
                         "Intelligence is your spellcasting ability for your wizard spells, since you learn your spells through dedicated study and memorization. You use your Intelligence whenever a spell refers to your spellcasting ability. In addition, you use your Intelligence modifier when setting the saving throw DC for a wizard spell you cast and when making an attack roll with one.",
-                        "**Spell save DC** = 8 + your proficiency bonus + your Intelligence modifier",
-                        "**Spell attack modifier** = your proficiency bonus + your Intelligence modifier"
+                        "<b>Spell save DC</b> = 8 + your proficiency bonus + your Intelligence modifier",
+                        "<b>Spell attack modifier</b> = your proficiency bonus + your Intelligence modifier"
                     ]
                 },
                 "Ritual Casting": "You can cast a wizard spell as a ritual if that spell has the ritual tag and you have the spell in your spellbook. You don’t need to have the spell prepared.",
@@ -4273,12 +4275,12 @@
             "Your Spellbook": {
                 "content": [
                     "The spells that you add to your spellbook as you gain levels reflect the arcane research you conduct on your own, as well as intellectual breakthroughs you have had about the nature of the multiverse. You might find other spells during your adventures. You could discover a spell recorded on a scroll in an evil wizard’s chest, for example, or in a dusty tome in an ancient library.",
-                    "***Copying a Spell into the Book.*** When you find a wizard spell of 1st level or higher, you can add it to your spellbook if it is of a spell level you can prepare and if you can spare the time to decipher and copy it.",
+                    "<b>Copying a Spell into the Book.</b> When you find a wizard spell of 1st level or higher, you can add it to your spellbook if it is of a spell level you can prepare and if you can spare the time to decipher and copy it.",
                     "Copying that spell into your spellbook involves reproducing the basic form of the spell, then deciphering the unique system of notation used by the wizard who wrote it. You must practice the spell until you understand the sounds or gestures required, then transcribe it into your spellbook using your own notation.",
                     "For each level of the spell, the process takes 2 hours and costs 50 gp. The cost represents material components you expend as you experiment with the spell to master it, as well as the fine inks you need to record it. Once you have spent this time and money, you can prepare the spell just like your other spells.",
-                    "***Replacing the Book.*** You can copy a spell from your own spellbook into another book—for example, if you want to make a backup copy of your spellbook. This is just like copying a new spell into your spellbook, but faster and easier, since you understand your own notation and already know how to cast the spell. You need spend only 1 hour and 10 gp for each level of the copied spell.",
+                    "<b>Replacing the Book.</b> You can copy a spell from your own spellbook into another book—for example, if you want to make a backup copy of your spellbook. This is just like copying a new spell into your spellbook, but faster and easier, since you understand your own notation and already know how to cast the spell. You need spend only 1 hour and 10 gp for each level of the copied spell.",
                     "If you lose your spellbook, you can use the same procedure to transcribe the spells that you have prepared into a new spellbook. Filling out the remainder of your spellbook requires you to find new spells to do so, as normal. For this reason, many wizards keep backup spellbooks in a safe place.",
-                    "***The Book’s Appearance.*** Your spellbook is a unique compilation of spells, with its own decorative flourishes and margin notes. It might be a plain, functional leather volume that you received as a gift from your master, a finely bound gilt-edged tome you found in an ancient library, or even a loose collection of notes scrounged together after you lost your previous spellbook in a mishap."
+                    "<b>The Book’s Appearance.</b> Your spellbook is a unique compilation of spells, with its own decorative flourishes and margin notes. It might be a plain, functional leather volume that you received as a gift from your master, a finely bound gilt-edged tome you found in an ancient library, or even a loose collection of notes scrounged together after you lost your previous spellbook in a mishap."
                 ]
             }
         }
