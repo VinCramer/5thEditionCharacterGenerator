@@ -1948,38 +1948,150 @@ function displayClass(charClass, level, levelFeatures){
         basicFeatures.innerHTML=basicFeaturesString;
         
         
-        /*monk features*/
-        classText+=classJSON['Monk']['Class Features']['Unarmored Defense'];
-        classText+=classJSON['Monk']['Class Features']['Martial Arts']['content'].join("");
-        classText+=classJSON['Monk']['Class Features']['Ki']['content'].join("");
-        classText+=classJSON['Monk']['Class Features']['Ki']['Flurry of Blows'];
-        classText+=classJSON['Monk']['Class Features']['Ki']['Patient Defense'];
-        classText+=classJSON['Monk']['Class Features']['Ki']['Step of the Wind'];
-        classText+=classJSON['Monk']['Class Features']['Unarmored Movement']['content'].join("");
-        classText+=classJSON['Monk']['Class Features']['Monastic Tradition'];
-        classText+=classJSON['Monk']['Class Features']['Deflect Missiles']['content'].join("");
-        classText+=classJSON['Monk']['Class Features']['Ability Score Improvement'];
-        classText+=classJSON['Monk']['Class Features']['Slow Fall'];
-        classText+=classJSON['Monk']['Class Features']['Extra Attack'];
-        classText+=classJSON['Monk']['Class Features']['Stunning Strike'];
-        classText+=classJSON['Monk']['Class Features']['Ki-Empowered Strikes'];
-        classText+=classJSON['Monk']['Class Features']['Evasion'];
-        classText+=classJSON['Monk']['Class Features']['Stillness of Mind'];
-        classText+=classJSON['Monk']['Class Features']['Purity of Body'];
-        classText+=classJSON['Monk']['Class Features']['Tongue of the Sun and Moon'];
-        classText+=classJSON['Monk']['Class Features']['Diamond Soul']['content'];
-        classText+=classJSON['Monk']['Class Features']['Timeless Body'];
-        classText+=classJSON['Monk']['Class Features']['Empty Body']['content'];
-        classText+=classJSON['Monk']['Class Features']['Perfect Self'];
+        lvl1Features+="<b>Unarmored Defense:</b><br>";
+        lvl1Features+=classJSON['Monk']['Class Features']['Unarmored Defense']+"<br><br>";
+        lvl1Features+="<b>Martial Arts:</b><br>";
+        lvl1Features+=classJSON['Monk']['Class Features']['Martial Arts']['content'][0]+"<br>";
+        lvl1Features+=classJSON['Monk']['Class Features']['Martial Arts']['content'][1]+"<br>";
+        lvl1Features+=classJSON['Monk']['Class Features']['Martial Arts']['content'][2].join(" ")+" ";
+        lvl1Features+=classJSON['Monk']['Class Features']['Martial Arts']['content'][3];
+        
+        lvl1Element.innerHTML=lvl1Features;
+        
+        if(level>=2){
+            lvl2Features+="<b>Ki:</b><br>";
+            lvl2Features+=classJSON['Monk']['Class Features']['Ki']['content'].join(" ")+"<br>";
+            lvl2Features+="<b>Flurry of Blows:</b><br>";
+            lvl2Features+=classJSON['Monk']['Class Features']['Ki']['Flurry of Blows']+"<br>";
+            lvl2Features+="<b>Patient Defense:</b><br>";
+            lvl2Features+=classJSON['Monk']['Class Features']['Ki']['Patient Defense']+"<br>";
+            lvl2Features+="<b>Step of the Wind:</b><br>";
+            lvl2Features+=classJSON['Monk']['Class Features']['Ki']['Step of the Wind']+"<br><br>";
+            lvl2Features+="<b>Unarmored Movement:</b><br>";
+            lvl2Features+=classJSON['Monk']['Class Features']['Unarmored Movement']['content'].join(" ");
+            
+            lvl2Element.innerHTML=lvl2Features;
+        }
+        
+        if(level>=3){
+            lvl3Features+="<b>Deflect Missiles:</b><br>";
+            lvl3Features+=classJSON['Monk']['Class Features']['Deflect Missiles']['content'].join(" ")+"<br><br>";
+            
+            lvl3Features+="<b>Monastic Tradition:</b><br>";
+            lvl3Features+=classJSON['Monk']['Class Features']['Monastic Tradition']+"<br><br>";
+            lvl3Features+="<b>Monastic Traditions:</b><br>";
+            lvl3Features+=classJSON['Monk']['Monastic Traditions']['content']+"<br><br>";
+            lvl3Features+="<b>Way of the Open Hand:</b><br>";
+            lvl3Features+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['content']+"<br><br>";
+            lvl3Features+="<b>Open Hand Technique:</b><br>";
+            lvl3Features+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Open Hand Technique']['content'][0]+"<br><br>";
+            lvl3Features+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Open Hand Technique']['content'][1].join("<br>");
+            
+            lvl3Element.innerHTML=lvl3Features;
+        }
+        
+        if(level>=4){
+            lvl4Features+="<b>Ability Score Improvement:</b><br>";
+            lvl4Features+=classJSON['Monk']['Class Features']['Ability Score Improvement']+"<br><br>"; 
+            lvl4Features+="<b>Slow Fall:</b><br>";
+            lvl4Features+=classJSON['Monk']['Class Features']['Slow Fall'];
+            lvl4Element.innerHTML=lvl4Features;
+        }
         
         
-        /*open palm subclass*/
-        classText+=classJSON['Monk']['Monastic Traditions']['content'];
-        classText+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['content'];
-        classText+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Open Hand Technique']['content'];
-        classText+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Wholeness of Body'];
-        classText+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Tranquility'];
-        classText+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Quivering Palm']['content'];
+        if(level>=5){
+            lvl5Features+="<b>Extra Attack:</b><br>";
+            lvl5Features+=classJSON['Monk']['Class Features']['Extra Attack']+"<br><br>";
+            lvl5Features+="<b>Stunning Strike:</b><br>";
+            lvl5Features+=classJSON['Monk']['Class Features']['Stunning Strike'];
+            
+            lvl5Element.innerHTML=lvl5Features;
+            
+        }
+        
+        if(level>=6){
+            lvl6Features+="<b>Ki-Empowered Strikes:</b><br>";
+            lvl6Features+=classJSON['Monk']['Class Features']['Ki-Empowered Strikes']+"<br><br>";
+            lvl6Features+="<b>Wholeness of Body:</b><br>";
+            lvl6Features+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Wholeness of Body'];
+            
+            lvl6Element.innerHTML=lvl6Features;
+        }
+        
+        if(level>=7){
+            lvl7Features+="<b>Evasion:</b><br>";
+            lvl7Features+=classJSON['Monk']['Class Features']['Evasion']+"<br><br>";
+            lvl7Features+="<b>Stillness of Mind:</b><br>";
+            lvl7Features+=classJSON['Monk']['Class Features']['Stillness of Mind'];
+            
+            lvl7Element.innerHTML=lvl7Features;
+        }
+        
+        /*8 is ASI, 9 is improved unarmored movement*/
+        if(level>=10){
+            lvl10Features+="<b>Purity of Body:</b><br>";
+            lvl10Features+=classJSON['Monk']['Class Features']['Purity of Body'];
+            
+            lvl10Element.innerHTML=lvl10Features;
+        }
+        
+        if(level>=11){
+            lvl11Features+="<b>Tranquility:</b><br>";
+            lvl11Features+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Tranquility'];
+            
+            lvl11Element.innerHTML=lvl11Features;
+        }
+        
+        /*12 is ASI*/
+        if(level>=13){
+            lvl13Features+="<b>Tongue of the Sun and Moon:</b><br>";
+            lvl13Features+=classJSON['Monk']['Class Features']['Tongue of the Sun and Moon'];
+            
+            lvl13Element.innerHTML=lvl13Features;
+            
+        }
+        
+        
+        if(level>=14){
+            lvl14Features+="<b>Diamond Soul:</b><br>";
+            lvl14Features+=classJSON['Monk']['Class Features']['Diamond Soul']['content'].join(" ");
+            
+            lvl14Element.innerHTML=lvl14Features;
+        }
+        
+        if(level>=15){
+            lvl15Features+="<b>Timeless Body:</b><br>";
+            lvl15Features+=classJSON['Monk']['Class Features']['Timeless Body'];
+            
+            lvl15Element.innerHTML=lvl15Features;
+        }
+        
+        /*16 is ASI*/
+        if(level>=17){
+            lvl17Features+="<b>Quivering Palm:</b><br>";
+            lvl17Features+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Quivering Palm']['content'].join(" "); 
+            
+            lvl17Element.innerHTML=lvl17Features;
+        }
+        
+        if(level>=18){
+            lvl18Features+="<b>Empty Body:</b><br>";
+            lvl18Features+=classJSON['Monk']['Class Features']['Empty Body']['content'].join(" ");
+            
+            lvl18Element.innerHTML=lvl18Features;
+            
+        }
+        
+        /*19 is ASI*/
+        
+        if(level>=20){
+            lvl20Features+="<b>Perfect Self:</b><br>";
+            lvl20Features+=classJSON['Monk']['Class Features']['Perfect Self'];
+            
+            lvl20Element.innerHTML=lvl20Features;
+        }
+        
+        
     }
     else if(charClass=="paladin"){
         
@@ -1998,46 +2110,142 @@ function displayClass(charClass, level, levelFeatures){
         basicFeaturesString+="- " + classJSON['Paladin']['Class Features']['Equipment']['content'][1][0]+"<br>";
         basicFeaturesString+="- " + classJSON['Paladin']['Class Features']['Equipment']['content'][1][1]+"<br>";
         basicFeaturesString+="- " + classJSON['Paladin']['Class Features']['Equipment']['content'][1][2]+"<br>";
+        
+        basicFeatures+=classJSON['Paladin']['Sacred Oaths']['Breaking Your Oath']['content'];
 
         basicFeatures.innerHTML=basicFeaturesString;
         
         
-        /*core paladin class*/
-        classText+=classJSON['Paladin']['Class Features']['Divine Sense']['content'].join("");
-        classText+=classJSON['Paladin']['Class Features']['Lay on Hands']['content'].join("");
-        classText+=classJSON['Paladin']['Class Features']['Fighting Style']['content'];
-        classText+=classJSON['Paladin']['Class Features']['Fighting Style']['Defense'];
-        classText+=classJSON['Paladin']['Class Features']['Fighting Style']['Dueling'];
-        classText+=classJSON['Paladin']['Class Features']['Fighting Style']['Great Weapon Fighting'];
-        classText+=classJSON['Paladin']['Class Features']['Fighting Style']['Protection'];
-        classText+=classJSON['Paladin']['Class Features']['Spellcasting']['content'];
-        classText+=classJSON['Paladin']['Class Features']['Spellcasting']['Preparing and Casting Spells']['content'].join("");
-        classText+=classJSON['Paladin']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("");
-        classText+=classJSON['Paladin']['Class Features']['Spellcasting']['Spellcasting Focus'];
-        classText+=classJSON['Paladin']['Class Features']['Divine Smite'];
-        classText+=classJSON['Paladin']['Class Features']['Divine Health'];
-        classText+=classJSON['Paladin']['Class Features']['Sacred Oath']['content'];
-        classText+=classJSON['Paladin']['Class Features']['Sacred Oath']['Oath Spells']['content'];
-        classText+=classJSON['Paladin']['Class Features']['Sacred Oath']['Channel Divinity']['content'];
-        classText+=classJSON['Paladin']['Class Features']['Ability Score Improvement'];
-        classText+=classJSON['Paladin']['Class Features']['Extra Attack'];
-        classText+=classJSON['Paladin']['Class Features']['Aura of Protection']['content'];
-        classText+=classJSON['Paladin']['Class Features']['Aura of Courage']['content'];
-        classText+=classJSON['Paladin']['Class Features']['Improved Divine Smite'];
-        classText+=classJSON['Paladin']['Class Features']['Cleansing Touch']['content'];
+        lvl1Features+="<b>Divine Sense:</b><br>";
+        lvl1Features+=classJSON['Paladin']['Class Features']['Divine Sense']['content'].join(" ")+"<br><br>";
+        lvl1Features+="<b>Lay on Hands:</b><br>";
+        lvl1Features+=classJSON['Paladin']['Class Features']['Lay on Hands']['content'].join(" ");
         
-        /*Oath of devotion subclass*/
-        classText+=classJSON['Paladin']['Sacred Oaths']['content'];
-        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['content'];
-        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Tenets of Devotion']['content'];
-        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['content'];
-        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Level'];
-        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Paladin Spells'];
-        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Channel Divinity']['content'];
-        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Aura of Devotion'];
-        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Purity of Spirit'];
-        classText+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Holy Nimbus']['content'];
-        classText+=classJSON['Paladin']['Sacred Oaths']['Breaking Your Oath']['content'];
+        
+        lvl1Element.innerHTML=lvl1Features;
+        
+        if(level>=2){
+            lvl2Features+="<b>Fighting Style:</b><br>";
+            lvl2Features+=classJSON['Paladin']['Class Features']['Fighting Style']['content']+"<br>";
+            lvl2Features+="<b>Defense:</b><br>";
+            lvl2Features+=classJSON['Paladin']['Class Features']['Fighting Style']['Defense']+"<br>";
+            lvl2Features+="<b>Dueling:</b><br>";
+            lvl2Features+=classJSON['Paladin']['Class Features']['Fighting Style']['Dueling']+"<br>";
+            lvl2Features+="<b>Great Weapon Fighting:</b><br>";
+            lvl2Features+=classJSON['Paladin']['Class Features']['Fighting Style']['Great Weapon Fighting']+"<br>";
+            lvl2Features+="<b>Protection:</b><br>";
+            lvl2Features+=classJSON['Paladin']['Class Features']['Fighting Style']['Protection']+"<br><br>";
+            lvl2Features+="<b>Spellcasting:</b><br>";
+            lvl2Features+=classJSON['Paladin']['Class Features']['Spellcasting']['content']+"<br><br>";
+            lvl2Features+="<b>Preparing and Casting Spells:</b><br>";
+            lvl2Features+=classJSON['Paladin']['Class Features']['Spellcasting']['Preparing and Casting Spells']['content'].join(" ")+"<br><br>";
+            lvl2Features+="<b>Spellcasting Ability:</b><br>";
+            lvl2Features+=classJSON['Paladin']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("<br>")+"<br><br>";
+            lvl2Features+="<b>Spellcasting Focus:</b><br>";
+            lvl2Features+=classJSON['Paladin']['Class Features']['Spellcasting']['Spellcasting Focus']+"<br><br>";
+            lvl2Features+="<b>Divine Smite:</b><br>";
+            lvl2Features+=classJSON['Paladin']['Class Features']['Divine Smite'];
+            
+            lvl2Element.innerHTML=lvl2Features;
+        }
+        
+        
+        if(level>=3){
+            lvl3Features+="<b>Divine Health:</b><br>";
+            lvl3Features+=classJSON['Paladin']['Class Features']['Divine Health']+"<br><br>";
+            lvl3Features+="<b>Sacred Oath:</b><br>";
+            lvl3Features+=classJSON['Paladin']['Class Features']['Sacred Oath']['content']+"<br><br>";
+            lvl3Features+="<b>Oath Spells:</b><br>";
+            lvl3Features+=classJSON['Paladin']['Class Features']['Sacred Oath']['Oath Spells']['content']+"<br><br>";
+            lvl3Features+="<b>Channel Divinity:</b><br>";
+            lvl3Features+=classJSON['Paladin']['Class Features']['Sacred Oath']['Channel Divinity']['content']+"<br><br>";
+            lvl3Features+="<b>Sacred Oaths:</b><br>";
+            lvl3Features+=classJSON['Paladin']['Sacred Oaths']['content']+"<br><br>";
+            lvl3Features+="<b>Oath of Devotion:</b><br>";
+            lvl3Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['content']+"<br><br>";
+            lvl3Features+="<b>Tenets of Devotion:</b><br>";
+            lvl3Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Tenets of Devotion']['content'].join("<br>")+"<br><br>";
+            lvl3Features+="<b>Oath Spells:</b><br>";
+            lvl3Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['content']+"<br><br>";
+            lvl3Features+="<b>Level:</b><br>";
+            lvl3Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Level']+"<br>";
+            lvl3Features+="<b>Paladin Spells:</b><br>";
+            lvl3Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Paladin Spells']+"<br><br>";
+            lvl3Features+="<b>Channel Divinity:</b><br>";
+            lvl3Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Channel Divinity']['content'].join("<br>");  
+            
+            lvl3Element.innerHTML=lvl3Features;
+        }
+        
+        if(level>=4){
+            lvl4Features+="<b>Abililty Score Improvement:</b><br>";
+            lvl4Features+=classJSON['Paladin']['Class Features']['Ability Score Improvement'];
+            
+            lvl4Element.innerHTML=lvl4Features;
+        }
+        
+        if(level>=5){
+            lvl5Features+="<b>Extra Attack:</b><br>";
+            lvl5Features+=classJSON['Paladin']['Class Features']['Extra Attack'];
+            
+            lvl5Element.innerHTML=lvl5Features;
+        }
+        
+        if(level>=6){
+            lvl6Features+="<b>Aura of Protection:</b><br>";
+            lvl6Features+=classJSON['Paladin']['Class Features']['Aura of Protection']['content'].join(" ");
+            
+            lvl6Element.innerHTML=lvl6Features;
+            
+        }
+        
+        if(level>=7){
+            lvl7Features+="<b>Aura of Devotion:</b><br>";
+            lvl7Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Aura of Devotion']['content'].join(" ");
+            
+            lvl7Element.innerHTML=lvl7Features;
+        }
+        
+        /*8 is ASI, 9 is spells*/
+        
+        if(level>=10){
+            lvl10Features+="<b>Aura of Courage:</b><br>";
+            lvl10Features+=classJSON['Paladin']['Class Features']['Aura of Courage']['content'].join(" ");
+            
+            lvl10Element.innerHTML=lvl10Features;
+        }
+        
+        if(level>=11){
+            lvl11Features+="<b>Improved Divine Smite:</b><br>";
+            lvl11Features+=classJSON['Paladin']['Class Features']['Improved Divine Smite'];
+            
+            lvl11Element.innerHTML=lvl11Features;
+        }
+        
+        /*12 is ASI, 13 is spells*/
+        
+        if(level>=14){
+            lvl14Features+="<b>Cleansing Touch:</b><br>";
+            lvl14Features+=classJSON['Paladin']['Class Features']['Cleansing Touch']['content'].join(" ");    
+            
+            lvl14Element.innerHTML=lvl14Features;
+        }
+        
+        if(level>=15){
+            lvl15Features+="<b>Purity of Spirit:</b><br>";
+            lvl15Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Purity of Spirit'];
+            
+            lvl15Element.innerHTML=lvl15Features;
+        }
+        
+        if(level==20){
+            lvl20Features+="<b>Holy Nimbus:</b><br>";
+            lvl20Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Holy Nimbus']['content'].join(" ");
+            
+            lvl20Element.innerHTML=lvl20Features;
+        }
+
+        
     }
     else if(charClass=="ranger"){
         
@@ -2060,34 +2268,137 @@ function displayClass(charClass, level, levelFeatures){
 
         basicFeatures.innerHTML=basicFeaturesString;
         
+        lvl1Features+="<b>Favored Enemy:</b><br>";
+        lvl1Features+=classJSON['Ranger']['Class Features']['Favored Enemy']['content'].join(" ")+"<br><br>";
+        lvl1Features+="<b>Natural Explorer:</b><br>";
+        lvl1Features+=classJSON['Ranger']['Class Features']['Natural Explorer']['content'][0]+" ";
+        lvl1Features+=classJSON['Ranger']['Class Features']['Natural Explorer']['content'][1]+"<br><br>";
+        lvl1Features+=classJSON['Ranger']['Class Features']['Natural Explorer']['content'][2].join("<br>")+"<br><br>";
+        lvl1Features+=classJSON['Ranger']['Class Features']['Natural Explorer']['content'][3];
+        
+        lvl1Element.innerHTML=lvl1Features;
         
         /*core ranger class - SRD, not the Revised Ranger UA*/
-        classText+=classJSON['Ranger']['Class Features']['Favored Enemy']['content'].join("");
-        classText+=classJSON['Ranger']['Class Features']['Natural Explorer']['content'].join("");
-        classText+=classJSON['Ranger']['Class Features']['Fighting Style']['content'];
-        classText+=classJSON['Ranger']['Class Features']['Fighting Style']['Archery'];
-        classText+=classJSON['Ranger']['Class Features']['Fighting Style']['Defense'];
-        classText+=classJSON['Ranger']['Class Features']['Fighting Style']['Dueling'];
-        classText+=classJSON['Ranger']['Class Features']['Fighting Style']['Two-Weapon Fighting'];
-        classText+=classJSON['Ranger']['Class Features']['Spellcasting']['content'];
-        classText+=classJSON['Ranger']['Class Features']['Spellcasting']['Spells Known of 1st Level and Higher']['content'].join("");
-        classText+=classJSON['Ranger']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("");
-        classText+=classJSON['Ranger']['Class Features']['Ranger Archetype'];
-        classText+=classJSON['Ranger']['Class Features']['Primeval Awareness'];
-        classText+=classJSON['Ranger']['Class Features']['Ability Score Improvement'];
-        classText+=classJSON['Ranger']['Class Features']['Extra Attack'];
-        classText+=classJSON['Ranger']['Class Features']['Lands Stride']['content'];
-        classText+=classJSON['Ranger']['Class Features']['Hide in Plain Sight']['content'];
-        classText+=classJSON['Ranger']['Class Features']['Vanish'];
-        classText+=classJSON['Ranger']['Class Features']['Feral Senses']['content'];
-        classText+=classJSON['Ranger']['Class Features']['Foe Slayer'];
-        classText+=classJSON['Ranger']['Ranger Archetypes']['content'];
-        classText+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['content'];
-        classText+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Hunters Prey']['content'];
-        classText+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Hunters Prey']['content'];
-        classText+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Defensive Tactics']['content'];
-        classText+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Multiattack']['content'];
-        classText+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Superior Hunters Defense']['content'];
+        
+        if(level>=2){
+            lvl2Features+="<b>Fighting Style:</b><br>";
+            lvl2Features+=classJSON['Ranger']['Class Features']['Fighting Style']['content']+"<br>";
+            lvl2Features+="<b>Archery:</b><br>";
+            lvl2Features+=classJSON['Ranger']['Class Features']['Fighting Style']['Archery']+"<br>";
+            lvl2Features+="<b>Defense:</b><br>";
+            lvl2Features+=classJSON['Ranger']['Class Features']['Fighting Style']['Defense']+"<br>";
+            lvl2Features+="<b>Dueling:</b><br>";
+            lvl2Features+=classJSON['Ranger']['Class Features']['Fighting Style']['Dueling']+"<br>";
+            lvl2Features+="<b>Two-Weapon Fighting:</b><br>";
+            lvl2Features+=classJSON['Ranger']['Class Features']['Fighting Style']['Two-Weapon Fighting']+"<br><br>";
+            lvl2Features+="<b>Spellcasting:</b><br>";
+            lvl2Features+=classJSON['Ranger']['Class Features']['Spellcasting']['content']+"<br><br>";
+            lvl2Features+="<b>Spells Known of 1st Level and Higher:</b><br>";
+            lvl2Features+=classJSON['Ranger']['Class Features']['Spellcasting']['Spells Known of 1st Level and Higher']['content'].join(" ");
+            lvl2Features+="<b>Spellcasting Ability:</b><br>";
+            lvl2Features+=classJSON['Ranger']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("<br>");
+
+            lvl2Element.innerHTML=lvl2Features;
+            
+        }
+        
+        if(level>=3){
+            lvl3Features+="<b>Ranger Archetype:</b><br>";
+            lvl3Features+=classJSON['Ranger']['Class Features']['Ranger Archetype']+"<br><br>";
+            lvl3Features+="<b>Primeval Awareness:</b><br>";
+            lvl3Features+=classJSON['Ranger']['Class Features']['Primeval Awareness']+"<br><br>";
+            lvl3Features+="<b>Ranger Archetypes:</b><br>";
+            lvl3Features+=classJSON['Ranger']['Ranger Archetypes']['content']+"<br><br>";
+            lvl3Features+="<b>Hunter:</b><br>";
+            lvl3Features+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['content']+"<br><br>";
+            lvl3Features+="<b>Hunter's Prey:</b><br>";
+            lvl3Features+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Hunters Prey']['content'].join("<br>");
+            
+            lvl3Element.innerHTML=lvl3Features;
+        }
+        
+        if(level>=4){
+            lvl4Features+="<b>Ability Score Improvement:</b><br>"
+            lvl4Features+=classJSON['Ranger']['Class Features']['Ability Score Improvement'];
+            
+            lvl4Element.innerHTML=lvl4Features;
+        }
+        
+        if(level>=5){
+            lvl5Features+="<b>Extra Attack:</b><br>";
+            lvl5Features+=classJSON['Ranger']['Class Features']['Extra Attack'];
+            
+            lvl5Element.innerHTML=lvl5Features;
+            
+        }
+        
+        /*level 6 is improvements on previously defined features.*/
+        if(level>=7){
+            lvl7Features+="<b>Defensive Tactics:</b><br>";
+            lvl7Features+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Defensive Tactics']['content'].join("<br>");
+            lvl7Element.innerHTML=lvl7Features;
+        }
+        
+        if(level>=8){
+            lvl8Features+="<b>Land's Stride:</b><br>";
+            lvl8Features+=classJSON['Ranger']['Class Features']['Lands Stride']['content'].join(" ");
+            
+            lvl8Element.innerHTML=lvl8Features;
+        }
+        
+        /*9 is spells*/
+        
+        if(level>=10){
+            lvl10Features+="<b></b><br>";
+            lvl10Features+=classJSON['Ranger']['Class Features']['Hide in Plain Sight']['content'].join(" ");
+            
+            lvl10Element.innerHTML=lvl10Features;
+        }
+        
+        if(level>=11){
+            lvl11Features+="<b></b><br>";
+            lvl11Features+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Multiattack']['content'].join("<br>");
+            
+            lvl11Element.innerHTML=lvl11Features;
+        }
+        
+        /*12 is ASI, 13 is spells*/
+        if(level>=14){
+            lvl14Features+="<b>Vanish:</b><br>";
+            lvl14Features+=classJSON['Ranger']['Class Features']['Vanish'];
+            
+            lvl14Element.innerHTML=lvl14Features;
+        }
+        
+        if(level>=15){
+            lvl15Features+="<b>Superior Hunter's Defense:</b><br>";
+            lvl15Features+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Superior Hunters Defense']['content'];
+        }
+        
+        /*16 is ASI, 17 is spells*/
+        
+        if(level>=18){
+            lvl18Features+="<b>Feral Senses:</b><br>";
+            lvl18Features+=classJSON['Ranger']['Class Features']['Feral Senses']['content'];
+            
+            lvl18Element.innerHTML=lvl18Features;
+        }
+        
+        /*19 is ASI*/
+        
+        if(level==20){
+            lvl20Features+="<b>Foe Slayer:</b><br>";
+            lvl20Features+=classJSON['Ranger']['Class Features']['Foe Slayer'];
+            
+            lvl20Element.innerHTML=lvl20Features;
+        }
+        
+        
+        
+        
+        
+        
+        
     }
     else if(charClass=="rogue"){
         
@@ -2110,29 +2421,127 @@ function displayClass(charClass, level, levelFeatures){
         basicFeatures.innerHTML=basicFeaturesString;
         
         
-        /*rogue base class*/
-        classText+=classJSON['Rogue']['Class Features']['Expertise']['content'].join("");
-        classText+=classJSON['Rogue']['Class Features']['Sneak Attack']['content'].join("");
-        classText+=classJSON['Rogue']['Class Features']['Thieves Cant']['content'].join("");
-        classText+=classJSON['Rogue']['Class Features']['Cunning Action'];
-        classText+=classJSON['Rogue']['Class Features']['Rougish Archetype'];
-        classText+=classJSON['Rogue']['Class Features']['Ability Score Improvement'];
-        classText+=classJSON['Rogue']['Class Features']['Uncanny Dodge'];
-        classText+=classJSON['Rogue']['Class Features']['Evasion'];
-        classText+=classJSON['Rogue']['Class Features']['Reliable Talent'];
-        classText+=classJSON['Rogue']['Class Features']['BLindsense'];
-        classText+=classJSON['Rogue']['Class Features']['Slippery Mind'];
-        classText+=classJSON['Rogue']['Class Features']['Elusive'];
-        classText+=classJSON['Rogue']['Class Features']['Stroke of Luck']['content'].join("");
+        lvl1Features+="<b>Expertise:</b><br>";
+        lvl1Features+=classJSON['Rogue']['Class Features']['Expertise']['content'].join(" ")+"<br><br>";
+        lvl1Features+="<b>Sneak Attack:</b><br>";
+        lvl1Features+=classJSON['Rogue']['Class Features']['Sneak Attack']['content'].join(" ")+"<br><br>";
+        lvl1Features+="<b>Thieves' Cant:</b><br>";
+        lvl1Features+=classJSON['Rogue']['Class Features']['Thieves Cant']['content'].join(" ");
         
-        /*thief subclass*/
-        classText+=classJSON['Rogue']['Roguish Archetypes']['content'];
-        classText+=classJSON['Rogue']['Roguish Archetypes']['Thief']['content'];
-        classText+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Fast Hands'];
-        classText+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Second-Story Work']['content'].join("");
-        classText+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Supreme Sneak'];
-        classText+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Use Magic Device'];
-        classText+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Thiefs Reflexes'];
+        lvl1Element.innerHTML=lvl1Features;
+        
+        if(level>=2){
+            lvl2Features+="<b>Cunning Action:</b><br>";
+            lvl2Features+=classJSON['Rogue']['Class Features']['Cunning Action'];
+            
+            lvl2Element.innerHTML=lvl2Features;
+        }
+        
+        if(level>=3){
+            lvl3Features+="<b>Roguish Archetype:</b><br>";
+            lvl3Features+=classJSON['Rogue']['Class Features']['Roguish Archetype']+"<br><br>";
+            lvl3Features+="<b>Roguish Archetypes:</b><br>";
+            lvl3Features+=classJSON['Rogue']['Roguish Archetypes']['content']+"<br><br>";
+            lvl3Features+="<b>Thief:</b><br>";
+            lvl3Features+=classJSON['Rogue']['Roguish Archetypes']['Thief']['content']+"<br><br>";
+            lvl3Features+="<b>Fast Hands:</b><br>";
+            lvl3Features+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Fast Hands']+"<br><br>";
+            lvl3Features+="<b>Second-Story Work:</b><br>";
+            lvl3Features+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Second-Story Work']['content'].join(" ");
+            
+            lvl3Element.innerHTML=lvl3Features;
+        }
+        
+        if(level>=4){
+            lvl4Features+="<b>Ability Score Improvement:</b><br>";
+            lvl4Features+=classJSON['Rogue']['Class Features']['Ability Score Improvement'];
+            
+            lvl4Element.innerHTML=lvl4Features;
+        }
+        
+        if(level>=5){
+            lvl5Features+="<b>Uncanny Dodge:</b><br>"
+            lvl5Features+=classJSON['Rogue']['Class Features']['Uncanny Dodge'];
+            
+            lvl5Element.innerHTML=lvl5Features;
+        }
+        
+        /*6 is more expertise*/
+        
+        if(level>=7){
+            lvl7Features+="<b>Evasion:</b><br>";
+            lvl7Features+=classJSON['Rogue']['Class Features']['Evasion'];
+            
+            lvl7Element.innerHTML=lvl7Features;
+        }
+        
+        /*8 is ASI*/
+
+        if(level>=9){
+            lvl9Features+="<b>Supreme Sneak:</b><br>";
+            lvl9Features+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Supreme Sneak'];
+            
+            lvl9Element.innerHTML=lvl9Features;
+        }
+        
+        /*10 is another ASI*/
+        
+        if(level>=11){
+            lvl11Features+="<b>Reliable Talent:</b><br>";
+            lvl11Features+=classJSON['Rogue']['Class Features']['Reliable Talent'];
+            
+            lvl11Element.innerHTML=lvl11Features;
+        }
+        
+        /*12 is ASI*/
+        
+        if(level>=13){
+            lvl13Features+="<b>Use Magic Device:</b><br>";
+            lvl13Features+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Use Magic Device'];
+            
+            lvl13Element.innerHTML=lvl13Features;
+        }
+        
+        if(level>=14){
+            lvl14Features+="<b>Blindsense:</b><br>";
+            lvl14Features+=classJSON['Rogue']['Class Features']['Blindsense'];
+            
+            lvl14Element.innerHTML=lvl14Features;
+        }
+        
+        if(level>=15){
+            lvl15Features+="<b>Slippery Mind:</b><br>";
+            lvl15Features+=classJSON['Rogue']['Class Features']['Slippery Mind']+"<br><br>";
+            
+            lvl15Element.innerHTML=lvl15Features;
+        }
+        
+        /*16 is ASI*/
+        
+        if(level>=17){
+            lvl17Features+="<b>Thief's Reflexes:</b><br>";
+            lvl17Features+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Thiefs Reflexes']+"<br><br>";
+            
+            lvl17Element.innerHTML=lvl17Features;
+        }
+        
+        if(level>=18){
+            lvl18Features+="<b>Elusive:</b><br>";
+            lvl18Features+=classJSON['Rogue']['Class Features']['Elusive'];
+            
+            lvl18Element.innerHTML=lvl18Features;
+        }
+        
+        /*19 is ASI*/
+        
+        if(level==20){
+            lvl20Features+="<b>Stroke of Luck:</b><br>";
+            lvl20Features+=classJSON['Rogue']['Class Features']['Stroke of Luck']['content'].join(" ");
+            
+            lvl20Element.innerHTML=lvl20Features;
+        }
+        
+        
     }
     else if(charClass=="sorcerer"){
         
@@ -2156,45 +2565,117 @@ function displayClass(charClass, level, levelFeatures){
 
         basicFeatures.innerHTML=basicFeaturesString;
         
-        
-        /*sorcerer base class*/
-        classText+=classJSON['Sorcerer']['Class Features']['Spellcasting']['content'];
-        classText+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Cantrips'];
-        classText+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Spell Slots']['content'].join("");
-        classText+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Spells Known of 1st Level and Higher']['content'].join("");
-        classText+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("");
-        classText+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Spellcasting Focus'];
-        classText+=classJSON['Sorcerer']['Class Features']['Sorcerous Origin']['content'];
-        classText+=classJSON['Sorcerer']['Class Features']['Font of Magic']['content'];
-        classText+=classJSON['Sorcerer']['Class Features']['Font of Magic']['Sorcery Points'];
-        classText+=classJSON['Sorcerer']['Class Features']['Font of Magic']['Flexible Casting']['content'];
-        classText+=classJSON['Sorcerer']['Class Features']['Font of Magic']['Flexible Casting']['Creating Spell Slots']['content'][0]['table']
-        ['Spell Slot Level'];
-        classText+=classJSON['Sorcerer']['Class Features']['Font of Magic']['Flexible Casting']['Creating Spell Slots']['content'][0]['table']['Sorcery Point Cost'];
-        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['content'].join("");
-        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['Careful Spell']
-        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['Distant Spell']['content'].join("");
-        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['Empowered Spell']['content'].join("");
-        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['Extended Spell']
-        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['Heightened Spell']
-        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['Quickened Spell']
-        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['Subtle Spell']
-        classText+=classJSON['Sorcerer']['Class Features']['Metamagic']['Twinned Spell']['content'].join("");
-        classText+=classJSON['Sorcerer']['Class Features']['Ability Score Improvement'];
-        classText+=classJSON['Sorcerer']['Class Features']['Sorcererous Restoration'];
+        lvl1Features+="<b>Spellcasting:</b><br>";
+        lvl1Features+=classJSON['Sorcerer']['Class Features']['Spellcasting']['content']+"<br><br>";
+        lvl1Features+="<b>Cantrips:</b><br>";
+        lvl1Features+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Cantrips']+"<br><br>";
+        lvl1Features+="<b>Spell Slots:</b><br>";
+        lvl1Features+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Spell Slots']['content'].join(" ")+"<br><br>";
+        lvl1Features+="<b>Spells Known of 1st Level and Higher:</b><br>";
+        lvl1Features+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Spells Known of 1st Level and Higher']['content'].join(" ")+"<br><br>";
+        lvl1Features+="<b>Spellcasting Ability:</b><br>";
+        lvl1Features+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("<br>")+"<br><br>";
+        lvl1Features+="<b>Spellcasting Focus:</b><br>";
+        lvl1Features+=classJSON['Sorcerer']['Class Features']['Spellcasting']['Spellcasting Focus']+"<br><br>";
+        lvl1Features+="<b>Sorcerous Origin:</b><br>";
+        lvl1Features+=classJSON['Sorcerer']['Class Features']['Sorcerous Origin']['content']+"<br><br>";
         
         /*sorcerer sub class*/
-        classText+=classJSON['Sorcerer']['Sorcerous Origins']['content'];
-        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['content'];
-        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['content'];
-        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Dragon Ancestor'];
-        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Dragon Ancestor']['Draconic Ancestry']['content'][0]['table']['Dragon'];
-        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Dragon Ancestor']['Draconic Ancestry']['content'][0]['table']['Damage Type'];
-        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Dragon Ancestor']['Draconic Ancestry']['content'];
-        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Draconic Resilience']['content'];
-        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Elemental Affinity'];
-        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Dragon Wings']['content'];
-        classText+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Draconic Presence'];
+        lvl1Features+="<b>Sorcererous Origins:</b><br>";
+        lvl1Features+=classJSON['Sorcerer']['Sorcerous Origins']['content']+"<br><br>";
+        lvl1Features+="<b>Draconic Bloodline:</b><br>";
+        lvl1Features+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['content']+"<br><br>";
+        lvl1Features+="<b>Dragon Ancestor:</b><br>";
+        lvl1Features+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Dragon Ancestor']['content']+"<br><br>";
+        lvl1Features+="<b>Dragon:</b><br>";
+        lvl1Features+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Dragon Ancestor']['Draconic Ancestry']['content'][0]['table']['Dragon'].join(" ")+"<br>";
+        lvl1Features+="<b>Damage Type:</b><br>";
+        lvl1Features+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Dragon Ancestor']['Draconic Ancestry']['content'][0]['table']['Damage Type'].join(" ")+"<br><br>";
+        lvl1Features+="<b>Draconic Ancestry:</b><br>";
+        lvl1Features+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Dragon Ancestor']['Draconic Ancestry']['content'][1]+"<br><br>";
+        lvl1Features+="<b>Draconic Resilience:</b><br>";
+        lvl1Features+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Draconic Resilience']['content'].join(" ");
+        
+        lvl1Element.innerHTML=lvl1Features;
+        
+        
+        
+        if(level>=2){
+            lvl2Features+="<b>Font of Magic:</b><br>";
+            lvl2Features+=classJSON['Sorcerer']['Class Features']['Font of Magic']['content']+"<br><br>";
+            lvl2Features+="<b>Sorcery Points:</b><br>";
+            lvl2Features+=classJSON['Sorcerer']['Class Features']['Font of Magic']['Sorcery Points']+"<br><br>";
+            lvl2Features+="<b>Flexible Casting:</b><br>";
+            lvl2Features+=classJSON['Sorcerer']['Class Features']['Font of Magic']['Flexible Casting']['content'].join(" ")+"<br><br>";
+            lvl2Features+="<b>Spell Slot Level:</b><br>";
+            lvl2Features+=classJSON['Sorcerer']['Class Features']['Font of Magic']['Flexible Casting']['Creating Spell Slots']['content'][0]['table']['Spell Slot Level'].join(" ")+"<br>";
+            lvl2Features+="<b>Sorcery Point Cost:</b><br>";
+            lvl2Features+=classJSON['Sorcerer']['Class Features']['Font of Magic']['Flexible Casting']['Creating Spell Slots']['content'][0]['table']['Sorcery Point Cost'].join(" ");
+            
+            lvl2Element.innerHTML=lvl2Features;
+        }
+        
+        if(level>=3){
+            lvl3Features+="<b>Metamagic:</b><br>";
+            lvl3Features+=classJSON['Sorcerer']['Class Features']['Metamagic']['content'].join(" ")+"<br><br>";
+            lvl3Features+="<b>Careful Spell:</b><br>";
+            lvl3Features+=classJSON['Sorcerer']['Class Features']['Metamagic']['Careful Spell']+"<br>";
+            lvl3Features+="<b>Distant Spell:</b><br>";
+            lvl3Features+=classJSON['Sorcerer']['Class Features']['Metamagic']['Distant Spell']['content'].join(" ")+"<br>";
+            lvl3Features+="<b>Empowered Spell:</b><br>";
+            lvl3Features+=classJSON['Sorcerer']['Class Features']['Metamagic']['Empowered Spell']['content'].join(" ")+"<br>";
+            lvl3Features+="<b>Extended Spell:</b><br>";
+            lvl3Features+=classJSON['Sorcerer']['Class Features']['Metamagic']['Extended Spell']+"<br>";
+            lvl3Features+="<b>Heightened Spell:</b><br>";
+            lvl3Features+=classJSON['Sorcerer']['Class Features']['Metamagic']['Heightened Spell']+"<br>";
+            lvl3Features+="<b>Quickened Spell:</b><br>";
+            lvl3Features+=classJSON['Sorcerer']['Class Features']['Metamagic']['Quickened Spell']+"<br>";
+            lvl3Features+="<b>Subtle Spell:</b><br>";
+            lvl3Features+=classJSON['Sorcerer']['Class Features']['Metamagic']['Subtle Spell']+"<br>";
+            lvl3Features+="<b>Twinned Spell:</b><br>";
+            lvl3Features+=classJSON['Sorcerer']['Class Features']['Metamagic']['Twinned Spell']['content'].join(" ");
+
+            lvl3Element.innerHTML=lvl3Features;
+            
+        }
+        
+        if(level>=4){
+            lvl4Features+="<b>Ability Score Improvement:</b><br>";
+            lvl4Features+=classJSON['Sorcerer']['Class Features']['Ability Score Improvement'];
+            
+            lvl4Element.innerHTML=lvl4Features;
+        }
+        
+        /*all not noted levels are improvements, spells, or ASIs*/
+        
+        if(level>=6){
+            lvl6Features+="<b>Elemental Affinity:</b><br>";
+            lvl6Features+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Elemental Affinity'];
+            
+            lvl6Element.innerHTML=lvl6Features;
+        }
+        
+        if(level>=14){
+            lvl14Features+="<b>Dragon Wings:</b><br>";
+            lvl14Features+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Dragon Wings']['content']; 
+            
+            lvl14Element.innerHTML=lvl14Features;
+        }
+        
+        if(level>=18){
+            lvl18Features+="<b>Dracoinc Presence:</b><br>";
+            lvl18Features+=classJSON['Sorcerer']['Sorcerous Origins']['Draconic Bloodline']['Draconic Presence'];
+            
+            lvl18Element.innerHTML=lvl18Features;
+        }
+        
+        if(level==20){
+            lvl20Features+="<b>Sorcerous Restoration:</b><br>";
+            lvl20Features+=classJSON['Sorcerer']['Class Features']['Sorcerous Restoration'];
+            
+            lvl20Element.innerHTML=lvl20Features;
+        }
+        
     }
     else if(charClass=="warlock"){
         
@@ -2310,29 +2791,91 @@ function displayClass(charClass, level, levelFeatures){
         
         basicFeatures.innerHTML=basicFeaturesString;
         
-        /*core wizard features*/
-        classText+=classJSON['Wizard']['Class Features']['Spellcasting']['content'];
-        classText+=classJSON['Wizard']['Class Features']['Spellcasting']['Cantrips'];
-        classText+=classJSON['Wizard']['Class Features']['Spellcasting']['Spellbook']['content'];
-        classText+=classJSON['Wizard']['Class Features']['Spellcasting']['Preparing and Casting Spells']['content'].join("");
-        classText+=classJSON['Wizard']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("");
-        classText+=classJSON['Wizard']['Class Features']['Spellcasting']['Ritual Casting'];
-        classText+=classJSON['Wizard']['Class Features']['Spellcasting']['Spellcasting Focus'];
-        classText+=classJSON['Wizard']['Class Features']['Spellcasting']['Learning Spells of 1st Level or Higher'];
-        classText+=classJSON['Wizard']['Class Features']['Arcane Recovery']['content'].join("");
-        classText+=classJSON['Wizard']['Class Features']['Arcane Tradition']['content'].join("");
-        classText+=classJSON['Wizard']['Class Features']['Ability Score Improvement'];
-        classText+=classJSON['Wizard']['Class Features']['Spell Mastery']['content'];
-        classText+=classJSON['Wizard']['Class Features']['Signature Spells']['content'];
         
-        /*wizard subclass*/
-        classText+=classJSON['Wizard']['Arcane Traditions']['content'];
-        classText+=classJSON['Wizard']['Arcane Traditions']['School of Evocation']['content'];
-        classText+=classJSON['Wizard']['Arcane Traditions']['School of Evocation']['Evocation Savant'];
-        classText+=classJSON['Wizard']['Arcane Traditions']['School of Evocation']['Scult Spells'];
-        classText+=classJSON['Wizard']['Arcane Traditions']['School of Evocation']['Potent Cantrip'];
-        classText+=classJSON['Wizard']['Arcane Traditions']['School of Evocation']['Overchannel']['content'].join("");
-        classText+=classJSON['Wizard']['Arcane Traditions']['Your Spellbook']['content'].join("");
+        lvl1Features+="<b>Spellcasting:</b><br>";
+        lvl1Features+=classJSON['Wizard']['Class Features']['Spellcasting']['content']+"<br><br>";
+        lvl1Features+="<b>Cantrips:</b><br>";
+        lvl1Features+=classJSON['Wizard']['Class Features']['Spellcasting']['Cantrips']+"<br><br>";
+        lvl1Features+="<b>Spellbook:</b><br>";
+        lvl1Features+=classJSON['Wizard']['Class Features']['Spellcasting']['Spellbook']+"<br><br>";
+        lvl1Features+="<b>Preparing and Casting Spells:</b><br>";
+        lvl1Features+=classJSON['Wizard']['Class Features']['Spellcasting']['Preparing and Casting Spells']['content'].join(" ")+"<br><br>";
+        lvl1Features+="<b>Spellcasting Ability:</b><br>";
+        lvl1Features+=classJSON['Wizard']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("<br>")+"<br><br>";
+        lvl1Features+="<b>Ritual Casting:</b><br>";
+        lvl1Features+=classJSON['Wizard']['Class Features']['Spellcasting']['Ritual Casting']+"<br><br>";
+        lvl1Features+="<b>Spellcasting Focus:</b><br>";
+        lvl1Features+=classJSON['Wizard']['Class Features']['Spellcasting']['Spellcasting Focus']+"<br><br>";
+        lvl1Features+="<b>Learning Spells of 1st Level and Higher:</b><br>";
+        lvl1Features+=classJSON['Wizard']['Class Features']['Spellcasting']['Learning Spells of 1st Level and Higher']+"<br><br>";
+        lvl1Features+="<b>Arcane Recovery:</b><br>";
+        lvl1Features+=classJSON['Wizard']['Class Features']['Arcane Recovery']['content'].join(" ")+"<br><br>";
+        
+        /*extra wizard fluff*/
+        lvl1Features+=classJSON['Wizard']['Arcane Traditions']['Your Spellbook']['content'].join(" ");
+        
+        lvl1Element.innerHTML=lvl1Features;
+        
+        if(level>=2){
+            lvl2Features+="<b>Arcane Tradition:</b><br>";
+            lvl2Features+=classJSON['Wizard']['Class Features']['Arcane Tradition']['content'].join(" ")+"<br><br>";
+            lvl2Features+="<b>Arcane Traditions:</b><br>";
+            lvl2Features+=classJSON['Wizard']['Arcane Traditions']['content']+"<br><br>";
+            lvl2Features+="<b>School of Evocation:</b><br>";
+            lvl2Features+=classJSON['Wizard']['Arcane Traditions']['School of Evocation']['content']+"<br><br>";
+            lvl2Features+="<b>Evocation Savant:</b><br>";
+            lvl2Features+=classJSON['Wizard']['Arcane Traditions']['School of Evocation']['Evocation Savant']+"<br><br>";
+            lvl2Features+="<b>Sculpt Spells:</b><br>";
+            lvl2Features+=classJSON['Wizard']['Arcane Traditions']['School of Evocation']['Sculpt Spells']+"<br><br>";
+
+            
+            lvl2Element.innerHTML=lvl2Features;
+        }
+        
+        /*every not listed level is spells or ASIs*/
+        
+        if(level>=4){
+            lvl4Features+="<b>Ability Score Improvement:</b><br>";
+            lvl4Features+=classJSON['Wizard']['Class Features']['Ability Score Improvement'];
+            
+            lvl4Element.innerHTML=lvl4Features;
+        }
+        
+        if(level>=6){
+            lvl6Features+="<b>Potent Cantrip:</b><br>";
+            lvl6Features+=classJSON['Wizard']['Arcane Traditions']['School of Evocation']['Potent Cantrip'];
+            
+            lvl6Element.innerHTML=lvl6Features;
+        }
+        
+        if(level>=10){
+            lvl10Features+="<b>Empowred Evocation:</b><br>";
+            lvl10Features+=classJSON['Wizard']['Arcane Traditions']['School of Evocation']['Empowered Evocation'];
+            
+            lvl10Element.innerHTML=lvl10Features;
+        }
+        
+        if(level>=14){
+            lvl14Features+="<b>Overchannel:</b><br>";
+            lvl14Features+=classJSON['Wizard']['Arcane Traditions']['School of Evocation']['Overchannel']['content'].join(" ");
+            
+            lvl14Element.innerHTML=lvl14Features;
+        }
+        
+        if(level>=18){
+            lvl18Features+="<b>Spell Mastery:</b><br>";
+            lvl18Features+=classJSON['Wizard']['Class Features']['Spell Mastery']['content'];
+            
+            lvl18Element.innerHTML=lvl18Features;
+        }
+        
+        if(level==20){
+            lvl20Features+="<b>Signature Spells:</b><br>";
+            lvl20Features+=classJSON['Wizard']['Class Features']['Signature Spells']['content'];
+            
+            lvl20Element.innerHTML=lvl20Features;
+        }
+
     }
     
     classPara.innerHTML=classText;
