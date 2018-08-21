@@ -1436,7 +1436,7 @@
 							"content": [
 								"Your game statistics are replaced by the statistics of the beast, but you retain your alignment, personality, and Intelligence, Wisdom, and Charisma scores. You also retain all of your skill and saving throw proficiencies, in addition to gaining those of the creature. If the creature has the same proficiency as you and the bonus in its stat block is higher than yours, use the creature’s bonus instead of yours. If the creature has any legendary or lair actions, you can’t use them.",
 								"When you transform, you assume the beast’s hit points and Hit Dice. When you revert to your normal form, you return to the number of hit points you had before you transformed. However, if you revert as a result of dropping to 0 hit points, any excess damage carries over to your normal form. For example, if you take 10 damage in animal form and have only 1 hit point left, you revert and take 9 damage. As long as the excess damage doesn’t reduce your normal form to 0 hit points, you aren’t knocked unconscious.",
-								"You can’t cast spells, and your ability to speak or take any action that requires hands is limited to the capabilities of your beast form. Transforming doesn’t break your concentration on a spell you’ve already cast, however, or prevent you from taking actions that are part of a spell, such as *call lightning*, that you’ve already cast.",
+								"You can’t cast spells, and your ability to speak or take any action that requires hands is limited to the capabilities of your beast form. Transforming doesn’t break your concentration on a spell you’ve already cast, however, or prevent you from taking actions that are part of a spell, such as <i>call lightning</i>, that you’ve already cast.",
 								"You retain the benefit of any features from your class, race, or other source and can use them if the new form is physically capable of doing so. However, you can’t use any of your special senses, such as darkvision, unless your new form also has that sense.",
 								"You choose whether your equipment falls to the ground in your space, merges into your new form, or is worn by it. Worn equipment functions as normal, but the GM decides whether it is practical for the new form to wear a piece of equipment, based on the creature’s shape and size. Your equipment doesn’t change size or shape to match the new form, and any equipment that the new form can’t wear must either fall to the ground or merge with it. Equipment that merges with the form has no effect until you leave the form."
 							]
@@ -1582,7 +1582,7 @@
                 "Lands Stride": {
                     "content": [
                         "Starting at 6th level, moving through nonmagical difficult terrain costs you no extra movement. You can also pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard.",
-                        "In addition, you have advantage on saving throws against plants that are magically created or manipulated to impede movement, such those created by the *entangle* spell."
+                        "In addition, you have advantage on saving throws against plants that are magically created or manipulated to impede movement, such those created by the <i>entangle</i> spell."
                     ]
                 },
                 "Natures Ward": "When you reach 10th level, you can’t be charmed or frightened by elementals or fey, and you are immune to poison and disease.",
@@ -1975,7 +1975,7 @@
             "Empty Body": {
                 "content": [
                     "Beginning at 18th level, you can use your action to spend 4 ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage.",
-                    "Additionally, you can spend 8 ki points to cast the *astral projection* spell, without needing material components. When you do so, you can’t take any other creatures with you."
+                    "Additionally, you can spend 8 ki points to cast the <i>astral projection</i> spell, without needing material components. When you do so, you can’t take any other creatures with you."
                 ]
             },
             "Perfect Self": "At 20th level, when you roll for initiative and have no ki points remaining, you regain 4 ki points."
@@ -1995,7 +1995,7 @@
                     ]
                 },
                 "Wholeness of Body": "At 6th level, you gain the ability to heal yourself. As an action, you can regain hit points equal to three times your monk level. You must finish a long rest before you can use this feature again.",
-                "Tranquility": "Beginning at 11th level, you can enter a special meditation that surrounds you with an aura of peace. At the end of a long rest, you gain the effect of a *sanctuary* spell that lasts until the start of your next long rest (the spell can end early as normal). The saving throw DC for the spell equals 8 + your Wisdom modifier + your proficiency bonus.",
+                "Tranquility": "Beginning at 11th level, you can enter a special meditation that surrounds you with an aura of peace. At the end of a long rest, you gain the effect of a <i>sanctuary</i> spell that lasts until the start of your next long rest (the spell can end early as normal). The saving throw DC for the spell equals 8 + your Wisdom modifier + your proficiency bonus.",
                 "Quivering Palm": {
                     "content": [
                         "At 17th level, you gain the ability to set up lethal vibrations in someone’s body. When you hit a creature with an unarmed strike, you can spend 3 ki points to start these imperceptible vibrations, which last for a number of days equal to your monk level. The vibrations are harmless unless you use your action to end them. To do so, you and the target must be on the same plane of existence. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 0 hit points. If it succeeds, it takes 10d10 necrotic damage.",
@@ -2218,7 +2218,7 @@
             "Divine Sense": {
                 "content": [
                     "The presence of strong evil registers on your senses like a noxious odor, and powerful good rings like heavenly music in your ears. As an action, you can open your awareness to detect such forces. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet of you that is not behind total cover. You know the type (celestial, fiend, or undead) of any being whose presence you sense, but not its identity (the vampire",
-                    "Count Strahd von Zarovich, for instance). Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the *hallow* spell.",
+                    "Count Strahd von Zarovich, for instance). Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the <i>hallow</i> spell.",
                     "You can use this feature a number of times equal to 1 + your Charisma modifier. When you finish a long rest, you regain all expended uses."
                 ]
             },
@@ -2636,7 +2636,7 @@
                 "Spell Slots": {
                     "content": [
                         "The Ranger table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.",
-                        "For example, if you know the 1st-level spell *animal friendship* and have a 1st-level and a 2nd-level spell slot available, you can cast *animal friendship* using either slot."
+                        "For example, if you know the 1st-level spell <i>animal friendship</i> and have a 1st-level and a 2nd-level spell slot available, you can cast <i>animal friendship</i> using either slot."
                     ]
                 },
                 "Spells Known of 1st Level and Higher": {
@@ -2709,7 +2709,7 @@
                 "Superior Hunters Defense": {
                     "content": [
                         "At 15th level, you gain one of the following features of your choice.",
-                        "<b>Evasion.</b> When you are subjected to an effect, such as a red dragon’s fiery breath or a *lightning bolt* spell, that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.",
+                        "<b>Evasion.</b> When you are subjected to an effect, such as a red dragon’s fiery breath or a <i>lightning bolt</i> spell, that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.",
                         "<b>Stand Against the Tide.</b> When a hostile creature misses you with a melee attack, you can use your reaction to force that creature to repeat the same attack against another creature (other than itself) of your choice.",
                         "<b>Uncanny Dodge.</b> When an attacker that you can see hits you with an attack, you can use your reaction to halve the attack’s damage against you."
                     ]
@@ -3661,7 +3661,7 @@
                 "content": "At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You gain one of the following features of your choice.",
                 "Pact of the Chain": {
                     "content": [
-                        "You learn the *find familiar* spell and can cast it as a ritual. The spell doesn’t count against your number of spells known.",
+                        "You learn the <i>find familiar</i> spell and can cast it as a ritual. The spell doesn’t count against your number of spells known.",
                         "When you cast the spell, you can choose one of the normal forms for your familiar or one of the following special forms: imp, pseudodragon, quasit, or sprite.",
                         "Additionally, when you take the Attack action, you can forgo one of your own attacks to allow your familiar to make one attack of its own with its reaction."
                     ]
@@ -3694,139 +3694,139 @@
             "content": "If an eldritch invocation has prerequisites, you must meet them to learn it. You can learn the invocation at the same time that you meet its prerequisites. A level prerequisite refers to your level in this class.",
             "Agonizing Blast": {
                 "content": [
-                    "*Prerequisite:* eldritch blast *cantrip*",
-                    "When you cast *eldritch blast*, add your Charisma modifier to the damage it deals on a hit."
+                    "<i>Prerequisite:</i> eldritch blast <i>cantrip</i>",
+                    "When you cast <i>eldritch blast</i>, add your Charisma modifier to the damage it deals on a hit."
                 ]
             },
-            "Armor of Shadows": "You can cast *mage armor* on yourself at will, without expending a spell slot or material components.",
+            "Armor of Shadows": "You can cast <i>mage armor</i> on yourself at will, without expending a spell slot or material components.",
             "Ascendant Step": {
                 "content": [
-                    "*Prerequisite: 9th level*",
-                    "You can cast *levitate* on yourself at will, without expending a spell slot or material components."
+                    "<i>Prerequisite: 9th level</i>",
+                    "You can cast <i>levitate</i> on yourself at will, without expending a spell slot or material components."
                 ]
             },
-            "Beast Speech": "You can cast *speak with animals* at will, without expending a spell slot.",
+            "Beast Speech": "You can cast <i>speak with animals</i> at will, without expending a spell slot.",
             "Beguiling Influence": "You gain proficiency in the Deception and Persuasion skills.",
             "Bewitching Whispers": {
                 "content": [
-                    "*Prerequisite: 7th level*",
-                    "You can cast *compulsion* once using a warlock spell slot. You can’t do so again until you finish a long rest."
+                    "<i>Prerequisite: 7th level</i>",
+                    "You can cast <i>compulsion</i> once using a warlock spell slot. You can’t do so again until you finish a long rest."
                 ]
             },
             "Book of Ancient Secrets": {
                 "content": [
-                    "*Prerequisite: Pact of the Tome feature*",
+                    "<i>Prerequisite: Pact of the Tome feature</i>",
                     "You can now inscribe magical rituals in your Book of Shadows. Choose two 1st-level spells that have the ritual tag from any class’s spell list (the two needn’t be from the same list). The spells appear in the book and don’t count against the number of spells you know. With your Book of Shadows in hand, you can cast the chosen spells as rituals. You can’t cast the spells except as rituals, unless you’ve learned them by some other means. You can also cast a warlock spell you know as a ritual if it has the ritual tag.",
                     "On your adventures, you can add other ritual spells to your Book of Shadows. When you find such a spell, you can add it to the book if the spell’s level is equal to or less than half your warlock level (rounded up) and if you can spare the time to transcribe the spell. For each level of the spell, the transcription process takes 2 hours and costs 50 gp for the rare inks needed to inscribe it."
                 ]
             },
             "Chains of Carceri": {
                 "content": [
-                    "*Prerequisite: 15th level, Pact of the Chain feature*",
-                    "You can cast *hold monster* at will—targeting a celestial, fiend, or elemental—without expending a spell slot or material components. You must finish a long rest before you can use this invocation on the same creature again."
+                    "<i>Prerequisite: 15th level, Pact of the Chain feature</i>",
+                    "You can cast <i>hold monster</i> at will—targeting a celestial, fiend, or elemental—without expending a spell slot or material components. You must finish a long rest before you can use this invocation on the same creature again."
                 ]
             },
             "Devils Sight": "You can see normally in darkness, both magical and nonmagical, to a distance of 120 feet.",
             "Dreadful Word": {
                 "content": [
-                    "*Prerequisite: 7th level*",
-                    "You can cast *confusion* once using a warlock spell slot. You can’t do so again until you finish a long rest."
+                    "<i>Prerequisite: 7th level</i>",
+                    "You can cast <i>confusion</i> once using a warlock spell slot. You can’t do so again until you finish a long rest."
                 ]
             },
-            "Eldritch Sight": "You can cast *detect magic* at will, without expending a spell slot.",
+            "Eldritch Sight": "You can cast <i>detect magic</i> at will, without expending a spell slot.",
             "Eldritch Spear": {
                 "content": [
-                    "*Prerequisite:* eldritch blast *cantrip*",
-                    "When you cast *eldritch blast*, its range is 300 feet."
+                    "<i>Prerequisite:</i> eldritch blast <i>cantrip</i>",
+                    "When you cast <i>eldritch blast</i>, its range is 300 feet."
                 ]
             },
             "Eyes of the Rune Keeper": "You can read all writing.",
-            "Fiendish Vigor": "You can cast *false life* on yourself at will as a 1st-level spell, without expending a spell slot or material components.",
+            "Fiendish Vigor": "You can cast <i>false life</i> on yourself at will as a 1st-level spell, without expending a spell slot or material components.",
             "Gaze of Two Minds": "You can use your action to touch a willing humanoid and perceive through its senses until the end of your next turn. As long as the creature is on the same plane of existence as you, you can use your action on subsequent turns to maintain this connection, extending the duration until the end of your next turn. While perceiving through the other creature’s senses, you benefit from any special senses possessed by that creature, and you are blinded and deafened to your own surroundings.",
             "Lifedrinker": {
                 "content": [
-                    "*Prerequisite: 12th level, Pact of the Blade feature*",
+                    "<i>Prerequisite: 12th level, Pact of the Blade feature</i>",
                     "When you hit a creature with your pact weapon, the creature takes extra necrotic damage equal to your Charisma modifier (minimum 1)."
                 ]
             },
-            "Mask of Many Faces": "You can cast *disguise self* at will, without expending a spell slot.",
+            "Mask of Many Faces": "You can cast <i>disguise self</i> at will, without expending a spell slot.",
             "Master of Myriad Forms": {
                 "content": [
-                    "*Prerequisite: 15th level*",
-                    "You can cast *alter self* at will, without expending a spell slot."
+                    "<i>Prerequisite: 15th level</i>",
+                    "You can cast <i>alter self</i> at will, without expending a spell slot."
                 ]
             },
             "Minions of Chaos": {
                 "content": [
-                    "*Prerequisite: 9th level*",
-                    "You can cast *conjure elemental* once using a warlock spell slot. You can’t do so again until you finish a long rest."
+                    "<i>Prerequisite: 9th level</i>",
+                    "You can cast <i>conjure elemental</i> once using a warlock spell slot. You can’t do so again until you finish a long rest."
                 ]
             },
             "Mire the Mind": {
                 "content": [
-                    "*Prerequisite: 5th level*",
-                    "You can cast *slow* once using a warlock spell slot. You can’t do so again until you finish a long rest."
+                    "<i>Prerequisite: 5th level</i>",
+                    "You can cast <i>slow</i> once using a warlock spell slot. You can’t do so again until you finish a long rest."
                 ]
             },
-            "Misty Visions": "You can cast *silent image* at will, without expending a spell slot or material components.",
+            "Misty Visions": "You can cast <i>silent image</i> at will, without expending a spell slot or material components.",
             "One with Shadows": {
                 "content": [
-                    "*Prerequisite: 5th level*",
+                    "<i>Prerequisite: 5th level</i>",
                     "When you are in an area of dim light or darkness, you can use your action to become invisible until you move or take an action or a reaction."
                 ]
             },
             "Otherworldly Leap": {
                 "content": [
-                    "*Prerequisite: 9th level*",
-                    "You can cast *jump* on yourself at will, without expending a spell slot or material components."
+                    "<i>Prerequisite: 9th level</i>",
+                    "You can cast <i>jump</i> on yourself at will, without expending a spell slot or material components."
                 ]
             },
             "Repelling Blast": {
                 "content": [
-                    "*Prerequisite:* eldritch blas*t cantrip*",
-                    "When you hit a creature with *eldritch blast*, you can push the creature up to 10 feet away from you in a straight line."
+                    "<i>Prerequisite:</i> eldritch blast <i>cantrip</i>",
+                    "When you hit a creature with <i>eldritch blast</i>, you can push the creature up to 10 feet away from you in a straight line."
                 ]
             },
             "Sculptor of Flesh": {
                 "content": [
-                    "*Prerequisite: 7th level*",
-                    "You can cast *polymorph* once using a warlock spell slot. You can’t do so again until you finish a long rest."
+                    "<i>Prerequisite: 7th level</i>",
+                    "You can cast <i>polymorph</i> once using a warlock spell slot. You can’t do so again until you finish a long rest."
                 ]
             },
             "Sign of Ill Omen": {
                 "content": [
-                    "*Prerequisite: 5th level*",
-                    "You can cast *bestow curse* once using a warlock spell slot. You can’t do so again until you finish a long rest."
+                    "<i>Prerequisite: 5th level</i>",
+                    "You can cast <i>bestow curse</i> once using a warlock spell slot. You can’t do so again until you finish a long rest."
                 ]
             },
-            "Thief of Five Fates": "You can cast *bane* once using a warlock spell slot. You can’t do so again until you finish a long rest.",
+            "Thief of Five Fates": "You can cast <i>bane</i> once using a warlock spell slot. You can’t do so again until you finish a long rest.",
             "Thirsting Blade": {
                 "content": [
-                    "*Prerequisite: 5th level, Pact of the Blade feature*",
+                    "<i>Prerequisite: 5th level, Pact of the Blade feature</i>",
                     "You can attack with your pact weapon twice, instead of once, whenever you take the Attack action on your turn."
                 ]
             },
             "Visions of Distant Realms": {
                 "content": [
-                    "*Prerequisite: 15th level*",
-                    "You can cast *arcane eye* at will, without expending a spell slot."
+                    "<i>Prerequisite: 15th level</i>",
+                    "You can cast <i>arcane eye</i> at will, without expending a spell slot."
                 ]
             },
             "Voice of the Chain Master": {
                 "content": [
-                    "*Prerequisite: Pact of the Chain feature*",
+                    "<i>Prerequisite: Pact of the Chain feature</i>",
                     "You can communicate telepathically with your familiar and perceive through your familiar’s senses as long as you are on the same plane of existence. Additionally, while perceiving through your familiar’s senses, you can also speak through your familiar in your own voice, even if your familiar is normally incapable of speech."
                 ]
             },
             "Whispers of the Grave": {
                 "content": [
-                    "*Prerequisite: 9th level*",
-                    "You can cast *speak with dead* at will, without expending a spell slot."
+                    "<i>Prerequisite: 9th level</i>",
+                    "You can cast <i>speak with dead</i> at will, without expending a spell slot."
                 ]
             },
             "Witch Sight": {
                 "content": [
-                    "*Prerequisite: 15th level*",
+                    "<i>Prerequisite: 15th level</i>",
                     "You can see the true form of any shapechanger or creature concealed by illusion or transmutation magic while the creature is within 30 feet of you and within line of sight."
                 ]
             }

@@ -2699,72 +2699,210 @@ function displayClass(charClass, level, levelFeatures){
         basicFeatures.innerHTML=basicFeaturesString;
         
         
-        /*core warlock features*/
-        classText+=classJSON['Warlock']['Class Features']['Otherworldly Patrons'];
-        classText+=classJSON['Warlock']['Class Features']['Pact Magic']['content'];
-        classText+=classJSON['Warlock']['Class Features']['Pact Magic']['Cantrips'];
-        classText+=classJSON['Warlock']['Class Features']['Pact Magic']['Cantrips'];
-        classText+=classJSON['Warlock']['Class Features']['Pact Magic']['Spell Slots']['content'];
-        classText+=classJSON['Warlock']['Class Features']['Pact Magic']['Spells Known of 1st Level and Higher']['content'];
-        classText+=classJSON['Warlock']['Class Features']['Pact Magic']['Spellcasting Ability']['content'];
-        classText+=classJSON['Warlock']['Class Features']['Pact Magic']['Spellcasting Focus'];
-        classText+=classJSON['Warlock']['Class Features']['Eldritch Invocations']['content'];
-        classText+=classJSON['Warlock']['Class Features']['Pact Boon']['content'];
-        classText+=classJSON['Warlock']['Class Features']['Pact Boon']['Pact of the Chain']['content'].join("");
-        classText+=classJSON['Warlock']['Class Features']['Pact Boon']['Pact of the Blade']['content'].join("");
-        classText+=classJSON['Warlock']['Class Features']['Pact Boon']['Pact of the Tome']['content'].join("");
-        classText+=classJSON['Warlock']['Class Features']['Ability Score Improvement'];
-        classText+=classJSON['Warlock']['Class Features']['Mystic Arcanum']['content'].join("");
-        classText+=classJSON['Warlock']['Class Features']['Eldritch Master'];
-        
-        /*invocations*/
-        classText+=classJSON['Warlock']['Eldritch Invocations']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Agonizing Blast']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Armor of Shadows'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Ascendant Step']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Beast Speech'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Beguiling Influence'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Bewitching Whispers']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Book of Ancient Secrets']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Chains of Carceri']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Devils Sight'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Dreadful Word']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Eldritch Sight'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Eldritch Spear']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Eyes of the Rune Keeper'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Fiendish Vigor'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Gaze of Two Minds'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Lifedrinker']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Mask of Many Faces'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Master of Myriad Forms']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Minions of Chaos']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Mire the Mind']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Misty Visions'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['One with Shadows']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Otherworldly Leap']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Repelling Blast']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Sculptor of Flesh']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Sign of Ill Omen']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Thief of Five Fates'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Thirsting Blade']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Visions of Distant Realms']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Voice of the Chain Master']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Whispers of the Grave']['content'];
-        classText+=classJSON['Warlock']['Eldritch Invocations']['Witch Sight']['content'];
+        lvl1Features+="<b>Pact Magic:</b><br>";
+        lvl1Features+=classJSON['Warlock']['Class Features']['Pact Magic']['content']+"<br><br>";
+        lvl1Features+="<b>Cantrips:</b><br>";
+        lvl1Features+=classJSON['Warlock']['Class Features']['Pact Magic']['Cantrips']+"<br><br>";
+        lvl1Features+="<b>Spell Slots:</b><br>";
+        lvl1Features+=classJSON['Warlock']['Class Features']['Pact Magic']['Spell Slots']['content']+"<br><br>";
+        lvl1Features+="<b>Spells Known of 1st Level and Higher:</b><br>";
+        lvl1Features+=classJSON['Warlock']['Class Features']['Pact Magic']['Spells Known of 1st Level and Higher']['content']+"<br><br>";
+        lvl1Features+="<b>Spellcasting Ability:</b><br>";
+        lvl1Features+=classJSON['Warlock']['Class Features']['Pact Magic']['Spellcasting Ability']['content'].join("<br>")+"<br><br>";
+        lvl1Features+="<b>Spellcasting Focus:</b><br>";
+        lvl1Features+=classJSON['Warlock']['Class Features']['Pact Magic']['Spellcasting Focus']+"<br><br>";
+        lvl1Features+="<b>Otherworldly Patron:</b><br>";
+        lvl1Features+=classJSON['Warlock']['Class Features']['Otherworldly Patron']+"<br><br>";
         
         /*patron*/
-        classText+=classJSON['Warlock']['Otherworldly Patrons']['content'];
-        classText+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['content'];
-        classText+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['content'];
-        classText+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spell Level'];
-        classText+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spells'];
-        classText+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Dark Ones Blessing'];
-        classText+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Dark Ones Own Luck']['content'];
-        classText+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Fiendish Resilience'];
-        classText+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Hurl Through Hell']['content'];
+        lvl1Features+="<b>Otherworldly Patrons:</b><br>";
+        lvl1Features+=classJSON['Warlock']['Otherworldly Patrons']['content']+"<br><br>";
+        lvl1Features+="<b>The Fiend:</b><br>";
+        lvl1Features+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['content']+"<br><br>";
+        lvl1Features+="<b>Expanded Spell List:</b><br>";
+        lvl1Features+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['content']+"<br><br>";
+        lvl1Features+="<b>Spell Level:</b><br>";
+        lvl1Features+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spell Level']+"<br><br>";
+        lvl1Features+="<b>Spells:</b><br>";
+        lvl1Features+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spells'].join(" ")+"<br><br>";
+        lvl1Features+="<b>Dark One's Blessing:</b><br>";
+        lvl1Features+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Dark Ones Blessing'];
         
-        /*extra stuff on pacts*/
-        classText+=classJSON['Warlock']['Otherworldly Patrons']['Your Pact Boon']['content'].join("");
+        
+        
+        lvl1Element.innerHTML=lvl1Features;
+        
+        
+        if(level>=2){
+            lvl2Features+="<b>Eldritch Invocations:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Class Features']['Eldritch Invocations']['content'].join(" ")+"<br><br>";
+            
+            
+            lvl2Features+="<b>Agonizing Blast:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Eldritch Invocations']['Agonizing Blast']['content'].join("<br>")+"<br><br>";
+            lvl2Features+="<b>Armor of Shadows:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Eldritch Invocations']['Armor of Shadows']+"<br><br>";
+            lvl2Features+="<b>Beast Speech:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Eldritch Invocations']['Beast Speech']+"<br><br>";
+            lvl2Features+="<b>Beguiling Influence:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Eldritch Invocations']['Beguiling Influence']+"<br><br>";
+            lvl2Features+="<b>Book of Ancient Secrets:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Eldritch Invocations']['Book of Ancient Secrets']['content'].join("<br>")+"<br><br>";
+            lvl2Features+="<b>Devil's Sight:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Eldritch Invocations']['Devils Sight']+"<br><br>";
+            lvl2Features+="<b>Eldritch Sight:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Eldritch Invocations']['Eldritch Sight']+"<br><br>";
+            lvl2Features+="<b>Eldritch Spear:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Eldritch Invocations']['Eldritch Spear']['content'].join("<br>")+"<br><br>";
+            lvl2Features+="<b>Eyes of the Rune Keeper:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Eldritch Invocations']['Eyes of the Rune Keeper']+"<br><br>";
+            lvl2Features+="<b>Fiendish Vigor:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Eldritch Invocations']['Fiendish Vigor']+"<br><br>";
+            lvl2Features+="<b>Gaze of Two Minds:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Eldritch Invocations']['Gaze of Two Minds']+"<br><br>";
+            lvl2Features+="<b>Mask of Many Faces:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Eldritch Invocations']['Mask of Many Faces']+"<br><br>";
+            lvl2Features+="<b>Misty Visions:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Eldritch Invocations']['Misty Visions']+"<br><br>";
+            lvl2Features+="<b>Repelling Blast:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Eldritch Invocations']['Repelling Blast']['content'].join("<br>")+"<br><br>";
+            lvl2Features+="<b>Thief of Five Fates:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Eldritch Invocations']['Thief of Five Fates']+"<br><br>";
+            lvl2Features+="<b>Voice of the Chain Master:</b><br>";
+            lvl2Features+=classJSON['Warlock']['Eldritch Invocations']['Voice of the Chain Master']['content']+"<br><br>";
+            
+            
+
+            
+            
+            lvl2Element.innerHTML=lvl2Features;
+        }
+        
+        if(level>=3){
+            lvl3Features+="<b>Pact Boon:</b><br>";
+            lvl3Features+=classJSON['Warlock']['Class Features']['Pact Boon']['content']+"<br><br>";
+            lvl3Features+="<b>Pact of the Chain:</b><br>";
+            lvl3Features+=classJSON['Warlock']['Class Features']['Pact Boon']['Pact of the Chain']['content'].join(" ")+"<br><br>";
+            lvl3Features+="<b>Pact of the Blade:</b><br>";
+            lvl3Features+=classJSON['Warlock']['Class Features']['Pact Boon']['Pact of the Blade']['content'].join(" ")+"<br><br>";
+            lvl3Features+="<b>Pact of the Tome:</b><br>";
+            lvl3Features+=classJSON['Warlock']['Class Features']['Pact Boon']['Pact of the Tome']['content'].join(" ")+"<br><br>";
+            
+            /*extra stuff on pacts*/
+            lvl3Features+="<b>Your Pact Boon:</b><br>";
+            lvl3Features+=classJSON['Warlock']['Otherworldly Patrons']['Your Pact Boon']['content'].join("<br><br>");
+            
+            lvl3Element.innerHTML=lvl3Features;
+        }
+        
+        if(level>=4){
+            lvl4Features+="<b>Ability Score Improvement:</b><br>";
+            lvl4Features+=classJSON['Warlock']['Class Features']['Ability Score Improvement'];
+        
+            lvl4Element.innerHTML=lvl4Features;
+        }
+        
+        if(level>=5){
+            lvl5Features+="<b>Invocations:</b><br><br>";
+            lvl5Features+="<b>Mire the Mind:</b><br>";
+            lvl5Features+=classJSON['Warlock']['Eldritch Invocations']['Mire the Mind']['content'].join("<br>")+"<br><br>";
+            lvl5Features+="<b>One With Shadows:</b><br>";
+            lvl5Features+=classJSON['Warlock']['Eldritch Invocations']['One with Shadows']['content'].join("<br>")+"<br><br>";
+            lvl5Features+="<b>Sign of Ill Omen:</b><br>";
+            lvl5Features+=classJSON['Warlock']['Eldritch Invocations']['Sign of Ill Omen']['content'].join("<br>")+"<br><br>";
+            lvl5Features+="<b>Thirsting Blade:</b><br>";
+            lvl5Features+=classJSON['Warlock']['Eldritch Invocations']['Thirsting Blade']['content'].join("<br>");
+            
+            lvl5Element.innerHTML=lvl5Features;
+        }
+        
+        
+        /*all not listed levels are spells, ASI, or invocations*/
+        if(level>=6){
+            lvl6Features+="<b>Dark One's Own Luck:</b><br>";
+            lvl6Features+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Dark Ones Own Luck']['content'].join(" ");
+            
+            lvl6Element.innerHTML=lvl6Features;
+        }
+        
+        if(level>=7){
+            lvl7Features+="<b>Invocations:</b><br><br>";
+            lvl7Features+="<b>Bewitching Whispers:</b><br>";
+            lvl7Features+=classJSON['Warlock']['Eldritch Invocations']['Bewitching Whispers']['content'].join("<br>")+"<br><br>";
+            lvl7Features+="<b>Dreadful Word:</b><br>";
+            lvl7Features+=classJSON['Warlock']['Eldritch Invocations']['Dreadful Word']['content'].join("<br>")+"<br><br>";
+            lvl7Features+="<b>Sculptor of Flesh:</b><br>";
+            lvl7Features+=classJSON['Warlock']['Eldritch Invocations']['Sculptor of Flesh']['content'].join("<br>")+"<br><br>";
+            
+            lvl7Element.innerHTML=lvl7Features;
+        }
+        
+        if(level>=9){
+            lvl9Features+="<b>Invocations:</b><br><br>";
+            lvl9Features+="<b>Ascendant Step:</b><br>";
+            lvl9Features+=classJSON['Warlock']['Eldritch Invocations']['Ascendant Step']['content'].join("<br>")+"<br><br>";
+            lvl9Features+="<b>Minions of Chaos:</b><br>";
+            lvl9Features+=classJSON['Warlock']['Eldritch Invocations']['Minions of Chaos']['content'].join("<br>")+"<br><br>";
+            lvl9Features+="<b>Otherworldly Leap:</b><br>";
+            lvl9Features+=classJSON['Warlock']['Eldritch Invocations']['Otherworldly Leap']['content'].join("<br>")+"<br><br>";
+            lvl9Features+="<b>Whispers of the Grave:</b><br>";
+            lvl9Features+=classJSON['Warlock']['Eldritch Invocations']['Whispers of the Grave']['content'].join("<br>")+"<br><br>";
+            
+            lvl9Element.innerHTML=lvl9Features;
+        }
+        
+        if(level>=10){
+            lvl10Features+="<b>Fiendish Resilience:</b><br>";
+            lvl10Features+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Fiendish Resilience'];
+            
+            lvl10Element.innerHTML=lvl10Features;
+        }
+        
+        if(level>=11){
+            lvl11Features+="<b>Mystic Arcanum:</b><br>";
+            lvl11Features+=classJSON['Warlock']['Class Features']['Mystic Arcanum']['content'].join(" ");
+            
+            lvl11Element.innerHTML=lvl11Features;
+        }
+        
+        if(level>=12){
+            lvl12Features+="<b>Invocations:</b><br><br>";
+            lvl12Features+="<b>Lifedrinker:</b><br>";
+            lvl12Features+=classJSON['Warlock']['Eldritch Invocations']['Lifedrinker']['content'].join("<br>");
+            
+            lvl12Element.innerHTML=lvl12Features;
+        }
+        
+        if(level>=14){
+            lvl14Features+="<b>Hurl Through Hell:</b><br>";
+            lvl14Features+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Hurl Through Hell']['content'].join(" ");
+            
+            lvl14Element.innerHTML=lvl14Features;
+        }
+        
+        if(level>=15){
+            lvl15Features+="<b>Invocations:</b><br><br>";
+            lvl15Features+="<b>Chains of Carceri:</b><br>";
+            lvl15Features+=classJSON['Warlock']['Eldritch Invocations']['Chains of Carceri']['content'].join("<br>")+"<br><br>";
+            lvl15Features+="<b>Master of Myriad Form:</b><br>";
+            lvl15Features+=classJSON['Warlock']['Eldritch Invocations']['Master of Myriad Forms']['content'].join("<br>")+"<br><br>";
+            lvl15Features+="<b>Visions of Distant Realms:</b><br>";
+            lvl15Features+=classJSON['Warlock']['Eldritch Invocations']['Visions of Distant Realms']['content'].join("<br>")+"<br><br>";
+            lvl15Features+="<b>Witch Sight:</b><br>";
+            lvl15Features+=classJSON['Warlock']['Eldritch Invocations']['Witch Sight']['content'].join("<br>");
+            
+            lvl15Element.innerHTML=lvl15Features;
+        }
+        
+        if(level==20){
+            lvl20Features+="<b>Eldritch Master:</b><br>";
+            lvl20Features+=classJSON['Warlock']['Class Features']['Eldritch Master'];
+            
+            lvl20Element.innerHTML=lvl20Features;
+        }
+        
+
+        
     }
     
     
