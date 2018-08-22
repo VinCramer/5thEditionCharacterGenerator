@@ -1175,39 +1175,52 @@ function displayRace(race){
     var raceText="";
 
     if(race=="hilldwarf"){
-        raceText+=raceJSON['Races']['Dwarf']['Dwarf Traits']['content'].join("") + " ";   
-        raceText+=raceJSON['Races']['Dwarf']['Dwarf Traits']['Hill Dwarf']['content'].join("");
+        raceText+=raceJSON['Races']['Dwarf']['Dwarf Traits']['content'].join("<br>")+"<br><br>";   
+        raceText+=raceJSON['Races']['Dwarf']['Dwarf Traits']['Hill Dwarf']['content'].join("<br>");
         
     }
     else if(race=="highelf"){
-        raceText=raceJSON['Races']['Elf']['Elf Traits']['content'].join("") + " ";
-        raceText+=raceJSON['Races']['Elf']['Elf Traits']['High Elf']['content'].join("");
+        raceText=raceJSON['Races']['Elf']['Elf Traits']['content'].join("<br>")+"<br><br>";
+        raceText+=raceJSON['Races']['Elf']['Elf Traits']['High Elf']['content'].join("<br>");
     }
     else if(race=="lightfoothalfling"){
-        raceText=raceJSON['Races']['Halfling']['Halfling Traits']['content'].join("") + " ";
-        raceText+=raceJSON['Races']['Halfling']['Halfling Traits']['Lightfoot']['content'].join("");   
+        raceText=raceJSON['Races']['Halfling']['Halfling Traits']['content'].join("<br>")+"<br><br>";
+        raceText+=raceJSON['Races']['Halfling']['Halfling Traits']['Lightfoot']['content'].join("<br>");   
     }
     else if(race=="human"){
-        raceText=raceJSON['Races']['Human']['Human Traits']['content'].join("");    
+        raceText=raceJSON['Races']['Human']['Human Traits']['content'].join("<br>");    
     }
     else if(race=="dragonborn"){
-        raceText=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'].join("");
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['**Dragon**'];
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['**Damage Type**'];
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['**Breath Weapon**'];
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][0]+"<br>";
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][1]+"<br>";
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][2]+"<br>";
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][3]+"<br>";
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][4]+"<br>";
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][5]+"<br>";
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][6]+"<br>";
+        /*TODO fix table*/
+        raceText+="<b>Dragon:</b><br>"+raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['<b>Dragon</b>'].join("<br>")+"<br>";
+        raceText+="<b>Damage Type:</b><br>"+raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['<b>Damage Type</b>'].join("<br>")+"<br>";
+        raceText+="<b>Breath Weapon:</b><br>"+raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['<b>Breath Weapon</b>'].join("<br>")+"<br><br>";
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][8]+"<br>";
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][9]+"<br>";
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][10]+"<br>";
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][11]+"<br>";
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][12]+"<br>";
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][13]+"<br>";
     }
     else if(race=="rockgnome"){
-        raceText=raceJSON['Races']['Gnome']['Gnome Traits']['content'].join("") + " ";
-        raceText+=raceJSON['Races']['Gnome']['Gnome Traits']['Rock Gnome']['content'].join("");
+        raceText=raceJSON['Races']['Gnome']['Gnome Traits']['content'].join("<br>")+"<br><br>";
+        raceText+=raceJSON['Races']['Gnome']['Gnome Traits']['Rock Gnome']['content'].join("<br>");
     }
     else if(race=="halfelf"){
-        raceText=raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'].join("");    
+        raceText=raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'].join("<br>");    
     }
     else if(race=="halforc"){
-        raceText=raceJSON['Races']['Half-Orc']['Half-Orc Traits']['content'].join("");    
+        raceText=raceJSON['Races']['Half-Orc']['Half-Orc Traits']['content'].join("<br>");    
     }
     else{
-        raceText=raceJSON['Races']['Tiefling']['Tiefling Traits']['content'].join("");
+        raceText=raceJSON['Races']['Tiefling']['Tiefling Traits']['content'].join("<br>");
     }
     racePara.innerHTML=raceText;
 }
@@ -2704,7 +2717,7 @@ function displayClass(charClass, level, levelFeatures){
         lvl1Features+="<b>Cantrips:</b><br>";
         lvl1Features+=classJSON['Warlock']['Class Features']['Pact Magic']['Cantrips']+"<br><br>";
         lvl1Features+="<b>Spell Slots:</b><br>";
-        lvl1Features+=classJSON['Warlock']['Class Features']['Pact Magic']['Spell Slots']['content']+"<br><br>";
+        lvl1Features+=classJSON['Warlock']['Class Features']['Pact Magic']['Spell Slots']['content'].join(" ")+"<br><br>";
         lvl1Features+="<b>Spells Known of 1st Level and Higher:</b><br>";
         lvl1Features+=classJSON['Warlock']['Class Features']['Pact Magic']['Spells Known of 1st Level and Higher']['content']+"<br><br>";
         lvl1Features+="<b>Spellcasting Ability:</b><br>";
