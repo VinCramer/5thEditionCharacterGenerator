@@ -23,10 +23,6 @@ td, th{
 }
 
 
-#lvl1{
-    margin-right:20px;
-    margin-left:10px;
-}
 
 .hidden{
     display:none;
@@ -35,7 +31,11 @@ td, th{
 
 .hidden_stats{
     display:none;
-    
+}
+
+.hidden_features{
+    padding: 10px;
+    margin:0px;
 }
 
 #min-label{

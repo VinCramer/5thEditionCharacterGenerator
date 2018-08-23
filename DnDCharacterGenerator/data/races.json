@@ -108,10 +108,10 @@
                     "<b>Alignment.</b> Dragonborn tend to extremes, making a conscious choice for one side or the other in the cosmic war between good and evil. Most dragonborn are good, but those who side with evil can be terrible villains.",
                     "<b>Size.</b> Dragonborn are taller and heavier than humans, standing well over 6 feet tall and averaging almost 250 pounds. Your size is Medium.",
                     "<b>Speed.</b> Your base walking speed is 30 feet.",
-                    "<b>Draconic Ancestry.</b>",
+                    "Draconic Ancestry.",
                     {
                         "table": {
-                            "<b>Dragon</b>": [
+                            "Dragon": [
                                 "Black",
                                 "Blue",
                                 "Brass",
@@ -123,7 +123,7 @@
                                 "Silver",
                                 "White"
                             ],
-                            "<b>Damage Type</b>": [
+                            "Damage Type": [
                                 "Acid",
                                 "Lightning",
                                 "Fire",
@@ -135,7 +135,7 @@
                                 "Cold",
                                 "Cold"
                             ],
-                            "<b>Breath Weapon</b>": [
+                            "Breath Weapon": [
                                 "5 by 30 ft. line (Dex. save)",
                                 "5 by 30 ft. line (Dex. save)",
                                 "5 by 30 ft. line (Dex. save)",

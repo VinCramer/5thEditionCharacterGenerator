@@ -1171,9 +1171,11 @@ function addRacialBonuses(charStats, race){
 
 /*update an element of our HTLM depending on what race the user selected*/
 function displayRace(race){
-    var racePara = document.getElementById("racial bonuses");
+    var raceElement = document.getElementById("racial bonuses");
     var raceText="";
-
+    
+    raceElement.innerHTML="";
+    
     if(race=="hilldwarf"){
         raceText+=raceJSON['Races']['Dwarf']['Dwarf Traits']['content'].join("<br>")+"<br><br>";   
         raceText+=raceJSON['Races']['Dwarf']['Dwarf Traits']['Hill Dwarf']['content'].join("<br>");
@@ -1196,13 +1198,69 @@ function displayRace(race){
         raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][2]+"<br>";
         raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][3]+"<br>";
         raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][4]+"<br>";
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][5]+"<br>";
+        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][5]+"<br><br>";
         raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][6]+"<br>";
-        /*TODO fix table*/
-        raceText+="<b>Dragon:</b><br>"+raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['<b>Dragon</b>'].join("<br>")+"<br>";
-        raceText+="<b>Damage Type:</b><br>"+raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['<b>Damage Type</b>'].join("<br>")+"<br>";
-        raceText+="<b>Breath Weapon:</b><br>"+raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['<b>Breath Weapon</b>'].join("<br>")+"<br><br>";
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][8]+"<br>";
+        
+        raceElement.innerHTML=raceText;
+        
+        /*overwrite raceText to insert table in proper location*/
+        raceText="<table>"+
+        "<tr><th>Dragon</th><th>Damage Type</th><th>Breath Weapon</th></tr>"+
+        "<tr>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Dragon'][0] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Damage Type'][0] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Breath Weapon'][0] + "</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Dragon'][1] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Damage Type'][1] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Breath Weapon'][1] + "</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Dragon'][2] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Damage Type'][2] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Breath Weapon'][2] + "</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Dragon'][3] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Damage Type'][3] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Breath Weapon'][3] + "</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Dragon'][4] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Damage Type'][4] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Breath Weapon'][4] + "</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Dragon'][5] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Damage Type'][5] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Breath Weapon'][5] + "</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Dragon'][6] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Damage Type'][6] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Breath Weapon'][6] + "</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Dragon'][7] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Damage Type'][7] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Breath Weapon'][7] + "</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Dragon'][8] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Damage Type'][8] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Breath Weapon'][8] + "</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Dragon'][9] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Damage Type'][9] + "</td>"+
+        "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Breath Weapon'][9] + "</td>"+
+        "</tr>"+
+        "</table><br>";
+        
+        raceElement.innerHTML+=raceText;
+        
+        raceText=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][8]+"<br>";
         raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][9]+"<br>";
         raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][10]+"<br>";
         raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][11]+"<br>";
@@ -1219,10 +1277,14 @@ function displayRace(race){
     else if(race=="halforc"){
         raceText=raceJSON['Races']['Half-Orc']['Half-Orc Traits']['content'].join("<br>");    
     }
+    
+    /*other race must be tiefling*/
     else{
         raceText=raceJSON['Races']['Tiefling']['Tiefling Traits']['content'].join("<br>");
     }
-    racePara.innerHTML=raceText;
+    
+    raceElement.innerHTML+=raceText;
+    
 }
 
 
@@ -1545,6 +1607,7 @@ function displayClass(charClass, level, levelFeatures){
         
         /*levels 13-19 hve no new features*/
         if(level==20){
+            lvl20Features+="<b>Superior Inspiration:</b><br>";
             lvl20Features+=classJSON['Bard']['Class Features']['Superior Inspiration']+"<br>";
             
             lvl20Element.innerHTML=lvl20Features;
@@ -1593,12 +1656,34 @@ function displayClass(charClass, level, levelFeatures){
         
         lvl1Features+="<b>Life Domain:</b><br>";
         lvl1Features+=classJSON['Cleric']['Class Features']['Life Domain']['content']+"<br><br>";
+
         
-        /*TODO - fix spell tables*/
-        lvl1Features+="<b>Cleric Level:</b><br>";
-        lvl1Features+=classJSON['Cleric']['Class Features']['Life Domain']['Life Domain Spells']['table']['Cleric Level'].join(" ")+"<br>";
-        lvl1Features+="<b>Spells:</b><br>";
-        lvl1Features+=classJSON['Cleric']['Class Features']['Life Domain']['Life Domain Spells']['table']['Spells'].join(" ")+"<br><br>";
+        
+        lvl1Features+="<table>"+
+        "<tr>"+
+        "<th>Cleric Level</th><th>Spells</th>"+    
+        "</tr>"+
+        "<tr>"+
+        "<td>"+ classJSON['Cleric']['Class Features']['Life Domain']['Life Domain Spells']['table']['Cleric Level'][0] +"</td>"+
+        "<td>"+ classJSON['Cleric']['Class Features']['Life Domain']['Life Domain Spells']['table']['Spells'][0] +"</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>"+ classJSON['Cleric']['Class Features']['Life Domain']['Life Domain Spells']['table']['Cleric Level'][1] +"</td>"+
+        "<td>"+ classJSON['Cleric']['Class Features']['Life Domain']['Life Domain Spells']['table']['Spells'][1] +"</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>"+ classJSON['Cleric']['Class Features']['Life Domain']['Life Domain Spells']['table']['Cleric Level'][2] +"</td>"+
+        "<td>"+ classJSON['Cleric']['Class Features']['Life Domain']['Life Domain Spells']['table']['Spells'][2] +"</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>"+ classJSON['Cleric']['Class Features']['Life Domain']['Life Domain Spells']['table']['Cleric Level'][3] +"</td>"+
+        "<td>"+ classJSON['Cleric']['Class Features']['Life Domain']['Life Domain Spells']['table']['Spells'][3] +"</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>"+ classJSON['Cleric']['Class Features']['Life Domain']['Life Domain Spells']['table']['Cleric Level'][4] +"</td>"+
+        "<td>"+ classJSON['Cleric']['Class Features']['Life Domain']['Life Domain Spells']['table']['Spells'][4] +"</td>"+
+        "</tr>"+
+        "</table><br><br>";
         
         
         lvl1Features+="<b>Bonus Proficiency:</b><br>";
@@ -1631,11 +1716,34 @@ function displayClass(charClass, level, levelFeatures){
             lvl5Features+="<b>Destroy Undead:</b><br>";
             lvl5Features+=classJSON['Cleric']['Class Features']['Destroy Undead']['content']+"<br><br>";
             
-            /*TODO fix table*/
-            lvl5Features+="<b>Destroy Undead Table:</b><br>";
-            lvl5Features+=classJSON['Cleric']['Class Features']['Destroy Undead']['Destroy Undead']['table']['Cleric Level'].join(" "); 
-            lvl5Features+=classJSON['Cleric']['Class Features']['Destroy Undead']['Destroy Undead']['table']['Destroys Undead of CR...'].join("");
             lvl5Element.innerHTML=lvl5Features;
+            
+            /*reuse same string for table*/
+            lvl5Features="<table>"+
+            "<tr>"+
+            "<th>Cleric Level</th><th>Destroys Undead of CR...</th>"+    
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Cleric']['Class Features']['Destroy Undead']['Destroy Undead']['table']['Cleric Level'][0] +"</td>"+
+            "<td>"+ classJSON['Cleric']['Class Features']['Destroy Undead']['Destroy Undead']['table']['Destroys Undead of CR...'][0] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Cleric']['Class Features']['Destroy Undead']['Destroy Undead']['table']['Cleric Level'][1] +"</td>"+
+            "<td>"+ classJSON['Cleric']['Class Features']['Destroy Undead']['Destroy Undead']['table']['Destroys Undead of CR...'][1] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Cleric']['Class Features']['Destroy Undead']['Destroy Undead']['table']['Cleric Level'][2] +"</td>"+
+            "<td>"+ classJSON['Cleric']['Class Features']['Destroy Undead']['Destroy Undead']['table']['Destroys Undead of CR...'][2] +"</td>"+"</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Cleric']['Class Features']['Destroy Undead']['Destroy Undead']['table']['Cleric Level'][3] +"</td>"+
+            "<td>"+ classJSON['Cleric']['Class Features']['Destroy Undead']['Destroy Undead']['table']['Destroys Undead of CR...'][3] +"</td>"+"</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Cleric']['Class Features']['Destroy Undead']['Destroy Undead']['table']['Cleric Level'][4] +"</td>"+
+            "<td>"+ classJSON['Cleric']['Class Features']['Destroy Undead']['Destroy Undead']['table']['Destroys Undead of CR...'][4] +"</td>"+"</tr>"+
+            "</table>";
+            
+            /*add table to inner html*/
+            lvl5Element.innerHTML+=lvl5Features;
         }
         
         /*cleric features*/
@@ -1719,19 +1827,35 @@ function displayClass(charClass, level, levelFeatures){
         
         
         if(level>=2){
-            lvl2Features+="<b>Wild Shape:</b><br>";
-            lvl2Features+=classJSON['Druid']['Class Features']['Wild Shape']['content'].join(" ")+"<br><br>";
-            lvl2Features+="<b>Level:</b><br>";
-            lvl2Features+=classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Level'].join(" ")+"<br>";
-            lvl2Features+="<b>Max CR:</b><br>";
-            lvl2Features+=classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Max CR'].join(" ")+"<br>";
-            lvl2Features+="<b>Limitations:</b><br>";
-            lvl2Features+=classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Limitations'].join(" ")+"<br>";
-            lvl2Features+="<b>Example:</b><br>";
-            lvl2Features+=classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Example'].join(" ")+"<br><br>";
-            lvl2Features+="<b>Duration:</b><br>";
-            lvl2Features+=classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['Duration']+"<br><br>";
-            lvl2Features+="<b>Rules:</b><br>";
+            
+            lvl2Features+="<b>Wild Shape:</b><br>"
+            lvl2Features+=classJSON['Druid']['Class Features']['Wild Shape']['content'];
+            
+            lvl2Features+="<table>"+
+            "<tr>"+
+            "<th>Level</th><th>Max CR</th><th>Limitations</th><th>Example</th>"+    
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Level'][0]+"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Max CR'][0] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Limitations'][0]+"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Example'][0] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Level'][1]+"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Max CR'][1] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Limitations'][1]+"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Example'][1] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Level'][1]+"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Max CR'][1] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Limitations'][1]+"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Example'][1] +"</td>"+
+            "</tr>"+
+            "</table><br>";
+            
+            
             lvl2Features+=classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['Rules']+"<br>";
             lvl2Features+=classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['content']+"<br><br>";
             
@@ -1744,22 +1868,181 @@ function displayClass(charClass, level, levelFeatures){
             lvl2Features+="<b>Natural Recovery</b><br>";
             lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Natural Recovery']['content'].join(" ");
             
-            /*TODO - table formatting*/
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['content'];
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Arctic']['table']['Druid Level'].join(" ");
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Arctic']['table']['Circle Spells'].join(" ");
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Coast']['table']['Druid Level'].join(" ");
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Coast']['table']['Circle Spells'].join(" ");
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Desert']['table']['Druid Level'].join(" ");
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Desert']['table']['Circle Spells'].join(" ");
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Forest']['table']['Druid Level'].join(" ");
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Forest']['table']['Circle Spells'].join(" ");
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Grassland']['table']['Druid Level'].join(" ");
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Grassland']['table']['Circle Spells'].join(" ");
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Mountain']['table']['Druid Level'].join(" ");
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Mountain']['table']['Circle Spells'].join(" ");
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Swamp']['table']['Druid Level'].join("");
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Swamp']['table']['Circle Spells'].join(" ");
+            
+            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['content'].join(" ")+"<br><br>";
+            
+            /*artic table*/
+            lvl2Features+="<b>Artic:</b><br><table>"+
+            "<tr>"+
+            "<th>Druid Level</th><th>Circle Spells</th>"+    
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Arctic']['table']['Druid Level'][0] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Arctic']['table']['Circle Spells'][0] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Arctic']['table']['Druid Level'][1] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Arctic']['table']['Circle Spells'][1] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Arctic']['table']['Druid Level'][2] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Arctic']['table']['Circle Spells'][2] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Arctic']['table']['Druid Level'][3] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Arctic']['table']['Circle Spells'][3] +"</td>"+
+            "</tr>"+
+            "</table><br><br>";
+            
+            
+            
+            /*coast table*/
+            lvl2Features+="<b>Coast:</b><br><table>"+
+            "<tr>"+
+            "<th>Druid Level</th><th>Circle Spells</th>"+    
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Coast']['table']['Druid Level'][0] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Coast']['table']['Circle Spells'][0] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Coast']['table']['Druid Level'][1] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Coast']['table']['Circle Spells'][1] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Coast']['table']['Druid Level'][2] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Coast']['table']['Circle Spells'][2] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Coast']['table']['Druid Level'][3] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Coast']['table']['Circle Spells'][3] +"</td>"+
+            "</tr>"+
+            "</table><br><br>";
+            
+            
+            
+            /*desert table*/
+            lvl2Features+="<b>Desert:</b><br><table>"+
+            "<tr>"+
+            "<th>Druid Level</th><th>Circle Spells</th>"+    
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Desert']['table']['Druid Level'][0] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Desert']['table']['Circle Spells'][0] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Desert']['table']['Druid Level'][1] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Desert']['table']['Circle Spells'][1] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Desert']['table']['Druid Level'][2] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Desert']['table']['Circle Spells'][2] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Desert']['table']['Druid Level'][3] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Desert']['table']['Circle Spells'][3] +"</td>"+
+            "</tr>"+
+            "</table><br><br>";
+            
+            
+            /*forest table*/
+            lvl2Features+="<b>Coast:</b><br><table>"+
+            "<tr>"+
+            "<th>Druid Level</th><th>Circle Spells</th>"+    
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Forest']['table']['Druid Level'][0] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Forest']['table']['Circle Spells'][0] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Forest']['table']['Druid Level'][1] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Forest']['table']['Circle Spells'][1] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Forest']['table']['Druid Level'][2] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Forest']['table']['Circle Spells'][2] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Forest']['table']['Druid Level'][3] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Forest']['table']['Circle Spells'][3] +"</td>"+
+            "</tr>"+
+            "</table><br><br>";
+            
+            
+            
+            /*grassland table*/
+            lvl2Features+="<b>Grassland:</b><br><table>"+
+            "<tr>"+
+            "<th>Druid Level</th><th>Circle Spells</th>"+    
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Grassland']['table']['Druid Level'][0] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Grassland']['table']['Circle Spells'][0] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Grassland']['table']['Druid Level'][1] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Grassland']['table']['Circle Spells'][1] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Grassland']['table']['Druid Level'][2] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Grassland']['table']['Circle Spells'][2] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Grassland']['table']['Druid Level'][3] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Grassland']['table']['Circle Spells'][3] +"</td>"+
+            "</tr>"+
+            "</table><br><br>";
+            
+            
+            
+            
+            /*mountain table*/
+            lvl2Features+="<b>Mountain:</b><br><table>"+
+            "<tr>"+
+            "<th>Druid Level</th><th>Circle Spells</th>"+    
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Mountain']['table']['Druid Level'][0] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Mountain']['table']['Circle Spells'][0] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Mountain']['table']['Druid Level'][1] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Mountain']['table']['Circle Spells'][1] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Mountain']['table']['Druid Level'][2] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Mountain']['table']['Circle Spells'][2] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Mountain']['table']['Druid Level'][3] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Mountain']['table']['Circle Spells'][3] +"</td>"+
+            "</tr>"+
+            "</table><br><br>";
+            
+            
+            /*swamp table*/
+            lvl2Features+="<b>Swamp:</b><br><table>"+
+            "<tr>"+
+            "<th>Druid Level</th><th>Circle Spells</th>"+    
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Swamp']['table']['Druid Level'][0] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Swamp']['table']['Circle Spells'][0] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Swamp']['table']['Druid Level'][1] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Swamp']['table']['Circle Spells'][1] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Swamp']['table']['Druid Level'][2] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Swamp']['table']['Circle Spells'][2] +"</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Swamp']['table']['Druid Level'][3] +"</td>"+
+            "<td>"+ classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['Swamp']['table']['Circle Spells'][3] +"</td>"+
+            "</tr>"+
+            "</table><br><br>";
+            
             
             lvl2Element.innerHTML=lvl2Features;
         }
@@ -2180,12 +2463,40 @@ function displayClass(charClass, level, levelFeatures){
             lvl3Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Tenets of Devotion']['content'].join("<br>")+"<br><br>";
             lvl3Features+="<b>Oath Spells:</b><br>";
             lvl3Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['content']+"<br><br>";
-            lvl3Features+="<b>Level:</b><br>";
-            lvl3Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Level']+"<br>";
-            lvl3Features+="<b>Paladin Spells:</b><br>";
-            lvl3Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Paladin Spells']+"<br><br>";
+            
+            /*oath spell table*/
+            lvl3Features+="<table>"+
+            "<tr>"+
+            "<th>Level</th><th>Paladin Spells</th>"+    
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Level'][0] +"</td>"+
+            "<td>"+ classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Paladin Spells'][0] +
+            "</td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Level'][1] +"</td>"+
+            "<td>"+ classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Paladin Spells'][1] +
+            "</td>"+"</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Level'][2] +"</td>"+
+            "<td>"+ classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Paladin Spells'][2] +
+            "</td>"+"</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Level'][3] +"</td>"+
+            "<td>"+ classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Paladin Spells'][3] +
+            "</td>"+"</tr>"+
+            "<tr>"+
+            "<td>"+ classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Level'][4] +"</td>"+
+            "<td>"+ classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Paladin Spells'][4] +
+            "</td>"+"</tr>"+
+            "</table><br><br>";
+
+            
+            
             lvl3Features+="<b>Channel Divinity:</b><br>";
             lvl3Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Channel Divinity']['content'].join("<br>");  
+            
             
             lvl3Element.innerHTML=lvl3Features;
         }
@@ -2729,15 +3040,41 @@ function displayClass(charClass, level, levelFeatures){
         
         /*patron*/
         lvl1Features+="<b>Otherworldly Patrons:</b><br>";
-        lvl1Features+=classJSON['Warlock']['Otherworldly Patrons']['content']+"<br><br>";
+        lvl1Features+=classJSON['Warlock']['Otherworldly Patrons']['content'].join(" ")+"<br><br>";
         lvl1Features+="<b>The Fiend:</b><br>";
         lvl1Features+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['content']+"<br><br>";
         lvl1Features+="<b>Expanded Spell List:</b><br>";
         lvl1Features+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['content']+"<br><br>";
-        lvl1Features+="<b>Spell Level:</b><br>";
-        lvl1Features+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spell Level']+"<br><br>";
-        lvl1Features+="<b>Spells:</b><br>";
-        lvl1Features+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spells'].join(" ")+"<br><br>";
+        
+        /*fiend spell list*/
+        lvl1Features+="<table>"+
+        "<tr>"+
+        "<th>Spell Level</th><th>Spells</th>"+    
+        "</tr>"+
+        "<tr>"+
+        "<td>"+ classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spell Level'][0] +"</td>"+
+        "<td>"+ classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spells'][0] +"</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>"+ classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spell Level'][1] +"</td>"+
+        "<td>"+ classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spells'][1] +"</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>"+ classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spell Level'][2] +"</td>"+
+        "<td>"+ classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spells'][2] +"</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>"+ classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spell Level'][3] +"</td>"+
+        "<td>"+ classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spells'][3] +"</td>"+
+        "</tr>"+
+        "<tr>"+
+        "<td>"+ classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spell Level'][4] +"</td>"+
+        "<td>"+ classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Expanded Spell List']['Fiend Expanded Spells']['table']['Spells'][4] +"</td>"+
+        "</tr>"+
+        "</table><br><br>";
+        
+        
+        
         lvl1Features+="<b>Dark One's Blessing:</b><br>";
         lvl1Features+=classJSON['Warlock']['Otherworldly Patrons']['The Fiend']['Dark Ones Blessing'];
         

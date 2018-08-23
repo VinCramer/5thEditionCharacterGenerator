@@ -1039,11 +1039,11 @@
                             "9th"
                         ],
                         "Spells": [
-                            "bless, cure wounds",
-                            "lesser restoration, spiritual weapon",
-                            "beacon of hope, revivify",
-                            "death ward, guardian of faith",
-                            "mass cure wounds, raise dead"
+                            "<i>bless</i>, <i>cure wounds</i>",
+                            "<i>lesser restoration</i>, <i>spiritual weapon</i>",
+                            "<i>beacon of hope</i>, <i>revivify</i>",
+                            "<i>death ward</i>, <i>guardian of faith</i>",
+                            "<i>mass cure wounds</i>, <i>raise dead</i>"
                         ]
                     }
                 },
@@ -1475,10 +1475,10 @@
                                 "9th"
                             ],
                             "Circle Spells": [
-                                "hold person, spike growth",
-                                "sleet storm, slow",
-                                "freedom of movement, ice storm",
-                                "commune with nature, cone of cold"
+                                "<i>hold person</i>, <i>spike growth</i>",
+                                "<i>sleet storm</i>, <i>slow</i>",
+                                "<i>freedom of movement</i>, <i>ice storm</i>",
+                                "<i>commune with nature</i>, <i>cone of cold</i>"
                             ]
                         }
                     },
@@ -1491,10 +1491,10 @@
                                 "9th"
                             ],
                             "Circle Spells": [
-                                "mirror image, misty step",
-                                "water breathing, water walk",
-                                "control water, freedom of movement",
-                                "conjure elemental, scrying"
+                                "<i>mirror image</i>, <i>misty step</i>",
+                                "<i>water breathing</i>, <i>water walk</i>",
+                                "<i>control water</i>, <i>freedom of movement</i>",
+                                "<i>conjure elemental</i>, <i>scrying</i>"
                             ]
                         }
                     },
@@ -1507,10 +1507,10 @@
                                 "9th"
                             ],
                             "Circle Spells": [
-                                "blur, silence",
-                                "create food and water, protection from energy",
-                                "blight, hallucinatory terrain",
-                                "insect plague, wall of stone"
+                                "<i>blur</i>, <i>silence</i>",
+                                "<i>create food and water</i>, <i>protection from energy</i>",
+                                "<i>blight</i>, <i>hallucinatory terrain</i>",
+                                "<i>insect plague</i>, <i>wall of stone</i>"
                             ]
                         }
                     },
@@ -1523,10 +1523,10 @@
                                 "9th"
                             ],
                             "Circle Spells": [
-                                "barkskin, spider climb",
-                                "call lightning, plant growth",
-                                "divination, freedom of movement",
-                                "commune with nature, tree stride"
+                                "<i>barkskin</i>, <i>spider climb</i>",
+                                "<i>call lightning</i>, <i>plant growth</i>",
+                                "<i>divination</i>, <i>freedom of movement</i>",
+                                "<i>commune with nature</i>, <i>tree stride</i>"
                             ]
                         }
                     },
@@ -1539,10 +1539,10 @@
                                 "9th"
                             ],
                             "Circle Spells": [
-                                "invisibility, pass without trace",
-                                "daylight, haste",
-                                "divination, freedom of movement",
-                                "dream, insect plague"
+                                "<i>invisibility</i>, <i>pass without trace</i>",
+                                "<i>daylight</i>, <i>haste</i>",
+                                "<i>divination</i>, <i>freedom of movement</i>",
+                                "<i>dream</i>, <i>insect plague</i>"
                             ]
                         }
                     },
@@ -1555,10 +1555,10 @@
                                 "9th"
                             ],
                             "Circle Spells": [
-                                "spider climb, spike growth",
-                                "lightning bolt, meld into stone",
-                                "stone shape, stoneskin",
-                                "passwall, wall of stone"
+                                "<i>spider climb</i>, <i>spike growth</i>",
+                                "<i>lightning bolt</i>, <i>meld into stone</i>",
+                                "<i>stone shape</i>, <i>stoneskin</i>",
+                                "<i>passwall</i>, <i>wall of stone</i>"
                             ]
                         }
                     },
@@ -1571,10 +1571,10 @@
                                 "9th"
                             ],
                             "Circle Spells": [
-                                "acid arrow, darkness",
-                                "water walk, stinking cloud",
-                                "freedom of movement, locate creature",
-                                "insect plague, scrying"
+                                "<i>acid arrow</i>, <i>darkness</i>",
+                                "<i>water walk</i>, <i>stinking cloud</i>",
+                                "<i>freedom of movement</i>, <i>locate creature</i>",
+                                "<i>insect plague</i>, <i>scrying</i>"
                             ]
                         }
                     }
@@ -2325,11 +2325,11 @@
                                 "17th"
                             ],
                             "Paladin Spells": [
-                                "protection from evil and good, sanctuary",
-                                "lesser restoration, zone of truth",
-                                "beacon of hope, dispel magic",
-                                "freedom of movement, guardian of faith",
-                                "commune, flame strike"
+                                "<i>protection from evil and good</i>, <i>sanctuary</i>",
+                                "<i>lesser restoration</i>, <i>zone of truth</i>",
+                                "<i>beacon of hope</i>, <i>dispel magic</i>",
+                                "<i>freedom of movement</i>, <i>guardian of faith</i>",
+                                "<i>commune</i>, <i>flame strike</i>"
                             ]
                         }
                     }
@@ -3850,11 +3850,11 @@
                                 "5th"
                             ],
                             "Spells": [
-                                "burning hands, command",
-                                "blindness/deafness, scorching ray",
-                                "fireball, stinking cloud",
-                                "fire shield, wall of fire",
-                                "flame strike, hallow"
+                                "<i>burning hands</i>, <i>command</i>",
+                                "<i>blindness/deafness</i>, <i>scorching ray</i>",
+                                "<i>fireball</i>, <i>stinking cloud</i>",
+                                "<i>fire shield</i>, <i>wall of fire</i>",
+                                "<i>flame strike</i>, <i>hallow</i>"
                             ]
                         }
                     }
