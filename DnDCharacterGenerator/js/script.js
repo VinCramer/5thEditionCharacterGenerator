@@ -53,6 +53,23 @@ raceRequest.onload = function(){
 }
 
 
+var spellJSON;
+
+var spellRequestURL ="../data/spells.json";
+
+var spellJSONRequest = new XMLHttpRequest();
+
+spellJSONRequest.open('GET',spellRequestURL);
+
+spellJSONRequest.responseType='json';
+
+spellJSONRequest.send();
+
+spellJSONRequest.onload = function(){
+    spellJSON = spellJSONRequest.response;
+}
+
+
 
 
 
@@ -1613,6 +1630,97 @@ function displayClass(charClass, level, levelFeatures){
             lvl20Element.innerHTML=lvl20Features;
         }
         
+        var bardCantrips = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['Cantrips (0 Level)'];
+        var bardLvl1Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['1st Level'];
+        var allSpells = spellJSON['Spellcasting']['Spell Descriptions'];
+        
+        /*calling the below function showed us that all of the spells are considered different attributes of the spell descriptions object. For example, how acid arrow works is held in the "acid arrow" attribute*/
+        //console.log(Object.keys(allSpells));
+        
+        //below is an example of how we can use var to access json array values
+        //var tempVar="Acid Splash";
+        //console.log(allSpells[tempVar]);
+        
+        var spellsElement = document.getElementById("final spells");
+        var spellString="";
+        for(var i=0;i<bardCantrips.length;i++){
+            spellString+="<b>"+bardCantrips[i]+"</b><br>";
+            spellString+=allSpells[bardCantrips[i]]['content'].join("<br>")+"<br><br>";
+        }
+        for(var i=0;i<bardLvl1Spells.length;i++){
+            spellString+="<b>"+bardLvl1Spells[i]+"</b><br>";
+            spellString+=allSpells[bardLvl1Spells[i]]['content'].join("<br>")+"<br><br>";
+        }
+        
+        if(level>=3){
+            var bardLvl2Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['2nd Level'];
+            for(var i=0;i<bardLvl2Spells.length;i++){
+                spellString+="<b>"+bardLvl2Spells[i]+"</b><br>";
+                spellString+=allSpells[bardLvl2Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=5){
+            var bardLvl3Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['3rd Level'];
+            for(var i=0;i<bardLvl3Spells.length;i++){
+                spellString+="<b>"+bardLvl3Spells[i]+"</b><br>";
+                spellString+=allSpells[bardLvl3Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=7){
+            var bardLvl4Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['4th Level'];
+            for(var i=0;i<bardLvl4Spells.length;i++){
+                spellString+="<b>"+bardLvl4Spells[i]+"</b><br>";
+                spellString+=allSpells[bardLvl4Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=9){
+            var bardLvl5Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['5th Level'];
+            for(var i=0;i<bardLvl5Spells.length;i++){
+                spellString+="<b>"+bardLvl5Spells[i]+"</b><br>";
+                spellString+=allSpells[bardLvl5Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=11){
+            var bardLvl6Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['6th Level'];
+            for(var i=0;i<bardLvl6Spells.length;i++){
+                spellString+="<b>"+bardLvl6Spells[i]+"</b><br>";
+                spellString+=allSpells[bardLvl6Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=13){
+            var bardLvl7Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['7th Level'];
+            for(var i=0;i<bardLvl7Spells.length;i++){
+                spellString+="<b>"+bardLvl7Spells[i]+"</b><br>";
+                spellString+=allSpells[bardLvl7Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=15){
+            var bardLvl8Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['8th Level'];
+            for(var i=0;i<bardLvl8Spells.length;i++){
+                spellString+="<b>"+bardLvl8Spells[i]+"</b><br>";
+                spellString+=allSpells[bardLvl8Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=17){
+            var bardLvl9Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['9th Level'];
+            for(var i=0;i<bardLvl9Spells.length;i++){
+                spellString+="<b>"+bardLvl9Spells[i]+"</b><br>";
+                spellString+=allSpells[bardLvl9Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        
+        
+        spellsElement.innerHTML=spellString;
+        
+        
         
     }
     else if(charClass=="cleric"){
@@ -1777,6 +1885,93 @@ function displayClass(charClass, level, levelFeatures){
             
             lvl17Element.innerHTML=lvl17Features;
         }
+        
+        
+        
+        var clericCantrips = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['Cantrips (0 Level)'];
+        var clericLvl1Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['1st Level'];
+        var allSpells = spellJSON['Spellcasting']['Spell Descriptions'];
+        
+        var spellsElement = document.getElementById("final spells");
+        var spellString="";
+        for(var i=0;i<clericCantrips.length;i++){
+            spellString+="<b>"+clericCantrips[i]+"</b><br>";
+            spellString+=allSpells[clericCantrips[i]]['content'].join("<br>")+"<br><br>";
+        }
+        for(var i=0;i<clericLvl1Spells.length;i++){
+            spellString+="<b>"+clericLvl1Spells[i]+"</b><br>";
+            spellString+=allSpells[clericLvl1Spells[i]]['content'].join("<br>")+"<br><br>";
+        }
+        
+        if(level>=3){
+            var clericLvl2Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['2nd Level'];
+            for(var i=0;i<clericLvl2Spells.length;i++){
+                spellString+="<b>"+clericLvl2Spells[i]+"</b><br>";
+                spellString+=allSpells[clericLvl2Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=5){
+            var clericLvl3Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['3rd Level'];
+            for(var i=0;i<clericLvl3Spells.length;i++){
+                spellString+="<b>"+clericLvl3Spells[i]+"</b><br>";
+                spellString+=allSpells[clericLvl3Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=7){
+            var clericLvl4Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['4th Level'];
+            for(var i=0;i<clericLvl4Spells.length;i++){
+                spellString+="<b>"+clericLvl4Spells[i]+"</b><br>";
+                spellString+=allSpells[clericLvl4Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=9){
+            var clericLvl5Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['5th Level'];
+            for(var i=0;i<clericLvl5Spells.length;i++){
+                spellString+="<b>"+clericLvl5Spells[i]+"</b><br>";
+                spellString+=allSpells[clericLvl5Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=11){
+            var clericLvl6Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['6th Level'];
+            for(var i=0;i<clericLvl6Spells.length;i++){
+                spellString+="<b>"+clericLvl6Spells[i]+"</b><br>";
+                spellString+=allSpells[clericLvl6Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=13){
+            var clericLvl7Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['7th Level'];
+            for(var i=0;i<clericLvl7Spells.length;i++){
+                spellString+="<b>"+clericLvl7Spells[i]+"</b><br>";
+                spellString+=allSpells[clericLvl7Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=15){
+            var clericLvl8Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['8th Level'];
+            for(var i=0;i<clericLvl8Spells.length;i++){
+                spellString+="<b>"+clericLvl8Spells[i]+"</b><br>";
+                spellString+=allSpells[clericLvl8Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=17){
+            var clericLvl9Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['9th Level'];
+            for(var i=0;i<clericLvl9Spells.length;i++){
+                spellString+="<b>"+clericLvl9Spells[i]+"</b><br>";
+                spellString+=allSpells[clericLvl9Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        
+        
+        spellsElement.innerHTML=spellString;
+        
+        
         
     }
     else if(charClass=="druid"){
@@ -2101,7 +2296,89 @@ function displayClass(charClass, level, levelFeatures){
         
         
         
+        var druidCantrips = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['Cantrips (0 Level)'];
+        var druidLvl1Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['1st Level'];
+        var allSpells = spellJSON['Spellcasting']['Spell Descriptions'];
         
+        
+        var spellsElement = document.getElementById("final spells");
+        var spellString="";
+        for(var i=0;i<druidCantrips.length;i++){
+            spellString+="<b>"+druidCantrips[i]+"</b><br>";
+            spellString+=allSpells[druidCantrips[i]]['content'].join("<br>")+"<br><br>";
+        }
+        for(var i=0;i<druidLvl1Spells.length;i++){
+            spellString+="<b>"+druidLvl1Spells[i]+"</b><br>";
+            spellString+=allSpells[druidLvl1Spells[i]]['content'].join("<br>")+"<br><br>";
+        }
+        
+        if(level>=3){
+            var druidLvl2Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['2nd Level'];
+            for(var i=0;i<druidLvl2Spells.length;i++){
+                spellString+="<b>"+druidLvl2Spells[i]+"</b><br>";
+                spellString+=allSpells[druidLvl2Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=5){
+            var druidLvl3Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['3rd Level'];
+            for(var i=0;i<druidLvl3Spells.length;i++){
+                spellString+="<b>"+druidLvl3Spells[i]+"</b><br>";
+                spellString+=allSpells[druidLvl3Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=7){
+            var druidLvl4Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['4th Level'];
+            for(var i=0;i<druidLvl4Spells.length;i++){
+                spellString+="<b>"+druidLvl4Spells[i]+"</b><br>";
+                spellString+=allSpells[druidLvl4Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=9){
+            var druidLvl5Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['5th Level'];
+            for(var i=0;i<druidLvl5Spells.length;i++){
+                spellString+="<b>"+druidLvl5Spells[i]+"</b><br>";
+                spellString+=allSpells[druidLvl5Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=11){
+            var druidLvl6Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['6th Level'];
+            for(var i=0;i<druidLvl6Spells.length;i++){
+                spellString+="<b>"+druidLvl6Spells[i]+"</b><br>";
+                spellString+=allSpells[druidLvl6Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=13){
+            var druidLvl7Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['7th Level'];
+            for(var i=0;i<druidLvl7Spells.length;i++){
+                spellString+="<b>"+druidLvl7Spells[i]+"</b><br>";
+                spellString+=allSpells[druidLvl7Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=15){
+            var druidLvl8Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['8th Level'];
+            for(var i=0;i<druidLvl8Spells.length;i++){
+                spellString+="<b>"+druidLvl8Spells[i]+"</b><br>";
+                spellString+=allSpells[druidLvl8Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=17){
+            var druidLvl9Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['9th Level'];
+            for(var i=0;i<druidLvl9Spells.length;i++){
+                spellString+="<b>"+druidLvl9Spells[i]+"</b><br>";
+                spellString+=allSpells[druidLvl9Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        
+        
+        spellsElement.innerHTML=spellString;
         
         
         
@@ -2568,6 +2845,58 @@ function displayClass(charClass, level, levelFeatures){
             
             lvl20Element.innerHTML=lvl20Features;
         }
+        
+        
+        
+        
+        var paladinLvl1Spells = spellJSON['Spellcasting']['Spell Lists']['Paladin Spells']['1st Level'];
+        var allSpells = spellJSON['Spellcasting']['Spell Descriptions'];
+        
+        
+        var spellsElement = document.getElementById("final spells");
+        var spellString="";
+        if(level>=2){
+            for(var i=0;i<paladinLvl1Spells.length;i++){
+                spellString+="<b>"+paladinLvl1Spells[i]+"</b><br>";
+                spellString+=allSpells[paladinLvl1Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=5){
+            var paladinLvl2Spells = spellJSON['Spellcasting']['Spell Lists']['Paladin Spells']['2nd Level'];
+            for(var i=0;i<paladinLvl2Spells.length;i++){
+                spellString+="<b>"+paladinLvl2Spells[i]+"</b><br>";
+                spellString+=allSpells[paladinLvl2Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=9){
+            var paladinLvl3Spells = spellJSON['Spellcasting']['Spell Lists']['Paladin Spells']['3rd Level'];
+            for(var i=0;i<paladinLvl3Spells.length;i++){
+                spellString+="<b>"+paladinLvl3Spells[i]+"</b><br>";
+                spellString+=allSpells[paladinLvl3Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=13){
+            var paladinLvl4Spells = spellJSON['Spellcasting']['Spell Lists']['Paladin Spells']['4th Level'];
+            for(var i=0;i<paladinLvl4Spells.length;i++){
+                spellString+="<b>"+paladinLvl4Spells[i]+"</b><br>";
+                spellString+=allSpells[paladinLvl4Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=17){
+            var paladinLvl5Spells = spellJSON['Spellcasting']['Spell Lists']['Paladin Spells']['5th Level'];
+            for(var i=0;i<paladinLvl5Spells.length;i++){
+                spellString+="<b>"+paladinLvl5Spells[i]+"</b><br>";
+                spellString+=allSpells[paladinLvl5Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        
+        spellsElement.innerHTML=spellString;
+        
 
         
     }
@@ -2719,7 +3048,53 @@ function displayClass(charClass, level, levelFeatures){
         
         
         
+        var rangerLvl1Spells = spellJSON['Spellcasting']['Spell Lists']['Ranger Spells']['1st Level'];
+        var allSpells = spellJSON['Spellcasting']['Spell Descriptions'];
         
+        
+        var spellsElement = document.getElementById("final spells");
+        var spellString="";
+        if(level>=2){
+            for(var i=0;i<rangerLvl1Spells.length;i++){
+                spellString+="<b>"+rangerLvl1Spells[i]+"</b><br>";
+                spellString+=allSpells[rangerLvl1Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=5){
+            var rangerLvl2Spells = spellJSON['Spellcasting']['Spell Lists']['Ranger Spells']['2nd Level'];
+            for(var i=0;i<rangerLvl2Spells.length;i++){
+                spellString+="<b>"+rangerLvl2Spells[i]+"</b><br>";
+                spellString+=allSpells[rangerLvl2Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=9){
+            var rangerLvl3Spells = spellJSON['Spellcasting']['Spell Lists']['Ranger Spells']['3rd Level'];
+            for(var i=0;i<rangerLvl3Spells.length;i++){
+                spellString+="<b>"+rangerLvl3Spells[i]+"</b><br>";
+                spellString+=allSpells[rangerLvl3Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=13){
+            var rangerLvl4Spells = spellJSON['Spellcasting']['Spell Lists']['Ranger Spells']['4th Level'];
+            for(var i=0;i<rangerLvl4Spells.length;i++){
+                spellString+="<b>"+rangerLvl4Spells[i]+"</b><br>";
+                spellString+=allSpells[rangerLvl4Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=17){
+            var rangerLvl5Spells = spellJSON['Spellcasting']['Spell Lists']['Ranger Spells']['5th Level'];
+            for(var i=0;i<rangerLvl5Spells.length;i++){
+                spellString+="<b>"+rangerLvl5Spells[i]+"</b><br>";
+                spellString+=allSpells[rangerLvl5Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        
+        spellsElement.innerHTML=spellString;
         
         
         
@@ -3000,6 +3375,98 @@ function displayClass(charClass, level, levelFeatures){
             lvl20Element.innerHTML=lvl20Features;
         }
         
+        
+        
+        
+        var sorcererCantrips = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['Cantrips (0 Level)'];
+        var sorcererLvl1Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['1st Level'];
+        var allSpells = spellJSON['Spellcasting']['Spell Descriptions'];
+        
+        
+        var spellsElement = document.getElementById("final spells");
+        var spellString="";
+        for(var i=0;i<sorcererCantrips.length;i++){
+            spellString+="<b>"+sorcererCantrips[i]+"</b><br>";
+            spellString+=allSpells[sorcererCantrips[i]]['content'].join("<br>")+"<br><br>";
+        }
+        for(var i=0;i<sorcererLvl1Spells.length;i++){
+            spellString+="<b>"+sorcererLvl1Spells[i]+"</b><br>";
+            spellString+=allSpells[sorcererLvl1Spells[i]]['content'].join("<br>")+"<br><br>";
+        }
+        
+        if(level>=3){
+            var sorcererLvl2Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['2nd Level'];
+            for(var i=0;i<sorcererLvl2Spells.length;i++){
+                spellString+="<b>"+sorcererLvl2Spells[i]+"</b><br>";
+                spellString+=allSpells[sorcererLvl2Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=5){
+            var sorcererLvl3Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['3rd Level'];
+            for(var i=0;i<sorcererLvl3Spells.length;i++){
+                spellString+="<b>"+sorcererLvl3Spells[i]+"</b><br>";
+                spellString+=allSpells[sorcererLvl3Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=7){
+            var sorcererLvl4Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['4th Level'];
+            for(var i=0;i<sorcererLvl4Spells.length;i++){
+                spellString+="<b>"+sorcererLvl4Spells[i]+"</b><br>";
+                spellString+=allSpells[sorcererLvl4Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=9){
+            var sorcererLvl5Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['5th Level'];
+            for(var i=0;i<sorcererLvl5Spells.length;i++){
+                spellString+="<b>"+sorcererLvl5Spells[i]+"</b><br>";
+                spellString+=allSpells[sorcererLvl5Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=11){
+            var sorcererLvl6Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['6th Level'];
+            for(var i=0;i<sorcererLvl6Spells.length;i++){
+                spellString+="<b>"+sorcererLvl6Spells[i]+"</b><br>";
+                spellString+=allSpells[sorcererLvl6Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=13){
+            var sorcererLvl7Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['7th Level'];
+            for(var i=0;i<sorcererLvl7Spells.length;i++){
+                spellString+="<b>"+sorcererLvl7Spells[i]+"</b><br>";
+                spellString+=allSpells[sorcererLvl7Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=15){
+            var sorcererLvl8Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['8th Level'];
+            for(var i=0;i<sorcererLvl8Spells.length;i++){
+                spellString+="<b>"+sorcererLvl8Spells[i]+"</b><br>";
+                spellString+=allSpells[sorcererLvl8Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=17){
+            var sorcererLvl9Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['9th Level'];
+            for(var i=0;i<sorcererLvl9Spells.length;i++){
+                spellString+="<b>"+sorcererLvl9Spells[i]+"</b><br>";
+                spellString+=allSpells[sorcererLvl9Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        
+        
+        spellsElement.innerHTML=spellString;
+        
+        
+        
+        
+        
+        
     }
     else if(charClass=="warlock"){
         
@@ -3251,6 +3718,92 @@ function displayClass(charClass, level, levelFeatures){
             lvl20Element.innerHTML=lvl20Features;
         }
         
+        
+        var warlockCantrips = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['Cantrips (0 Level)'];
+        var warlockLvl1Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['1st Level'];
+        var allSpells = spellJSON['Spellcasting']['Spell Descriptions'];
+        
+        
+        var spellsElement = document.getElementById("final spells");
+        var spellString="";
+        for(var i=0;i<warlockCantrips.length;i++){
+            spellString+="<b>"+warlockCantrips[i]+"</b><br>";
+            spellString+=allSpells[warlockCantrips[i]]['content'].join("<br>")+"<br><br>";
+        }
+        for(var i=0;i<warlockLvl1Spells.length;i++){
+            spellString+="<b>"+warlockLvl1Spells[i]+"</b><br>";
+            spellString+=allSpells[warlockLvl1Spells[i]]['content'].join("<br>")+"<br><br>";
+        }
+        
+        if(level>=3){
+            var warlockLvl2Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['2nd Level'];
+            for(var i=0;i<warlockLvl2Spells.length;i++){
+                spellString+="<b>"+warlockLvl2Spells[i]+"</b><br>";
+                spellString+=allSpells[warlockLvl2Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=5){
+            var warlockLvl3Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['3rd Level'];
+            for(var i=0;i<warlockLvl3Spells.length;i++){
+                spellString+="<b>"+warlockLvl3Spells[i]+"</b><br>";
+                spellString+=allSpells[warlockLvl3Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=7){
+            var warlockLvl4Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['4th Level'];
+            for(var i=0;i<warlockLvl4Spells.length;i++){
+                spellString+="<b>"+warlockLvl4Spells[i]+"</b><br>";
+                spellString+=allSpells[warlockLvl4Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=9){
+            var warlockLvl5Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['5th Level'];
+            for(var i=0;i<warlockLvl5Spells.length;i++){
+                spellString+="<b>"+warlockLvl5Spells[i]+"</b><br>";
+                spellString+=allSpells[warlockLvl5Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=11){
+            var druidLvl6Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['6th Level'];
+            for(var i=0;i<druidLvl6Spells.length;i++){
+                spellString+="<b>"+druidLvl6Spells[i]+"</b><br>";
+                spellString+=allSpells[druidLvl6Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=13){
+            var warlockLvl7Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['7th Level'];
+            for(var i=0;i<warlockLvl7Spells.length;i++){
+                spellString+="<b>"+warlockLvl7Spells[i]+"</b><br>";
+                spellString+=allSpells[warlockLvl7Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=15){
+            var warlockLvl8Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['8th Level'];
+            for(var i=0;i<warlockLvl8Spells.length;i++){
+                spellString+="<b>"+warlockLvl8Spells[i]+"</b><br>";
+                spellString+=allSpells[warlockLvl8Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=17){
+            var warlockLvl9Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['9th Level'];
+            for(var i=0;i<warlockLvl9Spells.length;i++){
+                spellString+="<b>"+warlockLvl9Spells[i]+"</b><br>";
+                spellString+=allSpells[warlockLvl9Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        
+        
+        spellsElement.innerHTML=spellString;
+        
+        
 
         
     }
@@ -3367,6 +3920,93 @@ function displayClass(charClass, level, levelFeatures){
     }
     
     classPara.innerHTML=classText;
+    
+    
+    
+        var wizardCantrips = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['Cantrips (0 Level)'];
+        var wizardLvl1Spells = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['1st Level'];
+        var allSpells = spellJSON['Spellcasting']['Spell Descriptions'];
+        
+        
+        var spellsElement = document.getElementById("final spells");
+        var spellString="";
+        for(var i=0;i<wizardCantrips.length;i++){
+            spellString+="<b>"+wizardCantrips[i]+"</b><br>";
+            spellString+=allSpells[wizardCantrips[i]]['content'].join("<br>")+"<br><br>";
+        }
+        for(var i=0;i<wizardLvl1Spells.length;i++){
+            spellString+="<b>"+wizardLvl1Spells[i]+"</b><br>";
+            spellString+=allSpells[wizardLvl1Spells[i]]['content'].join("<br>")+"<br><br>";
+        }
+        
+        if(level>=3){
+            var wizardLvl2Spells = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['2nd Level'];
+            for(var i=0;i<wizardLvl2Spells.length;i++){
+                spellString+="<b>"+wizardLvl2Spells[i]+"</b><br>";
+                spellString+=allSpells[wizardLvl2Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=5){
+            var wizardLvl3Spells = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['3rd Level'];
+            for(var i=0;i<wizardLvl3Spells.length;i++){
+                spellString+="<b>"+wizardLvl3Spells[i]+"</b><br>";
+                spellString+=allSpells[wizardLvl3Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=7){
+            var wizardLvl4Spells = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['4th Level'];
+            for(var i=0;i<wizardLvl4Spells.length;i++){
+                spellString+="<b>"+wizardLvl4Spells[i]+"</b><br>";
+                spellString+=allSpells[wizardLvl4Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=9){
+            var druidLvl5Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['5th Level'];
+            for(var i=0;i<druidLvl5Spells.length;i++){
+                spellString+="<b>"+druidLvl5Spells[i]+"</b><br>";
+                spellString+=allSpells[druidLvl5Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=11){
+            var wizardLvl6Spells = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['6th Level'];
+            for(var i=0;i<wizardLvl6Spells.length;i++){
+                spellString+="<b>"+wizardLvl6Spells[i]+"</b><br>";
+                spellString+=allSpells[wizardLvl6Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=13){
+            var wizardLvl7Spells = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['7th Level'];
+            for(var i=0;i<wizardLvl7Spells.length;i++){
+                spellString+="<b>"+wizardLvl7Spells[i]+"</b><br>";
+                spellString+=allSpells[wizardLvl7Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=15){
+            var wizardLvl8Spells = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['8th Level'];
+            for(var i=0;i<wizardLvl8Spells.length;i++){
+                spellString+="<b>"+wizardLvl8Spells[i]+"</b><br>";
+                spellString+=allSpells[wizardLvl8Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        if(level>=17){
+            var wizardLvl9Spells = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['9th Level'];
+            for(var i=0;i<wizardLvl9Spells.length;i++){
+                spellString+="<b>"+wizardLvl9Spells[i]+"</b><br>";
+                spellString+=allSpells[wizardLvl9Spells[i]]['content'].join("<br>")+"<br><br>";
+            }
+        }
+        
+        
+        
+        spellsElement.innerHTML=spellString;
+        
 }
 
 
