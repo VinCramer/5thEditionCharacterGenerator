@@ -190,6 +190,7 @@
                     "True Strike"
                 ],
                 "1st Level": [
+					"Animal Friendship",
                     "Bane",
                     "Charm Person",
                     "Comprehend Languages",
@@ -443,6 +444,7 @@
                     "Shillelagh"
                 ],
                 "1st Level": [
+					"Animal Friendship",
                     "Charm Person",
                     "Create or Destroy Water",
                     "Cure Wounds",
@@ -573,6 +575,7 @@
                 ],
                 "2nd Level": [
                     "Aid",
+					"Branding Smite",
                     "Find Steed",
                     "Lesser Restoration",
                     "Locate Object",
@@ -602,6 +605,7 @@
             "Ranger Spells": {
                 "1st Level": [
                     "Alarm",
+					"Animal Friendship",
                     "Cure Wounds",
                     "Detect Magic",
                     "Detect Poison and Disease",
@@ -787,6 +791,7 @@
             "Warlock Spells": {
                 "Cantrips (0 Level)": [
                     "Chill Touch",
+					"Eldritch Blast",
                     "Mage Hand",
                     "Minor Illusion",
                     "Prestidigitation",
@@ -1148,6 +1153,17 @@
                     "<b>Natural Weapons.</b> You grow claws, fangs, spines, horns, or a different natural weapon of your choice. Your unarmed strikes deal 1d6 bludgeoning, piercing, or slashing damage, as appropriate to the natural weapon you chose, and you are proficient with your unarmed strikes. Finally, the natural weapon is magic and you have a +1 bonus to the attack and damage rolls you make using it."
                 ]
             },
+			"Animal Friendship": {
+				"content": [
+					"<i>1st-level enchantment</i>",
+					"<b>Casting Time:</b> 1 action",
+					"<b>Range:</b> 30 feet",
+					"<b>Components:</b> V, S, M (a morsel of food)",
+					"<b>Duration:</b> 24 hours",
+					"This spell lets you convince a beast that you mean it no harm. Choose a beast that you can see within range. It must see and hear you. If the beast's Intelligence is 4 or higher, the spell fails. Otherwise, the beast must succeed on a Wisdom saving throw or be charmed by you for the spell's duration. If you or one of your companions harms the target, the spells ends.",
+					"<b>At Higher Levels.</b> When you cast this spell using a spell slot of 2nd level or higher, you can affect one additional beast per level above 1st."
+				]
+			},
             "Animal Messenger": {
                 "content": [
                     "<i>2nd-level enchantment (ritual)</i>",
@@ -1540,6 +1556,17 @@
                     "Your body becomes blurred, shifting and wavering to all who can see you. For the duration, any creature has disadvantage on attack rolls against you. An attacker is immune to this effect if it doesn’t rely on sight, as with blindsight, or can see through illusions, as with truesight."
                 ]
             },
+			"Branding Smite": {
+				"content": [
+				"<i>2nd-level evocation</i>",
+				"<b>Casting Time:</b> 1 bonus action",
+				"<b>Range:</b> Self",
+				"<b>Components:</b> V",
+				"<b>Duration:</b> Concentration, up to 1 minute",
+				"The next time you hit a creature with a weapon attack, it deals an extra 2d6 radiant damage. The target becomes visible if it's invisible, and it sheds a 5-foot radius of dim light. They can't become invisible until the spell ends.",
+				"<b>At higher levels.</b> The extra damage increases by 1d6 for each slot level above 2nd."
+				]
+			},
             "Burning Hands": {
                 "content": [
                     "<i>1st-level evocation</i>",
@@ -2380,6 +2407,17 @@
                     "<b>Structures.</b> The tremor deals 50 bludgeoning damage to any structure in contact with the ground in the area when you cast the spell and at the start of each of your turns until the spell ends. If a structure drops to 0 hit points, it collapses and potentially damages nearby creatures. A creature within half the distance of a structure’s height must make a Dexterity saving throw. On a failed save, the creature takes 5d6 bludgeoning damage, is knocked prone, and is buried in the rubble, requiring a DC 20 Strength (Athletics) check as an action to escape. The GM can adjust the DC higher or lower, depending on the nature of the rubble. On a successful save, the creature takes half as much damage and doesn’t fall prone or become buried."
                 ]
             },
+			"Eldritch Blast": {
+				"content": [
+				"<i>Evocation cantrip</i>",
+				"<b>Casting Time:</b> 1 action",
+				"<b>Range:</b> 120 feet",
+				"<b>Components:</b> V, S",
+				"<b>Duration:</b> Instantaneous",
+				"A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.",
+				"The spell creates more beams when you reach higher levels: two at 5th, three at 11th, and four at 17th. You can direct the beams at the same or different targets. Make separate attack rolls for each beam."
+				]
+			},
             "Enhance Ability": {
                 "content": [
                     "<i>2nd-level transmutation</i>",

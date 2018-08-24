@@ -93,6 +93,24 @@ var proficiency;
 
 var level;
 
+/*this section of code adds event listeners to each of the buttons for spells we defined in our html. This makes those buttons display their content when clicked and hide it when clicked again*/
+var coll = document.getElementsByClassName("mainCollapsible");
+    
+var j;
+
+for (j = 0; j < coll.length; j++) {
+    coll[j].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } 
+        else {
+            content.style.display = "block";
+        }
+    });
+         
+}
 
 
 function generateChar(){
@@ -1645,7 +1663,7 @@ function displayClass(charClass, level, levelFeatures){
         
         //var spellsElement = document.getElementById("final spells");
         var spellString="";
-        var cantripString="";
+        var cantripString="<br><br>";
         
         //TODO - see if Vicious Mockery is in SRD, and add it to JSON if so
         for(var i=0;i<bardCantrips.length;i++){
@@ -1656,8 +1674,8 @@ function displayClass(charClass, level, levelFeatures){
         
         
         document.getElementsByClassName("mainContent")[0].innerHTML=cantripString;
-
-        var spell1String="";
+        
+        var spell1String="<br><br>";
         
         for(var i=0;i<bardLvl1Spells.length;i++){
             
@@ -1675,7 +1693,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=3){
             var bardLvl2Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['2nd Level'];
-            var spell2String="";
+            var spell2String="<br><br>";
             for(var i=0;i<bardLvl2Spells.length;i++){
                 
                 spell2String+="<button class=\"collapsible\">"+bardLvl2Spells[i]+"</button><div class=\"content\">";
@@ -1687,7 +1705,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=5){
             var bardLvl3Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['3rd Level'];
-            var spell3String="";
+            var spell3String="<br><br>";
             for(var i=0;i<bardLvl3Spells.length;i++){
                 spell3String+="<button class=\"collapsible\">"+bardLvl3Spells[i]+"</button><div class=\"content\">";
                 spell3String+=allSpells[bardLvl3Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -1697,7 +1715,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=7){
             var bardLvl4Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['4th Level'];
-            var spell4String="";
+            var spell4String="<br><br>";
             for(var i=0;i<bardLvl4Spells.length;i++){
                 spell4String+="<button class=\"collapsible\">"+bardLvl4Spells[i]+"</button><div class=\"content\">";
                 spell4String+=allSpells[bardLvl4Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -1707,7 +1725,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=9){
             var bardLvl5Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['5th Level'];
-            var spell5String="";
+            var spell5String="<br><br>";
             for(var i=0;i<bardLvl5Spells.length;i++){
                 spell5String+="<button class=\"collapsible\">"+bardLvl5Spells[i]+"</button><div class=\"content\">";
                 spell5String+=allSpells[bardLvl5Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -1717,7 +1735,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=11){
             var bardLvl6Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['6th Level'];
-            var spell6String="";
+            var spell6String="<br><br>";
             for(var i=0;i<bardLvl6Spells.length;i++){
                 spell6String+="<button class=\"collapsible\">"+bardLvl6Spells[i]+"</button><div class=\"content\">";
                 spell6String+=allSpells[bardLvl6Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -1727,7 +1745,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=13){
             var bardLvl7Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['7th Level'];
-            var spell7String="";
+            var spell7String="<br><br>";
             for(var i=0;i<bardLvl7Spells.length;i++){
                 spell7String+="<button class=\"collapsible\">"+bardLvl7Spells[i]+"</button><div class=\"content\">";
                 spell7String+=allSpells[bardLvl7Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -1737,7 +1755,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=15){
             var bardLvl8Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['8th Level'];
-            var spell8String="";
+            var spell8String="<br><br>";
             for(var i=0;i<bardLvl8Spells.length;i++){
                 spell8String+="<button class=\"collapsible\">"+bardLvl8Spells[i]+"</button><div class=\"content\">";
                 spell8String+=allSpells[bardLvl8Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -1747,7 +1765,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=17){
             var bardLvl9Spells = spellJSON['Spellcasting']['Spell Lists']['Bard Spells']['9th Level'];
-            var spell9String="";
+            var spell9String="<br><br>";
             for(var i=0;i<bardLvl9Spells.length;i++){
                 spell9String+="<button class=\"collapsible\">"+bardLvl9Spells[i]+"</button><div class=\"content\">";
                 spell9String+=allSpells[bardLvl9Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -1932,8 +1950,8 @@ function displayClass(charClass, level, levelFeatures){
         var allSpells = spellJSON['Spellcasting']['Spell Descriptions'];
         
         //var spellsElement = document.getElementById("final spells");
-        var spell1String="";
-        var cantripString="";
+        var spell1String="<br><br>";
+        var cantripString="<br><br>";
         for(var i=0;i<clericCantrips.length;i++){
             cantripString+="<button class=\"collapsible\">"+clericCantrips[i]+"</button><div class=\"content\">";
             cantripString+=allSpells[clericCantrips[i]]['content'].join("<br>")+"</div><br><br>";
@@ -1948,7 +1966,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=3){
             var clericLvl2Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['2nd Level'];
-            var spell2String="";
+            var spell2String="<br><br>";
             for(var i=0;i<clericLvl2Spells.length;i++){
                 spell2String+="<button class=\"collapsible\">"+clericLvl2Spells[i]+"</button><div class=\"content\">";
                 spell2String+=allSpells[clericLvl2Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -1960,7 +1978,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=5){
             var clericLvl3Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['3rd Level'];
-            var spell3String="";
+            var spell3String="<br><br>";
             for(var i=0;i<clericLvl3Spells.length;i++){
                 spell3String+="<button class=\"collapsible\">"+clericLvl3Spells[i]+"</button><div class=\"content\">";
                 spell3String+=allSpells[clericLvl3Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -1969,7 +1987,7 @@ function displayClass(charClass, level, levelFeatures){
         }
         
         if(level>=7){
-            var spell3String="";
+            var spell3String="<br><br>";
             var clericLvl4Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['4th Level'];
             for(var i=0;i<clericLvl4Spells.length;i++){
                 spell3String+="<button class=\"collapsible\">"+clericLvl3Spells[i]+"</button><div class=\"content\">";
@@ -1979,7 +1997,7 @@ function displayClass(charClass, level, levelFeatures){
         }
         
         if(level>=9){
-            var spell5String="";
+            var spell5String="<br><br>";
             var clericLvl5Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['5th Level'];
             for(var i=0;i<clericLvl5Spells.length;i++){
                 spell5String+="<button class=\"collapsible\">"+clericLvl5Spells[i]+"</button><div class=\"content\">";
@@ -1989,7 +2007,7 @@ function displayClass(charClass, level, levelFeatures){
         }
         
         if(level>=11){
-            var spell6String="";
+            var spell6String="<br><br>";
             var clericLvl6Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['6th Level'];
             for(var i=0;i<clericLvl6Spells.length;i++){
                 spell6String+="<button class=\"collapsible\">"+clericLvl6Spells[i]+"</button><div class=\"content\">";
@@ -1999,7 +2017,7 @@ function displayClass(charClass, level, levelFeatures){
         }
         
         if(level>=13){
-            var spell7String="";
+            var spell7String="<br><br>";
             var clericLvl7Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['7th Level'];
             for(var i=0;i<clericLvl7Spells.length;i++){
                 spell7String+="<button class=\"collapsible\">"+clericLvl7Spells[i]+"</button><div class=\"content\">";
@@ -2009,7 +2027,7 @@ function displayClass(charClass, level, levelFeatures){
         }
         
         if(level>=15){
-            var spell8String="";
+            var spell8String="<br><br>";
             var clericLvl8Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['8th Level'];
             for(var i=0;i<clericLvl8Spells.length;i++){
                 spell8String+="<button class=\"collapsible\">"+clericLvl8Spells[i]+"</button><div class=\"content\">";
@@ -2019,7 +2037,7 @@ function displayClass(charClass, level, levelFeatures){
         }
         
         if(level>=17){
-            var spell9String="";
+            var spell9String="<br><br>";
             var clericLvl9Spells = spellJSON['Spellcasting']['Spell Lists']['Cleric Spells']['9th Level'];
             for(var i=0;i<clericLvl9Spells.length;i++){
                 spell9String+="<button class=\"collapsible\">"+clericLvl9Spells[i]+"</button><div class=\"content\">";
@@ -2363,8 +2381,8 @@ function displayClass(charClass, level, levelFeatures){
         
         
         //var spellsElement = document.getElementById("final spells");
-        var spell1String="";
-        var cantripString="";
+        var spell1String="<br><br>";
+        var cantripString="<br><br>";
         for(var i=0;i<druidCantrips.length;i++){
             cantripString+="<button class=\"collapsible\">"+druidCantrips[i]+"</button><div class=\"content\">";
             cantripString+=allSpells[druidCantrips[i]]['content'].join("<br>")+"</div><br><br>";
@@ -2380,7 +2398,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=3){
             var druidLvl2Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['2nd Level'];
-            var spell2String="";
+            var spell2String="<br><br>";
             for(var i=0;i<druidLvl2Spells.length;i++){
                 spell2String+="<button class=\"collapsible\">"+druidLvl2Spells[i]+"</button><div class=\"content\">";
                 spell2String+=allSpells[druidLvl2Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -2390,7 +2408,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=5){
             var druidLvl3Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['3rd Level'];
-            var spell3String="";
+            var spell3String="<br><br>";
             for(var i=0;i<druidLvl3Spells.length;i++){
                 spell3String+="<button class=\"collapsible\">"+druidLvl3Spells[i]+"</button><div class=\"content\">";
                 spell3String+=allSpells[druidLvl3Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -2400,7 +2418,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=7){
             var druidLvl4Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['4th Level'];
-            var spell4String="";
+            var spell4String="<br><br>";
             for(var i=0;i<druidLvl4Spells.length;i++){
                 spell4String+="<button class=\"collapsible\">"+druidLvl4Spells[i]+"</button><div class=\"content\">";
                 spell4String+=allSpells[druidLvl4Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -2410,7 +2428,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=9){
             var druidLvl5Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['5th Level'];
-            var spell5String="";
+            var spell5String="<br><br>";
             for(var i=0;i<druidLvl5Spells.length;i++){
                 spell5String+="<button class=\"collapsible\">"+druidLvl5Spells[i]+"</button><div class=\"content\">";
                 spell5String+=allSpells[druidLvl5Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -2420,7 +2438,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=11){
             var druidLvl6Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['6th Level'];
-            var spell6String="";
+            var spell6String="<br><br>";
             for(var i=0;i<druidLvl6Spells.length;i++){
                 spell6String+="<button class=\"collapsible\">"+druidLvl6Spells[i]+"</button><div class=\"content\">";
                 spell6String+=allSpells[druidLvl6Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -2430,7 +2448,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=13){
             var druidLvl7Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['7th Level'];
-            var spell7String="";
+            var spell7String="<br><br>";
             for(var i=0;i<druidLvl7Spells.length;i++){
                 spell7String+="<button class=\"collapsible\">"+druidLvl7Spells[i]+"</button><div class=\"content\">";
                 spell7String+=allSpells[druidLvl7Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -2440,7 +2458,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=15){
             var druidLvl8Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['8th Level'];
-            var spell8String="";
+            var spell8String="<br><br>";
             for(var i=0;i<druidLvl8Spells.length;i++){
                 spell8String+="<button class=\"collapsible\">"+druidLvl8Spells[i]+"</button><div class=\"content\">";
                 spell8String+=allSpells[druidLvl8Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -2450,7 +2468,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=17){
             var druidLvl9Spells = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['9th Level'];
-            var spell9String="";
+            var spell9String="<br><br>";
             for(var i=0;i<druidLvl9Spells.length;i++){
                 spell9String+="<button class=\"collapsible\">"+druidLvl9Spells[i]+"</button><div class=\"content\">";
                 spell9String+=allSpells[druidLvl9Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -2936,7 +2954,7 @@ function displayClass(charClass, level, levelFeatures){
         
         
         //var spellsElement = document.getElementById("final spells");
-        var spell1String="";
+        var spell1String="<br><br>";
         if(level>=2){
             for(var i=0;i<paladinLvl1Spells.length;i++){
                 spell1String+="<button class=\"collapsible\">"+paladinLvl1Spells[i]+"</button><div class=\"content\">";
@@ -2947,7 +2965,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=5){
             var paladinLvl2Spells = spellJSON['Spellcasting']['Spell Lists']['Paladin Spells']['2nd Level'];
-            var spell2String="";
+            var spell2String="<br><br>";
             for(var i=0;i<paladinLvl2Spells.length;i++){
                 spell2String+="<button class=\"collapsible\">"+paladinLvl2Spells[i]+"</button><div class=\"content\">";
                 spell2String+=allSpells[paladinLvl2Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -2957,7 +2975,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=9){
             var paladinLvl3Spells = spellJSON['Spellcasting']['Spell Lists']['Paladin Spells']['3rd Level'];
-            var spell3String="";
+            var spell3String="<br><br>";
             for(var i=0;i<paladinLvl3Spells.length;i++){
                 spell3String+="<button class=\"collapsible\">"+paladinLvl3Spells[i]+"</button><div class=\"content\">";
                 spell3String+=allSpells[paladinLvl3Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -2967,7 +2985,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=13){
             var paladinLvl4Spells = spellJSON['Spellcasting']['Spell Lists']['Paladin Spells']['4th Level'];
-            var spell4String="";
+            var spell4String="<br><br>";
             for(var i=0;i<paladinLvl4Spells.length;i++){
                 spell4String+="<button class=\"collapsible\">"+paladinLvl4Spells[i]+"</button><div class=\"content\">";
                 spell4String+=allSpells[paladinLvl4Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -2977,7 +2995,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=17){
             var paladinLvl5Spells = spellJSON['Spellcasting']['Spell Lists']['Paladin Spells']['5th Level'];
-            var spell5String="";
+            var spell5String="<br><br>";
             for(var i=0;i<paladinLvl5Spells.length;i++){
                 spell5String+="<button class=\"collapsible\">"+paladinLvl5Spells[i]+"</button><div class=\"content\">";
                 spell5String+=allSpells[paladinLvl5Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3146,9 +3164,9 @@ function displayClass(charClass, level, levelFeatures){
         
         
         //var spellsElement = document.getElementById("final spells");
-        var spell1String="";
+        ;
         if(level>=2){
-            var spell1String="";
+            var spell1String="<br><br>";
             for(var i=0;i<rangerLvl1Spells.length;i++){
                 spell1String+="<button class=\"collapsible\">"+rangerLvl1Spells[i]+"</button><div class=\"content\">";
                 spell1String+=allSpells[rangerLvl1Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3158,7 +3176,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=5){
             var rangerLvl2Spells = spellJSON['Spellcasting']['Spell Lists']['Ranger Spells']['2nd Level'];
-            var spell2String="";
+            var spell2String="<br><br>";
             for(var i=0;i<rangerLvl2Spells.length;i++){
                 spell2String+="<button class=\"collapsible\">"+rangerLvl2Spells[i]+"</button><div class=\"content\">";
                 spell2String+=allSpells[rangerLvl2Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3168,7 +3186,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=9){
             var rangerLvl3Spells = spellJSON['Spellcasting']['Spell Lists']['Ranger Spells']['3rd Level'];
-            var spell3String="";
+            var spell3String="<br><br>";
             for(var i=0;i<rangerLvl3Spells.length;i++){
                 spell3String+="<button class=\"collapsible\">"+rangerLvl3Spells[i]+"</button><div class=\"content\">";
                 spell3String+=allSpells[rangerLvl3Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3178,7 +3196,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=13){
             var rangerLvl4Spells = spellJSON['Spellcasting']['Spell Lists']['Ranger Spells']['4th Level'];
-            var spell4String="";
+            var spell4String="<br><br>";
             for(var i=0;i<rangerLvl4Spells.length;i++){
                 spell4String+="<button class=\"collapsible\">"+rangerLvl4Spells[i]+"</button><div class=\"content\">";
                 spell4String+=allSpells[rangerLvl4Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3188,7 +3206,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=17){
             var rangerLvl5Spells = spellJSON['Spellcasting']['Spell Lists']['Ranger Spells']['5th Level'];
-            var spell5String="";
+            var spell5String="<br><br>";
             for(var i=0;i<rangerLvl5Spells.length;i++){
                 spell5String+="<button class=\"collapsible\">"+rangerLvl5Spells[i]+"</button><div class=\"content\">";
                 spell5String+=allSpells[rangerLvl5Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3489,8 +3507,8 @@ function displayClass(charClass, level, levelFeatures){
         
         
         //var spellsElement = document.getElementById("final spells");
-        var spell1String="";
-        var cantripString="";
+        var spell1String="<br><br>";
+        var cantripString="<br><br>";
         for(var i=0;i<sorcererCantrips.length;i++){
             cantripString+="<button class=\"collapsible\">"+sorcererCantrips[i]+"</button><div class=\"content\">";
             cantripString+=allSpells[sorcererCantrips[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3505,7 +3523,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=3){
             var sorcererLvl2Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['2nd Level'];
-            var spell2String="";
+            var spell2String="<br><br>";
             for(var i=0;i<sorcererLvl2Spells.length;i++){
                 spell2String+="<button class=\"collapsible\">"+sorcererLvl2Spells[i]+"</button><div class=\"content\">";
                 spell2String+=allSpells[sorcererLvl2Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3515,7 +3533,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=5){
             var sorcererLvl3Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['3rd Level'];
-            var spell3String="";
+            var spell3String="<br><br>";
             for(var i=0;i<sorcererLvl3Spells.length;i++){
                 spell3String+="<button class=\"collapsible\">"+sorcererLvl3Spells[i]+"</button><div class=\"content\">";
                 spell3String+=allSpells[sorcererLvl3Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3525,7 +3543,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=7){
             var sorcererLvl4Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['4th Level'];
-            var spell4String="";
+            var spell4String="<br><br>";
             for(var i=0;i<sorcererLvl4Spells.length;i++){
                 spell4String+="<button class=\"collapsible\">"+sorcererLvl4Spells[i]+"</button><div class=\"content\">";
                 spell4String+=allSpells[sorcererLvl4Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3535,7 +3553,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=9){
             var sorcererLvl5Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['5th Level'];
-            var spell5String="";
+            var spell5String="<br><br>";
             for(var i=0;i<sorcererLvl5Spells.length;i++){
                 spell5String+="<button class=\"collapsible\">"+sorcererLvl5Spells[i]+"</button><div class=\"content\">";
                 spell5String+=allSpells[sorcererLvl5Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3544,7 +3562,7 @@ function displayClass(charClass, level, levelFeatures){
         }
         
         if(level>=11){
-            var spell6String="";
+            var spell6String="<br><br>";
             var sorcererLvl6Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['6th Level'];
             for(var i=0;i<sorcererLvl6Spells.length;i++){
                 spell6String+="<button class=\"collapsible\">"+sorcererLvl6Spells[i]+"</button><div class=\"content\">";
@@ -3555,7 +3573,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=13){
             var sorcererLvl7Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['7th Level'];
-            var spell7String="";
+            var spell7String="<br><br>";
             for(var i=0;i<sorcererLvl7Spells.length;i++){
                 spell7String+="<button class=\"collapsible\">"+sorcererLvl7Spells[i]+"</button><div class=\"content\">";
                 spell7String+=allSpells[sorcererLvl7Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3565,7 +3583,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=15){
             var sorcererLvl8Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['8th Level'];
-            var spell8String="";
+            var spell8String="<br><br>";
             for(var i=0;i<sorcererLvl8Spells.length;i++){
                 spell8String+="<button class=\"collapsible\">"+sorcererLvl8Spells[i]+"</button><div class=\"content\">";
                 spell8String+=allSpells[sorcererLvl8Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3575,7 +3593,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=17){
             var sorcererLvl9Spells = spellJSON['Spellcasting']['Spell Lists']['Sorcerer Spells']['9th Level'];
-            var spell9String="";
+            var spell9String="<br><br>";
             for(var i=0;i<sorcererLvl9Spells.length;i++){
                 spell9String+="<button class=\"collapsible\">"+sorcererLvl9Spells[i]+"</button><div class=\"content\">";
                 spell9String+=allSpells[sorcererLvl9Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3849,8 +3867,8 @@ function displayClass(charClass, level, levelFeatures){
         
         
         //var spellsElement = document.getElementById("final spells");
-        var spell1String="";
-        var cantripString="";
+        var spell1String="<br><br>";
+        var cantripString="<br><br>";
         for(var i=0;i<warlockCantrips.length;i++){
             cantripString+="<button class=\"collapsible\">"+warlockCantrips[i]+"</button><div class=\"content\">";
             cantripString+=allSpells[warlockCantrips[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3865,7 +3883,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=3){
             var warlockLvl2Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['2nd Level'];
-            var spell2String="";
+            var spell2String="<br><br>";
             for(var i=0;i<warlockLvl2Spells.length;i++){
                 spell2String+="<button class=\"collapsible\">"+warlockLvl2Spells[i]+"</button><div class=\"content\">";
                 spell2String+=allSpells[warlockLvl2Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3875,7 +3893,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=5){
             var warlockLvl3Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['3rd Level'];
-            var spell3String="";
+            var spell3String="<br><br>";
             for(var i=0;i<warlockLvl3Spells.length;i++){
                 spell3String+="<button class=\"collapsible\">"+warlockLvl3Spells[i]+"</button><div class=\"content\">";
                 spell3String+=allSpells[warlockLvl3Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3885,7 +3903,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=7){
             var warlockLvl4Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['4th Level'];
-            var spell4String="";
+            var spell4String="<br><br>";
             for(var i=0;i<warlockLvl4Spells.length;i++){
                 spell4String+="<button class=\"collapsible\">"+warlockLvl4Spells[i]+"</button><div class=\"content\">";
                 spell4String+=allSpells[warlockLvl4Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3895,7 +3913,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=9){
             var warlockLvl5Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['5th Level'];
-            var spell5String="";
+            var spell5String="<br><br>";
             for(var i=0;i<warlockLvl5Spells.length;i++){
                 spell5String+="<button class=\"collapsible\">"+warlockLvl5Spells[i]+"</button><div class=\"content\">";
                 spell5String+=allSpells[warlockLvl5Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3905,7 +3923,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=11){
             var warlockLvl6Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['6th Level'];
-            var spell6String="";
+            var spell6String="<br><br>";
             for(var i=0;i<warlockLvl6Spells.length;i++){
                 spell6String+="<button class=\"collapsible\">"+warlockLvl6Spells[i]+"</button><div class=\"content\">";
                 spell6String+=allSpells[warlockLvl6Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3915,7 +3933,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=13){
             var warlockLvl7Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['7th Level'];
-            var spell7String="";
+            var spell7String="<br><br>";
             for(var i=0;i<warlockLvl7Spells.length;i++){
                 spell7String+="<button class=\"collapsible\">"+warlockLvl7Spells[i]+"</button><div class=\"content\">";
                 spell7String+=allSpells[warlockLvl7Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3925,7 +3943,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=15){
             var warlockLvl8Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['8th Level'];
-            var spell8String="";
+            var spell8String="<br><br>";
             for(var i=0;i<warlockLvl8Spells.length;i++){
                 spell8String+="<button class=\"collapsible\">"+warlockLvl8Spells[i]+"</button><div class=\"content\">";
                 spell8String+=allSpells[warlockLvl8Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -3935,7 +3953,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=17){
             var warlockLvl9Spells = spellJSON['Spellcasting']['Spell Lists']['Warlock Spells']['9th Level'];
-            var spell9String="";
+            var spell9String="<br><br>";
             for(var i=0;i<warlockLvl9Spells.length;i++){
                 spell9String+="<button class=\"collapsible\">"+warlockLvl9Spells[i]+"</button><div class=\"content\">";
                 spell9String+=allSpells[warlockLvl9Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -4060,7 +4078,7 @@ function displayClass(charClass, level, levelFeatures){
             lvl20Element.innerHTML=lvl20Features;
         }
 
-    }
+    
     
     classPara.innerHTML=classText;
     
@@ -4072,8 +4090,8 @@ function displayClass(charClass, level, levelFeatures){
         
         
         //var spellsElement = document.getElementById("final spells");
-        var spell1String="";
-        var cantripString="";
+        var spell1String="<br><br>";
+        var cantripString="<br><br>";
         for(var i=0;i<wizardCantrips.length;i++){
             cantripString+="<button class=\"collapsible\">"+wizardCantrips[i]+"</button><div class=\"content\">";
             cantripString+=allSpells[wizardCantrips[i]]['content'].join("<br>")+"</div><br><br>";
@@ -4083,13 +4101,14 @@ function displayClass(charClass, level, levelFeatures){
             spell1String+=allSpells[wizardLvl1Spells[i]]['content'].join("<br>")+"</div><br><br>";
         }
     
+    
         document.getElementsByClassName("mainContent")[0].innerHTML=cantripString;
     
         document.getElementsByClassName("mainContent")[1].innerHTML=spell1String;
         
         if(level>=3){
             var wizardLvl2Spells = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['2nd Level'];
-            var spell2String="";
+            var spell2String="<br><br>";
             for(var i=0;i<wizardLvl2Spells.length;i++){
                 spell2String+="<button class=\"collapsible\">"+wizardLvl2Spells[i]+"</button><div class=\"content\">";
                 spell2String+=allSpells[wizardLvl2Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -4099,7 +4118,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=5){
             var wizardLvl3Spells = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['3rd Level'];
-            var spell3String="";
+            var spell3String="<br><br>";
             for(var i=0;i<wizardLvl3Spells.length;i++){
                 spell3String+="<button class=\"collapsible\">"+wizardLvl3Spells[i]+"</button><div class=\"content\">";
                 spell3String+=allSpells[wizardLvl3Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -4109,7 +4128,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=7){
             var wizardLvl4Spells = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['4th Level'];
-            var spell4String="";
+            var spell4String="<br><br>";
             for(var i=0;i<wizardLvl4Spells.length;i++){
                 spell4String+="<button class=\"collapsible\">"+wizardLvl4Spells[i]+"</button><div class=\"content\">";
                 spell4String+=allSpells[wizardLvl4Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -4119,7 +4138,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=9){
             var wizardLvl5Spells = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['5th Level'];
-            var spell5String="";
+            var spell5String="<br><br>";
             for(var i=0;i<wizardLvl5Spells.length;i++){
                 spell5String+="<button class=\"collapsible\">"+wizardLvl5Spells[i]+"</button><div class=\"content\">";
                 spell5String+=allSpells[wizardLvl5Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -4129,7 +4148,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=11){
             var wizardLvl6Spells = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['6th Level'];
-            var spell6String="";
+            var spell6String="<br><br>";
             for(var i=0;i<wizardLvl6Spells.length;i++){
                 spell6String+="<button class=\"collapsible\">"+wizardLvl6Spells[i]+"</button><div class=\"content\">";
                 spell6String+=allSpells[wizardLvl6Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -4139,7 +4158,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=13){
             var wizardLvl7Spells = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['7th Level'];
-            var spell7String="";
+            var spell7String="<br><br>";
             for(var i=0;i<wizardLvl7Spells.length;i++){
                 spell7String+="<button class=\"collapsible\">"+wizardLvl7Spells[i]+"</button><div class=\"content\">";
                 spell7String+=allSpells[wizardLvl7Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -4149,7 +4168,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=15){
             var wizardLvl8Spells = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['8th Level'];
-            var spell8String="";
+            var spell8String="<br><br>";
             for(var i=0;i<wizardLvl8Spells.length;i++){
                 spell8String+="<button class=\"collapsible\">"+wizardLvl8Spells[i]+"</button><div class=\"content\">";
                 spell8String+=allSpells[wizardLvl8Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -4159,7 +4178,7 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=17){
             var wizardLvl9Spells = spellJSON['Spellcasting']['Spell Lists']['Wizard Spells']['9th Level'];
-            var spell9String="";
+            var spell9String="<br><br>";
             for(var i=0;i<wizardLvl9Spells.length;i++){
                 spell9String+="<button class=\"collapsible\">"+wizardLvl9Spells[i]+"</button><div class=\"content\">";
                 spell9String+=allSpells[wizardLvl9Spells[i]]['content'].join("<br>")+"</div><br><br>";
@@ -4169,8 +4188,7 @@ function displayClass(charClass, level, levelFeatures){
         
         
         
-        
-        //spellsElement.innerHTML=spellString;
+    }
         
 }
 
@@ -4184,26 +4202,9 @@ function resetLevelFeatures(arr){
 /*hides or shows the proper collapsibles*/
 function updateCollapsibles(baseClass, level){
     
-    //TODO - need to fix bug where generating multiple characters in a row causes buttons to be unclickable
 
-    
     var coll = document.getElementsByClassName("mainCollapsible");
     
-    var j;
-
-    for (j = 0; j < coll.length; j++) {
-        coll[j].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } 
-            else {
-                content.style.display = "block";
-            }
-        });
-         
-    }
     
     //wipe all the spell levels, then re-add them if necessary
     
