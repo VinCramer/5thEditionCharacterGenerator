@@ -26,7 +26,6 @@ td, th{
 
 .hidden{
     display:none;
-    /*switch to this when showing - display:table;*/
 }
 
 .hidden_stats{
@@ -40,4 +39,57 @@ td, th{
 
 #min-label{
     margin-left:10px;
+}
+
+.mainCollapsible {
+  background-color:#5c5757;
+  color: #efecec;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  display:none;
+}
+
+.collapsible{
+  background-color: #62929a;
+  color: #efecec;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  display:inherit;
+}
+
+.active, .mainCollapsible:hover, .collapsible:hover {
+  background-color: #121435;
+}
+
+.content, .mainContent {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.mainContent{
+background-color: #e4f1fe;    
+}
+
+.collapsible:after, .mainCollapsible:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
