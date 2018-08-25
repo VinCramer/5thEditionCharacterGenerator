@@ -71,14 +71,14 @@ td, th{
   background-color: #121435;
 }
 
-.content, .mainContent {
+.content, .mainContent, .lvlContent {
   padding: 0 18px;
   display: none;
   overflow: hidden;
   background-color: #f1f1f1;
 }
 
-.mainContent{
+.mainContent, .lvlContent{
 background-color: #e4f1fe;    
 }
 
