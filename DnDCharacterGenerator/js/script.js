@@ -2757,7 +2757,7 @@ function displayClass(charClass, level, levelFeatures){
         //use this string for levels 4, 6, 8, 12, 14, 16, and 19
         var asiString="<br><br>";
         asiString+="<button class=\"collapsible\">Ability Score Improvement:</button><div class=\"content\">";
-        asiString+="<br>"+classJSON['Druid']['Class Features']['Ability Score Improvement']+"</div><br><br>";
+        asiString+="<br>"+classJSON['Fighter']['Class Features']['Ability Score Improvement']+"</div><br><br>";
         
         if(level>=4){
             document.getElementsByClassName("lvlContent")[3].innerHTML=asiString;
@@ -2883,46 +2883,51 @@ function displayClass(charClass, level, levelFeatures){
         basicFeatures.innerHTML=basicFeaturesString;
         
         
-        lvl1Features+="<b>Unarmored Defense:</b><br>";
-        lvl1Features+=classJSON['Monk']['Class Features']['Unarmored Defense']+"<br><br>";
-        lvl1Features+="<b>Martial Arts:</b><br>";
-        lvl1Features+=classJSON['Monk']['Class Features']['Martial Arts']['content'][0]+"<br>";
-        lvl1Features+=classJSON['Monk']['Class Features']['Martial Arts']['content'][1]+"<br>";
-        lvl1Features+=classJSON['Monk']['Class Features']['Martial Arts']['content'][2].join(" ")+" ";
-        lvl1Features+=classJSON['Monk']['Class Features']['Martial Arts']['content'][3];
-        
-        lvl1Element.innerHTML=lvl1Features;
+        var lvl1String="<br>";
+        lvl1String+="<button class=\"collapsible\">Unarmored Defense</button><div class=\"content\">";
+        lvl1String+="<br>"+classJSON['Monk']['Class Features']['Unarmored Defense']+"</div><br><br>";
+        lvl1String+="<button class=\"collapsible\">Martial Arts:</button><div class=\"content\">";
+        lvl1String+="<br>"+classJSON['Monk']['Class Features']['Martial Arts']['content'][0]+"<br>";
+        lvl1String+=classJSON['Monk']['Class Features']['Martial Arts']['content'][1]+"<br>"
+        lvl1String+=classJSON['Monk']['Class Features']['Martial Arts']['content'][2].join(" ")+" ";
+        lvl1String+=classJSON['Monk']['Class Features']['Martial Arts']['content'][3]+"<br></div><br>";
+        document.getElementsByClassName("lvlContent")[0].innerHTML=lvl1String;
         
         if(level>=2){
-            lvl2Features+="<b>Ki:</b><br>";
-            lvl2Features+=classJSON['Monk']['Class Features']['Ki']['content'].join(" ")+"<br>";
-            lvl2Features+="<b>Flurry of Blows:</b><br>";
-            lvl2Features+=classJSON['Monk']['Class Features']['Ki']['Flurry of Blows']+"<br>";
-            lvl2Features+="<b>Patient Defense:</b><br>";
-            lvl2Features+=classJSON['Monk']['Class Features']['Ki']['Patient Defense']+"<br>";
-            lvl2Features+="<b>Step of the Wind:</b><br>";
-            lvl2Features+=classJSON['Monk']['Class Features']['Ki']['Step of the Wind']+"<br><br>";
-            lvl2Features+="<b>Unarmored Movement:</b><br>";
-            lvl2Features+=classJSON['Monk']['Class Features']['Unarmored Movement']['content'].join(" ");
             
-            lvl2Element.innerHTML=lvl2Features;
+            
+            var lvl2String="<br>";
+            lvl2String+="<button class=\"collapsible\">Ki</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Monk']['Class Features']['Ki']['content'].join(" ")+"<br><br>";
+            lvl2String+="<button class=\"collapsible\">Flurry of Blows</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Monk']['Class Features']['Ki']['Flurry of Blows']+"</div><br><br>";
+            lvl2String+="<button class=\"collapsible\">Patient Defense</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Monk']['Class Features']['Ki']['Patient Defense']+"</div><br><br>";
+            lvl2String+="<button class=\"collapsible\">Step of the Wind</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Monk']['Class Features']['Ki']['Step of the Wind']+"</div><br></div><br>";
+            
+            lvl2String+="<button class=\"collapsible\">Unarmored Movement</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Monk']['Class Features']['Unarmored Movement']+"</div><br><br>";
+            document.getElementsByClassName("lvlContent")[1].innerHTML=lvl2String;
         }
         
         if(level>=3){
-            lvl3Features+="<b>Deflect Missiles:</b><br>";
-            lvl3Features+=classJSON['Monk']['Class Features']['Deflect Missiles']['content'].join(" ")+"<br><br>";
             
-            lvl3Features+="<b>Monastic Tradition:</b><br>";
-            lvl3Features+=classJSON['Monk']['Class Features']['Monastic Tradition']+"<br><br>";
-            lvl3Features+="<b>Monastic Traditions:</b><br>";
-            lvl3Features+=classJSON['Monk']['Monastic Traditions']['content']+"<br><br>";
-            lvl3Features+="<b>Way of the Open Hand:</b><br>";
-            lvl3Features+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['content']+"<br><br>";
-            lvl3Features+="<b>Open Hand Technique:</b><br>";
-            lvl3Features+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Open Hand Technique']['content'][0]+"<br><br>";
-            lvl3Features+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Open Hand Technique']['content'][1].join("<br>");
             
-            lvl3Element.innerHTML=lvl3Features;
+            var lvl3String="";
+            lvl3String+="<br><button class=\"collapsible\">Deflect Missiles</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Monk']['Class Features']['Deflect Missiles']['content'].join(" ")+"</div><br><br>";
+            
+            lvl3String+="<button class=\"collapsible\">Monastic Tradition</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Monk']['Class Features']['Monastic Tradition']+"<br></div><br><br>";
+            lvl3String+="<button class=\"collapsible\">Monastic Traditions</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Monk']['Monastic Traditions']['content']+"<br><br>";
+            lvl3String+="<button class=\"collapsible\">Way of the Open Hand</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['content']+"<br><br>";
+            lvl3String+="<button class=\"collapsible\">Open Hand Technique</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Open Hand Technique']['content'][0]+"<br><br>";
+            lvl3String+="<br>"+classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Open Hand Technique']['content'][1].join("<br>")+"<br></div><br></div><br></div><br>";
+            document.getElementsByClassName("lvlContent")[2].innerHTML=lvl3String;
         }
         
         if(level>=4){
@@ -2933,97 +2938,128 @@ function displayClass(charClass, level, levelFeatures){
             lvl4Element.innerHTML=lvl4Features;
         }
         
+        //use this string for levels 4, 8, 12, 16, and 19
+        var asiString="<br><br>";
+        asiString+="<button class=\"collapsible\">Ability Score Improvement:</button><div class=\"content\">";
+        asiString+="<br>"+classJSON['Cleric']['Class Features']['Ability Score Improvement']+"</div><br><br>";
+        
+        if(level>=4){
+            var lvl4String = "<br>";
+            lvl4String+=asiString;
+            lvl4String+="<br><button class=\"collapsible\">Slow Fall</button><div class=\"content\">";
+            lvl4String+="<br>"+classJSON['Monk']['Class Features']['Slow Fall']+"<br></div><br>";
+            document.getElementsByClassName("lvlContent")[3].innerHTML=lvl4String;
+        }
+        
         
         if(level>=5){
-            lvl5Features+="<b>Extra Attack:</b><br>";
-            lvl5Features+=classJSON['Monk']['Class Features']['Extra Attack']+"<br><br>";
-            lvl5Features+="<b>Stunning Strike:</b><br>";
-            lvl5Features+=classJSON['Monk']['Class Features']['Stunning Strike'];
             
-            lvl5Element.innerHTML=lvl5Features;
-            
+            var lvl5String="<br>";
+            lvl5String+="<br><button class=\"collapsible\">Extra Attack</button><div class=\"content\">";
+            lvl5String+="<br>"+classJSON['Monk']['Class Features']['Extra Attack']+"<br></div><br>";
+            lvl5String+="<br><button class=\"collapsible\">Stunning Strike</button><div class=\"content\">";
+            lvl5String+="<br>"+classJSON['Monk']['Class Features']['Stunning Strike']+"<br></div><br>";
+            document.getElementsByClassName("lvlContent")[4].innerHTML=lvl5String;
         }
         
         if(level>=6){
-            lvl6Features+="<b>Ki-Empowered Strikes:</b><br>";
-            lvl6Features+=classJSON['Monk']['Class Features']['Ki-Empowered Strikes']+"<br><br>";
-            lvl6Features+="<b>Wholeness of Body:</b><br>";
-            lvl6Features+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Wholeness of Body'];
-            
-            lvl6Element.innerHTML=lvl6Features;
+            var lvl6String="<br>";
+            lvl6String+="<br><button class=\"collapsible\">Ki-Empowered Strikes</button><div class=\"content\">";
+            lvl6String+="<br>"+classJSON['Monk']['Class Features']['Ki-Empowered Strikes']+"<br></div><br>";
+            lvl6String+="<br><button class=\"collapsible\">Way of the Open Hand</button><div class=\"content\">";
+            lvl6String+="<br><button class=\"collapsible\">Wholeness of Body</button><div class=\"content\">";
+            lvl6String+="<br>"+classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Wholeness of Body']+"<br></div><br></div><br>";
+            document.getElementsByClassName("lvlContent")[5].innerHTML=lvl6String;
         }
         
         if(level>=7){
-            lvl7Features+="<b>Evasion:</b><br>";
-            lvl7Features+=classJSON['Monk']['Class Features']['Evasion']+"<br><br>";
-            lvl7Features+="<b>Stillness of Mind:</b><br>";
-            lvl7Features+=classJSON['Monk']['Class Features']['Stillness of Mind'];
-            
-            lvl7Element.innerHTML=lvl7Features;
+            var lvl7String="<br>";
+            lvl7String+="<br><button class=\"collapsible\">Evasion</button><div class=\"content\">";
+            lvl7String+="<br>"+classJSON['Monk']['Class Features']['Evasion']+"<br></div><br>";
+            lvl7String+="<br><button class=\"collapsible\">Stillness of Mind</button><div class=\"content\">";
+            lvl7String+="<br>"+classJSON['Monk']['Class Features']['Stillness of Mind']+"<br></div><br>";
+            document.getElementsByClassName("lvlContent")[6].innerHTML=lvl7String;
         }
         
-        /*8 is ASI, 9 is improved unarmored movement*/
+        if(level>=8){
+            document.getElementsByClassName("lvlContent")[7].innerHTML=asiString;
+        }
+        
         if(level>=10){
-            lvl10Features+="<b>Purity of Body:</b><br>";
-            lvl10Features+=classJSON['Monk']['Class Features']['Purity of Body'];
-            
-            lvl10Element.innerHTML=lvl10Features;
+            var lvl10String="<br>";
+            lvl10String+="<br><button class=\"collapsible\">Purity of Body</button><div class=\"content\">";
+            lvl10String+="<br>"+classJSON['Monk']['Class Features']['Purity of Body']+"<br></div><br>";
+            document.getElementsByClassName("lvlContent")[9].innerHTML=lvl10String;
         }
         
         if(level>=11){
-            lvl11Features+="<b>Tranquility:</b><br>";
-            lvl11Features+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Tranquility'];
-            
-            lvl11Element.innerHTML=lvl11Features;
+            var lvl11String="<br>";
+            lvl11String+="<br><button class=\"collapsible\">Way of the Open Hand</button><div class=\"content\">";
+            lvl11String+="<br><button class=\"collapsible\">Tranquility</button><div class=\"content\">";
+            lvl11String+="<br>"+classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Tranquility']+"<br></div><br></div><br>";
+            document.getElementsByClassName("lvlContent")[10].innerHTML=lvl11String;
         }
         
-        /*12 is ASI*/
+        if(level>=12){
+            document.getElementsByClassName("lvlContent")[11].innerHTML=asiString;
+        }
+        
         if(level>=13){
-            lvl13Features+="<b>Tongue of the Sun and Moon:</b><br>";
-            lvl13Features+=classJSON['Monk']['Class Features']['Tongue of the Sun and Moon'];
             
-            lvl13Element.innerHTML=lvl13Features;
+            var lvl13String="<br>";
+            lvl13String+="<br><button class=\"collapsible\">Tongue of the Sun and Moon</button><div class=\"content\">";
+            lvl13String+="<br>"+classJSON['Monk']['Class Features']['Tongue of the Sun and Moon']+"<br></div><br>";
+            document.getElementsByClassName("lvlContent")[12].innerHTML=lvl13String;
             
         }
         
         
         if(level>=14){
-            lvl14Features+="<b>Diamond Soul:</b><br>";
-            lvl14Features+=classJSON['Monk']['Class Features']['Diamond Soul']['content'].join(" ");
-            
-            lvl14Element.innerHTML=lvl14Features;
+            var lvl14String="<br>";
+            lvl14String+="<br><button class=\"collapsible\">Diamond Soul</button><div class=\"content\">";
+            lvl14String+="<br>"+classJSON['Monk']['Class Features']['Diamond Soul']['content'].join(" ")+"<br></div><br>";
+            document.getElementsByClassName("lvlContent")[13].innerHTML=lvl14String;
         }
         
         if(level>=15){
-            lvl15Features+="<b>Timeless Body:</b><br>";
-            lvl15Features+=classJSON['Monk']['Class Features']['Timeless Body'];
-            
-            lvl15Element.innerHTML=lvl15Features;
+            var lvl15String="<br>";
+            lvl15String+="<br><button class=\"collapsible\">Timeless Body</button><div class=\"content\">";
+            lvl15String+="<br>"+classJSON['Monk']['Class Features']['Timeless Body']+"<br></div><br>";
+            document.getElementsByClassName("lvlContent")[14].innerHTML=lvl15String;
         }
         
-        /*16 is ASI*/
+        if(level>=16){
+            document.getElementsByClassName("lvlContent")[15].innerHTML=asiString;
+        }
+        
         if(level>=17){
-            lvl17Features+="<b>Quivering Palm:</b><br>";
-            lvl17Features+=classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Quivering Palm']['content'].join(" "); 
             
-            lvl17Element.innerHTML=lvl17Features;
+            var lvl17String="<br>";
+            lvl17String+="<br><button class=\"collapsible\">Way of the Open Hand</button><div class=\"content\">";
+            lvl17String+="<br><button class=\"collapsible\">Quivering Palm</button><div class=\"content\">";
+            lvl17String+="<br>"+classJSON['Monk']['Monastic Traditions']['Way of the Open Hand']['Quivering Palm']['content'].join(" ")+"<br></div><br></div><br>";
+            document.getElementsByClassName("lvlContent")[16].innerHTML=lvl17String;
         }
         
         if(level>=18){
-            lvl18Features+="<b>Empty Body:</b><br>";
-            lvl18Features+=classJSON['Monk']['Class Features']['Empty Body']['content'].join(" ");
             
-            lvl18Element.innerHTML=lvl18Features;
             
+            var lvl18String="<br>";
+            lvl18String+="<br><button class=\"collapsible\">Empty Body</button><div class=\"content\">";
+            lvl18String+="<br>"+classJSON['Monk']['Class Features']['Empty Body']['content'].join(" ")+"<br></div><br>";
+            document.getElementsByClassName("lvlContent")[17].innerHTML=lvl18String;
         }
         
-        /*19 is ASI*/
+        if(level>=19){
+            document.getElementsByClassName("lvlContent")[18].innerHTML=asiString;
+        }
         
         if(level>=20){
-            lvl20Features+="<b>Perfect Self:</b><br>";
-            lvl20Features+=classJSON['Monk']['Class Features']['Perfect Self'];
             
-            lvl20Element.innerHTML=lvl20Features;
+            var lvl20String="<br>";
+            lvl20String+="<br><button class=\"collapsible\">Perfect Self</button><div class=\"content\">";
+            lvl20String+="<br>"+classJSON['Monk']['Class Features']['Perfect Self']+"<br></div><br>";
+            document.getElementsByClassName("lvlContent")[19].innerHTML=lvl20String;
         }
         
         
@@ -3051,60 +3087,70 @@ function displayClass(charClass, level, levelFeatures){
         basicFeatures.innerHTML=basicFeaturesString;
         
         
-        lvl1Features+="<b>Divine Sense:</b><br>";
-        lvl1Features+=classJSON['Paladin']['Class Features']['Divine Sense']['content'].join(" ")+"<br><br>";
-        lvl1Features+="<b>Lay on Hands:</b><br>";
-        lvl1Features+=classJSON['Paladin']['Class Features']['Lay on Hands']['content'].join(" ");
         
-        
-        lvl1Element.innerHTML=lvl1Features;
+        var lvl1String="<br>";
+        lvl1String+="<br><button class=\"collapsible\">Divine Sense</button><div class=\"content\">";
+        lvl1String+="<br>"+classJSON['Paladin']['Class Features']['Divine Sense']['content'].join(" ")+"<br></div><br>";
+        lvl1String+="<br><button class=\"collapsible\">Lay on Hands</button><div class=\"content\">";
+        lvl1String+="<br>"+classJSON['Paladin']['Class Features']['Lay on Hands']['content'].join(" ")+"<br></div><br>";
+        document.getElementsByClassName("lvlContent")[0].innerHTML=lvl1String;
         
         if(level>=2){
-            lvl2Features+="<b>Fighting Style:</b><br>";
-            lvl2Features+=classJSON['Paladin']['Class Features']['Fighting Style']['content']+"<br>";
-            lvl2Features+="<b>Defense:</b><br>";
-            lvl2Features+=classJSON['Paladin']['Class Features']['Fighting Style']['Defense']+"<br>";
-            lvl2Features+="<b>Dueling:</b><br>";
-            lvl2Features+=classJSON['Paladin']['Class Features']['Fighting Style']['Dueling']+"<br>";
-            lvl2Features+="<b>Great Weapon Fighting:</b><br>";
-            lvl2Features+=classJSON['Paladin']['Class Features']['Fighting Style']['Great Weapon Fighting']+"<br>";
-            lvl2Features+="<b>Protection:</b><br>";
-            lvl2Features+=classJSON['Paladin']['Class Features']['Fighting Style']['Protection']+"<br><br>";
-            lvl2Features+="<b>Spellcasting:</b><br>";
-            lvl2Features+=classJSON['Paladin']['Class Features']['Spellcasting']['content']+"<br><br>";
-            lvl2Features+="<b>Preparing and Casting Spells:</b><br>";
-            lvl2Features+=classJSON['Paladin']['Class Features']['Spellcasting']['Preparing and Casting Spells']['content'].join(" ")+"<br><br>";
-            lvl2Features+="<b>Spellcasting Ability:</b><br>";
-            lvl2Features+=classJSON['Paladin']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("<br>")+"<br><br>";
-            lvl2Features+="<b>Spellcasting Focus:</b><br>";
-            lvl2Features+=classJSON['Paladin']['Class Features']['Spellcasting']['Spellcasting Focus']+"<br><br>";
-            lvl2Features+="<b>Divine Smite:</b><br>";
-            lvl2Features+=classJSON['Paladin']['Class Features']['Divine Smite'];
+            lvl2String="<br>";
+            lvl2String+="<button class=\"collapsible\">Fighting Style</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Fighter']['Class Features']['Fighting Style']['content']+"<br><br>";
+            lvl2String+="<button class=\"collapsible\">Defense</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Fighter']['Class Features']['Fighting Style']['Defense']+"</div><br><br>";
+            lvl2String+="<button class=\"collapsible\">Dueling</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Fighter']['Class Features']['Fighting Style']['Dueling']+"</div><br><br>";
+            lvl2String+="<button class=\"collapsible\">Great Weapon Fighting</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Fighter']['Class Features']['Fighting Style']['Great Weapon Fighting']+"</div><br><br>";
+            lvl2String+="<button class=\"collapsible\">Protection</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Fighter']['Class Features']['Fighting Style']['Protection']+"</div><br></div><br>";
             
-            lvl2Element.innerHTML=lvl2Features;
+            
+            lvl2String+="<button class=\"collapsible\">Spellcasting:</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Paladin']['Class Features']['Spellcasting']['content']+"<br><br>";
+            lvl2String+="<button class=\"collapsible\">Preparing and Casting Spells:</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Paladin']['Class Features']['Spellcasting']['Preparing and Casting Spells']['content'].join(" ")+"</div><br><br>";
+            lvl2String+="<button class=\"collapsible\">Spellcasting Ability</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Paladin']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("<br><br>")+"</div><br><br>";
+            lvl2String+="<button class=\"collapsible\">Spellcasting Focus</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Paladin']['Class Features']['Spellcasting']['Spellcasting Focus']+"</div><br><br></div><br>";
+            
+            lvl2String+="<button class=\"collapsible\">Divine Smite</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Paladin']['Class Features']['Divine Smite']+"<br></div><br>";
+            
+            document.getElementsByClassName("lvlContent")[1].innerHTML=lvl2String;
         }
         
         
         if(level>=3){
-            lvl3Features+="<b>Divine Health:</b><br>";
-            lvl3Features+=classJSON['Paladin']['Class Features']['Divine Health']+"<br><br>";
-            lvl3Features+="<b>Sacred Oath:</b><br>";
-            lvl3Features+=classJSON['Paladin']['Class Features']['Sacred Oath']['content']+"<br><br>";
-            lvl3Features+="<b>Oath Spells:</b><br>";
-            lvl3Features+=classJSON['Paladin']['Class Features']['Sacred Oath']['Oath Spells']['content']+"<br><br>";
-            lvl3Features+="<b>Channel Divinity:</b><br>";
-            lvl3Features+=classJSON['Paladin']['Class Features']['Sacred Oath']['Channel Divinity']['content']+"<br><br>";
-            lvl3Features+="<b>Sacred Oaths:</b><br>";
-            lvl3Features+=classJSON['Paladin']['Sacred Oaths']['content']+"<br><br>";
-            lvl3Features+="<b>Oath of Devotion:</b><br>";
-            lvl3Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['content']+"<br><br>";
-            lvl3Features+="<b>Tenets of Devotion:</b><br>";
-            lvl3Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Tenets of Devotion']['content'].join("<br>")+"<br><br>";
-            lvl3Features+="<b>Oath Spells:</b><br>";
-            lvl3Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['content']+"<br><br>";
+            
+            var lvl3String="<br>";
+            lvl3String+="<button class=\"collapsible\">Divine Health:</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Paladin']['Class Features']['Divine Health']+"</div><br><br>";
+            
+            lvl3String+="<button class=\"collapsible\">Sacred Oath</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Paladin']['Class Features']['Sacred Oath']['content']+"<br><br>";
+            lvl3String+="<button class=\"collapsible\">Oath Spells</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Paladin']['Class Features']['Sacred Oath']['Oath Spells']['content'].join(" ")+"</div><br><br>";
+            lvl3String+="<button class=\"collapsible\">Channel Divinity</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Paladin']['Class Features']['Sacred Oath']['Channel Divinity']['content'].join(" ")+"</div><br></div><br>";
+            
+            
+            lvl3String+="<button class=\"collapsible\">Oath of Devotion</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['content']+"<br><br>";
+            lvl3String+="<button class=\"collapsible\">Tenets of Devotion</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Tenets of Devotion']['content'].join("<br>")+"<br></div><br>";
+            lvl3String+="<button class=\"collapsible\">Oath Spells</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['content']+"<br><br>";
+            
+            
+           
             
             /*oath spell table*/
-            lvl3Features+="<table>"+
+            lvl3String+="<table>"+
             "<tr>"+
             "<th>Level</th><th>Paladin Spells</th>"+    
             "</tr>"+
@@ -3129,83 +3175,109 @@ function displayClass(charClass, level, levelFeatures){
             "<td>"+ classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Level'][4] +"</td>"+
             "<td>"+ classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Oath Spells']['Oath of Devotion Spells']['table']['Paladin Spells'][4] +
             "</td>"+"</tr>"+
-            "</table><br><br>";
+            "</table><br></div><br>";
 
             
             
-            lvl3Features+="<b>Channel Divinity:</b><br>";
-            lvl3Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Channel Divinity']['content'].join("<br>");  
+            
+            lvl3String+="<button class=\"collapsible\">Channel Divinity</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Channel Divinity']['content'].join("<br><br>")+"</div><br></div><br></div>";  
             
             
-            lvl3Element.innerHTML=lvl3Features;
+            
+            document.getElementsByClassName("lvlContent")[2].innerHTML=lvl3String;
         }
+        
+        
+        //use this string for levels 4, 8, 12, 16, and 19
+        var asiString="<br><br>";
+        asiString+="<button class=\"collapsible\">Ability Score Improvement:</button><div class=\"content\">";
+        asiString+="<br>"+classJSON['Paladin']['Class Features']['Ability Score Improvement']+"</div><br><br>";
         
         if(level>=4){
-            lvl4Features+="<b>Abililty Score Improvement:</b><br>";
-            lvl4Features+=classJSON['Paladin']['Class Features']['Ability Score Improvement'];
-            
-            lvl4Element.innerHTML=lvl4Features;
+            document.getElementsByClassName("lvlContent")[3].innerHTML=asiString;
         }
         
+        
         if(level>=5){
-            lvl5Features+="<b>Extra Attack:</b><br>";
-            lvl5Features+=classJSON['Paladin']['Class Features']['Extra Attack'];
             
-            lvl5Element.innerHTML=lvl5Features;
+            var lvl5String="<br>";
+            lvl5String+="<button class=\"collapsible\">Extra Attack</button><div class=\"content\">";
+            lvl5String+="<br>"+classJSON['Paladin']['Class Features']['Extra Attack']+"<br></div><br>";
+            document.getElementsByClassName("lvlContent")[4].innerHTML=lvl5String;
         }
         
         if(level>=6){
-            lvl6Features+="<b>Aura of Protection:</b><br>";
-            lvl6Features+=classJSON['Paladin']['Class Features']['Aura of Protection']['content'].join(" ");
             
-            lvl6Element.innerHTML=lvl6Features;
+            var lvl6String="<br>";
+            lvl6String+="<button class=\"collapsible\">Aura of Protecetion</button><div class=\"content\">";
+            lvl6String+="<br>"+classJSON['Paladin']['Class Features']['Aura of Protection']['content'].join(" ")+"<br></div><br>";
+            document.getElementsByClassName("lvlContent")[5].innerHTML=lvl6String;
             
         }
         
         if(level>=7){
-            lvl7Features+="<b>Aura of Devotion:</b><br>";
-            lvl7Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Aura of Devotion']['content'].join(" ");
-            
-            lvl7Element.innerHTML=lvl7Features;
+            var lvl7String="<br>";
+            lvl7String+="<button class=\"collapsible\">Oath of Devotion</button><div class=\"content\">";
+            lvl7String+="<br><button class=\"collapsible\">Aura of Devotion</button><div class=\"content\">";
+            lvl7String+="<br>"+classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Aura of Devotion']['content'].join(" ")+"<br></div><br></div><br>";
+            document.getElementsByClassName("lvlContent")[6].innerHTML=lvl7String;
         }
         
-        /*8 is ASI, 9 is spells*/
-        
+        if(level>=8){
+            document.getElementsByClassName("lvlContent")[7].innerHTML=asiString;
+        }
         if(level>=10){
-            lvl10Features+="<b>Aura of Courage:</b><br>";
-            lvl10Features+=classJSON['Paladin']['Class Features']['Aura of Courage']['content'].join(" ");
-            
-            lvl10Element.innerHTML=lvl10Features;
+            var lvl10String="<br>";
+            lvl10String+="<button class=\"collapsible\">Aura of Courage</button><div class=\"content\">";
+            lvl10String+="<br>"+classJSON['Paladin']['Class Features']['Aura of Courage']['content'].join(" ")+"<br></div><br>";
+            document.getElementsByClassName("lvlContent")[9].innerHTML=lvl10String;
         }
         
         if(level>=11){
-            lvl11Features+="<b>Improved Divine Smite:</b><br>";
-            lvl11Features+=classJSON['Paladin']['Class Features']['Improved Divine Smite'];
-            
-            lvl11Element.innerHTML=lvl11Features;
+            var lvl11String="<br>";
+            lvl11String+="<button class=\"collapsible\">Improved Divine Smite</button><div class=\"content\">";
+            lvl11String+="<br>"+classJSON['Paladin']['Class Features']['Improved Divine Smite']+"<br></div><br>";
+            document.getElementsByClassName("lvlContent")[10].innerHTML=lvl11String;
         }
         
         /*12 is ASI, 13 is spells*/
+        if(level>=12){
+            document.getElementsByClassName("lvlContent")[11].innerHTML=asiString;
+        }
         
         if(level>=14){
-            lvl14Features+="<b>Cleansing Touch:</b><br>";
-            lvl14Features+=classJSON['Paladin']['Class Features']['Cleansing Touch']['content'].join(" ");    
             
-            lvl14Element.innerHTML=lvl14Features;
+            var lvl14String="<br>";
+            lvl14String+="<button class=\"collapsible\">Cleansing Touch</button><div class=\"content\">";
+            lvl14String+="<br>"+classJSON['Paladin']['Class Features']['Cleansing Touch']['content'].join(" ")+"<br></div><br>";
+            document.getElementsByClassName("lvlContent")[13].innerHTML=lvl14String;
         }
         
         if(level>=15){
-            lvl15Features+="<b>Purity of Spirit:</b><br>";
-            lvl15Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Purity of Spirit'];
             
-            lvl15Element.innerHTML=lvl15Features;
+            var lvl15String="<br>";
+            lvl15String+="<button class=\"collapsible\">Oath of Devotion</button><div class=\"content\">";
+            lvl15String+="<br><button class=\"collapsible\">Purity of Spirit</button><div class=\"content\">";
+            lvl15String+="<br>"+classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Purity of Spirit']+"<br></div><br></div><br>";
+            document.getElementsByClassName("lvlContent")[14].innerHTML=lvl15String;
+        }
+        
+        if(level>=16){
+            document.getElementsByClassName("lvlContent")[15].innerHTML=asiString;
+        }
+        
+        if(level>=19){
+            document.getElementsByClassName("lvlContent")[18].innerHTML=asiString;
         }
         
         if(level==20){
-            lvl20Features+="<b>Holy Nimbus:</b><br>";
-            lvl20Features+=classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Holy Nimbus']['content'].join(" ");
             
-            lvl20Element.innerHTML=lvl20Features;
+            var lvl20String="<br>";
+            lvl20String+="<button class=\"collapsible\">Oath of Devotion</button><div class=\"content\">";
+            lvl20String+="<br><button class=\"collapsible\">Holy Nimbus</button><div class=\"content\">";
+            lvl20String+="<br>"+classJSON['Paladin']['Sacred Oaths']['Oath of Devotion']['Holy Nimbus']['content'].join(" ")+"<br></div><br></div><br>";
+            document.getElementsByClassName("lvlContent")[19].innerHTML=lvl20String;
         }
         
         
@@ -3265,11 +3337,6 @@ function displayClass(charClass, level, levelFeatures){
             document.getElementsByClassName("mainContent")[5].innerHTML=spell5String;
         }
         
-        
-        
-        
-        //spellsElement.innerHTML=spellString;
-        
 
         
     }
@@ -3294,60 +3361,72 @@ function displayClass(charClass, level, levelFeatures){
 
         basicFeatures.innerHTML=basicFeaturesString;
         
-        lvl1Features+="<b>Favored Enemy:</b><br>";
-        lvl1Features+=classJSON['Ranger']['Class Features']['Favored Enemy']['content'].join(" ")+"<br><br>";
-        lvl1Features+="<b>Natural Explorer:</b><br>";
-        lvl1Features+=classJSON['Ranger']['Class Features']['Natural Explorer']['content'][0]+" ";
-        lvl1Features+=classJSON['Ranger']['Class Features']['Natural Explorer']['content'][1]+"<br><br>";
-        lvl1Features+=classJSON['Ranger']['Class Features']['Natural Explorer']['content'][2].join("<br>")+"<br><br>";
-        lvl1Features+=classJSON['Ranger']['Class Features']['Natural Explorer']['content'][3];
+        var lvl1String="<br>";
+        lvl1String+="<button class=\"collapsible\">Favored Enemy</button><div class=\"content\">";
+        lvl1String+="<br>"+classJSON['Ranger']['Class Features']['Favored Enemy']['content'].join(" ")+"</div><br><br>";
+        lvl1String+="<button class=\"collapsible\">Natural Explorer</button><div class=\"content\">";
+        lvl1String+="<br>"+classJSON['Ranger']['Class Features']['Natural Explorer']['content'][0]+" ";
+        lvl1String+="<br>"+classJSON['Ranger']['Class Features']['Natural Explorer']['content'][1]+"<br><br>";
+        lvl1String+="<br>"+classJSON['Ranger']['Class Features']['Natural Explorer']['content'][2].join("<br>")+"<br><br>";
+        lvl1String+="<br>"+classJSON['Ranger']['Class Features']['Natural Explorer']['content'][3] + "<br></div><br>";
         
-        lvl1Element.innerHTML=lvl1Features;
+        document.getElementsByClassName("lvlContent")[0].innerHTML=lvl1String;
         
         /*core ranger class - SRD, not the Revised Ranger UA*/
         
         if(level>=2){
-            lvl2Features+="<b>Fighting Style:</b><br>";
-            lvl2Features+=classJSON['Ranger']['Class Features']['Fighting Style']['content']+"<br>";
-            lvl2Features+="<b>Archery:</b><br>";
-            lvl2Features+=classJSON['Ranger']['Class Features']['Fighting Style']['Archery']+"<br>";
-            lvl2Features+="<b>Defense:</b><br>";
-            lvl2Features+=classJSON['Ranger']['Class Features']['Fighting Style']['Defense']+"<br>";
-            lvl2Features+="<b>Dueling:</b><br>";
-            lvl2Features+=classJSON['Ranger']['Class Features']['Fighting Style']['Dueling']+"<br>";
-            lvl2Features+="<b>Two-Weapon Fighting:</b><br>";
-            lvl2Features+=classJSON['Ranger']['Class Features']['Fighting Style']['Two-Weapon Fighting']+"<br><br>";
-            lvl2Features+="<b>Spellcasting:</b><br>";
-            lvl2Features+=classJSON['Ranger']['Class Features']['Spellcasting']['content']+"<br><br>";
-            lvl2Features+="<b>Spells Known of 1st Level and Higher:</b><br>";
-            lvl2Features+=classJSON['Ranger']['Class Features']['Spellcasting']['Spells Known of 1st Level and Higher']['content'].join(" ");
-            lvl2Features+="<b>Spellcasting Ability:</b><br>";
-            lvl2Features+=classJSON['Ranger']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("<br>");
-
-            lvl2Element.innerHTML=lvl2Features;
+            
+            lvl2String="<br>";
+            lvl2String+="<button class=\"collapsible\">Fighting Style</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Ranger']['Class Features']['Fighting Style']['content']+"<br><br>";
+            lvl2String+="<button class=\"collapsible\">Archery</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Ranger']['Class Features']['Fighting Style']['Archery']+"</div><br><br>";
+            lvl2String+="<button class=\"collapsible\">Defense</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Ranger']['Class Features']['Fighting Style']['Defense']+"</div><br><br>";
+            lvl2String+="<button class=\"collapsible\">Dueling</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Ranger']['Class Features']['Fighting Style']['Dueling']+"</div><br><br>";
+            lvl2String+="<button class=\"collapsible\">Two-Weapon Fighting</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Ranger']['Class Features']['Fighting Style']['Two-Weapon Fighting']+"</div><br></div><br>";
+            
+            
+            lvl2String+="<button class=\"collapsible\">Spellcasting:</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Ranger']['Class Features']['Spellcasting']['content']+"<br><br>";
+            lvl2String+="<button class=\"collapsible\">Spells Known of 1st Level and Higher</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Ranger']['Class Features']['Spellcasting']['Spells Known of 1st Level and Higher']['content'].join(" ")+"</div><br><br>";
+            lvl2String+="<button class=\"collapsible\">Spellcasting Ability</button><div class=\"content\">";
+            lvl2String+="<br>"+classJSON['Ranger']['Class Features']['Spellcasting']['Spellcasting Ability']['content'].join("<br><br>")+"</div><br><br>";
+            
+            
+            document.getElementsByClassName("lvlContent")[1].innerHTML=lvl2String;
+            
             
         }
         
         if(level>=3){
-            lvl3Features+="<b>Ranger Archetype:</b><br>";
-            lvl3Features+=classJSON['Ranger']['Class Features']['Ranger Archetype']+"<br><br>";
-            lvl3Features+="<b>Primeval Awareness:</b><br>";
-            lvl3Features+=classJSON['Ranger']['Class Features']['Primeval Awareness']+"<br><br>";
-            lvl3Features+="<b>Ranger Archetypes:</b><br>";
-            lvl3Features+=classJSON['Ranger']['Ranger Archetypes']['content']+"<br><br>";
-            lvl3Features+="<b>Hunter:</b><br>";
-            lvl3Features+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['content']+"<br><br>";
-            lvl3Features+="<b>Hunter's Prey:</b><br>";
-            lvl3Features+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Hunters Prey']['content'].join("<br>");
+            var lvl3String="<br>";
+            lvl3String+="<button class=\"collapsible\">Primeval Awareness</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Ranger']['Class Features']['Primeval Awareness']+"</div><br><br>";
+            lvl3String+="<button class=\"collapsible\">Ranger Archetype</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Ranger']['Class Features']['Ranger Archetype']+"</div><br><br>";
             
-            lvl3Element.innerHTML=lvl3Features;
+            lvl3String+="<button class=\"collapsible\">Ranger Archetypes</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Ranger']['Ranger Archetypes']['content']+"<br><br>";
+            lvl3String+="<button class=\"collapsible\">Hunter</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Ranger']['Ranger Archetypes']['Hunter']['content']+"<br><br>";
+            lvl3String+="<button class=\"collapsible\">Hunter's Prey</button><div class=\"content\">";
+            lvl3String+="<br>"+classJSON['Ranger']['Ranger Archetypes']['Hunter']['Hunters Prey']['content'].join("<br>")+"</div><br></div><br></div><br>";
+            
+            
+            document.getElementsByClassName("lvlContent")[2].innerHTML=lvl3String;
         }
         
+        //use this string for levels 4, 8, 12, 16, and 19
+        var asiString="<br><br>";
+        asiString+="<button class=\"collapsible\">Ability Score Improvement:</button><div class=\"content\">";
+        asiString+="<br>"+classJSON['Ranger']['Class Features']['Ability Score Improvement']+"</div><br><br>";
+        
         if(level>=4){
-            lvl4Features+="<b>Ability Score Improvement:</b><br>"
-            lvl4Features+=classJSON['Ranger']['Class Features']['Ability Score Improvement'];
-            
-            lvl4Element.innerHTML=lvl4Features;
+            document.getElementsByClassName("lvlContent")[3].innerHTML=asiString;
         }
         
         if(level>=5){
@@ -3356,13 +3435,20 @@ function displayClass(charClass, level, levelFeatures){
             
             lvl5Element.innerHTML=lvl5Features;
             
+            var lvl5String="<br>";
+            lvl5String+="<button class=\"collapsible\">Extra Attack</button><div class=\"content\">";
+            lvl5String+="<br>"+classJSON['Ranger']['Class Features']['Extra Attack']+"</div><br><br>";
+            document.getElementsByClassName("lvlContent")[4].innerHTML=lvl5String;
         }
         
         /*level 6 is improvements on previously defined features.*/
         if(level>=7){
-            lvl7Features+="<b>Defensive Tactics:</b><br>";
-            lvl7Features+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Defensive Tactics']['content'].join("<br>");
-            lvl7Element.innerHTML=lvl7Features;
+            
+            var lvl7String="<br>";
+            lvl7String+="<button class=\"collapsible\">Hunter</button><div class=\"content\">";
+            lvl7String+="<br><button class=\"collapsible\">Defensive Tactics</button><div class=\"content\">";
+            lvl7String+="<br>"+classJSON['Ranger']['Ranger Archetypes']['Hunter']['Defensive Tactics']['content'].join("<br>")+"</div><br></div><br><br>";
+            document.getElementsByClassName("lvlContent")[6].innerHTML=lvl7String;
         }
         
         if(level>=8){
@@ -3370,6 +3456,11 @@ function displayClass(charClass, level, levelFeatures){
             lvl8Features+=classJSON['Ranger']['Class Features']['Lands Stride']['content'].join(" ");
             
             lvl8Element.innerHTML=lvl8Features;
+            
+            lvl8String="<br>";
+            lvl8String+=asiString;
+            document.getElementsByClassName("lvlContent")[3].innerHTML=lvl8String;
+        
         }
         
         /*9 is spells*/
@@ -3379,6 +3470,11 @@ function displayClass(charClass, level, levelFeatures){
             lvl10Features+=classJSON['Ranger']['Class Features']['Hide in Plain Sight']['content'].join(" ");
             
             lvl10Element.innerHTML=lvl10Features;
+            
+            var lvl10String="<br>";
+            lvl10String+="<button class=\"collapsible\">Hide in Plain Sight</button><div class=\"content\">";
+            lvl10String+="<br>"+classJSON['Ranger']['Class Features']['Hide in Plain Sight']['content'].join(" ")+"</div><br><br>";
+            document.getElementsByClassName("lvlContent")[9].innerHTML=lvl10String;
         }
         
         if(level>=11){
@@ -3386,37 +3482,64 @@ function displayClass(charClass, level, levelFeatures){
             lvl11Features+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Multiattack']['content'].join("<br>");
             
             lvl11Element.innerHTML=lvl11Features;
+            
+            var lvl11String="<br>";
+            lvl11String+="<button class=\"collapsible\">Hunter</button><div class=\"content\">";
+            lvl11String+="<br><button class=\"collapsible\">Multiattack</button><div class=\"content\">";
+            lvl11String+="<br>"+classJSON['Ranger']['Ranger Archetypes']['Hunter']['Multiattack']['content'].join("<br>")+"</div><br></div><br><br>";
+            document.getElementsByClassName("lvlContent")[10].innerHTML=lvl11String;
         }
         
         /*12 is ASI, 13 is spells*/
+        if(level>=12){
+            document.getElementsByClassName("lvlContent")[11].innerHTML=asiString;
+        }
+        
         if(level>=14){
-            lvl14Features+="<b>Vanish:</b><br>";
-            lvl14Features+=classJSON['Ranger']['Class Features']['Vanish'];
             
-            lvl14Element.innerHTML=lvl14Features;
+            var lvl14String="<br>";
+            lvl14String+="<button class=\"collapsible\">Vanish</button><div class=\"content\">";
+            lvl14String+="<br>"+classJSON['Ranger']['Class Features']['Vanish']+"</div><br><br>";
+            document.getElementsByClassName("lvlContent")[13].innerHTML=lvl14String;
         }
         
         if(level>=15){
-            lvl15Features+="<b>Superior Hunter's Defense:</b><br>";
-            lvl15Features+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Superior Hunters Defense']['content'];
+            
+            var lvl15String="<br>";
+            lvl15String+="<button class=\"collapsible\">Hunter</button><div class=\"content\">";
+            lvl15String+="<br><button class=\"collapsible\">Superior Hunter's Defense</button><div class=\"content\">";
+            lvl15String+="<br>"+classJSON['Ranger']['Ranger Archetypes']['Hunter']['Superior Hunters Defense']['content'].join("<br>")+"</div><br></div><br><br>";
+            document.getElementsByClassName("lvlContent")[14].innerHTML=lvl15String;
         }
+        
+        
         
         /*16 is ASI, 17 is spells*/
         
+        if(level>=16){
+            document.getElementsByClassName("lvlContent")[15].innerHTML=asiString;
+        }
+        
+        
         if(level>=18){
-            lvl18Features+="<b>Feral Senses:</b><br>";
-            lvl18Features+=classJSON['Ranger']['Class Features']['Feral Senses']['content'];
             
-            lvl18Element.innerHTML=lvl18Features;
+            var lvl18String="<br>";
+            lvl18String+="<button class=\"collapsible\">Feral Senses</button><div class=\"content\">";
+            lvl18String+="<br>"+classJSON['Ranger']['Class Features']['Feral Senses']['content'].join(" ")+"</div><br><br>";
+            document.getElementsByClassName("lvlContent")[17].innerHTML=lvl18String;
         }
         
         /*19 is ASI*/
+        if(level>=19){
+            document.getElementsByClassName("lvlContent")[18].innerHTML=asiString;
+        }
         
         if(level==20){
-            lvl20Features+="<b>Foe Slayer:</b><br>";
-            lvl20Features+=classJSON['Ranger']['Class Features']['Foe Slayer'];
             
-            lvl20Element.innerHTML=lvl20Features;
+            var lvl20String="<br>";
+            lvl20String+="<button class=\"collapsible\">Foe Slayer</button><div class=\"content\">";
+            lvl20String+="<br>"+classJSON['Ranger']['Class Features']['Foe Slayer']+"</div><br><br>";
+            document.getElementsByClassName("lvlContent")[19].innerHTML=lvl20String;
         }
         
         
@@ -3425,8 +3548,7 @@ function displayClass(charClass, level, levelFeatures){
         var allSpells = spellJSON['Spellcasting']['Spell Descriptions'];
         
         
-        //var spellsElement = document.getElementById("final spells");
-        ;
+        
         if(level>=2){
             var spell1String="<br><br>";
             for(var i=0;i<rangerLvl1Spells.length;i++){
@@ -3477,12 +3599,7 @@ function displayClass(charClass, level, levelFeatures){
         }
         
         
-        
-        
-        //spellsElement.innerHTML=spellString;
-        
-        
-        
+
     }
     else if(charClass=="rogue"){
         
@@ -3542,6 +3659,8 @@ function displayClass(charClass, level, levelFeatures){
             
             lvl4Element.innerHTML=lvl4Features;
         }
+        
+        
         
         if(level>=5){
             lvl5Features+="<b>Uncanny Dodge:</b><br>"
