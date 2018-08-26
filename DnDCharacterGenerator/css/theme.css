@@ -71,14 +71,14 @@ td, th{
   background-color: #121435;
 }
 
-.content, .mainContent, .lvlContent {
+.content, .mainContent, .lvlContent, .racialBonuses {
   padding: 0 18px;
   display: none;
   overflow: hidden;
   background-color: #f1f1f1;
 }
 
-.mainContent, .lvlContent{
+.mainContent, .lvlContent, .racialBonuses{
 background-color: #e4f1fe;    
 }
 

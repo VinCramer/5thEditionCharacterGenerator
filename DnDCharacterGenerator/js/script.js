@@ -181,33 +181,10 @@ function generateChar(){
     document.getElementById("final race").innerHTML=race;
     document.getElementById("final level").innerHTML=level;
     
-    var levelFeatures = [];
-    levelFeatures.push(document.getElementById("lvl1"));
-    levelFeatures.push(document.getElementById("lvl2"));
-    levelFeatures.push(document.getElementById("lvl3"));
-    levelFeatures.push(document.getElementById("lvl4"));
-    levelFeatures.push(document.getElementById("lvl5"));
-    levelFeatures.push(document.getElementById("lvl6"));
-    levelFeatures.push(document.getElementById("lvl7"));
-    levelFeatures.push(document.getElementById("lvl8"));
-    levelFeatures.push(document.getElementById("lvl9"));
-    levelFeatures.push(document.getElementById("lvl10"));
-    levelFeatures.push(document.getElementById("lvl11"));
-    levelFeatures.push(document.getElementById("lvl12"));
-    levelFeatures.push(document.getElementById("lvl13"));
-    levelFeatures.push(document.getElementById("lvl14"));
-    levelFeatures.push(document.getElementById("lvl15"));
-    levelFeatures.push(document.getElementById("lvl16"));
-    levelFeatures.push(document.getElementById("lvl17"));
-    levelFeatures.push(document.getElementById("lvl18"));
-    levelFeatures.push(document.getElementById("lvl19"));
-    levelFeatures.push(document.getElementById("lvl20"));
-    
-    resetLevelFeatures(levelFeatures);
-    
+
     
     displayRace(race);
-    displayClass(baseClass, level, levelFeatures);
+    displayClass(baseClass, level);
     
     updateCollapsibles(baseClass, level);
 }
@@ -1208,40 +1185,150 @@ function addRacialBonuses(charStats, race){
 
 /*update an element of our HTLM depending on what race the user selected*/
 function displayRace(race){
-    var raceElement = document.getElementById("racial bonuses");
+    var raceElement = document.getElementsByClassName("racialBonuses")[0];
     var raceText="";
     
     raceElement.innerHTML="";
     
     if(race=="hilldwarf"){
-        raceText+=raceJSON['Races']['Dwarf']['Dwarf Traits']['content'].join("<br>")+"<br><br>";   
-        raceText+=raceJSON['Races']['Dwarf']['Dwarf Traits']['Hill Dwarf']['content'].join("<br>");
+        
+        raceText+="<br><button class=\"collapsible\">Dwarf Traits</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dwarf']['Dwarf Traits']['content'][0]+"<br><br>";
+        raceText+="<br><button class=\"collapsible\">Ability Score Increase</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dwarf']['Dwarf Traits']['content'][1]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Age</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dwarf']['Dwarf Traits']['content'][2]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Alignment</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dwarf']['Dwarf Traits']['content'][3]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Size</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dwarf']['Dwarf Traits']['content'][4]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Speed</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dwarf']['Dwarf Traits']['content'][5]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Darkvision</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dwarf']['Dwarf Traits']['content'][6]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Dwarven Resilience</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dwarf']['Dwarf Traits']['content'][7]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Dwarven Combat Training</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dwarf']['Dwarf Traits']['content'][8]+"</div><br>";
+        raceText+="<br><button class=\"collapsible\">Tool Proficiency</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dwarf']['Dwarf Traits']['content'][9]+"</div><br>";
+        raceText+="<br><button class=\"collapsible\">Stone Cunning</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dwarf']['Dwarf Traits']['content'][10]+"</div><br>";
+        raceText+="<br><button class=\"collapsible\">Languages</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dwarf']['Dwarf Traits']['content'][11]+"</div><br>";
+        
+        raceText+="<br><button class=\"collapsible\">Hill Dwarf</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dwarf']['Dwarf Traits']['Hill Dwarf']['content'][0]+"<br>";
+        raceText+="<br><button class=\"collapsible\">Ability Score Increase</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dwarf']['Dwarf Traits']['Hill Dwarf']['content'][1]+"</div><br>";
+        raceText+="<br><button class=\"collapsible\">Dwarven Toughness</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dwarf']['Dwarf Traits']['Hill Dwarf']['content'][2]+"</div><br></div><br></div><br>";
+        
         
     }
     else if(race=="highelf"){
-        raceText=raceJSON['Races']['Elf']['Elf Traits']['content'].join("<br>")+"<br><br>";
-        raceText+=raceJSON['Races']['Elf']['Elf Traits']['High Elf']['content'].join("<br>");
+        
+        raceText+="<br><button class=\"collapsible\">Elf Traits</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Elf']['Elf Traits']['content'][0]+"<br><br>";
+        raceText+="<br><button class=\"collapsible\">Ability Score Increase</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Elf']['Elf Traits']['content'][1]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Age</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Elf']['Elf Traits']['content'][2]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Alignment</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Elf']['Elf Traits']['content'][3]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Size</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Elf']['Elf Traits']['content'][4]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Speed</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Elf']['Elf Traits']['content'][5]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Darkvision</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Elf']['Elf Traits']['content'][6]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Keen Senses</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Elf']['Elf Traits']['content'][7]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Fey Ancestry</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Elf']['Elf Traits']['content'][8]+"</div><br>";
+        raceText+="<br><button class=\"collapsible\">Trance</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Elf']['Elf Traits']['content'][9]+"<br>"+
+            raceJSON['Races']['Elf']['Elf Traits']['content'][10]+"</div><br>";
+        raceText+="<br><button class=\"collapsible\">Languages</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Elf']['Elf Traits']['content'][11]+"</div><br>";
+        
+        raceText+="<br><button class=\"collapsible\">High Elf</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Elf']['Elf Traits']['High Elf']['content'][0]+"<br>";
+        raceText+="<br><button class=\"collapsible\">Ability Score Increase</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Elf']['Elf Traits']['High Elf']['content'][1]+"</div><br>";
+        raceText+="<br><button class=\"collapsible\">Elf Weapon Training</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Elf']['Elf Traits']['High Elf']['content'][2]+"</div><br>";
+        raceText+="<br><button class=\"collapsible\">Cantrip</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Elf']['Elf Traits']['High Elf']['content'][3]+"</div><br>";
+        raceText+="<br><button class=\"collapsible\">Extra Language</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Elf']['Elf Traits']['High Elf']['content'][4]+"</div><br></div><br></div><br>";
+        
+        
     }
     else if(race=="lightfoothalfling"){
-        raceText=raceJSON['Races']['Halfling']['Halfling Traits']['content'].join("<br>")+"<br><br>";
-        raceText+=raceJSON['Races']['Halfling']['Halfling Traits']['Lightfoot']['content'].join("<br>");   
+        raceText+="<br><button class=\"collapsible\">Halfling Traits</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Halfling']['Halfling Traits']['content'][0]+"<br><br>";
+        raceText+="<br><button class=\"collapsible\">Ability Score Increase</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Halfling']['Halfling Traits']['content'][1]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Age</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Halfling']['Halfling Traits']['content'][2]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Alignment</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Halfling']['Halfling Traits']['content'][3]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Size</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Halfling']['Halfling Traits']['content'][4]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Speed</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Halfling']['Halfling Traits']['content'][5]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Lucky</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Halfling']['Halfling Traits']['content'][6]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Brave</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Halfling']['Halfling Traits']['content'][7]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Halfling Nimbleness</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Halfling']['Halfling Traits']['content'][8]+"</div><br>";
+        raceText+="<br><button class=\"collapsible\">Languages</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Halfling']['Halfling Traits']['content'][9]+"</div><br>";
+        
+        raceText+="<br><button class=\"collapsible\">Lightfoot Halfling</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Halfling']['Halfling Traits']['Lightfoot']['content'][0]+ " "
+            +raceJSON['Races']['Halfling']['Halfling Traits']['Lightfoot']['content'][1]+"<br>";
+        raceText+="<br><button class=\"collapsible\">Ability Score Increase</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Halfling']['Halfling Traits']['Lightfoot']['content'][2]+"</div><br>";
+        raceText+="<br><button class=\"collapsible\">Naturally Stealthy</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Halfling']['Halfling Traits']['Lightfoot']['content'][3]+"</div><br></div><br></div><br>";
+        
     }
     else if(race=="human"){
-        raceText=raceJSON['Races']['Human']['Human Traits']['content'].join("<br>");    
+        raceText+="<br><button class=\"collapsible\">Human Traits</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Human']['Human Traits']['content'][0]+"<br><br>";
+        raceText+="<br><button class=\"collapsible\">Ability Score Increase</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Human']['Human Traits']['content'][1]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Age</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Human']['Human Traits']['content'][2]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Alignment</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Human']['Human Traits']['content'][3]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Size</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Human']['Human Traits']['content'][4]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Speed</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Human']['Human Traits']['content'][5]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Languages</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Human']['Human Traits']['content'][6]+"</div><br></div><br></div><br>";
     }
     else if(race=="dragonborn"){
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][0]+"<br>";
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][1]+"<br>";
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][2]+"<br>";
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][3]+"<br>";
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][4]+"<br>";
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][5]+"<br><br>";
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][6]+"<br>";
         
-        raceElement.innerHTML=raceText;
+        raceText+="<br><button class=\"collapsible\">Dragonborn Traits</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][0]+"<br><br>";
+        raceText+="<br><button class=\"collapsible\">Ability Score Increase</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][1]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Age</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][2]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Alignment</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][3]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Size</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][4]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Speed</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][5]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Draconic Ancestry Table</button><div class=\"content\">";
         
-        /*overwrite raceText to insert table in proper location*/
-        raceText="<table>"+
+        raceText+="<br><table>"+
         "<tr><th>Dragon</th><th>Damage Type</th><th>Breath Weapon</th></tr>"+
         "<tr>"+
         "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Dragon'][0] + "</td>"+
@@ -1293,31 +1380,126 @@ function displayRace(race){
         "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Damage Type'][9] + "</td>"+
         "<td>" + raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][7]['table']['Breath Weapon'][9] + "</td>"+
         "</tr>"+
-        "</table><br>";
+        "</table><br></div><br>";
         
-        raceElement.innerHTML+=raceText;
+        raceText+="<br><button class=\"collapsible\">Draconic Ancestry</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][8]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Breath Weapon</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][9]+"<br>"+
+            raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][10]+"<br>"+
+            raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][11]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Damage Resistance</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][12]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Languages</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][13]+"</div><br></div><br></div><br>";
         
-        raceText=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][8]+"<br>";
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][9]+"<br>";
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][10]+"<br>";
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][11]+"<br>";
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][12]+"<br>";
-        raceText+=raceJSON['Races']['Dragonborn']['Dragonborn Traits']['content'][13]+"<br>";
     }
     else if(race=="rockgnome"){
-        raceText=raceJSON['Races']['Gnome']['Gnome Traits']['content'].join("<br>")+"<br><br>";
-        raceText+=raceJSON['Races']['Gnome']['Gnome Traits']['Rock Gnome']['content'].join("<br>");
+        
+        raceText+="<br><button class=\"collapsible\">Gnome Traits</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Gnome']['Gnome Traits']['content'][0]+"<br><br>";
+        raceText+="<br><button class=\"collapsible\">Ability Score Increase</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Gnome']['Gnome Traits']['content'][1]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Age</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Gnome']['Gnome Traits']['content'][2]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Alignment</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Gnome']['Gnome Traits']['content'][3]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Size</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Gnome']['Gnome Traits']['content'][4]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Speed</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Gnome']['Gnome Traits']['content'][5]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Darkvision</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Gnome']['Gnome Traits']['content'][6]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Gnome Cunning</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Gnome']['Gnome Traits']['content'][7]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Languages</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Gnome']['Gnome Traits']['content'][8]+"</div><br>";
+        
+        raceText+="<br><button class=\"collapsible\">Rock Gnome</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Gnome']['Gnome Traits']['Rock Gnome']['content'][0]+"<br>";
+        raceText+="<br><button class=\"collapsible\">Ability Score Increase</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Gnome']['Gnome Traits']['Rock Gnome']['content'][1]+"</div><br>";
+        raceText+="<br><button class=\"collapsible\">Artificer's Lore</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Gnome']['Gnome Traits']['Rock Gnome']['content'][2]+"</div><br>";
+        raceText+="<br><button class=\"collapsible\">Tinker</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Gnome']['Gnome Traits']['Rock Gnome']['content'][3]
+            +raceJSON['Races']['Gnome']['Gnome Traits']['Rock Gnome']['content'][4]
+            +"<br>"+raceJSON['Races']['Gnome']['Gnome Traits']['Rock Gnome']['content'][5].join("<br>")+"</div><br></div><br></div><br>";
+    
+        
     }
     else if(race=="halfelf"){
-        raceText=raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'].join("<br>");    
+        
+        raceText+="<br><button class=\"collapsible\">Half-Elf Traits</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][0]+"<br><br>";
+        raceText+="<br><button class=\"collapsible\">Ability Score Increase</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][1]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Age</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][2]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Alignment</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][3]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Size</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][4]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Speed</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][5]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Darkvision</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][6]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Fey Ancestry</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][7]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Skill Versatility</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][8]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Languages</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][9]+"</div><br></div><br></div><br>";
     }
     else if(race=="halforc"){
-        raceText=raceJSON['Races']['Half-Orc']['Half-Orc Traits']['content'].join("<br>");    
+        
+        
+        raceText+="<br><button class=\"collapsible\">Half-Orc Traits</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Orc']['Half-Orc Traits']['content'][0]+"<br><br>";
+        raceText+="<br><button class=\"collapsible\">Ability Score Increase</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Orc']['Half-Orc Traits']['content'][1]+"<br></div><br>";
+        raceText+="<br><button class=\"collapsible\">Age</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Orc']['Half-Orc Traits']['content'][2]+"<br></div><br>";
+        raceText+="<br><button class=\"collapsible\">Alignment</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Orc']['Half-Orc Traits']['content'][3]+"<br></div><br>";
+        raceText+="<br><button class=\"collapsible\">Size</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Orc']['Half-Orc Traits']['content'][4]+"<br></div><br>";
+        raceText+="<br><button class=\"collapsible\">Speed</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Orc']['Half-Orc Traits']['content'][5]+"<br></div><br>";
+        raceText+="<br><button class=\"collapsible\">Darkvision</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Orc']['Half-Orc Traits']['content'][6]+"<br></div><br>";
+        raceText+="<br><button class=\"collapsible\">Menacing</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Orc']['Half-Orc Traits']['content'][7]+"<br></div><br>";
+        raceText+="<br><button class=\"collapsible\">Relentless Endurance</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Orc']['Half-Orc Traits']['content'][8]+"<br></div><br>";
+        raceText+="<br><button class=\"collapsible\">Savage Attacks</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Orc']['Half-Orc Traits']['content'][9]+"<br></div><br>";
+        raceText+="<br><button class=\"collapsible\">Languages</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Half-Orc']['Half-Orc Traits']['content'][10]+"</div><br></div><br></div><br>";
     }
     
     /*other race must be tiefling*/
     else{
-        raceText=raceJSON['Races']['Tiefling']['Tiefling Traits']['content'].join("<br>");
+        raceText+="<br><button class=\"collapsible\">Tiefling Traits</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Tiefling']['Tiefling Traits']['content'][0]+"<br><br>";
+        raceText+="<br><button class=\"collapsible\">Ability Score Increase</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Tiefling']['Tiefling Traits']['content'][1]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Age</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Tiefling']['Tiefling Traits']['content'][2]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Alignment</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Tiefling']['Tiefling Traits']['content'][3]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Size</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Tiefling']['Tiefling Traits']['content'][4]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Speed</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Tiefling']['Tiefling Traits']['content'][5]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Darkvision</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Tiefling']['Tiefling Traits']['content'][6]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Hellish Resistance</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Tiefling']['Tiefling Traits']['content'][7]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Infernal Legacy</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Tiefling']['Tiefling Traits']['content'][8]+"</div><br><br>";
+        raceText+="<br><button class=\"collapsible\">Languages</button><div class=\"content\">";
+        raceText+="<br>"+raceJSON['Races']['Tiefling']['Tiefling Traits']['content'][9]+"</div><br></div><br></div><br>";
     }
     
     raceElement.innerHTML+=raceText;
@@ -1326,7 +1508,7 @@ function displayRace(race){
 
 
 /*update an element of our HTML depending on what class the user selected, as well as level.*/
-function displayClass(charClass, level, levelFeatures){
+function displayClass(charClass, level){
     var classPara = document.getElementById("class features");
     var classText="";
     
@@ -1337,65 +1519,7 @@ function displayClass(charClass, level, levelFeatures){
     var basicFeatures = document.getElementById("basic features");
     var basicFeaturesString = "";
     
-    var lvl1Features = "<b>Level 1 features:</b><br><br>";
-    var lvl1Element=levelFeatures[0];
     
-    var lvl2Features= "<b>Level 2 features:</b><br><br>";
-    var lvl2Element=levelFeatures[1];
-    
-    var lvl3Features= "<b>Level 3 features:</b><br><br>";
-    var lvl3Element=levelFeatures[2];
-    
-    var lvl4Features= "<b>Level 4 features:</b><br><br>";
-    var lvl4Element=levelFeatures[3];
-    
-    var lvl5Features= "<b>Level 5 features:</b><br><br>";
-    var lvl5Element=levelFeatures[4];
-    
-    var lvl6Features= "<b>Level 6 features:</b><br><br>";
-    var lvl6Element=levelFeatures[5];
-    
-    var lvl7Features= "<b>Level 7 features:</b><br><br>";
-    var lvl7Element=levelFeatures[6];
-    
-    var lvl8Features= "<b>Level 8 features:</b><br><br>";
-    var lvl8Element=levelFeatures[7];
-    
-    var lvl9Features= "<b>Level 9 features:</b><br><br>";
-    var lvl9Element=levelFeatures[8];
-    
-    var lvl10Features= "<b>Level 10 features:</b><br><br>";
-    var lvl10Element=levelFeatures[9];
-    
-    var lvl11Features = "<b>Level 11 features:</b><br><br>";
-    var lvl11Element=levelFeatures[10];
-    
-    var lvl12Features= "<b>Level 12 features:</b><br><br>";
-    var lvl12Element=levelFeatures[11];
-    
-    var lvl13Features= "<b>Level 13 features:</b><br><br>";
-    var lvl13Element=levelFeatures[12];
-    
-    var lvl14Features= "<b>Level 14 features:</b><br><br>";
-    var lvl14Element=levelFeatures[13];
-    
-    var lvl15Features= "<b>Level 15 features:</b><br><br>";
-    var lvl15Element=levelFeatures[14];
-    
-    var lvl16Features= "<b>Level 16 features:</b><br><br>";
-    var lvl16Element=levelFeatures[15];
-    
-    var lvl17Features= "<b>Level 17 features:</b><br><br>";
-    var lvl17Element=levelFeatures[16];
-    
-    var lvl18Features= "<b>Level 18 features:</b><br><br>";
-    var lvl18Element=levelFeatures[17];
-    
-    var lvl19Features= "<b>Level 19 features:</b><br><br>";
-    var lvl19Element=levelFeatures[18];
-    
-    var lvl20Features= "<b>Level 20 features:</b><br><br>";
-    var lvl20Element=levelFeatures[19];
     
     if(charClass=="barbarian"){
         
@@ -2201,37 +2325,6 @@ function displayClass(charClass, level, levelFeatures){
         
         if(level>=2){
             
-            lvl2Features+="<b>Wild Shape:</b><br>"
-            lvl2Features+=classJSON['Druid']['Class Features']['Wild Shape']['content'];
-            
-            lvl2Features+="<table>"+
-            "<tr>"+
-            "<th>Level</th><th>Max CR</th><th>Limitations</th><th>Example</th>"+    
-            "</tr>"+
-            "<tr>"+
-            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Level'][0]+"</td>"+
-            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Max CR'][0] +"</td>"+
-            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Limitations'][0]+"</td>"+
-            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Example'][0] +"</td>"+
-            "</tr>"+
-            "<tr>"+
-            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Level'][1]+"</td>"+
-            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Max CR'][1] +"</td>"+
-            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Limitations'][1]+"</td>"+
-            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Example'][1] +"</td>"+
-            "</tr>"+
-            "<tr>"+
-            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Level'][2]+"</td>"+
-            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Max CR'][2] +"</td>"+
-            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Limitations'][2]+"</td>"+
-            "<td>"+ classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['table']['Example'][2] +"</td>"+
-            "</tr>"+
-            "</table><br>";
-            
-            
-            lvl2Features+=classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['Rules']+"<br>";
-            lvl2Features+=classJSON['Druid']['Class Features']['Wild Shape']['Beast Shapes']['content']+"<br><br>";
-            
             
             var lvl2String="<br>";
             lvl2String+="<button class=\"collapsible\">Wild Shape</button><div class=\"content\">";
@@ -2267,15 +2360,7 @@ function displayClass(charClass, level, levelFeatures){
             
             
             
-            lvl2Features+="<b>Druid Circle:</b><br>";
-            lvl2Features+=classJSON['Druid']['Class Features']['Druid Circle']+"<br><br>";
-            lvl2Features+="<b>Circle of the Land:</b><br>";
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['content']+"<br><br>";
-            lvl2Features+="<b>Bonus Cantrip:</b><br>";
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Bonus Cantrip']+"<br><br>";
-            lvl2Features+="<b>Natural Recovery</b><br>";
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Natural Recovery']['content'].join(" ");
-            
+             
             lvl2String+="<button class=\"collapsible\">Druid Circle</button><div class=\"content\">";
             lvl2String+="<br>"+classJSON['Druid']['Class Features']['Druidi Circle']+"</div><br>";
             lvl2String+="<button class=\"collapsible\">Circle of the Land</button><div class=\"content\">";
@@ -2288,7 +2373,6 @@ function displayClass(charClass, level, levelFeatures){
             
             
             
-            lvl2Features+=classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['content'].join(" ")+"<br><br>";
             
             lvl2String+="<button class=\"collapsible\">Circle Spells</button><div class=\"content\">";
             lvl2String+="<br>"+classJSON['Druid']['Class Features']['Circle of the Land']['Circle Spells']['content'].join(" ")+"<br>";
@@ -2668,7 +2752,6 @@ function displayClass(charClass, level, levelFeatures){
         
         
         
-        //spellsElement.innerHTML=spellString;
         
         
         
@@ -2780,10 +2863,7 @@ function displayClass(charClass, level, levelFeatures){
         }
         
         if(level>=9){
-            lvl9Features+="<b>Indomitable:</b><br>";
-            lvl9Features+=classJSON['Fighter']['Class Features']['Indomitable']['content'].join("");
             
-            lvl9Element.innerHTML=lvl9Features;
             
             var lvl9String="<br>";
             lvl9String+="<button class=\"collapsible\">Indomitable</button><div class=\"content\">";
@@ -2792,10 +2872,6 @@ function displayClass(charClass, level, levelFeatures){
         }
         
         if(level>=10){
-            lvl10Features+="<b>Additional Fighting Style:</b><br>";
-            lvl10Features+=classJSON['Fighter']['Martial Archetypes']['Champion']['Additional Fighting Style']; 
-            
-            lvl10Element.innerHTML=lvl10Features;
             
             var lvl10String="<br>";
             lvl10String+="<button class=\"collapsible\">Champion</button><div class=\"content\">";
@@ -2813,10 +2889,6 @@ function displayClass(charClass, level, levelFeatures){
         }
         
         if(level>=15){
-            lvl15Features+="<b>Superior Critical:</b><br>";
-            lvl15Features+=classJSON['Fighter']['Martial Archetypes']['Champion']['Superior Critical'];
-            
-            lvl15Element.innerHTML=lvl15Features;
             
             var lvl15String="<br>";
             lvl15String+="<button class=\"collapsible\">Champion</button><div class=\"content\">";
@@ -2830,10 +2902,6 @@ function displayClass(charClass, level, levelFeatures){
         }
         
         if(level>=18){
-            lvl18Features+="<b>Survivor:</b><br>";
-            lvl18Features+=classJSON['Fighter']['Martial Archetypes']['Champion']['Survivor'];
-            
-            lvl18Element.innerHTML=lvl18Features;
             
             var lvl18String="<br>";
             lvl18String+="<button class=\"collapsible\">Champion</button><div class=\"content\">";
@@ -2921,13 +2989,7 @@ function displayClass(charClass, level, levelFeatures){
             document.getElementsByClassName("lvlContent")[2].innerHTML=lvl3String;
         }
         
-        if(level>=4){
-            lvl4Features+="<b>Ability Score Improvement:</b><br>";
-            lvl4Features+=classJSON['Monk']['Class Features']['Ability Score Improvement']+"<br><br>"; 
-            lvl4Features+="<b>Slow Fall:</b><br>";
-            lvl4Features+=classJSON['Monk']['Class Features']['Slow Fall'];
-            lvl4Element.innerHTML=lvl4Features;
-        }
+        
         
         //use this string for levels 4, 8, 12, 16, and 19
         var asiString="<br><br>";
@@ -3421,10 +3483,6 @@ function displayClass(charClass, level, levelFeatures){
         }
         
         if(level>=5){
-            lvl5Features+="<b>Extra Attack:</b><br>";
-            lvl5Features+=classJSON['Ranger']['Class Features']['Extra Attack'];
-            
-            lvl5Element.innerHTML=lvl5Features;
             
             var lvl5String="<br>";
             lvl5String+="<button class=\"collapsible\">Extra Attack</button><div class=\"content\">";
@@ -3443,24 +3501,20 @@ function displayClass(charClass, level, levelFeatures){
         }
         
         if(level>=8){
-            lvl8Features+="<b>Land's Stride:</b><br>";
-            lvl8Features+=classJSON['Ranger']['Class Features']['Lands Stride']['content'].join(" ");
+            var lvl8String="<br>";
+            lvl8String+="<button class=\"collapsible\">Land's Stride</button><div class=\"content\">";
+            lvl8String+="<br>"+classJSON['Ranger']['Class Features']['Lands Stride']['content'].join(" ")+"<br></div><br>";
             
-            lvl8Element.innerHTML=lvl8Features;
             
             lvl8String="<br>";
             lvl8String+=asiString;
-            document.getElementsByClassName("lvlContent")[3].innerHTML=lvl8String;
+            document.getElementsByClassName("lvlContent")[7].innerHTML=lvl8String;
         
         }
         
         /*9 is spells*/
         
         if(level>=10){
-            lvl10Features+="<b></b><br>";
-            lvl10Features+=classJSON['Ranger']['Class Features']['Hide in Plain Sight']['content'].join(" ");
-            
-            lvl10Element.innerHTML=lvl10Features;
             
             var lvl10String="<br>";
             lvl10String+="<button class=\"collapsible\">Hide in Plain Sight</button><div class=\"content\">";
@@ -3469,11 +3523,7 @@ function displayClass(charClass, level, levelFeatures){
         }
         
         if(level>=11){
-            lvl11Features+="<b></b><br>";
-            lvl11Features+=classJSON['Ranger']['Ranger Archetypes']['Hunter']['Multiattack']['content'].join("<br>");
-            
-            lvl11Element.innerHTML=lvl11Features;
-            
+           
             var lvl11String="<br>";
             lvl11String+="<button class=\"collapsible\">Hunter</button><div class=\"content\">";
             lvl11String+="<br><button class=\"collapsible\">Multiattack</button><div class=\"content\">";
@@ -3678,10 +3728,6 @@ function displayClass(charClass, level, levelFeatures){
         }
 
         if(level>=9){
-            lvl9Features+="<b>Supreme Sneak:</b><br>";
-            lvl9Features+=classJSON['Rogue']['Roguish Archetypes']['Thief']['Supreme Sneak'];
-            
-            lvl9Element.innerHTML=lvl9Features;
             
             var lvl9String="<br>";
             lvl9String+="<button class=\"collapsible\">Thief</button><div class=\"content\">";
@@ -4518,7 +4564,7 @@ function displayClass(charClass, level, levelFeatures){
         basicFeatures.innerHTML=basicFeaturesString;
         
         
-        lvl1Element.innerHTML=lvl1Features;
+        
         
         
         var lvl1String="<br><br>";
@@ -4755,12 +4801,6 @@ function displayClass(charClass, level, levelFeatures){
         
 }
 
-
-function resetLevelFeatures(arr){
-    for(var i=0;i<arr.length;i++){
-        arr[i].innerHTML="";
-    }
-}
 
 /*hides or shows the proper collapsibles*/
 function updateCollapsibles(baseClass, level){
