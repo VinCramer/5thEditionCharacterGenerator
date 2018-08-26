@@ -73,29 +73,15 @@ spellJSONRequest.onload = function(){
 
 
 
-
-
-
-/*below are all fields that are empty when first loading the page, but will be filled with relevant info once the user has generated a character*/
-var finalStatsPara = document.getElementById("final stats");
-
-var finalClassPara = document.getElementById("final class");
-
-var finalEquipmentPara = document.getElementById("final equipment");
-
-var finalMagicItemsPara = document.getElementById("final magic items");
-
-var finalSpellsPara = document.getElementById("final spells");
-
-var proficiences = [];
-
 var proficiency;
 
-var level;
+
+
+
 
 /*this section of code adds event listeners to each of the buttons for spells we defined in our html. This makes those buttons display their content when clicked and hide it when clicked again*/
 var coll = document.getElementsByClassName("mainCollapsible");
-    
+
 var j;
 
 for (j = 0; j < coll.length; j++) {
@@ -114,6 +100,12 @@ for (j = 0; j < coll.length; j++) {
 
 
 function generateChar(){
+    
+
+    var level;
+    
+
+    var finalClassPara = document.getElementById("final class");
     
     var isMinStats = document.querySelector('input[name=stats]:checked').value;
     
@@ -136,7 +128,6 @@ function generateChar(){
     allStats+="Wisdom: " + charStats[4]+" ";
     allStats+="Charisma: " + charStats[5]+" ";
     
-    finalStatsPara.innerHTML=allStats;
     
     level = document.getElementById('level').value;
     if(level=="rand"){
@@ -156,7 +147,7 @@ function generateChar(){
         baseClass = generateClass();
     }
     
-    finalClassPara.innerHTML=baseClass;  
+    finalClassPara.innerHTML=baseClass.charAt(0).toUpperCase()+baseClass.substring(1);  
     
     /*need this after assigning the base class when the base class is random, otherwise proficiences don't work*/
     addStatsToTable(charStats, baseClass);
@@ -175,16 +166,42 @@ function generateChar(){
     var health = findCharHealth(race, baseClass, level, findScoreBonus(charStats[2]));
     
     document.getElementById("health").innerHTML= health;
-    document.getElementById("proficiency").innerHTML=proficiency;
-    document.getElementById("passive perception").innerHTML=findPassivePerception(charStats[4]);
     
-    document.getElementById("final race").innerHTML=race;
+    
     document.getElementById("final level").innerHTML=level;
     
-
+    
     
     displayRace(race);
     displayClass(baseClass, level);
+    
+    if(race=="highelf"){
+        document.getElementById("final race").innerHTML="High Elf";   
+    }
+    if(race=="rockgnome"){
+        document.getElementById("final race").innerHTML="Rock Gnome";   
+    }
+    if(race=="halfelf"){
+        document.getElementById("final race").innerHTML="Half-Elf";   
+    }
+    if(race=="halforc"){
+        document.getElementById("final race").innerHTML="Half Orc";   
+    }
+    if(race=="dragonborn"){
+        document.getElementById("final race").innerHTML="Dragonborn";   
+    }
+    if(race=="human"){
+        document.getElementById("final race").innerHTML="Human";   
+    }
+    if(race=="lightfoothalfling"){
+        document.getElementById("final race").innerHTML="Lightfoot Halfling";   
+    }
+    if(race=="tiefling"){
+        document.getElementById("final race").innerHTML="Tiefling";   
+    }
+    if(race=="hilldwarf"){
+        document.getElementById("final race").innerHTML="Hill Dwarf";   
+    }
     
     updateCollapsibles(baseClass, level);
 }
@@ -1433,7 +1450,7 @@ function displayRace(race){
         raceText+="<br><button class=\"collapsible\">Half-Elf Traits</button><div class=\"content\">";
         raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][0]+"<br><br>";
         raceText+="<br><button class=\"collapsible\">Ability Score Increase</button><div class=\"content\">";
-        raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][1]+"</div><br><br>";
+        raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][1]+"<br>The non-Charisma stat bonuses have not been added to the table above.</div><br><br>";
         raceText+="<br><button class=\"collapsible\">Age</button><div class=\"content\">";
         raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][2]+"</div><br><br>";
         raceText+="<br><button class=\"collapsible\">Alignment</button><div class=\"content\">";
@@ -1734,6 +1751,7 @@ function displayClass(charClass, level){
         basicFeaturesString+="- " + classJSON['Bard']['Class Features']['Equipment']['content'][1][2]+"<br>";
 
         basicFeatures.innerHTML=basicFeaturesString;
+        
 
         var classTable = document.getElementById("classTable");
         var tableString="";
@@ -5037,11 +5055,12 @@ function displayClass(charClass, level){
 /*hides or shows the proper collapsibles*/
 function updateCollapsibles(baseClass, level){
     
-
     var coll = document.getElementsByClassName("mainCollapsible");
     
     
-    //wipe all the spell levels, then re-add them if necessary
+    //coll[0] is racial bonuses
+    //coll[1]-[20] is level features
+    //coll[21] is cantrips, and coll[22] onwards is spells levels 1-9
     
     //covers not-casters and casters with less than full progression
     for(var i=0;i<coll.length;i++){
@@ -5050,8 +5069,7 @@ function updateCollapsibles(baseClass, level){
     
     
     
-    
-    //fullcaster
+        //fullcaster
         if(baseClass=="bard"||baseClass=="cleric"||baseClass=="druid"||baseClass=="sorcerer"||baseClass=="warlock"||baseClass=="wizard"){
             var maxSpellLevel = Math.ceil(level/2);
             
@@ -5061,11 +5079,11 @@ function updateCollapsibles(baseClass, level){
             }
             
             //always show cantrips
-            coll[20].style.display="inline";
+            coll[21].style.display="inline";
             
             
             for(var i=1;i<=maxSpellLevel;i++){
-                coll[20+i].style.display="inline";
+                coll[21+i].style.display="inline";
             }
             
         }
@@ -5096,8 +5114,11 @@ function updateCollapsibles(baseClass, level){
     
     //handle class levels
     for(var i=0;i<level;i++){
-        coll[i].style.display="inline";
+        coll[i+1].style.display="inline";
     }
+    
+    //make racial bonuses button visible
+    coll[0].style.display="inline";
         
     /*handles all of the buttons we added in js*/    
     

@@ -15,7 +15,7 @@
     </head>
 
     <body>
-        <h3>Generate a random character:</h3>
+        <h3>Generate a random 5e character:</h3>
 
         <div>
             <p>Race: </p>
@@ -113,12 +113,10 @@
         <div>
             <button id="generate" onclick="generateChar();">Generate!</button>
         </div>
-
-        <p id="final stats"></p>
         
-        <p id="final class"></p>
-        <p id="final race"></p>
-        <p id="final level"></p>
+        <br>
+        <br>
+
         <div class="hidden">
             <table>
                 
@@ -242,24 +240,34 @@
         </div>
         
         <div class="hidden">
-            <p>Armor Class: <span id="ac"></span></p>
-            <p>Initiative: <span id="initiative"></span></p>
-            <p>Speed: <span id="speed"></span></p>
-            <p>Health: <span id="health"></span></p>
-            <p>Proficiency: <span id="proficiency"></span></p>
-            <p>Passive Perception: <span id="passive perception"></span></p>
+            <br><br>
+            <div>Armor Class: <span id="ac"></span></div>
+            <div>Initiative: <span id="initiative"></span></div>
+            <div>Speed: <span id="speed"></span></div>
+            <div>Health: <span id="health"></span></div>
+            <div>Race: <span id="final race"></span></div>
+            <div>Class: <span id="final class"></span></div>
+            <div>Level: <span id="final level"></span></div>
         </div>
+        
+        <br>
+        <br>
         
         <div class="hidden">
             <button class="mainCollapsible">Racial Features:</button>
             <div class="racialBonuses"></div>
-            <h3>Class features:</h3>
-            <div id="class features"></div>
+            
+            
         </div>
         
+        <br>
+        
         <div class="hidden">
+            <h3>Class features:</h3>
+            <div id="class features"></div>
             <p>As a <span id="charClass"></span>, you gain the following class features:<span id="basic features"></span></p>
-            <br><br>
+            <br>
+            <h3>Class Table:</h3>
             <table id="classTable"></table>
             <br><br>
             <button class="mainCollapsible">Level 1 Features:</button>
