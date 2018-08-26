@@ -1542,7 +1542,21 @@ function displayClass(charClass, level){
         
         
         basicFeatures.innerHTML=basicFeaturesString;
-
+        
+        
+        var classTable = document.getElementById("classTable");
+        var tableString="";
+        tableString+="<tr><th>Level</th><th>Proficiency Bonus</th><th>Features</th><th>Rages</th><th>Rage Damage</th></tr>";
+        for(var i=0;i<level;i++){
+            tableString+="<tr>";
+            tableString+="<td>"+classJSON['Barbarian']['Class Features']['The Barbarian']['table']['Level'][i]+"</td>";
+            tableString+="<td>"+classJSON['Barbarian']['Class Features']['The Barbarian']['table']['Proficiency Bonus'][i]+"</td>";
+            tableString+="<td>"+classJSON['Barbarian']['Class Features']['The Barbarian']['table']['Features'][i]+"</td>";
+            tableString+="<td>"+classJSON['Barbarian']['Class Features']['The Barbarian']['table']['Rages'][i]+"</td>";
+            tableString+="<td>"+classJSON['Barbarian']['Class Features']['The Barbarian']['table']['Rage Damage'][i]+"</td>";
+            tableString+="</tr>";
+        }
+        classTable.innerHTML=tableString;
         
         var lvl1String="<br>";
         lvl1String+="<button class=\"collapsible\">Rage:</button><div class=\"content\">";
@@ -1721,6 +1735,29 @@ function displayClass(charClass, level){
 
         basicFeatures.innerHTML=basicFeaturesString;
 
+        var classTable = document.getElementById("classTable");
+        var tableString="";
+        tableString+="<tr><td colspan=5 id=\"spellSpace\"></td><th colspan=9>Spell Slots per Spell Level</th></tr>";
+        tableString+="<tr><th>Level</th><th>Proficiency Bonus</th><th>Features</th><th>Cantrips Known</th><th>Spells Known</th><th>1st</th><th>2nd</th><th>3rd</th><th>4th</th><th>5th</th><th>6th</th><th>7th</th><th>8th</th><th>9th</th></tr>";
+        for(var i=0;i<level;i++){
+            tableString+="<tr>";
+            tableString+="<td>"+classJSON['Bard']['Class Features']['The Bard']['table']['Level'][i]+"</td>";
+            tableString+="<td>"+classJSON['Bard']['Class Features']['The Bard']['table']['Proficiency Bonus'][i]+"</td>";
+            tableString+="<td>"+classJSON['Bard']['Class Features']['The Bard']['table']['Features'][i]+"</td>";
+            tableString+="<td>"+classJSON['Bard']['Class Features']['The Bard']['table']['Cantrips Known'][i]+"</td>";
+            tableString+="<td>"+classJSON['Bard']['Class Features']['The Bard']['table']['Spells Known'][i]+"</td>";
+            tableString+="<td>"+classJSON['Bard']['Class Features']['The Bard']['table']['1st'][i]+"</td>";
+            tableString+="<td>"+classJSON['Bard']['Class Features']['The Bard']['table']['2nd'][i]+"</td>";
+            tableString+="<td>"+classJSON['Bard']['Class Features']['The Bard']['table']['3rd'][i]+"</td>";
+            tableString+="<td>"+classJSON['Bard']['Class Features']['The Bard']['table']['4th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Bard']['Class Features']['The Bard']['table']['5th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Bard']['Class Features']['The Bard']['table']['6th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Bard']['Class Features']['The Bard']['table']['7th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Bard']['Class Features']['The Bard']['table']['8th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Bard']['Class Features']['The Bard']['table']['9th'][i]+"</td>";
+            tableString+="</tr>";
+        }
+        classTable.innerHTML=tableString;
         
         
         var lvl1String="<br><br>";
@@ -1992,6 +2029,31 @@ function displayClass(charClass, level){
         basicFeaturesString+="- " + classJSON['Cleric']['Class Features']['Equipment']['content'][1][2]+"<br>";
 
         basicFeatures.innerHTML=basicFeaturesString;
+        
+        
+        
+        var classTable = document.getElementById("classTable");
+        var tableString="";
+        tableString+="<tr><td colspan=4 id=\"spellSpace\"></td><th colspan=9>Spell Slots per Spell Level</th></tr>";
+        tableString+="<tr><th>Level</th><th>Proficiency Bonus</th><th>Features</th><th>Cantrips Known</th><th>1st</th><th>2nd</th><th>3rd</th><th>4th</th><th>5th</th><th>6th</th><th>7th</th><th>8th</th><th>9th</th></tr>";
+        for(var i=0;i<level;i++){
+            tableString+="<tr>";
+            tableString+="<td>"+classJSON['Cleric']['Class Features']['The Cleric']['content'][1]['table']['Level'][i]+"</td>";
+            tableString+="<td>"+classJSON['Cleric']['Class Features']['The Cleric']['content'][1]['table']['Proficiency Bonus'][i]+"</td>";
+            tableString+="<td>"+classJSON['Cleric']['Class Features']['The Cleric']['content'][1]['table']['Features'][i]+"</td>";
+            tableString+="<td>"+classJSON['Cleric']['Class Features']['The Cleric']['content'][1]['table']['Cantrips Known'][i]+"</td>";
+            tableString+="<td>"+classJSON['Cleric']['Class Features']['The Cleric']['content'][1]['table']['1st'][i]+"</td>";
+            tableString+="<td>"+classJSON['Cleric']['Class Features']['The Cleric']['content'][1]['table']['2nd'][i]+"</td>";
+            tableString+="<td>"+classJSON['Cleric']['Class Features']['The Cleric']['content'][1]['table']['3rd'][i]+"</td>";
+            tableString+="<td>"+classJSON['Cleric']['Class Features']['The Cleric']['content'][1]['table']['4th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Cleric']['Class Features']['The Cleric']['content'][1]['table']['5th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Cleric']['Class Features']['The Cleric']['content'][1]['table']['6th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Cleric']['Class Features']['The Cleric']['content'][1]['table']['7th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Cleric']['Class Features']['The Cleric']['content'][1]['table']['8th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Cleric']['Class Features']['The Cleric']['content'][1]['table']['9th'][i]+"</td>";
+            tableString+="</tr>";
+        }
+        classTable.innerHTML=tableString;
         
 
         var lvl1String="<br><br>";
@@ -2293,6 +2355,28 @@ function displayClass(charClass, level){
         basicFeatures.innerHTML=basicFeaturesString;
         
         
+        var classTable = document.getElementById("classTable");
+        var tableString="";
+        tableString+="<tr><td colspan=4 id=\"spellSpace\"></td><th colspan=9>Spell Slots per Spell Level</th></tr>";
+        tableString+="<tr><th>Level</th><th>Proficiency Bonus</th><th>Features</th><th>Cantrips Known</th><th>1st</th><th>2nd</th><th>3rd</th><th>4th</th><th>5th</th><th>6th</th><th>7th</th><th>8th</th><th>9th</th></tr>";
+        for(var i=0;i<level;i++){
+            tableString+="<tr>";
+            tableString+="<td>"+classJSON['Druid']['Class Features']['The Druid']['table']['Level'][i]+"</td>";
+            tableString+="<td>"+classJSON['Druid']['Class Features']['The Druid']['table']['Proficiency Bonus'][i]+"</td>";
+            tableString+="<td>"+classJSON['Druid']['Class Features']['The Druid']['table']['Features'][i]+"</td>";
+            tableString+="<td>"+classJSON['Druid']['Class Features']['The Druid']['table']['Cantrips Known'][i]+"</td>";
+            tableString+="<td>"+classJSON['Druid']['Class Features']['The Druid']['table']['1st'][i]+"</td>";
+            tableString+="<td>"+classJSON['Druid']['Class Features']['The Druid']['table']['2nd'][i]+"</td>";
+            tableString+="<td>"+classJSON['Druid']['Class Features']['The Druid']['table']['3rd'][i]+"</td>";
+            tableString+="<td>"+classJSON['Druid']['Class Features']['The Druid']['table']['4th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Druid']['Class Features']['The Druid']['table']['5th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Druid']['Class Features']['The Druid']['table']['6th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Druid']['Class Features']['The Druid']['table']['7th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Druid']['Class Features']['The Druid']['table']['8th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Druid']['Class Features']['The Druid']['table']['9th'][i]+"</td>";
+            tableString+="</tr>";
+        }
+        classTable.innerHTML=tableString;
         
         
         
@@ -2781,6 +2865,20 @@ function displayClass(charClass, level){
         
         
         
+        var classTable = document.getElementById("classTable");
+        var tableString="";
+        tableString+="<tr><th>Level</th><th>Proficiency Bonus</th><th>Features</th></tr>";
+        for(var i=0;i<level;i++){
+            tableString+="<tr>";
+            tableString+="<td>"+classJSON['Fighter']['Class Features']['The Fighter']['table']['Level'][i]+"</td>";
+            tableString+="<td>"+classJSON['Fighter']['Class Features']['The Fighter']['table']['Proficiency Bonus'][i]+"</td>";
+            tableString+="<td>"+classJSON['Fighter']['Class Features']['The Fighter']['table']['Features'][i]+"</td>";
+            tableString+="</tr>";
+        }
+        classTable.innerHTML=tableString;
+        
+        
+        
         
         var lvl1String="<br>";
         
@@ -2940,6 +3038,23 @@ function displayClass(charClass, level){
         basicFeaturesString+="- " + classJSON['Monk']['Class Features']['Equipment']['content'][1][2]+"<br>";
 
         basicFeatures.innerHTML=basicFeaturesString;
+        
+        
+        var classTable = document.getElementById("classTable");
+        var tableString="";
+        tableString+="<tr><th>Level</th><th>Proficiency Bonus</th><th>Martial Arts</th><th>Ki Points</th><th>Unarmored Movement</th><th>Features</th></tr>";
+        for(var i=0;i<level;i++){
+            tableString+="<tr>";
+            tableString+="<td>"+classJSON['Monk']['Class Features']['The Monk']['table']['Level'][i]+"</td>";
+            tableString+="<td>"+classJSON['Monk']['Class Features']['The Monk']['table']['Proficiency Bonus'][i]+"</td>";
+            tableString+="<td>"+classJSON['Monk']['Class Features']['The Monk']['table']['Martial Arts'][i]+"</td>";
+            tableString+="<td>"+classJSON['Monk']['Class Features']['The Monk']['table']['Ki Points'][i]+"</td>";
+            tableString+="<td>"+classJSON['Monk']['Class Features']['The Monk']['table']['Unarmored Movement'][i]+"</td>";
+            tableString+="<td>"+classJSON['Monk']['Class Features']['The Monk']['table']['Features'][i]+"</td>";
+            tableString+="</tr>";
+        }
+        classTable.innerHTML=tableString;
+        
         
         
         var lvl1String="<br>";
@@ -3135,10 +3250,26 @@ function displayClass(charClass, level){
         basicFeaturesString+="- " + classJSON['Paladin']['Class Features']['Equipment']['content'][1][1]+"<br>";
         basicFeaturesString+="- " + classJSON['Paladin']['Class Features']['Equipment']['content'][1][2]+"<br>";
         
-        basicFeatures+=classJSON['Paladin']['Sacred Oaths']['Breaking Your Oath']['content'];
-
         basicFeatures.innerHTML=basicFeaturesString;
         
+        
+        var classTable = document.getElementById("classTable");
+        var tableString="";
+        tableString+="<tr><td colspan=3 id=\"spellSpace\"></td><th colspan=9>Spell Slots per Spell Level</th></tr>";
+        tableString+="<tr><th>Level</th><th>Proficiency Bonus</th><th>Features</th><th>1st</th><th>2nd</th><th>3rd</th><th>4th</th><th>5th</th></tr>";
+        for(var i=0;i<level;i++){
+            tableString+="<tr>";
+            tableString+="<td>"+classJSON['Paladin']['Class Features']['The Paladin']['table']['Level'][i]+"</td>";
+            tableString+="<td>"+classJSON['Paladin']['Class Features']['The Paladin']['table']['Proficiency Bonus'][i]+"</td>";
+            tableString+="<td>"+classJSON['Paladin']['Class Features']['The Paladin']['table']['Features'][i]+"</td>";
+            tableString+="<td>"+classJSON['Paladin']['Class Features']['The Paladin']['table']['1st'][i]+"</td>";
+            tableString+="<td>"+classJSON['Paladin']['Class Features']['The Paladin']['table']['2nd'][i]+"</td>";
+            tableString+="<td>"+classJSON['Paladin']['Class Features']['The Paladin']['table']['3rd'][i]+"</td>";
+            tableString+="<td>"+classJSON['Paladin']['Class Features']['The Paladin']['table']['4th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Paladin']['Class Features']['The Paladin']['table']['5th'][i]+"</td>";
+            tableString+="</tr>";
+        }
+        classTable.innerHTML=tableString;
         
         
         var lvl1String="<br>";
@@ -3414,6 +3545,26 @@ function displayClass(charClass, level){
 
         basicFeatures.innerHTML=basicFeaturesString;
         
+        
+        var classTable = document.getElementById("classTable");
+        var tableString="";
+        tableString+="<tr><td colspan=3 id=\"spellSpace\"></td><th colspan=9>Spell Slots per Spell Level</th></tr>";
+        tableString+="<tr><th>Level</th><th>Proficiency Bonus</th><th>Features</th><th>1st</th><th>2nd</th><th>3rd</th><th>4th</th><th>5th</th></tr>";
+        for(var i=0;i<level;i++){
+            tableString+="<tr>";
+            tableString+="<td>"+classJSON['Ranger']['Class Features']['The Ranger']['table']['Level'][i]+"</td>";
+            tableString+="<td>"+classJSON['Ranger']['Class Features']['The Ranger']['table']['Proficiency Bonus'][i]+"</td>";
+            tableString+="<td>"+classJSON['Ranger']['Class Features']['The Ranger']['table']['Features'][i]+"</td>";
+            tableString+="<td>"+classJSON['Ranger']['Class Features']['The Ranger']['table']['1st'][i]+"</td>";
+            tableString+="<td>"+classJSON['Ranger']['Class Features']['The Ranger']['table']['2nd'][i]+"</td>";
+            tableString+="<td>"+classJSON['Ranger']['Class Features']['The Ranger']['table']['3rd'][i]+"</td>";
+            tableString+="<td>"+classJSON['Ranger']['Class Features']['The Ranger']['table']['4th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Ranger']['Class Features']['The Ranger']['table']['5th'][i]+"</td>";
+            tableString+="</tr>";
+        }
+        classTable.innerHTML=tableString;
+        
+        
         var lvl1String="<br>";
         lvl1String+="<button class=\"collapsible\">Favored Enemy</button><div class=\"content\">";
         lvl1String+="<br>"+classJSON['Ranger']['Class Features']['Favored Enemy']['content'].join(" ")+"</div><br><br>";
@@ -3662,6 +3813,23 @@ function displayClass(charClass, level){
 
         basicFeatures.innerHTML=basicFeaturesString;
         
+        
+        var classTable = document.getElementById("classTable");
+        var tableString="";
+        tableString+="<tr><th>Level</th><th>Proficiency Bonus</th><th>Sneak Attack</th><th>Features</th></tr>";
+        for(var i=0;i<level;i++){
+            tableString+="<tr>";
+            //tableString+="<td>"+classJSON['Cleric']['Class Features']['The Cleric']['content'][1]['table']['Level'][i]+"</td>";
+            tableString+="<td>"+classJSON['Rogue']['Class Features']['The Rogue']['content'][0]['table']['Level'][i]+"</td>";
+            tableString+="<td>"+classJSON['Rogue']['Class Features']['The Rogue']['content'][0]['table']['Proficiency Bonus'][i]+"</td>";
+            tableString+="<td>"+classJSON['Rogue']['Class Features']['The Rogue']['content'][0]['table']['Sneak Attack'][i]+"</td>";
+            tableString+="<td>"+classJSON['Rogue']['Class Features']['The Rogue']['content'][0]['table']['Features'][i]+"</td>";
+            tableString+="</tr>";
+        }
+        classTable.innerHTML=tableString;
+        
+        
+        
         var lvl1String="<br>";
         lvl1String+="<button class=\"collapsible\">Expertise</button><div class=\"content\">";
         lvl1String+="<br>"+classJSON['Rogue']['Class Features']['Expertise']['content'].join(" ")+"</div><br><br>";
@@ -3833,6 +4001,32 @@ function displayClass(charClass, level){
 
         basicFeatures.innerHTML=basicFeaturesString;
         
+        
+        
+        var classTable = document.getElementById("classTable");
+        var tableString="";
+        tableString+="<tr><td colspan=6 id=\"spellSpace\"></td><th colspan=9>Spell Slots per Spell Level</th></tr>";
+        tableString+="<tr><th>Level</th><th>Proficiency Bonus</th><th>Sorcery Points</th><th>Features</th><th>Cantrips Known</th><th>Spells Known</th><th>1st</th><th>2nd</th><th>3rd</th><th>4th</th><th>5th</th><th>6th</th><th>7th</th><th>8th</th><th>9th</th></tr>";
+        for(var i=0;i<level;i++){
+            tableString+="<tr>";
+            tableString+="<td>"+classJSON['Sorcerer']['Class Features']['The Sorcerer']['table']['Level'][i]+"</td>";
+            tableString+="<td>"+classJSON['Sorcerer']['Class Features']['The Sorcerer']['table']['Proficiency Bonus'][i]+"</td>";
+            tableString+="<td>"+classJSON['Sorcerer']['Class Features']['The Sorcerer']['table']['Sorcery Points'][i]+"</td>";
+            tableString+="<td>"+classJSON['Sorcerer']['Class Features']['The Sorcerer']['table']['Features'][i]+"</td>";
+            tableString+="<td>"+classJSON['Sorcerer']['Class Features']['The Sorcerer']['table']['Cantrips Known'][i]+"</td>";
+            tableString+="<td>"+classJSON['Sorcerer']['Class Features']['The Sorcerer']['table']['Spells Known'][i]+"</td>";
+            tableString+="<td>"+classJSON['Sorcerer']['Class Features']['The Sorcerer']['table']['1st'][i]+"</td>";
+            tableString+="<td>"+classJSON['Sorcerer']['Class Features']['The Sorcerer']['table']['2nd'][i]+"</td>";
+            tableString+="<td>"+classJSON['Sorcerer']['Class Features']['The Sorcerer']['table']['3rd'][i]+"</td>";
+            tableString+="<td>"+classJSON['Sorcerer']['Class Features']['The Sorcerer']['table']['4th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Sorcerer']['Class Features']['The Sorcerer']['table']['5th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Sorcerer']['Class Features']['The Sorcerer']['table']['6th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Sorcerer']['Class Features']['The Sorcerer']['table']['7th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Sorcerer']['Class Features']['The Sorcerer']['table']['8th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Sorcerer']['Class Features']['The Sorcerer']['table']['9th'][i]+"</td>";
+            tableString+="</tr>";
+        }
+        classTable.innerHTML=tableString;
         
         
         var lvl1String="<br><br>";
@@ -4168,6 +4362,23 @@ function displayClass(charClass, level){
         basicFeaturesString+="- " + classJSON['Warlock']['Class Features']['Equipment']['content'][1][2]+"<br>";
 
         basicFeatures.innerHTML=basicFeaturesString;
+        
+        
+        var classTable = document.getElementById("classTable");
+        var tableString="";
+        tableString+="<tr><th>Level</th><th>Proficiency Bonus</th><th>Features</th><th>Cantrips Known</th><th>Spells Known</th><th>Slot Level</th><th>Invocations Known</th></tr>";
+        for(var i=0;i<level;i++){
+            tableString+="<tr>";
+            tableString+="<td>"+classJSON['Warlock']['Class Features']['The Warlock']['table']['Level'][i]+"</td>";
+            tableString+="<td>"+classJSON['Warlock']['Class Features']['The Warlock']['table']['Proficiency Bonus'][i]+"</td>";
+            tableString+="<td>"+classJSON['Warlock']['Class Features']['The Warlock']['table']['Features'][i]+"</td>";
+            tableString+="<td>"+classJSON['Warlock']['Class Features']['The Warlock']['table']['Cantrips Known'][i]+"</td>";
+            tableString+="<td>"+classJSON['Warlock']['Class Features']['The Warlock']['table']['Spells Known'][i]+"</td>";
+            tableString+="<td>"+classJSON['Warlock']['Class Features']['The Warlock']['table']['Slot Level'][i]+"</td>";
+            tableString+="<td>"+classJSON['Warlock']['Class Features']['The Warlock']['table']['Invocations Known'][i]+"</td>";
+            tableString+="</tr>";
+        }
+        classTable.innerHTML=tableString;
         
         
         var lvl1String="<br><br>";
@@ -4565,7 +4776,28 @@ function displayClass(charClass, level){
         
         
         
-        
+        var classTable = document.getElementById("classTable");
+        var tableString="";
+        tableString+="<tr><td colspan=4 id=\"spellSpace\"></td><th colspan=9>Spell Slots per Spell Level</th></tr>";
+        tableString+="<tr><th>Level</th><th>Proficiency Bonus</th><th>Features</th><th>Cantrips Known</th><th>1st</th><th>2nd</th><th>3rd</th><th>4th</th><th>5th</th><th>6th</th><th>7th</th><th>8th</th><th>9th</th></tr>";
+        for(var i=0;i<level;i++){
+            tableString+="<tr>";
+            tableString+="<td>"+classJSON['Wizard']['Class Features']['The Wizard']['table']['Level'][i]+"</td>";
+            tableString+="<td>"+classJSON['Wizard']['Class Features']['The Wizard']['table']['Proficiency Bonus'][i]+"</td>";
+            tableString+="<td>"+classJSON['Wizard']['Class Features']['The Wizard']['table']['Features'][i]+"</td>";
+            tableString+="<td>"+classJSON['Wizard']['Class Features']['The Wizard']['table']['Cantrips Known'][i]+"</td>";
+            tableString+="<td>"+classJSON['Wizard']['Class Features']['The Wizard']['table']['1st'][i]+"</td>";
+            tableString+="<td>"+classJSON['Wizard']['Class Features']['The Wizard']['table']['2nd'][i]+"</td>";
+            tableString+="<td>"+classJSON['Wizard']['Class Features']['The Wizard']['table']['3rd'][i]+"</td>";
+            tableString+="<td>"+classJSON['Wizard']['Class Features']['The Wizard']['table']['4th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Wizard']['Class Features']['The Wizard']['table']['5th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Wizard']['Class Features']['The Wizard']['table']['6th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Wizard']['Class Features']['The Wizard']['table']['7th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Wizard']['Class Features']['The Wizard']['table']['8th'][i]+"</td>";
+            tableString+="<td>"+classJSON['Wizard']['Class Features']['The Wizard']['table']['9th'][i]+"</td>";
+            tableString+="</tr>";
+        }
+        classTable.innerHTML=tableString;
         
         var lvl1String="<br><br>";
         
@@ -4858,7 +5090,7 @@ function updateCollapsibles(baseClass, level){
             }
             
             for(var i=1;i<=maxSpellLevel;i++){
-                coll[20+i].style.display="inline";
+                coll[21+i].style.display="inline";
             }
         }
     

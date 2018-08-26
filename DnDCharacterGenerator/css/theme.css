@@ -93,3 +93,9 @@ background-color: #e4f1fe;
 .active:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
+
+
+#spellSpace{
+    border-left-color: white;
+    border-top-color: white;
+}
