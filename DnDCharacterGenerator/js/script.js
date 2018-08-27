@@ -188,7 +188,44 @@ function generateChar(){
         document.getElementById("final race").innerHTML="Half Orc";   
     }
     if(race=="dragonborn"){
-        document.getElementById("final race").innerHTML="Dragonborn";   
+        var subrace=-1;
+        var raceString="";
+        if(document.getElementById("randSubrace").checked){
+            subrace=roll1d10();   
+        }
+        
+        if(document.getElementById("blackSubrace").checked || subrace==1){
+            raceString+="Black";   
+        }
+        else if(document.getElementById("blueSubrace").checked || subrace==2){
+            raceString+="Blue";   
+        }
+        else if(document.getElementById("brassSubrace").checked || subrace==3){
+            raceString+="Brass";       
+        }
+        else if(document.getElementById("bronzeSubrace").checked || subrace==4){
+            raceString+="Bronze";       
+        }
+        else if(document.getElementById("copperSubrace").checked || subrace==5){
+            raceString+="Copper";   
+        }
+        else if(document.getElementById("goldSubrace").checked || subrace==6){
+            raceString+="Gold";   
+        }
+        else if(document.getElementById("greenSubrace").checked || subrace==7){
+            raceString+="Green";   
+        }
+        else if(document.getElementById("redSubrace").checked || subrace==8){
+            raceString+="Red";   
+        }
+        else if(document.getElementById("silverSubrace").checked || subrace==9){
+            raceString+="Silver";       
+        }
+        else if(document.getElementById("whiteSubrace").checked || subrace==10){
+            raceString+="White";   
+        }
+        raceString+=" Dragonborn";
+        document.getElementById("final race").innerHTML=raceString;   
     }
     if(race=="human"){
         document.getElementById("final race").innerHTML="Human";   
@@ -668,6 +705,18 @@ function roll1d20(){
     return Math.floor(Math.random()*20+1);
 }
 
+function roll1d10(){
+    return Math.floor(Math.random()*10+1);
+}
+
+function roll1d8(){
+    return Math.floor(Math.random()*8+1);
+}
+
+function roll1d12(){
+    return Math.floor(Math.random()*12+1);
+}
+
 /*calls 4d6 minus lowest for all 6 stats*/
 function stats4d6(isMinStats){
     while(true){
@@ -818,6 +867,153 @@ function hideMinBox(){
     for(let val of hiddenList){
         val.style="display:hidden";
     }
+}
+
+/*based on the race the user selects, they can choose from other subraces in the SRD, or they can choose what stat some ability score bonuses go towards*/
+function showOrHideRaceAttributes() {
+    var selected = document.getElementById("race");
+    if(selected.value=="halfelf"){
+        var hide=false;
+        if(document.getElementById("hiddenHalfElf").style.display=="inline"){
+            hide=true;   
+        }
+       showOrHideHalfElfStats(hide);
+    }
+    if(selected.value=="dragonborn"){
+       var hide=false;
+        if(document.getElementById("hiddenDragonborn").style.display=="inline"){
+            hide=true;   
+        }
+        showOrHideDragonbornSubraces(hide);
+    }
+    
+    
+}
+
+/*show or hide the checkboxes to select or randomize the Half Elf's stat bonuses*/
+function showOrHideHalfElfStats(hide){
+    if(hide){
+        document.getElementById("hiddenHalfElf").style="display:hidden";
+    }
+    else{
+        document.getElementById("hiddenHalfElf").style="display:inline";
+    }
+    
+}
+
+/*ensure that only 2 elements are clicked at a time, since a Half-Elf can only distribute 2 separate +1 stat bonuses*/
+function halfElfCheckedCount(){
+    var checkCount=0;
+    if(document.getElementById("rand1+1").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("rand2+1").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("str+1").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("dex+1").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("con+1").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("int+1").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("wis+1").checked){
+        checkCount++;   
+    }
+    
+    if(checkCount>2){
+        return false;   
+    }
+}
+
+/*show or hide the radio buttons to select or randomize the dragonborn subrace*/
+function showOrHideDragonbornSubraces(hide){
+    if(hide){
+        document.getElementById("hiddenDragonborn").style="display:hidden";
+    }
+    else{
+        document.getElementById("hiddenDragonborn").style="display:inline";
+    }
+}
+
+/*makes sure only 2 are selected at once*/
+function backgroundSkillsCheckedCount(){
+    
+    /*may be more efficient to use a loop and assign all of these a class, but this works too*/
+    var checkCount=0;
+    if(document.getElementById("bRand1").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bRand2").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bAthletics").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bAcrobatics").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bSleightOfHand").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bStealth").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bArcana").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bHistory").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bInvestigation").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bNature").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bReligion").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bAnimalHandling").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bInsight").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bMedicine").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bPerception").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bSurvival").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bDeception").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bIntimidation").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bPerformance").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bPersuasion").checked){
+        checkCount++;   
+    }
+    
+    if(checkCount>2){
+        return false;   
+    }
+}
+//TODO - finish this function!
+function classSkillsCheckedCount(){
+    
 }
 
 /*uses helper functions to get the total amount of health for the character*/
@@ -1157,7 +1353,99 @@ function addRacialBonuses(charStats, race){
     }
     else if(race=="halfelf"){
         charStats[5]+=2;
-        /*TODO - fix choosing any 2 other stats for +1*/
+        var strChanged=false, dexChanged=false, conChanged=false, intChanged=false, wisChanged=false;
+        
+        if(document.getElementById("str+1").checked){
+            charStats[0]+=1;   
+            strChanged=true;
+        }
+        if(document.getElementById("dex+1").checked){
+            charStats[1]+=1; 
+            dexChanged=true;
+        }
+        if(document.getElementById("con+1").checked){
+            charStats[2]+=1; 
+            conChanged=true;
+        }
+        if(document.getElementById("int+1").checked){
+            charStats[3]+=1; 
+            intChanged=true;
+        }
+        if(document.getElementById("wis+1").checked){
+            charStats[4]+=1; 
+            wisChanged=true;
+        }
+        
+        /*for rand stats, we don't want to accidentally give any stat a +2, i.e. we don't want to increase a stat the player already chose to increase.
+        */
+        if(document.getElementById("rand1+1").checked){
+            var randPos = -1;
+            while(true){
+                
+                //returns 0-4
+                randPos=Math.floor(Math.random()*5);
+                if(randPos==0 && !strChanged){
+                    charStats[0]+=1;   
+                    strChanged=true;
+                    break;
+                }
+                if(randPos==1 && !dexChanged){
+                    charStats[1]+=1;   
+                    dexChanged=true;
+                    break;
+                }
+                if(randPos==2 && !conChanged){
+                    charStats[2]+=1;   
+                    conChanged=true;
+                    break;
+                }
+                if(randPos==3 && !intChanged){
+                    charStats[3]+=1;   
+                    intChanged=true;
+                    break;
+                }
+                if(randPos==4 && !wisChanged){
+                    charStats[0]+=1;   
+                    wisChanged=true;
+                    break;
+                }
+            }
+        }
+        
+        /*repeat for the other random stat, if necessary*/
+        if(document.getElementById("rand2+1").checked){
+            var randPos = -1;
+            while(true){
+                
+                //returns 0-4
+                randPos=Math.floor(Math.random()*5);
+                if(randPos==0 && !strChanged){
+                    charStats[0]+=1;   
+                    strChanged=true;
+                    break;
+                }
+                if(randPos==1 && !dexChanged){
+                    charStats[1]+=1;   
+                    dexChanged=true;
+                    break;
+                }
+                if(randPos==2 && !conChanged){
+                    charStats[2]+=1;   
+                    conChanged=true;
+                    break;
+                }
+                if(randPos==3 && !intChanged){
+                    charStats[3]+=1;   
+                    intChanged=true;
+                    break;
+                }
+                if(randPos==4 && !wisChanged){
+                    charStats[0]+=1;   
+                    wisChanged=true;
+                    break;
+                }
+            }
+        }
         
     }
     else if(race=="halforc"){
@@ -1450,7 +1738,7 @@ function displayRace(race){
         raceText+="<br><button class=\"collapsible\">Half-Elf Traits</button><div class=\"content\">";
         raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][0]+"<br><br>";
         raceText+="<br><button class=\"collapsible\">Ability Score Increase</button><div class=\"content\">";
-        raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][1]+"<br>The non-Charisma stat bonuses have not been added to the table above.</div><br><br>";
+        raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][1]+"</div><br><br>";
         raceText+="<br><button class=\"collapsible\">Age</button><div class=\"content\">";
         raceText+="<br>"+raceJSON['Races']['Half-Elf']['Half-Elf Traits']['content'][2]+"</div><br><br>";
         raceText+="<br><button class=\"collapsible\">Alignment</button><div class=\"content\">";

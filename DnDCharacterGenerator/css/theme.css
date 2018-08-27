@@ -41,6 +41,10 @@ td, th{
     margin-left:10px;
 }
 
+#hiddenHalfElf, #hiddenDragonborn, #hiddenClassSkills{
+    display:none;
+}
+
 .mainCollapsible {
   background-color:#5c5757;
   color: #efecec;

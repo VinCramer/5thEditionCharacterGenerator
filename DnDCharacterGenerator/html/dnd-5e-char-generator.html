@@ -20,7 +20,7 @@
         <div>
             <p>Race: </p>
 
-            <select id="race">
+            <select id="race" onclick="showOrHideRaceAttributes();">
                 <option value="rand">Random</option>
                 <option value="dragonborn">Dragonborn</option>
                 <option value="halfelf">Half-Elf</option>
@@ -32,6 +32,68 @@
                 <option value="rockgnome">Rock Gnome</option>
                 <option value="tiefling">Tiefling</option>
             </select>
+            
+            <div id="hiddenHalfElf">
+                <h4>Choose 2 from below:</h4>
+                <input type="checkbox" name="he-stats" id="rand1+1" value="rand1+1" onclick="return halfElfCheckedCount();">
+                <label for="rand1+1">Random Stat Increase #1</label>
+                <br>
+                <input type="checkbox" name="he-stats" id="rand2+1" value="rand2+1" onclick="return halfElfCheckedCount();">
+                <label for="rand2+1">Random Stat Increase #2</label>
+                <br>
+                <input type="checkbox" name="he-stats" id="str+1" value="str+1" onclick="return halfElfCheckedCount();">
+                <label for="str+1">+1 Strength</label>
+                <br>
+                <input type="checkbox" name="he-stats" id="dex+1" value="dex+1" onclick="return halfElfCheckedCount();">
+                <label for="dex+1">+1 Dexterity</label>
+                <br>
+                <input type="checkbox" name="he-stats" id="con+1" value="con+1" onclick="return halfElfCheckedCount();">
+                <label for="con+1">+1 Constitution</label>
+                <br>
+                <input type="checkbox" name="he-stats" id="int+1" value="int+1" onclick="return halfElfCheckedCount();">
+                <label for="int+1">+1 Intelligence</label>
+                <br>
+                <input type="checkbox" name="he-stats" id="wis+1" value="wis+1" onclick="return halfElfCheckedCount();">
+                <label for="wis+1">+1 Wisdom</label>
+                <br>
+            </div>
+            
+            <div id="hiddenDragonborn">
+                <h4>Choose a subrace:</h4>
+                <input type="radio" name="d-subrace" id="randSubrace" value="randSubrace" checked onclick="">
+                <label for="rand_d-subrace">Random Subrace</label>
+                <br>
+                <input type="radio" name="d-subrace" id="blackSubrace" value="blackSubrace" onclick="">
+                <label for="black-subrace">Black Dragonborn</label>
+                <br>
+                <input type="radio" name="d-subrace" id="blueSubrace" value="blueSubrace" onclick="">
+                <label for="blueSubrace">Blue Dragonborn</label>
+                <br>
+                <input type="radio" name="d-subrace" id="brassSubrace" value="brassSubrace" onclick="">
+                <label for="brassSubrace">Brass Dragonborn</label>
+                <br>
+                <input type="radio" name="d-subrace" id="bronzeSubrace" value="bronzeSubrace" onclick="">
+                <label for="bronzeSubrace">Bronze Dragonborn</label>
+                <br>
+                <input type="radio" name="d-subrace" id="copperSubrace" value="copperSubrace" onclick="">
+                <label for="copperSubrace">Copper Dragonborn</label>
+                <br>
+                <input type="radio" name="d-subrace" id="goldSubrace" value="goldSubrace" onclick="">
+                <label for="goldSubrace">Gold Dragonborn</label>
+                <br>
+                <input type="radio" name="d-subrace" id="greenSubrace" value="greenSubrace" onclick="">
+                <label for="greenSubrace">Green Dragonborn</label>
+                <br>
+                <input type="radio" name="d-subrace" id="redSubrace" value="redSubrace" onclick="">
+                <label for="redSubrace">Red Dragonborn</label>
+                <br>
+                <input type="radio" name="d-subrace" id="silverSubrace" value="silverSubrace" onclick="">
+                <label for="silverSubrace">Silver Dragonborn</label>
+                <br>
+                <input type="radio" name="d-subrace" id="whiteSubrace" value="whiteSubrace" onclick="">
+                <label for="whiteSubrace">White Dragonborn</label>
+                <br>
+            </div>
 
             <p>Level: </p>
             <select id="level">
@@ -79,6 +141,75 @@
                 <option value="wizard">Wizard</option>
             </select>
 
+        </div>
+        
+        <div>
+            <h4>Choose 2 Skill Proficiencies from below:</h4>
+            <input type="checkbox" name="bSkills" id="bRand1" value="bRand1" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bRand1">Randomize Skill #1</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bRand2" value="bRand2" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bRand2">Randimize Skill #2</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bAthletics" value="bAthletics" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bAthletics">Athletics</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bAcrobatics" value="bAcrobatics" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bAcrobatics">Acrobatics</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bSleightOfHand" value="bSleightOfHand" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bSleightOfHand">Sleight Of Hand</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bStealth" value="bStealth" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bStealth">Stealth</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bArcana" value="bArcana" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bArcana">Arcana</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bHistory" value="bHistory" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bHistory">History</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bInvestigation" value="bInvestigation" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bInvestigation">Investigation</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bNature" value="bNature" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bNature">Nature</label>
+            <br>
+            <input type="checkbox" name="bReligion" id="bReligion" value="bReligion" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bReligion">Religion</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bAnimalHandling" value="bAnimalHandling" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bAnimalHandling">Animal Handling</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bInsight" value="bInsight" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bInsight">Insight</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bMedicine" value="bMedicine" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bMedicine">Medicine</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bPerception" value="bPerception" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bPerception">Perception</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bSurvival" value="bSurvival" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bSurvival">Survival</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bDeception" value="bDeception" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bDeception">Deception</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bIntimidation" value="bIntimidation" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bIntimidation">Intimidation</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bPerformance" value="bPerformance" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bPerformance">Performance</label>
+            <br>
+            <input type="checkbox" name="bSkills" id="bPersuasion" value="bPersuasion" onclick="return backgroundSkillsCheckedCount();">
+            <label for="bPersuasion">Persuasion</label>
+            <br>
+        </div>
+        
+        <div id="hiddenClassSkills">
+        
+        
         </div>
 
 
