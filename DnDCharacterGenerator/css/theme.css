@@ -41,7 +41,7 @@ td, th{
     margin-left:10px;
 }
 
-#hiddenHalfElf, #hiddenDragonborn, #hiddenClassSkills{
+#hiddenHalfElf, #hiddenDragonborn, #hiddenClassSkills, #hiddenBardSkills{
     display:none;
 }
 

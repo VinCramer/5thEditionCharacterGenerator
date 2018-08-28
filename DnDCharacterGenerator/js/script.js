@@ -70,8 +70,8 @@ spellJSONRequest.onload = function(){
 }
 
 
-
-
+//global var
+var baseClass;
 
 var proficiency;
 
@@ -138,14 +138,13 @@ function generateChar(){
     
 
     
-    
     /*the base class the user wants to play as*/
-    baseClass = document.getElementById('baseclass').value;
+/*    baseClass = document.getElementById('baseclass').value;
     
     
     if(baseClass=="rand"){
         baseClass = generateClass();
-    }
+    }*/
     
     finalClassPara.innerHTML=baseClass.charAt(0).toUpperCase()+baseClass.substring(1);  
     
@@ -1011,9 +1010,488 @@ function backgroundSkillsCheckedCount(){
         return false;   
     }
 }
-//TODO - finish this function!
-function classSkillsCheckedCount(){
+
+/*bards can functionally have any 5 skills.*/
+function bardSkillsCheckedCount(){
     
+    /*may be more efficient to use a loop and assign all of these a class, but this works too*/
+    var checkCount=0;
+    if(document.getElementById("bardRand1").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardRand2").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardRand3").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardRand4").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardRand5").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardAthletics").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardAcrobatics").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardSleightOfHand").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardStealth").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardArcana").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardHistory").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardInvestigation").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardNature").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardReligion").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardAnimalHandling").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardInsight").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardMedicine").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardPerception").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardSurvival").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardDeception").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardIntimidation").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardPerformance").checked){
+        checkCount++;   
+    }
+    if(document.getElementById("bardPersuasion").checked){
+        checkCount++;   
+    }
+    
+    if(checkCount>5){
+        return false;   
+    }
+}
+
+/*this function will be assigned to the onclick for the hiddenClassSkills div except bard, which gets its own.*/
+function classSkillsCheckedCount(className){
+    var maxCount;
+    if(className=="rogue"){
+        maxCount=4;
+    }
+    else if(className=="ranger"){
+        maxCount=3;
+    }
+    else{
+        maxCount=2;
+    }
+    
+}
+
+/*this function will hide certain background skills that are included in the class' skill div, and make all others visible. We also uncheck all skills made invisible - may change to later return set all checked values to check them pre-emptively in class skill list*/
+function updateBackgroundSkills(className){
+    var bgSkills = document.getElementsByClassName("bSkills");
+    for(let s of bgSkills){
+        s.style="display:inline";
+    }
+    
+    var bLabels = document.getElementsByClassName("bL");
+    for(let l of bLabels){
+        l.style="display:inline";
+    }
+    
+    
+    /*
+    [0] - Rand #1
+    [1] - Rand #2
+    [2] - Athletics
+    [3] - Acrobatics
+    [4] - Sleight of Hand
+    [5] - Stealth
+    [6] - Arcana
+    [7] - History
+    [8] - Investigation
+    [9] - Nature
+    [10] - Religion
+    [11] - Animal Handling
+    [12] - Insight
+    [13] - Medicine
+    [14] - Perception
+    [15] - Survival
+    [16] - Deception
+    [17] - Intimidation
+    [18] - Performance
+    [19] - Persuasion
+    */
+    
+    //special case for bard
+    if(className=="bard"){
+        for(let s of bgSkills){
+            s.style="display:none";
+        }
+        for(let l of bLabels){
+            l.style="display:none";
+        }
+    }
+    
+    
+    
+    //athletics
+    if(className=="rogue"||className=="ranger"||className=="monk"||className=="fighter"||className=="barbarian"||className=="paladin"){
+        bgSkills[2].style="display:none";
+        bgSkills[2].checked=false;
+        bLabels[2].style="display:none";
+    }
+    
+    //acrobatics
+    if(className=="rogue"||className=="fighter"||className=="monk"){
+        bgSkills[3].style="display:none";
+        bgSkills[3].checked=false;
+        bLabels[3].style="display:none";
+    }
+    
+    //sleight of hand
+    if(className=="rogue"){
+        bgSkills[4].style="display:none";
+        bgSkills[4].checked=false;
+        bLabels[4].style="display:none";
+    }
+    
+    //stealth
+    if(className=="monk"||className=="ranger"||className=="rogue"){
+        bgSkills[5].style="display:none";
+        bgSkills[5].checked=false;
+        bLabels[5].style="display:none";
+    }
+    
+    //arcana
+    if(className=="druid"||className=="warlock"||className=="wizard"||className==""){
+        bgSkills[6].style="display:none";
+        bgSkills[6].checked=false;
+        bLabels[6].style="display:none";
+    }
+    
+    //history
+    if(className=="monk"||className=="cleric"||className=="fighter"||className=="wizard"||className=="warlock"){
+        bgSkills[7].style="display:none";
+        bgSkills[7].checked=false;
+        bLabels[7].style="display:none";
+    }
+    
+    //investigation
+    if(className=="ranger"||className=="rogue"||className=="warlock"||className=="wizard"){
+        bgSkills[8].style="display:none";
+        bgSkills[8].checked=false;
+        bLabels[8].style="display:none";
+    }
+    
+    //nature
+    if(className=="barbarian"||className=="druid"||className=="ranger"||className=="warlock"){
+        bgSkills[9].style="display:none";
+        bgSkills[9].checked=false;
+        bLabels[9].style="display:none";
+    }
+    
+    //religion
+    if(className=="sorcerer"||className=="monk"||className=="paladin"||className=="cleric"||className=="wizard"||
+       className=="druid"||className=="warlock"){
+        bgSkills[10].style="display:none";
+        bgSkills[10].checked=false;
+        bLabels[10].style="display:none";
+    }
+    
+    //animal handling
+    if(className=="fighter"||className=="barbarian"||className=="ranger"||className=="druid"){
+        bgSkills[11].style="display:none";
+        bgSkills[11].checked=false;
+        bLabels[11].style="display:none";
+    }
+    
+    //insight - 10/12 classes get this proficiency
+    if(className!="barbarian"&&className!="warlock"){
+        bgSkills[12].style="display:none";
+        bgSkills[12].checked=false;
+        bLabels[12].style="display:none";
+    }
+    
+    //medicine
+    if(className=="paladin"||className=="cleric"||className=="wizard"||className=="druid"){
+        bgSkills[13].style="display:none";
+        bgSkills[13].checked=false;
+        bLabels[13].style="display:none";
+    }
+    
+    //perception
+    if(className=="barbarian"||className=="rogue"||className=="fighter"||className=="ranger"||className=="druid"){
+        bgSkills[14].style="display:none";
+        bgSkills[14].checked=false;
+        bLabels[14].style="display:none";
+    }
+    
+    //survival
+    if(className=="barbarian"||className=="fighter"||className=="ranger"||className=="druid"){
+        bgSkills[15].style="display:none";
+        bgSkills[15].checked=false;
+        bLabels[15].style="display:none";
+    }
+    
+    //deception
+    if(className=="sorcerer"||className=="rogue"||className=="warlock"){
+        bgSkills[16].style="display:none";
+        bgSkills[16].checked=false;
+        bLabels[16].style="display:none";
+    }
+    
+    //intimidation
+    if(className=="barbarian"||className=="paladin"||className=="fighter"||className=="sorcerer"||className=="rogue"||className=="warlock"){
+        bgSkills[17].style="display:none";
+        bgSkills[17].checked=false;
+        bLabels[17].style="display:none";
+    }
+    
+    //performance
+    if(className=="rogue"){
+        bgSkills[18].style="display:none";
+        bgSkills[18].checked=false;
+        bLabels[18].style="display:none";
+    }
+    
+    //persuasion
+    if(className=="cleric"||className=="paladin"||className=="sorcerer"||className=="rogue"){
+        bgSkills[19].style="display:none";
+        bgSkills[19].checked=false;
+        bLabels[19].style="display:none";
+    }
+    
+}
+/*adds inputs and labels to the class skills div based on the given player class*/
+function addClassSkills(className){
+    var skillString="";
+    var numSkills;
+    
+    if(className=="rogue"){
+        numSkills=4;
+    }
+    else if(className=="ranger"){
+        numSkills=3;
+    }
+    else{
+        numSkills=2;
+    }
+    
+    
+    //actual radio button inputs below
+    
+    if(className!="bard"){
+        
+        //start with header for appropriate class
+        skillString+="<h4>Choose "; 
+        skillString+=numSkills;
+        skillString+=" Class Skill Proficiencies from below:</h4>";
+        
+        
+        //first we do the random options
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cRand1\" value=\"cRand1\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cRand1\">Randomize Skill #1</label><br>";
+
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cRand2\" value=\"cRand2\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cRand2\">Randomize Skill #2</label><br>";
+
+        if(className=="ranger"||className=="rogue"){
+            skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cRand3\" value=\"cRand3\" onclick=\"return clasSkillsCheckedCount();\">";
+            skillString+="<label for=\"cRand1\">Randomize Skill #3</label><br>";
+        }
+
+        if(className=="rogue"){
+            skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cRand4\" value=\"cRand4\" onclick=\"return clasSkillsCheckedCount();\">";
+            skillString+="<label for=\"cRand4\">Randomize Skill #4</label><br>";
+        }
+    }
+    
+    //now, onto actual skills, starting with athletics
+    if(className=="rogue"||className=="ranger"||className=="monk"||className=="fighter"||className=="barbarian"||className=="paladin"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cAthletics\" value=\"cAthletics\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cAthletics\">Athletics</label><br>";
+    }
+    
+    
+    //acrobatics
+    if(className=="rogue"||className=="fighter"||className=="monk"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cAcrobatics\" value=\"cAcrobatics\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cAcrobatics\">Acrobatics</label><br>";
+    }
+    
+    //sleight of hand
+    if(className=="rogue"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cSleightOfHand\" value=\"cSleightOfHand\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cSleightOfHand\">Sleight of Hand</label><br>";
+    }
+    
+    //stealth
+    if(className=="monk"||className=="ranger"||className=="rogue"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cStealth\" value=\"cStealth\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cStealth\">Stealth</label><br>";
+    }
+    
+    //arcana
+    if(className=="druid"||className=="warlock"||className=="wizard"||className==""){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cArcana\" value=\"cArcana\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cArcana\">Arcana</label><br>";
+    }
+    
+    //history
+    if(className=="monk"||className=="cleric"||className=="fighter"||className=="wizard"||className=="warlock"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cHistory\" value=\"cHistory\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cHistory\">History</label><br>";
+    }
+    
+    //investigation
+    if(className=="ranger"||className=="rogue"||className=="warlock"||className=="wizard"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cInvestigation\" value=\"cInvestigation\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cInvestigation\">Investigation</label><br>";;
+    }
+    
+    //nature
+    if(className=="barbarian"||className=="druid"||className=="ranger"||className=="warlock"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cNature\" value=\"cNature\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cNature\">Nature</label><br>";
+    }
+    
+    //religion
+    if(className=="sorcerer"||className=="monk"||className=="paladin"||className=="cleric"||className=="wizard"||
+       className=="druid"||className=="warlock"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cReligion\" value=\"cReligion\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cReligion\">Religion</label><br>";
+    }
+    
+    //animal handling
+    if(className=="fighter"||className=="barbarian"||className=="ranger"||className=="druid"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cAnimalHandling\" value=\"cAnimalHandling\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cStealth\">Animal Handling</label><br>";
+    }
+    
+    //insight - 10/12 classes get this proficiency. Also need to hide when Bard
+    if(className!="barbarian"&&className!="warlock" && className!="bard"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cInsight\" value=\"cInsight\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cInsight\">Insight</label><br>";
+    }
+    
+    //medicine
+    if(className=="paladin"||className=="cleric"||className=="wizard"||className=="druid"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cMedicine\" value=\"cMedicine\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cMedicine\">Medicine</label><br>";
+    }
+    
+    //perception
+    if(className=="barbarian"||className=="rogue"||className=="fighter"||className=="ranger"||className=="druid"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cPerception\" value=\"cPerception\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cPerception\">Perception</label><br>";
+    }
+    
+    //survival
+    if(className=="barbarian"||className=="fighter"||className=="ranger"||className=="druid"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cSurvival\" value=\"cSurvival\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cSurvival\">Survival</label><br>";
+    }
+    
+    //deception
+    if(className=="sorcerer"||className=="rogue"||className=="warlock"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cDeception\" value=\"cDeception\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cDeception\">Deception</label><br>";
+    }
+    
+    //intimidation
+    if(className=="barbarian"||className=="paladin"||className=="fighter"||className=="sorcerer"||className=="rogue"||className=="warlock"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cIntimidation\" value=\"cIntimidation\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cIntimidation\">Intimidation</label><br>";
+    }
+    
+    //performance
+    if(className=="rogue"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cPerformance\" value=\"cPerformance\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cPerformance\">Performance</label><br>";
+    }
+    
+    //persuasion
+    if(className=="cleric"||className=="paladin"||className=="sorcerer"||className=="rogue"){
+        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cPersuasion\" value=\"cPersuasion\" onclick=\"return clasSkillsCheckedCount();\">";
+        skillString+="<label for=\"cPersuasion\">Persuasion</label><br>";
+    }
+    
+    
+    
+    document.getElementById("hiddenClassSkills").innerHTML=skillString;
+    
+    if(className=="bard"){
+        document.getElementById("hiddenBardSkills").style.display="inline";
+        document.getElementById("bgSkills").style.display="none";
+    }
+    else{
+        document.getElementById("hiddenBardSkills").style.display="none";
+        document.getElementById("bgSkills").style.display="inline";
+    }
+}
+
+/*ensure that user can only select the valid # of skills based on their class, which is 3 for ranger, 4 for rogue, and 2 for everyone else excluding the bard*/
+function clasSkillsCheckedCount(){
+    var skillsArr = document.getElementsByClassName("cSkills");
+    var counter=0;
+    for(let s of skillsArr){
+        if(s.checked){
+            counter++;
+        }
+    }
+    if(baseClass=="rogue"&&counter>4){
+        return false;
+    }
+    if(baseClass=="ranger"&&counter>3){
+        return false;
+    }
+    if(baseClass!="ranger"&&baseClass!="rogue"&&counter>2){
+        return false;
+    }
+}
+
+/*updates the class skill list and a global var*/
+function updateClass(){
+    
+    /*the base class the user wants to play as*/
+    baseClass = document.getElementById('baseclass').value;
+    
+    var isRand=false;
+    
+    if(baseClass=="rand"){
+        baseClass = generateClass();
+        isRand=true;
+    }
+    
+    //if user selected random, we'll make it so they can't pick the class skills, as that would give away what class it is before generation
+    if(!isRand){
+        addClassSkills(baseClass);
+        updateBackgroundSkills(baseClass);
+        document.getElementById("hiddenClassSkills").style="display:inline";
+    }
+    else{
+        document.getElementById("hiddenClassSkills").style="display:none";
+    }
 }
 
 /*uses helper functions to get the total amount of health for the character*/
