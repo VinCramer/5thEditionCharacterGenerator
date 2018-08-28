@@ -15,11 +15,12 @@ The JSON files used are edited versions of the ones from fellow GitHub user BTMo
 - Collapsible buttons to display all available options for level features and spells. Note that repeated level features such as the Barbarian's Brutal Critical after level 9 are not shown in the current version.
 - Dragonborn subrace can now be chosen or randomized.
 - Ability to spend the Half-Elf's racial stat bonuses, or randomize one or both of them.
+- Selectable skill proficiencies based on class and background. 
 
 # Features that may be added
 - Fixing the JSON files for spells to include the missing spells such as Vicious Mockery and Counterspell.
 - Additional stat generation methods, and the ability to roll for health instead of just taking the average.
-- Skill proficiencies based on class and background. After this is done, maybe expertise will be added as well.
+- Expertise for Rogues and Bards.
 
 # Program layout
 The initial screen upon launch:

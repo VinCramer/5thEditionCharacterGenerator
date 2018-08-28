@@ -135,21 +135,17 @@ function generateChar(){
     }
     proficiency = getProficiency(level);
     
+    //this happens if user never clicked on another class
+    if(typeof baseClass=='undefined'||baseClass=="rand"){
+        baseClass = generateClass();
+    }
     
 
-    
-    /*the base class the user wants to play as*/
-/*    baseClass = document.getElementById('baseclass').value;
-    
-    
-    if(baseClass=="rand"){
-        baseClass = generateClass();
-    }*/
     
     finalClassPara.innerHTML=baseClass.charAt(0).toUpperCase()+baseClass.substring(1);  
     
     /*need this after assigning the base class when the base class is random, otherwise proficiences don't work*/
-    addStatsToTable(charStats, baseClass);
+    addStatsToTable(charStats, baseClass, race);
     
     var hiddenList = document.getElementsByClassName("hidden");
     for(let val of hiddenList){
@@ -263,13 +259,13 @@ function getProficiency(level){
 }
 
 /*for each stat and affiliated saving throw/skill, we'll add those values to the table in the hmtl file*/
-function addStatsToTable(arr, baseClass){
+function addStatsToTable(arr, baseClass, race){
     addStrStats(arr, baseClass);
     addDexStats(arr, baseClass);
     addConStats(arr, baseClass);
     addIntStats(arr, baseClass);
-    addWisStats(arr, baseClass);
-    addChaStats(arr, baseClass);
+    addWisStats(arr, baseClass, race);
+    addChaStats(arr, baseClass, race);
 }
 
 /*finds the bonus from the given score. In D&D, there's an odd mechanic with stats in which the stat value isn't your bonus. Example: Someone with an 18 in strength doesn't have a +18 to their athletics check, but instead they have a +4.*/
@@ -409,7 +405,16 @@ function addStrStats(arr, baseClass){
     /*add the values with a + or - in front to the table*/
     addSkillStyling(tableStrSave,strSave);
     
-    addSkillStyling(tableAthletics,bonus);
+    //need to check if the user added athletics proficiency for a class skill, then changed classes. If we didn't have this, then a Cleric (or other classes) could get Athletics proficiency despite not clicking Athletics
+    if(
+        (document.getElementById("bardAthletics").checked && baseClass=="bard")||
+        document.getElementById("bAthletics").checked||
+        ((document.getElementById("cAthletics")!=null && document.getElementById("cAthletics").checked) && (baseClass=="barbarian"||baseClass=="paladin"||baseClass=="fighter"||baseClass=="rogue"||baseClass=="monk"||baseClass=="ranger"))){
+        addSkillStyling(tableAthletics,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tableAthletics,bonus);
+    }
 }
 
 function addDexStats(arr, baseClass){
@@ -456,9 +461,35 @@ function addDexStats(arr, baseClass){
     
     addSkillStyling(tableDexSave,dexSave);
     
-    addSkillStyling(tableAcrobatics,bonus);
-    addSkillStyling(tableStealth,bonus);
-    addSkillStyling(tableSleightOfHand,bonus);
+    if(
+        (document.getElementById("bardAcrobatics").checked && baseClass=="bard")||
+        document.getElementById("bAcrobatics").checked||
+        ((document.getElementById("cAcrobatics")!=null && document.getElementById("cAcrobatics").checked) && (baseClass=="monk"||baseClass=="rogue"||baseClass=="fighter"))){
+        addSkillStyling(tableAcrobatics,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tableAcrobatics,bonus);
+    }
+    
+    if(
+        (document.getElementById("bardStealth").checked && baseClass=="bard")||
+        document.getElementById("bStealth").checked||
+        ((document.getElementById("cStealth")!=null && document.getElementById("cStealth").checked) && (baseClass=="monk"||baseClass=="rogue"||baseClass=="ranger"))){
+        addSkillStyling(tableStealth,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tableStealth,bonus);
+    }
+    
+    if(
+        (document.getElementById("bardSleightOfHand").checked && baseClass=="bard")||
+        document.getElementById("bSleightOfHand").checked||
+        ((document.getElementById("cSleightOfHand")!=null && document.getElementById("cSleightOfHand").checked) && (baseClass=="rogue"))){
+        addSkillStyling(tableSleightOfHand,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tableSleightOfHand,bonus);
+    }
 }
 
 
@@ -548,14 +579,61 @@ function addIntStats(arr, baseClass){
     
     addSkillStyling(tableIntSave,intSave);
     
-    addSkillStyling(tableArcana,bonus);
-    addSkillStyling(tableNature,bonus);
-    addSkillStyling(tableHistory,bonus);
-    addSkillStyling(tableInvestigation,bonus);
-    addSkillStyling(tableReligion,bonus);
+    
+    if(
+        (document.getElementById("bardArcana").checked && baseClass=="bard")||
+        document.getElementById("bArcana").checked||
+        ((document.getElementById("cArcana")!=null && document.getElementById("cArcana").checked) && (baseClass=="druid"||baseClass=="warlock"||baseClass=="wizard"||baseClass=="sorcerer"))){
+        addSkillStyling(tableArcana,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tableArcana,bonus);
+    }
+    
+    if(
+        (document.getElementById("bardHistory").checked && baseClass=="bard")||
+        document.getElementById("bHistory").checked||
+        ((document.getElementById("cHistory")!=null && document.getElementById("cHistory").checked) && (baseClass=="monk"||baseClass=="cleric"||baseClass=="fighter"||baseClass=="wizard"||baseClass=="warlock"))){
+        addSkillStyling(tableHistory,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tableHistory,bonus);
+    }
+    
+    if(
+        (document.getElementById("bardNature").checked && baseClass=="bard")||
+        document.getElementById("bNature").checked||
+        ((document.getElementById("cNature")!=null && document.getElementById("cNature").checked) && (baseClass=="barbarian"||baseClass=="druid"||baseClass=="ranger"||baseClass=="warlock"))){
+        addSkillStyling(tableNature,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tableNature,bonus);
+    }
+    
+    if(
+        (document.getElementById("bardInvestigation").checked && baseClass=="bard")||
+        document.getElementById("bInvestigation").checked||
+        ((document.getElementById("cInvestigation")!=null && document.getElementById("cInvestigation").checked) && (baseClass=="warlock"||baseClass=="rogue"||baseClass=="ranger"||baseClass=="wizard"))){
+        addSkillStyling(tableInvestigation,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tableInvestigation,bonus);
+    }
+    
+    if(
+        (document.getElementById("bardReligion").checked && baseClass=="bard")||
+        document.getElementById("bReligion").checked||
+        ((document.getElementById("cReligion")!=null && document.getElementById("cReligion").checked) && (baseClass=="monk"||baseClass=="sorcerer"||baseClass=="paladin"||baseClass=="wizard"||baseClass=="cleric"))){
+        addSkillStyling(tableReligion,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tableReligion,bonus);
+    }
+    
+    
 }
 
-function addWisStats(arr, baseClass){
+function addWisStats(arr, baseClass, race){
     var score = arr[4];
     var bonus = findScoreBonus(score);
     
@@ -601,14 +679,64 @@ function addWisStats(arr, baseClass){
     
     addSkillStyling(tableWisSave,wisSave);
     
-    addSkillStyling(tableAnimalHandling,bonus);
-    addSkillStyling(tableInsight,bonus);
-    addSkillStyling(tableMedicine,bonus);
-    addSkillStyling(tablePerception,bonus);
-    addSkillStyling(tableSurvival,bonus);
+    
+    if(
+        (document.getElementById("bardAnimalHandling").checked && baseClass=="bard")||
+        document.getElementById("bAnimalHandling").checked||
+        ((document.getElementById("cAnimalHandling")!=null && document.getElementById("cAnimalHandling").checked) && (baseClass=="fighter"||baseClass=="barbarian"||baseClass=="ranger"||baseClass=="druid"))){
+        addSkillStyling(tableAnimalHandling,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tableAnimalHandling,bonus);
+    }
+    
+    if(
+        (document.getElementById("bardInsight").checked && baseClass=="bard")||
+        document.getElementById("bInsight").checked||
+        ((document.getElementById("cInsight")!=null && document.getElementById("cInsight").checked) && (baseClass!="barbarian"||baseClass!="warlock"))){
+        addSkillStyling(tableInsight,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tableInsight,bonus);
+    }
+    
+    if(
+        (document.getElementById("bardMedicine").checked && baseClass=="bard")||
+        document.getElementById("bMedicine").checked||
+        ((document.getElementById("cMedicine")!=null && document.getElementById("cMedicine").checked) && (baseClass=="paladin"||baseClass=="cleric"||baseClass=="wizard"||baseClass=="druid"))){
+        addSkillStyling(tableMedicine,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tableMedicine,bonus);
+    }
+    
+    if(
+        (document.getElementById("bardPerception").checked && baseClass=="bard")||
+        document.getElementById("bPerception").checked||
+        ((document.getElementById("cPerception")!=null && document.getElementById("cPerception").checked) && (baseClass=="barbarian"||baseClass=="rogue"||baseClass=="ranger"||baseClass=="fighter"||baseClass=="druid"))){
+        addSkillStyling(tablePerception,bonus+proficiency);   
+    }
+    else if(race=="highelf"){
+        addSkillStyling(tablePerception,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tablePerception,bonus);
+    }
+    
+    if(
+        (document.getElementById("bardSurvival").checked && baseClass=="bard")||
+        document.getElementById("bSurvival").checked||
+        ((document.getElementById("cSurvival")!=null && document.getElementById("cSurvival").checked) && (baseClass=="barbarian"||baseClass=="fighter"||baseClass=="ranger"||baseClass=="druid"))){
+        addSkillStyling(tableSurvival,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tableSurvival,bonus);
+    }
+    
+    
 }
 
-function addChaStats(arr, baseClass){
+function addChaStats(arr, baseClass, race){
     var score = arr[5];
     var bonus = findScoreBonus(score);
     
@@ -651,10 +779,49 @@ function addChaStats(arr, baseClass){
     
     addSkillStyling(tableChaSave,chaSave);
     
-    addSkillStyling(tablePerformance,bonus);
-    addSkillStyling(tablePersuasion,bonus);
-    addSkillStyling(tableIntimidation,bonus);
-    addSkillStyling(tableDeception,bonus);
+    
+    if(
+        (document.getElementById("bardPerformance").checked && baseClass=="bard")||
+        document.getElementById("bPerformance").checked||
+        ((document.getElementById("cPerformance")!=null && document.getElementById("cPerformance").checked) && (baseClass=="rogue"))){
+        addSkillStyling(tablePerformance,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tablePerformance,bonus);
+    }
+    
+    if(
+        (document.getElementById("bardPersuasion").checked && baseClass=="bard")||
+        document.getElementById("bPersuasion").checked||
+        ((document.getElementById("cPersuasion")!=null && document.getElementById("cPersuasion").checked) && (baseClass=="cleric"||baseClass=="rogue"||baseClass=="paladin"||baseClass=="sorcerer"))){
+        addSkillStyling(tablePersuasion,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tablePersuasion,bonus);
+    }
+    
+    if(
+        (document.getElementById("bardIntimidation").checked && baseClass=="bard")||
+        document.getElementById("bIntimidation").checked||
+        ((document.getElementById("cIntimidation")!=null && document.getElementById("cIntimidation").checked) && (baseClass=="barbarian"||baseClass=="paladin"||baseClass=="fighter"||baseClass=="sorcerer"||baseClass=="rogue"||baseClass=="warlock"))){
+        addSkillStyling(tableIntimidation,bonus+proficiency);   
+    }
+    else if(race=="halforc"){
+        addSkillStyling(tableIntimidation,bonus+proficiency); 
+    }
+    else{
+        addSkillStyling(tableIntimidation,bonus);
+    }
+    
+    if(
+        (document.getElementById("bardDeception").checked && baseClass=="bard")||
+        document.getElementById("bDeception").checked||
+        ((document.getElementById("cDeception")!=null && document.getElementById("cDeception").checked) && (baseClass=="sorcerer"||baseClass=="rogue"||baseClass=="warlock"))){
+        addSkillStyling(tableDeception,bonus+proficiency);   
+    }
+    else{
+        addSkillStyling(tableDeception,bonus);
+    }
 }
 
 function generateStats(isMinStats){
@@ -876,8 +1043,14 @@ function showOrHideRaceAttributes() {
         if(document.getElementById("hiddenHalfElf").style.display=="inline"){
             hide=true;   
         }
-       showOrHideHalfElfStats(hide);
+        showOrHideHalfElfStats(hide);
+        //need to add ability to select 2 additional skills
     }
+    
+    else{
+        //need to remove ability to select 2 additional skills
+    }
+    
     if(selected.value=="dragonborn"){
        var hide=false;
         if(document.getElementById("hiddenDragonborn").style.display=="inline"){
@@ -886,6 +1059,46 @@ function showOrHideRaceAttributes() {
         showOrHideDragonbornSubraces(hide);
     }
     
+    
+    if(selected.value=="highelf"){
+        document.getElementById("HESkill").style.display="inline";
+        document.getElementById("bPerception").checked=false;
+        document.getElementById("bPerception").disabled=true;
+        document.getElementById("bardPerception").checked=false;
+        document.getElementById("bardPerception").disabled=true;
+        if(document.getElementById("cPerception")!=null){
+            document.getElementById("cPerception").checked=false;
+            document.getElementById("cPerception").disabled=true; 
+        }
+    }
+    else{
+        document.getElementById("HESkill").style.display="none";
+        document.getElementById("bPerception").disabled=false;
+        document.getElementById("bardPerception").disabled=false;
+        if(document.getElementById("cPerception")!=null){
+            document.getElementById("cPerception").disabled=false; 
+        }
+    }
+    
+    if(selected.value=="halforc"){
+        document.getElementById("HOSkill").style.display="inline";
+        document.getElementById("bIntimidation").checked=false;
+        document.getElementById("bIntimidation").disabled=true;
+        document.getElementById("bardIntimidation").checked=false;
+        document.getElementById("bardIntimidation").disabled=true;
+        if(document.getElementById("cIntimidation")!=null){
+            document.getElementById("cIntimidation").checked=false;
+            document.getElementById("cIntimidation").disabled=true; 
+        }
+    }
+    else{
+        document.getElementById("HOSkill").style.display="none";
+        document.getElementById("bIntimidation").disabled=false;
+        document.getElementById("bardIntimidation").disabled=false;
+        if(document.getElementById("cIntimidation")!=null){
+            document.getElementById("cIntimidation").disabled=false; 
+        }
+    }
     
 }
 
@@ -1352,7 +1565,7 @@ function addClassSkills(className){
     }
     
     //arcana
-    if(className=="druid"||className=="warlock"||className=="wizard"||className==""){
+    if(className=="druid"||className=="warlock"||className=="wizard"||className=="sorcerer"){
         skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cArcana\" value=\"cArcana\" onclick=\"return clasSkillsCheckedCount();\">";
         skillString+="<label for=\"cArcana\">Arcana</label><br>";
     }
@@ -1486,7 +1699,7 @@ function updateClass(){
     //if user selected random, we'll make it so they can't pick the class skills, as that would give away what class it is before generation
     if(!isRand){
         addClassSkills(baseClass);
-        updateBackgroundSkills(baseClass);
+        //updateBackgroundSkills(baseClass);
         document.getElementById("hiddenClassSkills").style="display:inline";
     }
     else{
