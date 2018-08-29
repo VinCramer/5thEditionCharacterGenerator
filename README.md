@@ -1,10 +1,10 @@
-# DnDCharacterGenerator
+# 5thEditionCharacterGenerator
 
-A web application for generating 5th edition Dungeons and Dragons characters.
+A web application for generating 5th edition characters.
 
 <a href="https://openclipart.org/detail/224998/simple-dice">Source of favicon</a>, released by openclipart.org under the  Creative Commons Zero 1.0 Public Domain License.
 
-The JSON files used are edited versions of the ones from fellow GitHub user BTMorton, available <a href="https://github.com/BTMorton/dnd-5e-srd/tree/master/json">here</a>. These JSON files contain the core rules from the Dungeons and Dragons 5th edition SRD.
+The JSON files used are edited versions of the ones from fellow GitHub user BTMorton, available <a href="https://github.com/BTMorton/dnd-5e-srd/tree/master/json">here</a>. These JSON files contain the core rules from the SRD.
 
 # Features
 - Customizable dice rolling options, from setting a minimum to choosing the ways stats are rolled.
@@ -19,8 +19,6 @@ The JSON files used are edited versions of the ones from fellow GitHub user BTMo
 
 # Features that may be added
 - Fixing the JSON files for spells to include the missing spells such as Vicious Mockery and Counterspell.
-- Additional stat generation methods, and the ability to roll for health instead of just taking the average.
-- Expertise for Rogues and Bards.
 
 # Program layout
 The initial screen upon launch:
