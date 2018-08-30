@@ -4,7 +4,7 @@
      
         <meta charset="utf-8">
 
-        <title>5e Character Generator</title>
+        <title>5th Edition Character Generator</title>
         
         <link rel="stylesheet" type="text/css" href="../css/theme.css">
         
@@ -15,7 +15,8 @@
     </head>
 
     <body>
-        <h3>Generate a random 5e character:</h3>
+        <h3>Generate a random 5th edition character:</h3>
+        <p>This uses the class and race sections from the SRD, as well as the spell lists and descriptions.</p>
 
         <div>
             <p>Race: </p>
@@ -34,12 +35,12 @@
             </select>
             
             <div id="hiddenHalfElf">
-                <h4>Choose 2 from below:</h4>
+                <h4>Choose from below:</h4>
                 <input type="checkbox" name="he-stats" id="rand1+1" value="rand1+1" onclick="return halfElfCheckedCount();">
-                <label for="rand1+1">Random Stat Increase #1</label>
+                <label for="rand1+1">Random Option</label>
                 <br>
                 <input type="checkbox" name="he-stats" id="rand2+1" value="rand2+1" onclick="return halfElfCheckedCount();">
-                <label for="rand2+1">Random Stat Increase #2</label>
+                <label for="rand2+1">Random Option</label>
                 <br>
                 <input type="checkbox" name="he-stats" id="str+1" value="str+1" onclick="return halfElfCheckedCount();">
                 <label for="str+1">+1 Strength</label>
@@ -143,22 +144,10 @@
 
         </div>
         
-        <div id="HOSkill">
-            <p>As a Half-Orc, you gain proficiency in the Intimidation skill.</p>
-        </div>
-
-        <div id="HESkill">
-            <p>As a High Elf, you gain proficiency in the Perception skill.</p>
-        </div>
+        
         
         <div id="bgSkills">
-            <h4>Choose 2 Background Skill Proficiencies from below:</h4>
-            <input type="checkbox" class="bSkills" name="bSkills" id="bRand1" value="bRand1" onclick="return backgroundSkillsCheckedCount();">
-            <label class="bL" for="bRand1">Randomize Skill #1</label>
-            <br>
-            <input type="checkbox" name="bSkills" class="bSkills" id="bRand2" value="bRand2" onclick="return backgroundSkillsCheckedCount();">
-            <label class="bL" for="bRand2">Randimize Skill #2</label>
-            <br>
+            <h4>Choose from below:</h4>
             <input type="checkbox" name="bSkills" class="bSkills" id="bAthletics" value="bAthletics" onclick="return backgroundSkillsCheckedCount();">
             <label class="bL" for="bAthletics">Athletics</label>
             <br>
@@ -223,22 +212,7 @@
         <!--We have a separate list for Bards since their class can choose 3 skills from all skills. When combined with 2 from the background, it's functionally equivalent to having them pick 5 from all skills, and this is also easier to program-->
         <div id="hiddenBardSkills">
         
-        <h4>Choose 5 Skill Proficiencies from below:</h4>
-            <input type="checkbox" name="bardSkills" id="bardRand1" value="bardRand1" onclick="return bardSkillsCheckedCount();">
-            <label for="bardRand1">Randomize Skill #1</label>
-            <br>
-            <input type="checkbox" name="bardSkills" id="bardRand2" value="bardRand2" onclick="return bardSkillsCheckedCount();">
-            <label for="bardRand2">Randimize Skill #2</label>
-            <br>
-            <input type="checkbox" name="bardSkills" id="bardRand3" value="bardRand3" onclick="return bardSkillsCheckedCount();">
-            <label for="bardRand3">Randomize Skill #3</label>
-            <br>
-            <input type="checkbox" name="bardSkills" id="bardRand4" value="bardRand4" onclick="return bardSkillsCheckedCount();">
-            <label for="bardRand4">Randimize Skill #4</label>
-            <br>
-            <input type="checkbox" name="bardSkills" id="bardRand5" value="bardRand5" onclick="return bardSkillsCheckedCount();">
-            <label for="bardRand5">Randomize Skill #5</label>
-            <br>
+        <h4>Choose from below:</h4>
             <input type="checkbox" name="bardSkills" id="bardAthletics" value="bardAthletics" onclick="return bardSkillsCheckedCount();">
             <label for="bardAthletics">Athletics</label>
             <br>
@@ -292,36 +266,9 @@
             <br>
             <input type="checkbox" name="bardSkills" id="bardPersuasion" value="bardPersuasion" onclick="return bardSkillsCheckedCount();">
             <label for="bardPersuasion">Persuasion</label>
-        
-        </div>
-        
-        
-        
-        <br>
-
-        <p>Stat Generation Method: </p>
-        <select id="stats">
-            <option value="4">4d6 - lowest</option>
-            <option value="3">3d6</option>
-            <option value="1">1d20</option>
-        </select>
-
-        <br>
-        <br>
-
-        <div>
-            <input type="radio" name="stats" id="no min" value="no minimum" checked onclick="hideMinBox();">
-            <label for="no min">No minimum stat total</label>
             <br>
-            <input type="radio" name="stats" id="min" value="minimum" onclick="showMinBox();">
-            <label for="min">Minimum stat total</label>
-            <br>
-            <label for="stats" class="hidden_stats" id="min-label">Enter minimum stat total</label>
-            <input class="hidden_stats" type="number" name="stats" id="min val" value="70">
-            
         </div>
 
-        <br>
         <br>
         
         <div>
@@ -549,9 +496,18 @@
         <button class="mainCollapsible">9th Level Spells</button>
         <div class="mainContent"></div>
 
+        <p><b>Q: Why are all of the stats 10 before racial modifiers?</b></p>
+        <br>
+        <p><b>A: </b><a href="http://www.wizards.com/default.asp?x=d20/oglfaq/20040123i">Read this link, under "What is different if I use the d20 System license"</a> Note that other bonuses that don't need to be rolled are still be applied.</p>
+        <br>
+        <p><b>Q: Wherer can I find the SRD in full?</b></p>
+        <br>
+        <p><b>A: </b><a href="../data/SRD-OGL_V5.1.pdf">Here</a></p>
+        
         
         <script src="../js/script.js" defer></script>
 
+        
     </body>
 
 </html>

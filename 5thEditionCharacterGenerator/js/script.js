@@ -107,9 +107,9 @@ function generateChar(){
 
     var finalClassPara = document.getElementById("final class");
     
-    var isMinStats = document.querySelector('input[name=stats]:checked').value;
+    //var isMinStats = document.querySelector('input[name=stats]:checked').value;
     
-    var charStats = generateStats(isMinStats);
+    var charStats = generateStats();
     
     var race = document.getElementById('race').value;
     if(race=="rand"){
@@ -129,9 +129,15 @@ function generateChar(){
     allStats+="Charisma: " + charStats[5]+" ";
     
     
-    level = document.getElementById('level').value;
+    //level = document.getElementById('level').value;
+    //level=level.value;
+    var tempElement = document.getElementById('level');
+    level = tempElement.value;
     if(level=="rand"){
-        level=roll1d20();   
+        level=get1Through20();   
+    }
+    else{
+        level=parseInt(level);
     }
     proficiency = getProficiency(level);
     
@@ -145,7 +151,7 @@ function generateChar(){
     finalClassPara.innerHTML=baseClass.charAt(0).toUpperCase()+baseClass.substring(1);  
     
     /*need this after assigning the base class when the base class is random, otherwise proficiences don't work*/
-    addStatsToTable(charStats, baseClass, race);
+    addStatsToTable(charStats, baseClass, race, level);
     
     var hiddenList = document.getElementsByClassName("hidden");
     for(let val of hiddenList){
@@ -186,7 +192,7 @@ function generateChar(){
         var subrace=-1;
         var raceString="";
         if(document.getElementById("randSubrace").checked){
-            subrace=roll1d10();   
+            subrace=get1Through10();   
         }
         
         if(document.getElementById("blackSubrace").checked || subrace==1){
@@ -239,10 +245,6 @@ function generateChar(){
 }
 
 function getProficiency(level){
-    if(level=="rand"){
-        level = roll1d20();   
-    }
-    
     if(level<=4){
         return 2;
     }
@@ -259,13 +261,13 @@ function getProficiency(level){
 }
 
 /*for each stat and affiliated saving throw/skill, we'll add those values to the table in the hmtl file*/
-function addStatsToTable(arr, baseClass, race){
-    addStrStats(arr, baseClass);
-    addDexStats(arr, baseClass);
-    addConStats(arr, baseClass);
-    addIntStats(arr, baseClass);
-    addWisStats(arr, baseClass, race);
-    addChaStats(arr, baseClass, race);
+function addStatsToTable(arr, baseClass, race, level){
+    addStrStats(arr, baseClass, level);
+    addDexStats(arr, baseClass, level);
+    addConStats(arr, baseClass, level);
+    addIntStats(arr, baseClass, level);
+    addWisStats(arr, baseClass, race, level);
+    addChaStats(arr, baseClass, race, level);
 }
 
 /*finds the bonus from the given score. In D&D, there's an odd mechanic with stats in which the stat value isn't your bonus. Example: Someone with an 18 in strength doesn't have a +18 to their athletics check, but instead they have a +4.*/
@@ -360,7 +362,7 @@ function addSkillStyling(htmlElement, bonus){
     }
 }
 
-function addStrStats(arr, baseClass){
+function addStrStats(arr, baseClass, level){
     
     /*get the strength score from the array, and then find the stat bonus that score provides*/
     var score = arr[0];
@@ -386,11 +388,12 @@ function addStrStats(arr, baseClass){
     
     var strSave = bonus;
     
+    
     /*if the user is one of these classes at level 1, add their proficiency bonus to the save. */
     if(baseClass=="barbarian" || baseClass=="fighter" || baseClass=="monk" || baseClass=="ranger"){
        strSave+=proficiency;
     }
-    
+
     /*if the user has at least 6 levels in paladin, they can add their charisma bonus to all saves. This if block does not account for multiclassing at the moment, and neither does the Monk's level 14 ability nor the rogue's level 15 ability. */
     if(baseClass=="paladin" && level>=6){
         var chaBonus = findScoreBonus(arr[5]);
@@ -417,7 +420,7 @@ function addStrStats(arr, baseClass){
     }
 }
 
-function addDexStats(arr, baseClass){
+function addDexStats(arr, baseClass, level){
     var score = arr[1];
     var bonus = findScoreBonus(score);
     
@@ -493,7 +496,7 @@ function addDexStats(arr, baseClass){
 }
 
 
-function addConStats(arr, baseClass){
+function addConStats(arr, baseClass, level){
     var score = arr[2];
     var bonus = findScoreBonus(score);
     
@@ -535,7 +538,7 @@ function addConStats(arr, baseClass){
 }
 
 
-function addIntStats(arr, baseClass){
+function addIntStats(arr, baseClass, level){
     var score = arr[3];
     var bonus = findScoreBonus(score);
     
@@ -633,7 +636,7 @@ function addIntStats(arr, baseClass){
     
 }
 
-function addWisStats(arr, baseClass, race){
+function addWisStats(arr, baseClass, race, level){
     var score = arr[4];
     var bonus = findScoreBonus(score);
     
@@ -736,7 +739,7 @@ function addWisStats(arr, baseClass, race){
     
 }
 
-function addChaStats(arr, baseClass, race){
+function addChaStats(arr, baseClass, race, level){
     var score = arr[5];
     var bonus = findScoreBonus(score);
     
@@ -824,144 +827,24 @@ function addChaStats(arr, baseClass, race){
     }
 }
 
-function generateStats(isMinStats){
-    /*the way the user wants to roll for stats*/
-    var statMethod = document.getElementById('stats').value;
-
-    
-    
-    if(statMethod=='4'){
-       return stats4d6(isMinStats);
-        
-    }
-    else if(statMethod=='3'){
-        return stats3d6(isMinStats);
-    }
-    else{
-        return stats1d20(isMinStats);
-    }
+function generateStats(){
+    var arr = [10,10,10,10,10,10];
+    return arr;
 }
 
-/*roll 4d6, and take away the lowest value. This function will be called 6 times if that's what the user chose*/
-function roll4d6(){
-    var a = roll1d6();
-    var b = roll1d6();
-    var c = roll1d6();
-    var d = roll1d6();
-    
-    return a+b+c+d-Math.min(a,b,c,d);
-}
 
-/*roll 3d6*/
-function roll3d6(){
-    
-    var a = roll1d6();
-    var b = roll1d6();
-    var c = roll1d6();
-    return a+b+c;
-}
 
-/*generate a number 1-6*/
-function roll1d6(){
-    return Math.floor(Math.random()*6+1);
-}
 
 /*generate a number 1-20*/
-function roll1d20(){
+function get1Through20(){
     return Math.floor(Math.random()*20+1);
 }
 
-function roll1d10(){
+function get1Through10(){
     return Math.floor(Math.random()*10+1);
 }
 
-function roll1d8(){
-    return Math.floor(Math.random()*8+1);
-}
 
-function roll1d12(){
-    return Math.floor(Math.random()*12+1);
-}
-
-/*calls 4d6 minus lowest for all 6 stats*/
-function stats4d6(isMinStats){
-    while(true){
-        var myStats=[];
-
-        for(var i=0;i<6;i++){
-            myStats.push(roll4d6());   
-        }
-
-        /*if the user put a minimum in place, we want to respect that. Just like in real life, we completely re-roll our results. This still works even if the user does not enter a value for the lowest possible stat total*/
-        if(isMinStats=="minimum"){
-            var min = document.getElementById("min val").value;
-            var total=0;
-            for(var i=0;i<myStats.length;i++){
-                total+=myStats[i];
-            }
-            if(total>=min){
-               return myStats;
-               }
-        }
-
-        else{
-            return myStats;
-        }
-    }
-}
-
-/*calls 3d6 for all 6 stats*/
-function stats3d6(isMinStats){
-    while(true){
-        var myStats=[];
-
-        for(var i=0;i<6;i++){
-            myStats.push(roll3d6());
-        }
-
-        if(isMinStats=="minimum"){
-                var min = document.getElementById("min val").value;
-                var total=0;
-                for(var i=0;i<myStats.length;i++){
-                    total+=myStats[i];
-                }
-                if(total>=min){
-                   return myStats;
-                   }
-            }
-
-        else{
-            return myStats;
-        }
-        
-    }
-    
-}
-
-/*calls 1d20 for all 6 stats*/
-function stats1d20(isMinStats){
-    while(true){
-        var myStats=[];
-    
-        for(var i=0;i<6;i++){
-            myStats.push(roll1d20());
-        }
-        if(isMinStats=="minimum"){
-            var min = document.getElementById("min val").value;
-            var total=0;
-            for(var i=0;i<myStats.length;i++){
-                total+=myStats[i];
-            }
-            if(total>=min){
-               return myStats;
-               }
-        }
-
-        else{
-            return myStats;
-        }
-    }
-}
 
 function generateClass(){
     
@@ -1019,21 +902,7 @@ function generateClass(){
     }
 }
 
-/*shows the input for the minimum stat total*/
-function showMinBox(){
-    var hiddenList = document.getElementsByClassName("hidden_stats");
-    for(let val of hiddenList){
-        val.style="display:inline";
-    }
-}
 
-/*hides the input for the minimum stat total*/
-function hideMinBox(){
-    var hiddenList = document.getElementsByClassName("hidden_stats");
-    for(let val of hiddenList){
-        val.style="display:hidden";
-    }
-}
 
 /*based on the race the user selects, they can choose from other subraces in the SRD, or they can choose what stat some ability score bonuses go towards*/
 function showOrHideRaceAttributes() {
@@ -1061,7 +930,6 @@ function showOrHideRaceAttributes() {
     
     
     if(selected.value=="highelf"){
-        document.getElementById("HESkill").style.display="inline";
         document.getElementById("bPerception").checked=false;
         document.getElementById("bPerception").disabled=true;
         document.getElementById("bardPerception").checked=false;
@@ -1072,7 +940,6 @@ function showOrHideRaceAttributes() {
         }
     }
     else{
-        document.getElementById("HESkill").style.display="none";
         document.getElementById("bPerception").disabled=false;
         document.getElementById("bardPerception").disabled=false;
         if(document.getElementById("cPerception")!=null){
@@ -1081,7 +948,6 @@ function showOrHideRaceAttributes() {
     }
     
     if(selected.value=="halforc"){
-        document.getElementById("HOSkill").style.display="inline";
         document.getElementById("bIntimidation").checked=false;
         document.getElementById("bIntimidation").disabled=true;
         document.getElementById("bardIntimidation").checked=false;
@@ -1092,7 +958,6 @@ function showOrHideRaceAttributes() {
         }
     }
     else{
-        document.getElementById("HOSkill").style.display="none";
         document.getElementById("bIntimidation").disabled=false;
         document.getElementById("bardIntimidation").disabled=false;
         if(document.getElementById("cIntimidation")!=null){
@@ -1158,12 +1023,7 @@ function backgroundSkillsCheckedCount(){
     
     /*may be more efficient to use a loop and assign all of these a class, but this works too*/
     var checkCount=0;
-    if(document.getElementById("bRand1").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bRand2").checked){
-        checkCount++;   
-    }
+    
     if(document.getElementById("bAthletics").checked){
         checkCount++;   
     }
@@ -1224,79 +1084,17 @@ function backgroundSkillsCheckedCount(){
     }
 }
 
-/*bards can functionally have any 5 skills.*/
+/*bards can functionally have any 5.*/
 function bardSkillsCheckedCount(){
     
     /*may be more efficient to use a loop and assign all of these a class, but this works too*/
     var checkCount=0;
-    if(document.getElementById("bardRand1").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardRand2").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardRand3").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardRand4").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardRand5").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardAthletics").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardAcrobatics").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardSleightOfHand").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardStealth").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardArcana").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardHistory").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardInvestigation").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardNature").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardReligion").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardAnimalHandling").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardInsight").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardMedicine").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardPerception").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardSurvival").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardDeception").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardIntimidation").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardPerformance").checked){
-        checkCount++;   
-    }
-    if(document.getElementById("bardPersuasion").checked){
-        checkCount++;   
+    var bArr = document.getElementsByName("bardSkills");
+    
+    for(var i=0;i<bArr.length;i++){
+        if(bArr[i].checked){
+            checkCount++;
+        }
     }
     
     if(checkCount>5){
@@ -1333,26 +1131,24 @@ function updateBackgroundSkills(className){
     
     
     /*
-    [0] - Rand #1
-    [1] - Rand #2
-    [2] - Athletics
-    [3] - Acrobatics
-    [4] - Sleight of Hand
-    [5] - Stealth
-    [6] - Arcana
-    [7] - History
-    [8] - Investigation
-    [9] - Nature
-    [10] - Religion
-    [11] - Animal Handling
-    [12] - Insight
-    [13] - Medicine
-    [14] - Perception
-    [15] - Survival
-    [16] - Deception
-    [17] - Intimidation
-    [18] - Performance
-    [19] - Persuasion
+    [0] - Athletics
+    [1] - Acrobatics
+    [2] - Sleight of Hand
+    [3] - Stealth
+    [4] - Arcana
+    [5] - History
+    [6] - Investigation
+    [7] - Nature
+    [8] - Religion
+    [9] - Animal Handling
+    [10] - Insight
+    [11] - Medicine
+    [12] - Perception
+    [13] - Survival
+    [14] - Deception
+    [15] - Intimidation
+    [16] - Performance
+    [17] - Persuasion
     */
     
     //special case for bard
@@ -1369,174 +1165,143 @@ function updateBackgroundSkills(className){
     
     //athletics
     if(className=="rogue"||className=="ranger"||className=="monk"||className=="fighter"||className=="barbarian"||className=="paladin"){
+        bgSkills[0].style="display:none";
+        bgSkills[0].checked=false;
+        bLabels[0].style="display:none";
+    }
+    
+    //acrobatics
+    if(className=="rogue"||className=="fighter"||className=="monk"){
+        bgSkills[1].style="display:none";
+        bgSkills[1].checked=false;
+        bLabels[1].style="display:none";
+    }
+    
+    //sleight of hand
+    if(className=="rogue"){
         bgSkills[2].style="display:none";
         bgSkills[2].checked=false;
         bLabels[2].style="display:none";
     }
     
-    //acrobatics
-    if(className=="rogue"||className=="fighter"||className=="monk"){
+    //stealth
+    if(className=="monk"||className=="ranger"||className=="rogue"){
         bgSkills[3].style="display:none";
         bgSkills[3].checked=false;
         bLabels[3].style="display:none";
     }
     
-    //sleight of hand
-    if(className=="rogue"){
+    //arcana
+    if(className=="druid"||className=="warlock"||className=="wizard"||className==""){
         bgSkills[4].style="display:none";
         bgSkills[4].checked=false;
         bLabels[4].style="display:none";
     }
     
-    //stealth
-    if(className=="monk"||className=="ranger"||className=="rogue"){
+    //history
+    if(className=="monk"||className=="cleric"||className=="fighter"||className=="wizard"||className=="warlock"){
         bgSkills[5].style="display:none";
         bgSkills[5].checked=false;
         bLabels[5].style="display:none";
     }
     
-    //arcana
-    if(className=="druid"||className=="warlock"||className=="wizard"||className==""){
+    //investigation
+    if(className=="ranger"||className=="rogue"||className=="warlock"||className=="wizard"){
         bgSkills[6].style="display:none";
         bgSkills[6].checked=false;
         bLabels[6].style="display:none";
     }
     
-    //history
-    if(className=="monk"||className=="cleric"||className=="fighter"||className=="wizard"||className=="warlock"){
+    //nature
+    if(className=="barbarian"||className=="druid"||className=="ranger"||className=="warlock"){
         bgSkills[7].style="display:none";
         bgSkills[7].checked=false;
         bLabels[7].style="display:none";
     }
     
-    //investigation
-    if(className=="ranger"||className=="rogue"||className=="warlock"||className=="wizard"){
+    //religion
+    if(className=="sorcerer"||className=="monk"||className=="paladin"||className=="cleric"||className=="wizard"||
+       className=="druid"||className=="warlock"){
         bgSkills[8].style="display:none";
         bgSkills[8].checked=false;
         bLabels[8].style="display:none";
     }
     
-    //nature
-    if(className=="barbarian"||className=="druid"||className=="ranger"||className=="warlock"){
+    //animal handling
+    if(className=="fighter"||className=="barbarian"||className=="ranger"||className=="druid"){
         bgSkills[9].style="display:none";
         bgSkills[9].checked=false;
         bLabels[9].style="display:none";
     }
     
-    //religion
-    if(className=="sorcerer"||className=="monk"||className=="paladin"||className=="cleric"||className=="wizard"||
-       className=="druid"||className=="warlock"){
+    //insight - 10/12 classes get this proficiency
+    if(className!="barbarian"&&className!="warlock"){
         bgSkills[10].style="display:none";
         bgSkills[10].checked=false;
         bLabels[10].style="display:none";
     }
     
-    //animal handling
-    if(className=="fighter"||className=="barbarian"||className=="ranger"||className=="druid"){
+    //medicine
+    if(className=="paladin"||className=="cleric"||className=="wizard"||className=="druid"){
         bgSkills[11].style="display:none";
         bgSkills[11].checked=false;
         bLabels[11].style="display:none";
     }
     
-    //insight - 10/12 classes get this proficiency
-    if(className!="barbarian"&&className!="warlock"){
+    //perception
+    if(className=="barbarian"||className=="rogue"||className=="fighter"||className=="ranger"||className=="druid"){
         bgSkills[12].style="display:none";
         bgSkills[12].checked=false;
         bLabels[12].style="display:none";
     }
     
-    //medicine
-    if(className=="paladin"||className=="cleric"||className=="wizard"||className=="druid"){
+    //survival
+    if(className=="barbarian"||className=="fighter"||className=="ranger"||className=="druid"){
         bgSkills[13].style="display:none";
         bgSkills[13].checked=false;
         bLabels[13].style="display:none";
     }
     
-    //perception
-    if(className=="barbarian"||className=="rogue"||className=="fighter"||className=="ranger"||className=="druid"){
+    //deception
+    if(className=="sorcerer"||className=="rogue"||className=="warlock"){
         bgSkills[14].style="display:none";
         bgSkills[14].checked=false;
         bLabels[14].style="display:none";
     }
     
-    //survival
-    if(className=="barbarian"||className=="fighter"||className=="ranger"||className=="druid"){
+    //intimidation
+    if(className=="barbarian"||className=="paladin"||className=="fighter"||className=="sorcerer"||className=="rogue"||className=="warlock"){
         bgSkills[15].style="display:none";
         bgSkills[15].checked=false;
         bLabels[15].style="display:none";
     }
     
-    //deception
-    if(className=="sorcerer"||className=="rogue"||className=="warlock"){
+    //performance
+    if(className=="rogue"){
         bgSkills[16].style="display:none";
         bgSkills[16].checked=false;
         bLabels[16].style="display:none";
     }
     
-    //intimidation
-    if(className=="barbarian"||className=="paladin"||className=="fighter"||className=="sorcerer"||className=="rogue"||className=="warlock"){
+    //persuasion
+    if(className=="cleric"||className=="paladin"||className=="sorcerer"||className=="rogue"){
         bgSkills[17].style="display:none";
         bgSkills[17].checked=false;
         bLabels[17].style="display:none";
-    }
-    
-    //performance
-    if(className=="rogue"){
-        bgSkills[18].style="display:none";
-        bgSkills[18].checked=false;
-        bLabels[18].style="display:none";
-    }
-    
-    //persuasion
-    if(className=="cleric"||className=="paladin"||className=="sorcerer"||className=="rogue"){
-        bgSkills[19].style="display:none";
-        bgSkills[19].checked=false;
-        bLabels[19].style="display:none";
     }
     
 }
 /*adds inputs and labels to the class skills div based on the given player class*/
 function addClassSkills(className){
     var skillString="";
-    var numSkills;
-    
-    if(className=="rogue"){
-        numSkills=4;
-    }
-    else if(className=="ranger"){
-        numSkills=3;
-    }
-    else{
-        numSkills=2;
-    }
-    
     
     //actual radio button inputs below
     
     if(className!="bard"){
         
         //start with header for appropriate class
-        skillString+="<h4>Choose "; 
-        skillString+=numSkills;
-        skillString+=" Class Skill Proficiencies from below:</h4>";
+        skillString+="<h4>Choose from below:</h4>";
         
-        
-        //first we do the random options
-        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cRand1\" value=\"cRand1\" onclick=\"return clasSkillsCheckedCount();\">";
-        skillString+="<label for=\"cRand1\">Randomize Skill #1</label><br>";
-
-        skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cRand2\" value=\"cRand2\" onclick=\"return clasSkillsCheckedCount();\">";
-        skillString+="<label for=\"cRand2\">Randomize Skill #2</label><br>";
-
-        if(className=="ranger"||className=="rogue"){
-            skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cRand3\" value=\"cRand3\" onclick=\"return clasSkillsCheckedCount();\">";
-            skillString+="<label for=\"cRand1\">Randomize Skill #3</label><br>";
-        }
-
-        if(className=="rogue"){
-            skillString+="<input type=\"checkbox\" class=\"cSkills\" name=\"cSkills\" id=\"cRand4\" value=\"cRand4\" onclick=\"return clasSkillsCheckedCount();\">";
-            skillString+="<label for=\"cRand4\">Randomize Skill #4</label><br>";
-        }
     }
     
     //now, onto actual skills, starting with athletics
@@ -1836,12 +1601,7 @@ function findInitiative(dexMod, charClass, level, proficiency){
     }
 }
 
-/*calculates passive perception of the character, which is equal to 10 + its perception bonus*/
-function findPassivePerception(wisdom){
-    var bonus = findScoreBonus(wisdom);
-    /*TODO - deal with proficiency, jack of all trades, and expertise!*/
-    return 10 + bonus;
-}
+
 
 /*calculates the speed stat of the character. Barbrians get +10 at level 5, and monks get certain bonuses as they level.*/
 function findSpeed(race, charClass, level){
