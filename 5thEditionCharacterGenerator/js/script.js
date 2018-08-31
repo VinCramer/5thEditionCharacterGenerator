@@ -159,7 +159,17 @@ function generateChar(){
     }
     
     
-    document.getElementById("ac").innerHTML=findAC(baseClass, race, charStats[0], findScoreBonus(charStats[1]), findScoreBonus(charStats[2]), findScoreBonus(charStats[4]));
+    //document.getElementById("ac").innerHTML=findAC(baseClass, race, charStats[0], findScoreBonus(charStats[1]), findScoreBonus(charStats[2]), findScoreBonus(charStats[4]));
+    var totalACString=findAC(baseClass, race, charStats[0], findScoreBonus(charStats[1]), findScoreBonus(charStats[2]), findScoreBonus(charStats[4]));
+    document.getElementById("ac").innerHTML=totalACString.charAt(0);
+    if(totalACString.charAt(1)!=" "){
+        document.getElementById("ac").innerHTML+=totalACString.charAt(1);
+        document.getElementById("acType").innerHTML=totalACString.substring(3);
+    }
+    else{
+        document.getElementById("acType").innerHTML=totalACString.substring(2);
+    }
+    
     
     document.getElementById("initiative").innerHTML=findInitiative(findScoreBonus(charStats[1]), baseClass, level, proficiency);
     document.getElementById("speed").innerHTML=findSpeed(race, baseClass, level);
@@ -1645,22 +1655,22 @@ function findAC(charClass, race, str, dexMod, conMod, wisMod){
     
     /*draconic resilience > nothing*/
     if(charClass=="sorcerer"){
-        return (13+dexMod)+" draconic resilience";   
+        return (13+dexMod)+" Draconic Resilience";   
     }
     
     /*must not wear armor to gain most class features*/
     if(charClass=="monk"){
-       return (10+dexMod+wisMod) + " unarmored defense";
+       return (10+dexMod+wisMod) + " Unarmored Defense";
     }
     
     /*no armor prof*/
     if(charClass=="wizard"){
-       return (10+dexMod) + " none";
+       return (10+dexMod) + " None";
     }
     
     /*light armor only*/
     if(charClass=="bard" || charClass=="warlock" || charClass=="rogue"){
-       return (12+dexMod) + " studded leather";
+       return (12+dexMod) + " Studded Leather";
     }
     
     /*medium and light proficiency*/
@@ -1668,7 +1678,7 @@ function findAC(charClass, race, str, dexMod, conMod, wisMod){
         
         /*at max dex, they're the same, so we'll go with the light armor to avoid the stealth disadvantage*/
         if(dexMod==5){
-            return 17 + " studded leather";
+            return 17 + " Studded Leather";
         }
         
         /*medium is better in other cases*/
@@ -1681,7 +1691,7 @@ function findAC(charClass, race, str, dexMod, conMod, wisMod){
             else{
                 ac = 15+dexMod;
             }
-            return ac + " half plate";
+            return ac + " Half Plate";
         }
     }
     
@@ -1699,16 +1709,16 @@ function findAC(charClass, race, str, dexMod, conMod, wisMod){
         
         /*we'll default to unarmored defense since it's the cheapest*/
         if(unarmored>=light && unarmored>=med){
-           return unarmored+" unarmored defense";
+           return unarmored+" Unarmored Defense";
         }
         
         /*we'll then prioritize light over medium to avoid the stealth disadvantage*/
         else if(light>=med){
-           return light + " studded leather";
+           return light + " Studded Leather";
         }
         
         else{
-            return med + " half plate";
+            return med + " Half Plate";
         }
     }
     
@@ -1717,20 +1727,20 @@ function findAC(charClass, race, str, dexMod, conMod, wisMod){
         
         /*we go through all 4 types of heavy armor to see if they're better/same as other armor types.*/
         if(str>=15 || race=="hilldwarf"){
-            return 18 + " plate";
+            return 18 + " Plate";
         }
         
         if((str>=17 || race=="hilldwarf") && dexMod<2){
-            return 17 + " splint";   
+            return 17 + " Splint";   
         }
         
         if((str>=17 || race=="hilldwarf") && dexMod<1){
-           return 16 + " chain mail";
+           return 16 + " Chain Mail";
         }
         
         
         if((str>=17 || race=="hilldwarf") && dexMod<0){
-           return 16 + " ring mail";
+           return 16 + " Ring Mail";
         }
         
         var light = 12+dexMod;
@@ -1743,10 +1753,10 @@ function findAC(charClass, race, str, dexMod, conMod, wisMod){
         }
         
         if(light>=med){
-           return light + " studded leather";
+           return light + " Studded leather";
         }
         else{
-            return med + " half plate";
+            return med + " Half plate";
         }
         
     }
@@ -1929,12 +1939,6 @@ function addRacialBonuses(charStats, race){
         charStats[5]+=2;
     }
     
-    /*Here we correct if any bonuses made a stat too high. For example, if the user chose to roll 1d20 for stats and rolled a 19 for Strength, then added the Dragonborn's strength bonus, rather than breaking the game by having a Strength of 21, the stat is lowered to 20.*/
-    for(var i=0;i<charStats.length;i++){
-        if(charStats[i]>20){
-           charStats[i]=20;
-        }
-    }
     
     return charStats;
 }

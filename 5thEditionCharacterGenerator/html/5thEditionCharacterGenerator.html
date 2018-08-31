@@ -16,8 +16,7 @@
 
     <body>
         <h3>Generate a random 5th edition character:</h3>
-        <p>This uses the class and race sections from the SRD, as well as the spell lists and descriptions.</p>
-
+        <p>This displays the following sections from the SRD: class, race, and spells. Class is for class and subclass features, race is for racial and subracial features, and spells is for spell names, levels, and descriptions.</p>
         <div>
             <p>Race: </p>
 
@@ -34,6 +33,55 @@
                 <option value="tiefling">Tiefling</option>
             </select>
             
+            
+
+            <p>Level: </p>
+            <select id="level">
+                <option value="rand">Random</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+            </select>
+            
+            <p id="baseclasspara">Class: </p>
+
+            <select id="baseclass" onchange="updateClass();">
+                <option value="rand">Random</option>
+                <option value="barbarian">Barbarian</option>
+                <option value="bard">Bard</option>
+                <option value="cleric">Cleric</option>
+                <option value="druid">Druid</option>
+                <option value="fighter">Fighter</option>
+                <option value="monk">Monk</option>
+                <option value="paladin">Paladin</option>
+                <option value="ranger">Ranger</option>
+                <option value="rogue">Rogue</option>
+                <option value="sorcerer">Sorcerer</option>
+                <option value="warlock">Warlock</option>
+                <option value="wizard">Wizard</option>
+            </select>
+
+       </div>
+
+
+        <div>
             <div id="hiddenHalfElf">
                 <h4>Choose from below:</h4>
                 <input type="checkbox" name="he-stats" id="rand1+1" value="rand1+1" onclick="return halfElfCheckedCount();">
@@ -95,53 +143,6 @@
                 <label for="whiteSubrace">White Dragonborn</label>
                 <br>
             </div>
-
-            <p>Level: </p>
-            <select id="level">
-                <option value="rand">Random</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-            </select>
-       </div>
-
-
-        <div>
-            <p id="baseclasspara">Class: </p>
-
-            <select id="baseclass" onchange="updateClass();">
-                <option value="rand">Random</option>
-                <option value="barbarian">Barbarian</option>
-                <option value="bard">Bard</option>
-                <option value="cleric">Cleric</option>
-                <option value="druid">Druid</option>
-                <option value="fighter">Fighter</option>
-                <option value="monk">Monk</option>
-                <option value="paladin">Paladin</option>
-                <option value="ranger">Ranger</option>
-                <option value="rogue">Rogue</option>
-                <option value="sorcerer">Sorcerer</option>
-                <option value="warlock">Warlock</option>
-                <option value="wizard">Wizard</option>
-            </select>
-
         </div>
         
         
@@ -400,15 +401,23 @@
             </table>
         </div>
         
-        <div class="hidden">
+        <div class="hidden" id="combat">
             <br><br>
-            <div>Armor Class: <span id="ac"></span></div>
-            <div>Initiative: <span id="initiative"></span></div>
-            <div>Speed: <span id="speed"></span></div>
-            <div>Health: <span id="health"></span></div>
-            <div>Race: <span id="final race"></span></div>
-            <div>Class: <span id="final class"></span></div>
-            <div>Level: <span id="final level"></span></div>
+            <div><b>Armor Class:</b> <span id="ac"></span></div>
+            <br>
+            <div><b>Armor Type:</b> <span id="acType"></span></div>
+            <br>
+            <div><b>Initiative Bonus:</b> <span id="initiative"></span></div>
+            <br>
+            <div><b>Speed:</b> <span id="speed"></span></div>
+            <br>
+            <div><b>Health:</b> <span id="health"></span></div>
+            <br>
+            <div><b>Race:</b> <span id="final race"></span></div>
+            <br>
+            <div><b>Class:</b> <span id="final class"></span></div>
+            <br>
+            <div><b>Level:</b> <span id="final level"></span></div>
         </div>
         
         <br>
@@ -496,14 +505,19 @@
         <button class="mainCollapsible">9th Level Spells</button>
         <div class="mainContent"></div>
 
+        <div>
         <p><b>Q: Why are all of the stats 10 before racial modifiers?</b></p>
         <br>
-        <p><b>A: </b><a href="http://www.wizards.com/default.asp?x=d20/oglfaq/20040123i">Read this link, under "What is different if I use the d20 System license"</a> Note that other bonuses that don't need to be rolled are still be applied.</p>
+        <p><b>A: </b><a href="http://www.wizards.com/default.asp?x=d20/oglfaq/20040123i">Read this link, under "What is different if I use the d20 System License"</a></p>
         <br>
-        <p><b>Q: Wherer can I find the SRD in full?</b></p>
+        <p><b>Q: Why are some features missing/unclear?</b></p>
+        <br>
+        <p><b>A: </b>Read <a href="http://www.wizards.com/default.asp?x=d20/oglfaq/20040123i">this</a>, and note the section under "If I can't describe character creation and applying experience how can I still make a character generator?"</p>
+        <br>
+        <p><b>Q: Where can I find the SRD in full?</b></p>
         <br>
         <p><b>A: </b><a href="../data/SRD-OGL_V5.1.pdf">Here</a></p>
-        
+        </div>
         
         <script src="../js/script.js" defer></script>
 

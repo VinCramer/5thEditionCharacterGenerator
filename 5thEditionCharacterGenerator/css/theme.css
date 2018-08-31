@@ -11,6 +11,11 @@ p{
     display:inline-block;
 }
 
+
+h3, h4{
+    padding-left: 10px;
+}
+
 table, th, td{
     border-spacing:30px;
     border: 1px solid black;
@@ -103,3 +108,14 @@ background-color: #e4f1fe;
     border-left-color: white;
     border-top-color: white;
 }
+
+#generate{
+    background-color:#e9e9eb;
+    border-radius:2px;
+}
+
+#generate:hover{
+    background-color:#d6d6db;
+}
+
+
