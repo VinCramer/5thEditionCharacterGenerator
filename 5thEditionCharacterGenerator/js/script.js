@@ -3492,6 +3492,8 @@ function displayClass(charClass, level){
         }
         
         
+
+
         
         
         var druidCantrips = spellJSON['Spellcasting']['Spell Lists']['Druid Spells']['Cantrips (0 Level)'];
